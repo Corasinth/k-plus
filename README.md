@@ -16,7 +16,7 @@
 * [Credits](#credits)
 
 
-##Configuration
+## Configuration
 
 ## Installation
 
