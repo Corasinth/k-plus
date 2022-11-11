@@ -1,10 +1,11 @@
 // This is the tracker that determines the current layer
 let CURRENT_LAYER = 0
 
-// This is an array of placeholder bits meant to be used to record the current BIT_ARRAY for temporary layer swaps
+// This is a number used to record CURRENT_LAYER for temporary layer swaps
 let PLACEHOLDER_LAYER = 0
 
-// The layer matrix is an array of arrays containing imported variables from the configuration files. Each subarray is its own layer.
+// The layer matrix is an array of arrays containing imported objects from the various configuration files.
+// Each object contains a key (which is the hotkey) and a function (which is the function the hotkey performs on press)
 // The matrix makes it easier to import a variable number of layers, based on the number of config files. The array can be looped through, each subarray corresponding to its own layer, without having to define specific variables for each layer.
 let LAYER_MATRIX = [] 
 
@@ -41,11 +42,17 @@ function layerDeadKey(newLayer) {
     hotkeyMap()
 }
 
+// Alternatively, it may be simpler to implement dead keys and layer modifiers as follows: 
+
+// Dead keys: A dead key layer is indistinguishable from a regular layer, except that each function within it not only sends some other key, but also records the current layer in the placeholder variable, performs its function, and then runs hotkeyMap with a parameter of the previous layer, effectively toggling back. In short, on pressing a button assigned to toggle to the dead key layer a full remapping is done, and on pressing any key in the dead key layer a function runs to revert to the previous value.
+
+// Layer modifiers can be achieved with a special layer modifier key binding. On {key}down the layer toggles over to the designated destination, and on {key}up the layer toggles back. Some work needs to be done here to prevent binding conflicts........
+
 // The main function for mapping the relevant keys, seperated so it can be called upon by any of the previous methods of accesing a particular layer. 
-function hotkeyMap() {
-    // This function checks what the current layer is
-    // Then it sets the hotkeys for each key based on the appropriate row of the layer matrix
-    // The number held in CURRENT_LAYER represents the index of the LAYER_MATRIX
+function hotkeyMap(desiredLayer) {
+    // This function takes in a parameter of the desired layer.
+    // Then it sets the hotkeys for each key based on the appropriate row of the layer matrix, with the index of the row corresponding to the desiredLayer
+    // It then sets CURRENT_LAYER to the desiredLayer
     // The array corresponding to that index is looped through and assigned to each of the variables of the hokey assignments such that the variable baseQ is assigned to the hotkey 'q', and baseQ is set equal to the variable layer0-q
     // Finally, it handles assigning the hotkeys for the various methods of swapping between layers
     // For each layer, there are three potential hotkeys. 
