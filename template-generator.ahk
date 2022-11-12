@@ -23,7 +23,7 @@ fileStr .= "]"
 
 ; ============================== FILE CREATION ==============================
 ; Checks if a template already exists and deletes it so each template generated is new
-FileDelete("layer-template.ahk")
+FileDelete("./config/layer-template.ahk")
 
 ; Creates the template file
-FileAppend(fileStr, "layer-template.ahk")
+FileAppend(fileStr, "./config/layer-template.ahk")
