@@ -15,7 +15,7 @@ layerMatrix := []
 #Include ./config/layer-list.ahk
 
 ; ============================== TOGGLE LAYERS ==============================
-toggleLayers(targetLayer) {
+layerToggle(targetLayer) {
     global
     placeholderLayer := currentLayer
     currentLayer := targetLayer

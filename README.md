@@ -8,10 +8,13 @@ It's designed to be configurable and flexible; supporting as many layers as you'
 
 While configuration is a little complex, it sacrifices simplicity for versatility. K-plus supports layer toggling, AHK's version of chords (usable on their own, or as global modifiers), and dead keys (though the implementation is a little hacky). 
 
+If you just want some simple remapped layers skip to [Remapping](#remapping)
+
 ## **Table of Contents**
 
 
 * [Installation](#installation)
+* [Remapping](#remapping)
 * [Configuration](#configuration)
     * [Template Configuration](#template-configuration)    
     * [Layer Configuration](#layer-configuration)
@@ -37,6 +40,17 @@ AHK v2 is currently in beta, but plans to be backward compatible with its curren
 With AHK installed, the next step is to clone or download this repo into an appropriate folder. From there, you can move on to configuration without worry. 
 
 After creating a configuration you like, I reccomend compiling the main script `k-plus.ahk` using AHK v2's built-in compiler. This will make the script much easier to move around, though you'll have to recompile if you wish to change the configuration.
+
+## **Remapping**
+
+Although configuring the layers has a lot of flexibility, if all you want is a few layers with remapped keys follow this simplified guide. 
+
+1. Open `settings.ini` from the config folder and choose what groups of keys to exclude by setting them to `0`. [Template Configuration](#template-configuration) has more information. 
+2. Run `template-generator.ahk` from the config guide, and name it `layer2.ahk`. The first layer has already been assigned to a directory of other layers.
+3. Repeat step 2 for each layer until you have the layers you want. Then edit the new files so that the default function `SendInput("x")` has `x` replaced with your desired key.
+3. You can change the `SendInput` function to `layerToggle(x)` where `x` is your destination layer. Use this to allow yourself to move from one layer to another. I reccomend at least one key on each layer point to the master directory in `layer1`.
+4. Run `detect-config.ahk`. 
+5. Run `k-plus`, and check that your layers work. Congrats! You're done!
 
 ## **Configuration**
 
