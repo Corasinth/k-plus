@@ -34,9 +34,15 @@ mediaKeysArray := StrSplit(mediaKeys, A_Space)
 ; The template's default action is to simply send another key, for easy remapping
 ; Depending on your intellisense, this code might register as a syntax error but that's just because it isn't properly detecting escape characters
 objectTemplate(targetKey) {
-    keyStr := "    {`n      key:`""
+    ; keyStr := "    {`n      key:`""
+    ; keyStr .= targetKey
+    ; keyStr .= "`",`n      function:(x)=>(`n          SendInput(`"x`")`n      )`n    },`n"
+
+
+    keyStr := "{key:`""
     keyStr .= targetKey
-    keyStr .= "`",`n      function:(x)=>(`n          SendInput(`"x`")`n      )`n    },`n"
+    keyStr .= "`", function:(x)=>(SendInput(`"x`"))},`n"
+
     return keyStr
 }
 
