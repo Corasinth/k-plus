@@ -7,7 +7,7 @@
 configFiles := ""
 
 ; ============================== ASSEMBLING CONFIG FILES INTO MATRIX ==============================
-Loop Files "./layers/*.ahk" {
+Loop Files "./config/layers/*.ahk" {
     ; It is nessecary to include a space after each file for parsing
     configFiles .= A_LoopFileName " "
 }
@@ -25,9 +25,9 @@ for configFile in configFilesArray {
 }
 
 ; Overwrites file if it already exists
-if (FileExist("./layer-list.ahk")) {
-    FileDelete("./layer-list.ahk")
+if (FileExist("./config/layer-list.ahk")) {
+    FileDelete("./config/layer-list.ahk")
 }
 
 ; Create the master layer list
-FileAppend(configFiles, "./layer-list.ahk")
+FileAppend(configFiles, "./config/layer-list.ahk")
