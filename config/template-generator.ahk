@@ -65,8 +65,8 @@ controlKeysArray := StrSplit(controlKeys, A_Space)
 navigationKeysArray := StrSplit(navigationKeys, A_Space)
 numKeysArray := StrSplit(numKeys, A_Space)
 mediaKeysArray := StrSplit(mediaKeys, A_Space)
-additionalKeysArray := StrSplit(settings.additionalKeys, A_Space)
-additionalModifiersArray := StrSplit(settings.additionalModifiers, A_Space)
+additionalKeysArray := StrSplit(settings.additionalKeys, ",")
+additionalModifiersArray := StrSplit(settings.additionalModifiers, ",")
 
 ; ============================== UTILITY FUNCTIONS ==============================
 
