@@ -1,26 +1,31 @@
-layerMatrix.push([
-    {key: "q", function: (x)=>(SendInput("a")), file:"1"},
-    {key: "w", function: (x)=>(SendInput("s")), file:"1"},
-    {key: "e", function: (x)=>(SendInput("d")), file:"1"},
-    {key: "r", function: (x)=>(SendInput("f")), file:"1"},
-    {key: "t", function: (x)=>(SendInput("g")), file:"1"},
-    {key: "y", function: (x)=>(SendInput("h")), file:"1"},
-    {
-        key: "1", 
-        function: (x)=>(
-            toggleLayers(1)
-        )
-    },
-    {
-        key: "2", 
-        function: (x)=>(
-            toggleLayers(2)
-        )
-    },
-    {
-        key: "3", 
-        function: (x)=>(
-            toggleLayers(3)
-        )
-    },
+layerMatrix.Push([
+; ====================================== LETTERS ======================================
+; {key:"q", function:(x)=>(toggleLayers("1"))},
+{key:"w", function:(x)=>(toggleLayers("1"))},
+{key:"e", function:(x)=>(toggleLayers("2"))},
+{key:"r", function:(x)=>(toggleLayers("3"))},
+; {key:"t", function:(x)=>(toggleLayers("1"))},
+; {key:"y", function:(x)=>(toggleLayers("1"))},
+{key:"u", function:(x)=>(toggleLayers("4"))},
+{key:"i", function:(x)=>(toggleLayers("5"))},
+{key:"o", function:(x)=>(toggleLayers("6"))},
+; {key:"p", function:(x)=>(toggleLayers("1"))},
+{key:"a", function:(x)=>(toggleLayers("7"))},
+{key:"s", function:(x)=>(toggleLayers("8"))},
+{key:"d", function:(x)=>(toggleLayers("9"))},
+{key:"f", function:(x)=>(toggleLayers("10"))},
+{key:"g", function:(x)=>(toggleLayers("11"))},
+{key:"h", function:(x)=>(toggleLayers("12"))},
+{key:"j", function:(x)=>(toggleLayers("13"))},
+{key:"k", function:(x)=>(toggleLayers("14"))},
+{key:"l", function:(x)=>(toggleLayers("15"))},
+{key:";", function:(x)=>(toggleLayers("16"))},
+; {key:"z", function:(x)=>(toggleLayers("1"))},
+{key:"x", function:(x)=>(toggleLayers("17"))},
+{key:"c", function:(x)=>(toggleLayers("18"))},
+{key:"v", function:(x)=>(toggleLayers("19"))},
+{key:"b", function:(x)=>(toggleLayers("20"))},
+{key:"n", function:(x)=>(toggleLayers("21"))},
+{key:"m", function:(x)=>(toggleLayers("22"))},
+{key:",", function:(x)=>(toggleLayers("23"))},
 ])

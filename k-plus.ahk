@@ -31,5 +31,3 @@ generateHotkeys() {
 }
 
 generateHotkeys()
-
-Esc::ExitApp

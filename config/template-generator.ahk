@@ -271,6 +271,10 @@ fileStr .= "])"
 filepath := A_WorkingDir "\layers\layerX.ahk"
 filename := RegExReplace(FileSelect("S24", filePath, "Save New Template", ".ahk"), "\.([^\.]+)(?<!\.ahk)$", ".ahk") 
 
+if(!(filename ~= "\.ahk$")) {
+    filename .= ".ahk"
+}
+
 try {
     FileAppend(fileStr, filename)
 } catch {
