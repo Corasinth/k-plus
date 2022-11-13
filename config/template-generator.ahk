@@ -3,7 +3,7 @@
 
 ; ============================== VARIABLES ==============================
 ; Final string that contains template text
-fileStr := "[`n"
+fileStr := "layerMatrix.Push([`n"
 
 ; Will eventually hold the full list of all unmodified keys
 keyArray := []
@@ -12,7 +12,7 @@ keyArray := []
 mouseButtons := "LButton RButton MButton XButton1 XButton2 WheelDown WheelUp WheelLeft WheelRight"
 letterKeys := "qwertyuiopasdfghjklzxcvbnm"
 numberKeys := "1234567890"
-punctuationKeys := "`-=[]\;\',./"
+punctuationKeys := "-=[]\;\',./``"
 controlKeys := "CapsLock Space Tab Enter Escape Backspace Delete LWin RWin Control LControl RControl Shift LShift RShift Alt RAlt LAlt ScrollLock AppsKey PrintScreen CtrlBreak Pause Help Sleep"
 navigationKeys := "Up Down Left Right Insert Home End PgUp PgDn"
 numKeys := "NumLock NumpadDiv NumpadMult NumpadAdd NumbadSub NumpadEnter Numpad0 Numpad1 Numpad2 Numpad3 Numpad4 Numpad5 Numpad6 Numpad7 Numpad8 Numpad9"
@@ -30,15 +30,104 @@ mediaKeysArray := StrSplit(mediaKeys, A_Space)
 
 ; ============================== UTILITY FUNCTIONS ==============================
 
+; This function generates a template object which is formatted for either easy function definitions or easy remapping
+; The template's default action is to simply send another key, for easy remapping
+; Depending on your intellisense, this code might register as a syntax error but that's just because it isn't properly detecting escape characters
+objectTemplate(targetKey) {
+    keyStr := "    {`n      key:`""
+    keyStr .= targetKey
+    keyStr .= "`",`n      function:(x)=>(`n          SendInput(`"x`")`n      )`n    },`n"
+    return keyStr
+}
+
+; ============================== BUILDING KEY ARRAY ==============================
+
+; Pushes each group into the array. Groups are split for easy rearranging and so that some can be excluded based on the settings.ini file
+for key in mouseButtonsArray {
+    keyArray.Push(key)
+}
+
+for key in letterKeysArray {
+    keyArray.Push(key)
+}
+
+for key in numberKeysArray {
+    keyArray.Push(key)
+}
+
+for key in puncutationKeysArray {
+    keyArray.Push(key)
+}
+
+for key in controlKeysArray {
+    keyArray.Push(key)
+}
+
+for key in navigationKeysArray {
+    keyArray.Push(key)
+}
+
+for key in numKeysArray {
+    keyArray.Push(key)
+}
+
+for key in mediaKeysArray {
+    keyArray.Push(key)
+}
 
 ; ============================== BUILDING TEMPLATE ==============================
 
-; Closes out the array
-fileStr .= "]"
+; Generates the template file from the key array and adds comments.
+for key in keyArray {
+    ; These if statements provide some useful comments to denote different sections
+    if(key = "q"){
+        fileStr .= "; ============================ LETTERS ============================`n"
+    }
+    if(key = "1"){
+        fileStr .= "; ============================ NUMBERS ============================`n"
+    }
+    if(key = "-"){
+        fileStr .= "; ============================ PUNCTUATION ============================`n"
+    }
+    if(key = "CapsLock"){
+        fileStr .= "; ============================ CONTROL KEYS ============================`n"
+    }
+    if(key = "NumLock"){
+        fileStr .= "; ============================ NUMPAD ============================`n"
+    }
+    if(key = "Browser_Back"){
+        fileStr .= "; ============================ MEDIA KEYS ============================`n"
+    }
+    fileStr .= objectTemplate(key)
+    
+    ; Shift key modifier and variants
+    fileStr .= objectTemplate("+" key)
+    fileStr .= objectTemplate("<+" key)
+    fileStr .= objectTemplate(">+" key)
 
+    ; Control key modifier and variants
+    fileStr .= objectTemplate("^" key)
+    fileStr .= objectTemplate("<^" key)
+    fileStr .= objectTemplate(">^" key)
+
+    ; Alt key modifier and variants
+    fileStr .= objectTemplate("!" key)
+    fileStr .= objectTemplate("<!" key)
+    fileStr .= objectTemplate(">!" key)
+
+    ; Windows key modifier and variants
+    fileStr .= objectTemplate("#" key)
+    fileStr .= objectTemplate("<#" key)
+    fileStr .= objectTemplate(">#" key)
+}
+
+; Closes out the array
+fileStr .= "])"
+; MsgBox fileStr
 ; ============================== FILE CREATION ==============================
 ; Checks if a template already exists and deletes it so each template generated is new
-; FileDelete("layer-template.ahk")
-
+if (FileExist("./layer-template.ahk")) {
+    FileDelete("./layer-template.ahk")
+}
 ; Creates the template file
 FileAppend(fileStr, "layer-template.ahk")

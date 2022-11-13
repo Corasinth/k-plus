@@ -33,4 +33,3 @@ generateHotkeys() {
 generateHotkeys()
 
 Esc::ExitApp
-
