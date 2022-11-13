@@ -30,6 +30,12 @@ settings := {
     ; Whether or not to include Windows modifier variations
     includeWindows: IniRead("settings.ini", "Template Generator Settings", "includeWindows", true), 
 
+    ; Whether or not to include wildcard modifier and wildcard + modifier combinations
+    includeWildcard: IniRead("settings.ini", "Template Generator Settings", "includeWildcard", true), 
+
+    ; Whether or not to include AltGr modifier variations
+    includeAltGr: IniRead("settings.ini", "Template Generator Settings", "includeAltGr", true), 
+
     ; Whether to format objects set the default included action
     formatted: IniRead("settings.ini", "Template Generator Settings", "formatted", false),
     defaultFunction: IniRead("settings.ini", "Template Generator Settings", "defaultFunction", "SendInput(`"x`")") , 
@@ -62,6 +68,9 @@ letterKeysArray := StrSplit(letterKeys, "")
 numberKeysArray := StrSplit(numberKeys, "")
 puncutationKeysArray := StrSplit(punctuationKeys, "")
 controlKeysArray := StrSplit(controlKeys, A_Space)
+; This is the code for pressing AltGr on its own
+; It's being added to the array seperately since it includes spaces, and this is easier than refactoring
+controlKeysArray.Push("LControl & RAlt")
 navigationKeysArray := StrSplit(navigationKeys, A_Space)
 numKeysArray := StrSplit(numKeys, A_Space)
 mediaKeysArray := StrSplit(mediaKeys, A_Space)
@@ -99,6 +108,9 @@ objectTemplateWithModifiers(key) {
     ; Shift key modifier and variants
     if(settings.includeShift){
         fileStr .= objectTemplate("+" key)
+        fileStr .= objectTemplate("^+" key)
+        fileStr .= objectTemplate("!+" key)
+        fileStr .= objectTemplate("^!+" key)
     }
     if(settings.includeShiftRightLeft){
         fileStr .= objectTemplate("<+" key)
@@ -108,6 +120,9 @@ objectTemplateWithModifiers(key) {
     ; Control key modifier and variants
     if(settings.includeControl){
         fileStr .= objectTemplate("^" key)
+        fileStr .= objectTemplate("^!" key)
+        fileStr .= objectTemplate("^+" key)
+        fileStr .= objectTemplate("^+!" key)
     }
     if(settings.includeControlRightLeft){
         fileStr .= objectTemplate("<^" key)
@@ -117,15 +132,32 @@ objectTemplateWithModifiers(key) {
     ; Alt key modifier and variants
     if(settings.includeAlt){
         fileStr .= objectTemplate("!" key)
+        fileStr .= objectTemplate("!^" key)
+        fileStr .= objectTemplate("!+" key)
+        fileStr .= objectTemplate("!+^" key)
     }
     if(settings.includeAltRightLeft){
         fileStr .= objectTemplate("<!" key)
         fileStr .= objectTemplate(">!" key)
     }
 
-    ; Windows key modifier and variants
+    ; Windows key modifier
     if(settings.includeWindows){
         fileStr .= objectTemplate("#" key)
+    }
+
+    ; Wildcard modifier that sends the key regardless of what modifiers are being held down
+    if(setting.includeWildcard){
+        fileStr .= objectTemplate("*" key)
+        fileStr .= objectTemplate("*+" key)
+        fileStr .= objectTemplate("*^" key)
+        fileStr .= objectTemplate("*!" key)
+        fileStr .= objectTemplate("*#" key)
+    }
+
+    ; AltGr key modifier
+    if(settings.includeAltGr){
+        fileStr .= objectTemplate("<^>!" key)
     }
 }
 

@@ -6,7 +6,7 @@ K-plus is tool for enabling layers on non-mechanical keyboards that don't usuall
 
 It's designed to be configurable and flexible; supporting as many layers as you'd like to include. Once configured, a compiled version can easily be carried on a flash drive and run on any Windows device, letting you move your layers between devices.
 
-While configuration is a little complex, it sacrifices simplicity for versatility. K-plus supports layer toggling, AHK's version of chords (usable on their own, or as global modifiers), and dead keys (though the implementation is a little hacky).
+While configuration is a little complex, it sacrifices simplicity for versatility. K-plus supports layer toggling, AHK's version of chords (usable on their own, or as global modifiers), and dead keys (though the implementation is a little hacky). 
 
 ## **Table of Contents**
 
@@ -67,6 +67,8 @@ Below is a full list of the various settings, their possible values, and their m
 `includeAlt`: Boolean. Same as above.  
 `includeAltRightLeft`: Boolean. Same as previous right-left variants.  
 `includeWindows`: Boolean. Same as previous, however no right-left variant exists for the `Windows` key as distinguishing between them is not supported.  
+`includeAltGr`: Boolean. Includes AltGr modifier. However, many keyboards don't have this key.
+`includeWildcard`: Boolean. Includes wildcard modifier, which sends a hotkey regardless of what modifiers are being held down.
 `formatted`: Boolean. Determines whether or not the hotkey objects are on a single line, or formatted for readability. Turning formatting on makes it easier to add custom functions, especially multiline functions, to each hotkey object. However, it makes it more difficult to quickly scan several objects are once, or easily change a single variable in each (as per remapping)  
 `defaultFunction`: String (include the value in "double quotes, as demonstrated here"). This details the default actions placed inside the hotkey object's function. Do not add typical function wrappings like `()=>{}`. Instead simply paste the code you would put inside the function, using `` `n `` to create line breaks. As an example: 
 ```
@@ -116,9 +118,13 @@ However, the naming format `customTextX.ahk` should also work.
 
 ## **Usage**
 
+[General usage for remapping]
+
 ### **Dead Layers**
 
 ### **Tips on Chords**
+
+[Include details about more than one modifier key, lack of inclusion for everything but shift key]
 
 ## **Features**
 

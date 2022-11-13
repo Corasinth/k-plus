@@ -29,5 +29,4 @@ generateHotkeys() {
         hotkey(hotkeyObject.key, hotkeyObject.function)
     }
 }
-
 generateHotkeys()
