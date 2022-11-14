@@ -5,7 +5,7 @@
 ; This is the tracker that determines the current layer
 currentLayer := 1
 ; This is a number used to record CURRENT_LAYER for temporary layer swaps
-placeholderLayer := 1
+placeholderLayer := 0
 
 ; An array of arrays imported from config files containing hotkey information for each layer
 ; Each index corresponds to each own layer—layer 1 = layerMatrix[1] etc.
@@ -14,8 +14,6 @@ layerMatrix := []
 ; Include master file of layers. This file contains nothing but #Include commands for the rest of the config files
 #Include ./config/layer-list.ahk
 
-; Testing
-; A_HotkeyInterval := 0
 ; ============================== TOGGLE LAYERS ==============================
 layerToggle(targetLayer) {
     global
@@ -28,11 +26,22 @@ layerToggle(targetLayer) {
 generateHotkeys() {
     global
     ; Timer for debugging
-    ; startTime := A_Now
-    for hotkeyObject in layerMatrix[currentLayer]{
-        hotkey(hotkeyObject.key, hotkeyObject.function)
+    startTime := A_Now
+
+    ; Disables hotkeys from previous layer to ensure consistent operation
+    ; Without this disable loop, hotkeys overlap and the script acts like the wrong layer is in effect
+    ; The disable loop must come first, or it seems to, for some reason, disable the current layer
+    ; Probably because it bases the hotkey it disables on the key, rather than the function
+    if(placeholderLayer != 0) {
+        for hotkeyObject in layerMatrix[placeholderLayer]{
+            hotkey(hotkeyObject.key, hotkeyObject.function, "Off")
+        }
     }
-    ; endTime := A_Now-startTime
-    ; MsgBox("Time to generate hot keys: " endTime " Current Layer: " currentLayer)
+
+    for hotkeyObject in layerMatrix[currentLayer]{
+        hotkey(hotkeyObject.key, hotkeyObject.function, "On")
+    }
+    endTime := A_Now-startTime
+    MsgBox("Time to generate hot keys: " endTime " Current Layer: " currentLayer " placeholderLayer: " placeholderLayer)
 }
 generateHotkeys()
