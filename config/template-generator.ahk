@@ -43,6 +43,9 @@ settings := {
     ; Any additional keys to set, plus any optional modifiers (essentially chords, or AHK's combo keys). These are space seperated strings if included, unlike the previous Booleans  
     additionalKeys: IniRead("template-settings.ini", "Template Generator Settings", "additionalKeys", false),
     additionalModifiers: IniRead("template-settings.ini", "Template Generator Settings", "additionalModifiers", false),
+    
+    ; Sets default folder in config folder to hold the generated template file
+    defaultFolder: IniRead("template-settings.ini", "Template Generator Settings", "defaultFolder", "layers") , 
 }
 
 ; Final string that contains template text
@@ -55,17 +58,18 @@ keyArray := []
 mouseButtons := "LButton RButton MButton XButton1 XButton2 WheelDown WheelUp WheelLeft WheelRight"
 letterKeys := "qwertyuiopasdfghjklzxcvbnm"
 numberKeys := "1234567890"
-punctuationKeys := "-=[]\;\',./``"
+; The four backticks are sadly nessecary to escape the backticks for the punctuationKeys string, and then later to escape the backticks in the various layers.
+punctuationKeys := "- = [ ] \ `; \ ' , . / ````"
 controlKeys := "CapsLock Space Tab Enter Escape Backspace Delete LWin RWin Control LControl RControl Shift LShift RShift Alt RAlt LAlt ScrollLock AppsKey PrintScreen CtrlBreak Pause Help Sleep"
 navigationKeys := "Up Down Left Right Insert Home End PgUp PgDn"
-numKeys := "NumLock NumpadDiv NumpadMult NumpadAdd NumbadSub NumpadEnter Numpad0 Numpad1 Numpad2 Numpad3 Numpad4 Numpad5 Numpad6 Numpad7 Numpad8 Numpad9"
+numKeys := "NumLock NumpadDiv NumpadMult NumpadAdd NumpadSub NumpadEnter Numpad0 Numpad1 Numpad2 Numpad3 Numpad4 Numpad5 Numpad6 Numpad7 Numpad8 Numpad9"
 mediaKeys := "Browser_Back Browser_Forward Browser_Refresh Browser_Stop Browser_Search Browser_Favorites Browser_Home Volume_Mute Volume_Down Volume_Up Media_Next Media_Prev Media_Stop Media_Play_Pause Launch_Mail Launch_Media Launch_App1 Launch_App2"
 
 ; Move all key groups into dedicated arrays for ease and consistency of loop formats
 mouseButtonsArray := StrSplit(mouseButtons, A_Space)
 letterKeysArray := StrSplit(letterKeys, "")
 numberKeysArray := StrSplit(numberKeys, "")
-puncutationKeysArray := StrSplit(punctuationKeys, "")
+punctuationKeysArray := StrSplit(punctuationKeys, A_Space)
 controlKeysArray := StrSplit(controlKeys, A_Space)
 ; This is the code for pressing AltGr on its own
 ; It's being added to the array seperately since it includes spaces, and this is easier than refactoring
@@ -182,7 +186,7 @@ if(settings.includeNumberKeys){
 }
 
 if(settings.includePunctuationKeys){
-    for key in puncutationKeysArray {
+    for key in punctuationKeysArray {
         keyArray.Push(key)
     }
 }
@@ -231,8 +235,11 @@ for key in keyArray {
     if(key = numberKeysArray[1]){
         fileStr .= "; ====================================== NUMBERS ======================================`n"
     }
-    if(key = puncutationKeysArray[1]){
+    if(key = punctuationKeysArray[1]){
         fileStr .= "; ====================================== PUNCTUATION ======================================`n"
+    }
+    if(key = navigationKeysArray[1]){
+        fileStr .= "; ====================================== CONTROL KEYS ======================================`n"
     }
     if(key = controlKeysArray[1]){
         fileStr .= "; ====================================== CONTROL KEYS ======================================`n"
@@ -302,10 +309,11 @@ fileStr .= "])"
 ; }
 
 ; Creates the template file
-filepath := A_WorkingDir "\layers\layerX.ahk"
-filename := RegExReplace(FileSelect("S24", filePath, "Save New Template", ".ahk"), "\.([^\.]+)(?<!\.ahk)$", ".ahk") 
+filepath := A_WorkingDir "\" settings.defaultFolder "\layerX.ahk"
 
-if(!(filename ~= "\.ahk$")) {
+; Replace file extensions with .ahk or add .ahk if it isn't present
+filename := RegExReplace(FileSelect("S24", filePath, "Save New Template", ".ahk"), "\.([^\.]+)(?<!\.ahk)$", ".ahk") 
+if(!(InStr(filename, ".ahk"))) {
     filename .= ".ahk"
 }
 
