@@ -26,7 +26,8 @@ settings := {
     ; Whether or not to include Alt modifier variations
     includeAlt: IniRead("template-settings.ini", "Template Generator Settings", "includeAlt", true), 
     includeAltRightLeft: IniRead("template-settings.ini", "Template Generator Settings", "includeAltRightLeft", true), 
-template-settings; Whether or not to include Windows modifier variations
+
+    ; Whether or not to include Windows modifier variations
     includeWindows: IniRead("template-settings.ini", "Template Generator Settings", "includeWindows", true), 
 
     ; Whether or not to include wildcard modifier and wildcard + modifier combinations
@@ -43,7 +44,6 @@ template-settings; Whether or not to include Windows modifier variations
     additionalKeys: IniRead("template-settings.ini", "Template Generator Settings", "additionalKeys", false),
     additionalModifiers: IniRead("template-settings.ini", "Template Generator Settings", "additionalModifiers", false),
 }
-
 
 ; Final string that contains template text
 fileStr := "layerMatrix.Push([`n"
@@ -146,7 +146,7 @@ objectTemplateWithModifiers(key) {
     }
 
     ; Wildcard modifier that sends the key regardless of what modifiers are being held down
-    if(setting.includeWildcard){
+    if(settings.includeWildcard){
         fileStr .= objectTemplate("*" key)
         fileStr .= objectTemplate("*+" key)
         fileStr .= objectTemplate("*^" key)

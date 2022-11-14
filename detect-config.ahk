@@ -5,9 +5,10 @@
 
 ; Will hold a list of config files for sorting
 configFiles := ""
-
+layerFolder := IniRead("config-settings.ini", "Config Settings", "layerFolder", "layers")
+folderPath := "./config/" layerFolder "/*.ahk"
 ; ============================== ASSEMBLING CONFIG FILES INTO MATRIX ==============================
-Loop Files "./config/layers/*.ahk" {
+Loop Files folderPath {
     ; It is nessecary to include a space after each file for parsing
     configFiles .= A_LoopFileName " "
 }
@@ -21,7 +22,7 @@ configFilesArray.Pop()
 configFiles := ""
 
 for configFile in configFilesArray {
-    configFiles .= "#Include ./layers/" configFile "`n"
+    configFiles .= "#Include ./" layerFolder "/" configFile "`n"
 }
 
 ; Overwrites file if it already exists
