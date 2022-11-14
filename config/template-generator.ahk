@@ -6,43 +6,42 @@
 ; Settings object
 settings := {
     ; Whether or not to include various groups of keys
-    includeMouseButtons: IniRead("settings.ini", "Template Generator Settings", "includeMouseButtons", true),
-    includeLetterKeys: IniRead("settings.ini", "Template Generator Settings", "includeLetterKeys", true),
-    includeNumberKeys: IniRead("settings.ini", "Template Generator Settings", "includeNumberKeys", true),
-    includePunctuationKeys: IniRead("settings.ini", "Template Generator Settings", "includePunctuationKeys", true),
-    includeControlKeys: IniRead("settings.ini", "Template Generator Settings", "includeControlKeys", true),
-    includeNavigationKeys: IniRead("settings.ini", "Template Generator Settings", "includeNavigationKeys", true),
-    includeNumKeys: IniRead("settings.ini", "Template Generator Settings", "includeNumKeys", true),
-    includeMediaKeys: IniRead("settings.ini", "Template Generator Settings", "includeMediaKeys", true),
+    includeMouseButtons: IniRead("template-settings.ini", "Template Generator Settings", "includeMouseButtons", true),
+    includeLetterKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeLetterKeys", true),
+    includeNumberKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeNumberKeys", true),
+    includePunctuationKeys: IniRead("template-settings.ini", "Template Generator Settings", "includePunctuationKeys", true),
+    includeControlKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeControlKeys", true),
+    includeNavigationKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeNavigationKeys", true),
+    includeNumKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeNumKeys", true),
+    includeMediaKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeMediaKeys", true),
 
     ; Whether or not to include Shift modifier variations
-    includeShift: IniRead("settings.ini", "Template Generator Settings", "includeShift", true), 
-    includeShiftRightLeft: IniRead("settings.ini", "Template Generator Settings", "includeShiftRightLeft", true), 
+    includeShift: IniRead("template-settings.ini", "Template Generator Settings", "includeShift", true), 
+    includeShiftRightLeft: IniRead("template-settings.ini", "Template Generator Settings", "includeShiftRightLeft", true), 
 
     ; Whether or not to include Control modifier variations
-    includeControl: IniRead("settings.ini", "Template Generator Settings", "includeControl", true), 
-    includeControlRightLeft: IniRead("settings.ini", "Template Generator Settings", "includeControlRightLeft", true), 
+    includeControl: IniRead("template-settings.ini", "Template Generator Settings", "includeControl", true), 
+    includeControlRightLeft: IniRead("template-settings.ini", "Template Generator Settings", "includeControlRightLeft", true), 
     
     ; Whether or not to include Alt modifier variations
-    includeAlt: IniRead("settings.ini", "Template Generator Settings", "includeAlt", true), 
-    includeAltRightLeft: IniRead("settings.ini", "Template Generator Settings", "includeAltRightLeft", true), 
-
-    ; Whether or not to include Windows modifier variations
-    includeWindows: IniRead("settings.ini", "Template Generator Settings", "includeWindows", true), 
+    includeAlt: IniRead("template-settings.ini", "Template Generator Settings", "includeAlt", true), 
+    includeAltRightLeft: IniRead("template-settings.ini", "Template Generator Settings", "includeAltRightLeft", true), 
+template-settings; Whether or not to include Windows modifier variations
+    includeWindows: IniRead("template-settings.ini", "Template Generator Settings", "includeWindows", true), 
 
     ; Whether or not to include wildcard modifier and wildcard + modifier combinations
-    includeWildcard: IniRead("settings.ini", "Template Generator Settings", "includeWildcard", true), 
+    includeWildcard: IniRead("template-settings.ini", "Template Generator Settings", "includeWildcard", true), 
 
     ; Whether or not to include AltGr modifier variations
-    includeAltGr: IniRead("settings.ini", "Template Generator Settings", "includeAltGr", true), 
+    includeAltGr: IniRead("template-settings.ini", "Template Generator Settings", "includeAltGr", true), 
 
     ; Whether to format objects set the default included action
-    formatted: IniRead("settings.ini", "Template Generator Settings", "formatted", false),
-    defaultFunction: IniRead("settings.ini", "Template Generator Settings", "defaultFunction", "SendInput(`"x`")") , 
+    formatted: IniRead("template-settings.ini", "Template Generator Settings", "formatted", false),
+    defaultFunction: IniRead("template-settings.ini", "Template Generator Settings", "defaultFunction", "SendInput(`"x`")") , 
 
     ; Any additional keys to set, plus any optional modifiers (essentially chords, or AHK's combo keys). These are space seperated strings if included, unlike the previous Booleans  
-    additionalKeys: IniRead("settings.ini", "Template Generator Settings", "additionalKeys", false),
-    additionalModifiers: IniRead("settings.ini", "Template Generator Settings", "additionalModifiers", false),
+    additionalKeys: IniRead("template-settings.ini", "Template Generator Settings", "additionalKeys", false),
+    additionalModifiers: IniRead("template-settings.ini", "Template Generator Settings", "additionalModifiers", false),
 }
 
 
