@@ -14,6 +14,8 @@ layerMatrix := []
 ; Include master file of layers. This file contains nothing but #Include commands for the rest of the config files
 #Include ./config/layer-list.ahk
 
+; Testing
+; A_HotkeyInterval := 0
 ; ============================== TOGGLE LAYERS ==============================
 layerToggle(targetLayer) {
     global
@@ -25,8 +27,12 @@ layerToggle(targetLayer) {
 ; ============================== GENERATE HOTKEYS ==============================
 generateHotkeys() {
     global
+    ; Timer for debugging
+    ; startTime := A_Now
     for hotkeyObject in layerMatrix[currentLayer]{
         hotkey(hotkeyObject.key, hotkeyObject.function)
     }
+    ; endTime := A_Now-startTime
+    ; MsgBox("Time to generate hot keys: " endTime " Current Layer: " currentLayer)
 }
 generateHotkeys()
