@@ -19,7 +19,6 @@ If you just want some simple remapped layers skip to [Remapping](#remapping)
     * [Template Configuration](#template-configuration)    
     * [Layer Configuration](#layer-configuration)
         * [Ordering Layers](#ordering-layers)    
-        * [Layer Functions](#layer-functions)
 * [Usage](#usage)
     * [Dead Layers](#dead-layers)
     * [Tips on Chords](#tips-on-chords)
@@ -45,7 +44,7 @@ After creating a configuration you like, I reccomend compiling the main script `
 
 Although configuring the layers has a lot of flexibility, if all you want is a few layers with remapped keys follow this simplified guide. 
 
-1. Open `settings.ini` from the config folder and choose what groups of keys to exclude by setting them to `0`. [Template Configuration](#template-configuration) has more information. 
+1. Open `template-settings.ini` from the config folder and choose what groups of keys to exclude by setting them to `0`. [Template Configuration](#template-configuration) has more information. 
 2. Run `template-generator.ahk` from the config guide, and name it `layer2.ahk`. The first layer has already been assigned to a directory of other layers.
 3. Repeat step 2 for each layer until you have the layers you want. Then edit the new files so that the default function `SendInput("x")` has `x` replaced with your desired key.
 3. You can change the `SendInput` function to `layerToggle(x)` where `x` is your destination layer. Use this to allow yourself to move from one layer to another. I reccomend at least one key on each layer point to the master directory in `layer1`.
@@ -62,7 +61,7 @@ Finally, config files must be hooked up to the main `k-plus.ahk` script. This pa
 
 ### **Template Configuration**
 
-Configuring the template is primarily done through the `./config/settings.ini` file. By changing the values on the right hand side of the equals signs, you can choose what kinds of keys you would like to have appear in your template file as well as default actions. 
+Configuring the template is primarily done through the `./config/template-settings.ini` file. By changing the values on the right hand side of the equals signs, you can choose what kinds of keys you would like to have appear in your template file as well as default actions. 
 
 Below is a full list of the various settings, their possible values, and their meaning. Boolean values are either 0 (excluded), or 1 (included).
 
@@ -132,7 +131,7 @@ However, the naming format `customTextX.ahk` should also work.
 
 ## **Usage**
 
-[General usage for remapping]
+[Usage for remapping, having additional folders for layers, how to connect layers together and use the directory, dead layers, how to use chords and possibilities open for those willing to write custom script]
 
 ### **Dead Layers**
 
