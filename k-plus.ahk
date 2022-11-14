@@ -39,7 +39,7 @@ generateHotkeys() {
     }
 
     for hotkeyObject in layerMatrix[currentLayer]{
-        hotkey(hotkeyObject.key, hotkeyObject.function, "On")
+        hotkey(hotkeyObject.key, hotkeyObject.function, "I1 On")
     }
     endTime := A_Now-startTime
     MsgBox("Time to generate hot keys: " endTime " Current Layer: " currentLayer " placeholderLayer: " placeholderLayer)
