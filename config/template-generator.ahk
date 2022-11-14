@@ -223,6 +223,9 @@ if(settings.additionalKeys) {
 ; Generates the template file from the key array and adds comments.
 for key in keyArray {
     ; These if statements provide some useful comments to denote different sections
+    if(key = mouseButtonsArray[1]){
+        fileStr .= "; ====================================== MOUSE BUTTONS ======================================`n"
+    }
     if(key = letterKeysArray[1]){
         fileStr .= "; ====================================== LETTERS ======================================`n"
     }
