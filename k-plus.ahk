@@ -48,3 +48,4 @@ generateHotkeys()
 
 ; ============================== SHUTDOWN HOTKEY ==============================
 hotkey(readConfigSettings("universalQuitKey"), ExitApp(), "I1 On")
+hotkey(readConfigSettings("universalSuspendKey"), Suspend(-1), "I1 On")
