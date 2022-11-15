@@ -14,6 +14,7 @@ settings := {
     includeNavigationKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeNavigationKeys", true),
     includeNumKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeNumKeys", true),
     includeMediaKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeMediaKeys", true),
+    includeFunctionKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeFunctionKeys", true),
 
     ; Whether or not to include Shift modifier variations
     includeShift: IniRead("template-settings.ini", "Template Generator Settings", "includeShift", true), 
@@ -64,6 +65,7 @@ controlKeys := "CapsLock Space Tab Enter Escape Backspace Delete LWin RWin Contr
 navigationKeys := "Up Down Left Right Insert Home End PgUp PgDn"
 numKeys := "NumLock NumpadDiv NumpadMult NumpadAdd NumpadSub NumpadEnter Numpad0 Numpad1 Numpad2 Numpad3 Numpad4 Numpad5 Numpad6 Numpad7 Numpad8 Numpad9"
 mediaKeys := "Browser_Back Browser_Forward Browser_Refresh Browser_Stop Browser_Search Browser_Favorites Browser_Home Volume_Mute Volume_Down Volume_Up Media_Next Media_Prev Media_Stop Media_Play_Pause Launch_Mail Launch_Media Launch_App1 Launch_App2"
+functionKeys := "F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 F13 F14 F15 F16 F17 F18 F19 F20 F21 F22 F23 F24"
 
 ; Move all key groups into dedicated arrays for ease and consistency of loop formats
 mouseButtonsArray := StrSplit(mouseButtons, A_Space)
@@ -77,9 +79,9 @@ controlKeysArray.Push("LControl & RAlt")
 navigationKeysArray := StrSplit(navigationKeys, A_Space)
 numKeysArray := StrSplit(numKeys, A_Space)
 mediaKeysArray := StrSplit(mediaKeys, A_Space)
+functionKeysArray := StrSplit(functionKeys, A_Space)
 additionalKeysArray := StrSplit(settings.additionalKeys, ",")
 additionalModifiersArray := StrSplit(settings.additionalModifiers, ",")
-
 ; ============================== UTILITY FUNCTIONS ==============================
 
 ; This function generates a template object which is formatted for either easy function definitions or easy remapping
@@ -215,6 +217,12 @@ if(settings.includeMediaKeys){
     }
 }
 
+if(settings.includeFunctionKeys){
+    for key in functionKeysArray {
+        keyArray.Push(key)
+    }
+}
+
 if(settings.additionalKeys) {
     for key in additionalKeysArray {
         keyArray.Push(key)
@@ -249,6 +257,9 @@ for key in keyArray {
     }
     if(key = mediaKeysArray[1]){
         fileStr .= "; ====================================== MEDIA KEYS ======================================`n"
+    }
+    if(key = functionKeysArray[1]){
+        fileStr .= "; ====================================== FUNCTION KEYS ======================================`n"
     }
     if(settings.additionalKeys){
         if(key=additionalKeysArray[1]) {
@@ -292,6 +303,7 @@ for key in keyArray {
 }
 
 if (settings.additionalModifiers) {
+    fileStr .= "; ====================================== ADDITIONAL MODIFIERS ======================================`n"
     for modifier in additionalModifiersArray {
         for key in keyArray {
             fileStr .= objectTemplate(modifier " & " key)
