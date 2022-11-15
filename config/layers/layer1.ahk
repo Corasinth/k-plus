@@ -1,34 +1,31 @@
-layerMatrix.Push([
+#HotIf currentLayer = 1
 ; ====================================== LETTERS ======================================
-; To enable a layerToggle, delete all semicolons at the start of the line
-; Having a toggle active for a layer that does not exist results in an error when that key is pressed
-; Further modification, for example of what key activates which layer, is encouraged
-; ; {key:"q", function:(x)=>(toggleLayers("1"))},
-{key:"w", function:(x)=>(layerToggle("2"))},
-{key:"e", function:(x)=>(layerToggle("3"))},
-{key:"r", function:(x)=>(layerToggle("4"))},
-; {key:"t", function:(x)=>(layerToggle("1"))},
-; {key:"y", function:(x)=>(layerToggle("1"))},
-{key:"u", function:(x)=>(layerToggle("5"))},
-; {key:"i", function:(x)=>(layerToggle("6"))},
-; {key:"o", function:(x)=>(layerToggle("7"))},
-; ; {key:"p", function:(x)=>(layerToggle("1"))},
-; {key:"a", function:(x)=>(layerToggle("8"))},
-; {key:"s", function:(x)=>(layerToggle("9"))},
-; {key:"d", function:(x)=>(layerToggle("10"))},
-; {key:"f", function:(x)=>(layerToggle("11"))},
-; {key:"g", function:(x)=>(layerToggle("12"))},
-; {key:"h", function:(x)=>(layerToggle("13"))},
-; {key:"j", function:(x)=>(layerToggle("14"))},
-; {key:"k", function:(x)=>(layerToggle("15"))},
-; {key:"l", function:(x)=>(layerToggle("16"))},
-; {key:";", function:(x)=>(layerToggle("17"))},
-; ; {key:"z", function:(x)=>(layerToggle("1"))},
-; {key:"x", function:(x)=>(layerToggle("18"))},
-; {key:"c", function:(x)=>(layerToggle("19"))},
-; {key:"v", function:(x)=>(layerToggle("20"))},
-; {key:"b", function:(x)=>(layerToggle("21"))},
-; {key:"n", function:(x)=>(layerToggle("22"))},
-; {key:"m", function:(x)=>(layerToggle("23"))},
-; {key:",", function:(x)=>(layerToggle("24"))},
-])
+q::toggleLayer(2)
+w::toggleLayer(3)
+; e::toggleLayer(4)
+; r::toggleLayer(5)
+; t::toggleLayer(6)
+; y::toggleLayer(7)
+; u::toggleLayer(8)
+; i::toggleLayer(9)
+; o::toggleLayer(10)
+; ; p::toggleLayer(0)
+; a::toggleLayer(11)
+; s::toggleLayer(12)
+; d::toggleLayer(13)
+; f::toggleLayer(14)
+; g::toggleLayer(15)
+; h::toggleLayer(16)
+; j::toggleLayer(17)
+; k::toggleLayer(18)
+; l::toggleLayer(19)
+; `;::toggleLayer(20)
+; '::toggleLayer(21)
+; ; z::toggleLayer(0)
+; ; x::toggleLayer(0)
+; c::toggleLayer(22)
+; v::toggleLayer(23)
+; b::toggleLayer(24)
+; n::toggleLayer(25)
+; m::toggleLayer(26)
+; ,::toggleLayer(27)

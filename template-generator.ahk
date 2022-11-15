@@ -4,7 +4,6 @@
 #Include ./config/util/ini-reader.ahk
 ; ============================== VARIABLES ==============================
 
-
 ; Settings object
 settings := {
     ; Whether or not to include various groups of keys
@@ -25,7 +24,7 @@ settings := {
     ; Whether or not to include Control modifier variations
     includeControl: readTemplateSettings("includeControl"),
     includeControlRightLeft: readTemplateSettings("includeControlRightLeft"),
-    
+
     ; Whether or not to include Alt modifier variations
     includeAlt: readTemplateSettings("includeAlt"),
     includeAltRightLeft: readTemplateSettings("includeAltRightLeft"),
@@ -40,21 +39,24 @@ settings := {
     includeAltGr: readTemplateSettings("includeAltGr"),
 
     ; Sets the default function
-    defaultFunction: readTemplateSettings("defaultFunction"),
+    defaultAction: readTemplateSettings("defaultAction"),
 
     ; Whether to include advancedMode,
-    advancedMode: readTemplateSettings("advancedMode"),
+    formatted: readTemplateSettings("formatted"),
 
-    ; Any additional keys to set, plus any optional modifiers (essentially chords, or AHK's combo keys). These are space seperated strings if included, unlike the previous Booleans  
+    ; Any additional keys to set, plus any optional modifiers (essentially chords, or AHK's combo keys). These are space seperated strings if included, unlike the previous Booleans
     additionalKeys: readTemplateSettings("additionalKeys"),
     additionalModifiers: readTemplateSettings("additionalModifiers"),
-    
+
     ; Sets default folder in config folder to hold the generated template file
     defaultFolder: readTemplateSettings("defaultFolder"),
 }
 
+; Gui to set the templates layer
+templateLayer := 1
+
 ; Final string that contains template text
-fileStr := "layerMatrix.Push([`n"
+fileStr := "#HotIf currentLayer = " templateLayer "`n"
 
 ; Will eventually hold the full list of all unmodified keys
 keyArray := []
@@ -64,7 +66,7 @@ mouseButtons := "LButton RButton MButton XButton1 XButton2 WheelDown WheelUp Whe
 letterKeys := "qwertyuiopasdfghjklzxcvbnm"
 numberKeys := "1234567890"
 ; The four backticks are sadly nessecary to escape the backticks for the punctuationKeys string, and then later to escape the backticks in the various layers.
-punctuationKeys := "- = [ ] \ `; \ ' , . / ````"
+punctuationKeys := "- = [ ] \ ```; \ ' , . / ``"
 controlKeys := "CapsLock Space Tab Enter Escape Backspace Delete LWin RWin Control LControl RControl Shift LShift RShift Alt RAlt LAlt ScrollLock AppsKey PrintScreen CtrlBreak Pause Help Sleep"
 navigationKeys := "Up Down Left Right Insert Home End PgUp PgDn"
 numKeys := "NumLock NumpadDiv NumpadMult NumpadAdd NumpadSub NumpadEnter Numpad0 Numpad1 Numpad2 Numpad3 Numpad4 Numpad5 Numpad6 Numpad7 Numpad8 Numpad9"
@@ -93,19 +95,14 @@ additionalModifiersArray := StrSplit(settings.additionalModifiers, ",")
 ; The template's default action is to simply send another key, for easy remapping
 ; Depending on your intellisense, this code might register as a syntax error but that's just because it isn't properly detecting escape characters
 objectTemplate(targetKey) {
-    ; if(settings.formatted){
-    ;     keyStr := "    {`n      key:`""
-    ;     keyStr .= targetKey
-    ;     keyStr .= "`",`n      function:(x)=>(`n          "
-    ;     keyStr .= settings.defaultFunction
-    ;     keyStr .= "`n      )`n    },`n"
-    ; } else if(!settings.formatted){
-        keyStr := "{key:`""
-        keyStr .= targetKey
-        keyStr .= "`", function:(x)=>(" 
-        keyStr .= settings.defaultFunction
-        keyStr .=")},`n"
-    ; }
+    keyStr := targetKey ":`:"
+
+    ; If formatting is requested braces are installed around the default action, otherwise the default action is just directly attatched to the hotkey
+    if(settings.formatted) {
+        keyStr .= "{`n" settings.defaultAction "`n}`n"
+    } else {
+        keyStr .= settings.defaultAction "`n"
+    }
     return keyStr
 }
 
@@ -114,7 +111,7 @@ objectTemplate(targetKey) {
 objectTemplateWithModifiers(key) {
     Global
     fileStr .= objectTemplate(key)
-    
+
     ; Shift key modifier and variants
     if(settings.includeShift){
         fileStr .= objectTemplate("+" key)
@@ -273,7 +270,7 @@ for key in keyArray {
     }
 
     fileStr .= objectTemplate(key)
-    
+
     ; Shift key modifier and variants
     if(settings.includeShift){
         fileStr .= objectTemplate("+" key)
@@ -316,9 +313,6 @@ if (settings.additionalModifiers) {
     }
 }
 
-; Closes out the array
-fileStr .= "])"
-
 ; ============================== FILE CREATION ==============================
 ; Checks if a template already exists and deletes it so each template generated is new
 ; if (FileExist("./layer-template.ahk")) {
@@ -328,7 +322,7 @@ fileStr .= "])"
 ; Creates the template file
 filepath := A_WorkingDir "\config" settings.defaultFolder "\layerX.ahk"
 ; Replace file extensions with .ahk or add .ahk if it isn't present
-filename := RegExReplace(FileSelect("S24", filePath, "Save New Template", ".ahk"), "\.([^\.]+)(?<!\.ahk)$", ".ahk") 
+filename := RegExReplace(FileSelect("S24", filePath, "Save New Template", ".ahk"), "\.([^\.]+)(?<!\.ahk)$", ".ahk")
 
 ; Checks if filename is not empty, since if it is and the user cancels out of the fileSave dialogue a new file is generated in the root folder anyway
 if(!(InStr(filename, ".ahk")) && filename != "") {
@@ -340,3 +334,4 @@ try {
 } catch {
     Return
 }
+
