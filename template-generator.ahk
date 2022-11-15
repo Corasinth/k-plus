@@ -1,52 +1,56 @@
 #Requires AutoHotkey v2.0-beta
 #SingleInstance Force
-
+; Include the ini util functions
+#Include ./config/util/ini-reader.ahk
 ; ============================== VARIABLES ==============================
+
 
 ; Settings object
 settings := {
     ; Whether or not to include various groups of keys
-    includeMouseButtons: IniRead("template-settings.ini", "Template Generator Settings", "includeMouseButtons", true),
-    includeLetterKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeLetterKeys", true),
-    includeNumberKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeNumberKeys", true),
-    includePunctuationKeys: IniRead("template-settings.ini", "Template Generator Settings", "includePunctuationKeys", true),
-    includeControlKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeControlKeys", true),
-    includeNavigationKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeNavigationKeys", true),
-    includeNumKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeNumKeys", true),
-    includeMediaKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeMediaKeys", true),
-    includeFunctionKeys: IniRead("template-settings.ini", "Template Generator Settings", "includeFunctionKeys", true),
+    includeMouseButtons: readTemplateSettings("includeMouseButtons"),
+    includeLetterKeys: readTemplateSettings("includeLetterKeys"),
+    includeNumberKeys: readTemplateSettings("includeNumberKeys"),
+    includePunctuationKeys: readTemplateSettings("includePunctuationKeys"),
+    includeControlKeys: readTemplateSettings("includeControlKeys"),
+    includeNavigationKeys: readTemplateSettings("includeNavigationKeys"),
+    includeNumKeys: readTemplateSettings("includeNumKeys"),
+    includeMediaKeys: readTemplateSettings("includeMediaKeys"),
+    includeFunctionKeys: readTemplateSettings("includeFunctionKeys"),
 
     ; Whether or not to include Shift modifier variations
-    includeShift: IniRead("template-settings.ini", "Template Generator Settings", "includeShift", true), 
-    includeShiftRightLeft: IniRead("template-settings.ini", "Template Generator Settings", "includeShiftRightLeft", true), 
+    includeShift: readTemplateSettings("includeShift"),
+    includeShiftRightLeft: readTemplateSettings("includeShiftRightLeft"),
 
     ; Whether or not to include Control modifier variations
-    includeControl: IniRead("template-settings.ini", "Template Generator Settings", "includeControl", true), 
-    includeControlRightLeft: IniRead("template-settings.ini", "Template Generator Settings", "includeControlRightLeft", true), 
+    includeControl: readTemplateSettings("includeControl"),
+    includeControlRightLeft: readTemplateSettings("includeControlRightLeft"),
     
     ; Whether or not to include Alt modifier variations
-    includeAlt: IniRead("template-settings.ini", "Template Generator Settings", "includeAlt", true), 
-    includeAltRightLeft: IniRead("template-settings.ini", "Template Generator Settings", "includeAltRightLeft", true), 
+    includeAlt: readTemplateSettings("includeAlt"),
+    includeAltRightLeft: readTemplateSettings("includeAltRightLeft"),
 
     ; Whether or not to include Windows modifier variations
-    includeWindows: IniRead("template-settings.ini", "Template Generator Settings", "includeWindows", true), 
+    includeWindows: readTemplateSettings("includeWindows"),
 
     ; Whether or not to include wildcard modifier and wildcard + modifier combinations
-    includeWildcard: IniRead("template-settings.ini", "Template Generator Settings", "includeWildcard", true), 
+    includeWildcard: readTemplateSettings("includeWildcard"),
 
     ; Whether or not to include AltGr modifier variations
-    includeAltGr: IniRead("template-settings.ini", "Template Generator Settings", "includeAltGr", true), 
+    includeAltGr: readTemplateSettings("includeAltGr"),
 
-    ; Whether to format objects set the default included action
-    formatted: IniRead("template-settings.ini", "Template Generator Settings", "formatted", false),
-    defaultFunction: IniRead("template-settings.ini", "Template Generator Settings", "defaultFunction", "SendInput(`"x`")") , 
+    ; Sets the default function
+    defaultFunction: readTemplateSettings("defaultFunction"),
+
+    ; Whether to include advancedMode,
+    advancedMode: readTemplateSettings("advancedMode"),
 
     ; Any additional keys to set, plus any optional modifiers (essentially chords, or AHK's combo keys). These are space seperated strings if included, unlike the previous Booleans  
-    additionalKeys: IniRead("template-settings.ini", "Template Generator Settings", "additionalKeys", false),
-    additionalModifiers: IniRead("template-settings.ini", "Template Generator Settings", "additionalModifiers", false),
+    additionalKeys: readTemplateSettings("additionalKeys"),
+    additionalModifiers: readTemplateSettings("additionalModifiers"),
     
     ; Sets default folder in config folder to hold the generated template file
-    defaultFolder: IniRead("template-settings.ini", "Template Generator Settings", "defaultFolder", "layers") , 
+    defaultFolder: readTemplateSettings("defaultFolder"),
 }
 
 ; Final string that contains template text
@@ -82,25 +86,26 @@ mediaKeysArray := StrSplit(mediaKeys, A_Space)
 functionKeysArray := StrSplit(functionKeys, A_Space)
 additionalKeysArray := StrSplit(settings.additionalKeys, ",")
 additionalModifiersArray := StrSplit(settings.additionalModifiers, ",")
+
 ; ============================== UTILITY FUNCTIONS ==============================
 
 ; This function generates a template object which is formatted for either easy function definitions or easy remapping
 ; The template's default action is to simply send another key, for easy remapping
 ; Depending on your intellisense, this code might register as a syntax error but that's just because it isn't properly detecting escape characters
 objectTemplate(targetKey) {
-    if(settings.formatted){
-        keyStr := "    {`n      key:`""
-        keyStr .= targetKey
-        keyStr .= "`",`n      function:(x)=>(`n          "
-        keyStr .= settings.defaultFunction
-        keyStr .= "`n      )`n    },`n"
-    } else if(!settings.formatted){
+    ; if(settings.formatted){
+    ;     keyStr := "    {`n      key:`""
+    ;     keyStr .= targetKey
+    ;     keyStr .= "`",`n      function:(x)=>(`n          "
+    ;     keyStr .= settings.defaultFunction
+    ;     keyStr .= "`n      )`n    },`n"
+    ; } else if(!settings.formatted){
         keyStr := "{key:`""
         keyStr .= targetKey
         keyStr .= "`", function:(x)=>(" 
         keyStr .= settings.defaultFunction
         keyStr .=")},`n"
-    }
+    ; }
     return keyStr
 }
 
@@ -321,11 +326,12 @@ fileStr .= "])"
 ; }
 
 ; Creates the template file
-filepath := A_WorkingDir "\" settings.defaultFolder "\layerX.ahk"
-
+filepath := A_WorkingDir "\config" settings.defaultFolder "\layerX.ahk"
 ; Replace file extensions with .ahk or add .ahk if it isn't present
 filename := RegExReplace(FileSelect("S24", filePath, "Save New Template", ".ahk"), "\.([^\.]+)(?<!\.ahk)$", ".ahk") 
-if(!(InStr(filename, ".ahk"))) {
+
+; Checks if filename is not empty, since if it is and the user cancels out of the fileSave dialogue a new file is generated in the root folder anyway
+if(!(InStr(filename, ".ahk")) && filename != "") {
     filename .= ".ahk"
 }
 

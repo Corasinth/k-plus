@@ -1,11 +1,12 @@
 #Requires AutoHotkey v2.0-beta
 #SingleInstance Force
-
+; Adds ini util function
+#Include ./config/util/ini-reader.ahk
 ; ============================== MAIN VARIABLES ==============================
 
 ; Will hold a list of config files for sorting
 configFiles := ""
-layerFolder := IniRead("config-settings.ini", "Config Settings", "layerFolder", "layers")
+layerFolder := readConfigSettings("layerFolder")
 folderPath := "./config/" layerFolder "/*.ahk"
 ; ============================== ASSEMBLING CONFIG FILES INTO MATRIX ==============================
 Loop Files folderPath {
