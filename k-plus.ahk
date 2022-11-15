@@ -1,6 +1,7 @@
 ﻿#Requires AutoHotkey v2.0-beta
 #SingleInstance Force
-#InputLevel 1
+; Include ini reader util functions
+#Include ./config/util/ini-reader.ahk
 ; ============================== MAIN VARIABLES ==============================
 ; This is the tracker that determines the current layer
 currentLayer := 1
@@ -10,10 +11,8 @@ placeholderLayer := 0
 ; An array of arrays imported from config files containing hotkey information for each layer
 ; Each index corresponds to each own layer—layer 1 = layerMatrix[1] etc.
 layerMatrix := []
-
 ; Include master file of layers. This file contains nothing but #Include commands for the rest of the config files
 #Include ./config/layer-list.ahk
-
 ; ============================== TOGGLE LAYERS ==============================
 layerToggle(targetLayer) {
     global
@@ -48,4 +47,4 @@ generateHotkeys() {
 generateHotkeys()
 
 ; ============================== SHUTDOWN HOTKEY ==============================
-^!+#q::ExitApp
+hotkey(readConfigSettings("universalQuitKey"), ExitApp(), "I1 On")
