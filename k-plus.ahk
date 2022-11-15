@@ -22,13 +22,22 @@ toggleLayer(targetLayer) {
 #Include ./config/layers/layer2.ahk
 
 ; ============================== SHUTDOWN & SUSPEND HOTKEYS ==============================
-hotkey(readConfigSettings("universalQuitKey"), exitScript,"I1 On")
-hotkey(readConfigSettings("universalSuspendKey"), suspendScript,"I1 On")
+; Create universal quit and suspend keys
+quitKey := readConfigSettings("universalQuitKey")
+suspendKey := readConfigSettings("universalSuspendKey")
 
+if(quitKey) {
+    hotkey(quitKey, exitScript,"I1 On")
+}
+if(suspendKey){
+    hotkey(suspendKey, suspendScript,"I1 On")
+}
+
+; Exit and Suspend functions so they can be placed in the hotkey() function
+; Putting these functions directly into the hotkey() function causes issues as they other hotkey options get interpreted as the inner function's parameters
 exitScript(x) {
     ExitApp()
 }
-
 suspendScript(x){
     Suspend(-1)
 }
