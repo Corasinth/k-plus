@@ -1,6 +1,6 @@
 ﻿#Requires AutoHotkey v2.0-beta
 #SingleInstance Force
-
+#InputLevel 1
 ; ============================== MAIN VARIABLES ==============================
 ; This is the tracker that determines the current layer
 currentLayer := 1
@@ -26,7 +26,7 @@ layerToggle(targetLayer) {
 generateHotkeys() {
     global
     ; Timer for debugging
-    startTime := A_Now
+    ; startTime := A_Now
 
     ; Disables hotkeys from previous layer to ensure consistent operation
     ; Without this disable loop, hotkeys overlap and the script acts like the wrong layer is in effect
@@ -41,7 +41,11 @@ generateHotkeys() {
     for hotkeyObject in layerMatrix[currentLayer]{
         hotkey(hotkeyObject.key, hotkeyObject.function, "I1 On")
     }
-    endTime := A_Now-startTime
-    MsgBox("Time to generate hot keys: " endTime " Current Layer: " currentLayer " placeholderLayer: " placeholderLayer)
+    ; endTime := A_Now-startTime
+    ; MsgBox("Time to generate hot keys: " endTime " Current Layer: " currentLayer " placeholderLayer: " placeholderLayer)
 }
+
 generateHotkeys()
+
+; ============================== SHUTDOWN HOTKEY ==============================
+^!+#q::ExitApp
