@@ -12,6 +12,7 @@ settings := {
     includeNumberKeys: readTemplateSettings("includeNumberKeys"),
     includePunctuationKeys: readTemplateSettings("includePunctuationKeys"),
     includeControlKeys: readTemplateSettings("includeControlKeys"),
+    includeModifierKeys: readTemplateSettings("includeModifierKeys"),
     includeNavigationKeys: readTemplateSettings("includeNavigationKeys"),
     includeNumKeys: readTemplateSettings("includeNumKeys"),
     includeMediaKeys: readTemplateSettings("includeMediaKeys"),
@@ -40,6 +41,7 @@ settings := {
 
     ; Whether or not multipress is set up for each key
     multipress: readTemplateSettings("multipress"),
+    inclusiveMultipress: readTemplateSettings("inclusiveMultipress"),
 
     ; Sets the default function
     defaultAction: readTemplateSettings("defaultAction"),
@@ -60,7 +62,7 @@ settings := {
     defaultFolder: readTemplateSettings("defaultFolder"),
 }
 
-if(settings.deadlayer || settings.multipress){
+if(settings.deadlayer){
     settings.formatted := 1
     if(settings.deadlayer) {
         settings.defaultFunction .= "`ntoggleLayer(previousLayer)`n"
@@ -100,7 +102,8 @@ letterKeys := "qwertyuiopasdfghjklzxcvbnm"
 numberKeys := "1234567890"
 ; The four backticks are sadly nessecary to escape the backticks for the punctuationKeys string, and then later to escape the backticks in the various layers.
 punctuationKeys := "- = [ ] \ ```; \ ' , . / ``"
-controlKeys := "CapsLock Space Tab Enter Escape Backspace Delete LWin RWin Control LControl RControl Shift LShift RShift Alt RAlt LAlt ScrollLock AppsKey PrintScreen CtrlBreak Pause Help Sleep"
+controlKeys := "Space Tab Enter Escape Backspace Delete ScrollLock AppsKey PrintScreen CtrlBreak Pause Help Sleep"
+modifierKeys := "CapsLock Shift Control LControl RControl Shift LShift RShift Alt RAlt LAlt LWin RWin"
 navigationKeys := "Up Down Left Right Insert Home End PgUp PgDn"
 numKeys := "NumLock NumpadDiv NumpadMult NumpadAdd NumpadSub NumpadEnter Numpad0 Numpad1 Numpad2 Numpad3 Numpad4 Numpad5 Numpad6 Numpad7 Numpad8 Numpad9"
 mediaKeys := "Browser_Back Browser_Forward Browser_Refresh Browser_Stop Browser_Search Browser_Favorites Browser_Home Volume_Mute Volume_Down Volume_Up Media_Next Media_Prev Media_Stop Media_Play_Pause Launch_Mail Launch_Media Launch_App1 Launch_App2"
@@ -115,6 +118,7 @@ controlKeysArray := StrSplit(controlKeys, A_Space)
 ; This is the code for pressing AltGr on its own
 ; It's being added to the array seperately since it includes spaces, and this is easier than refactoring
 controlKeysArray.Push("LControl & RAlt")
+modifierKeysArray := StrSplit(modifierKeys, A_Space)
 navigationKeysArray := StrSplit(navigationKeys, A_Space)
 numKeysArray := StrSplit(numKeys, A_Space)
 mediaKeysArray := StrSplit(mediaKeys, A_Space)
@@ -139,6 +143,12 @@ objectTemplate(targetKey) {
         keyStr .= "`n`n}else if(keyPresses > 2){`n`n"
         keyStr .= settings.defaultFunction
         keyStr .= "`n`n}`nkeyPresses := 0`n}`n}`n"
+    } else if (settings.inclusiveMultipress) {
+       keyStr .= "{`nif(A_PriorHotkey != `""
+       keyStr .= targetKey "`""
+       keystr .= " || A_TimeSincePriorHotkey > 400){`nReturn`n} else {`n`n"
+       keyStr .= settings.defaultFunction
+       KeyStr .= "`n`n}`n}`n"
     } else if(settings.formatted) {
         keyStr .= "{`n" settings.defaultFunction "`n}`n"
     } else {
@@ -265,6 +275,12 @@ if(settings.includeControlKeys){
     }
 }
 
+if(settings.includeModifierKeys){
+    for key in modifierKeysArray {
+        keyArray.Push(key)
+    }
+}
+
 if(settings.includeNavigationKeys){
     for key in navigationKeysArray {
         keyArray.Push(key)
@@ -313,10 +329,13 @@ for key in keyArray {
         fileStr .= "; ====================================== PUNCTUATION ======================================`n"
     }
     if(key = navigationKeysArray[1]){
-        fileStr .= "; ====================================== CONTROL KEYS ======================================`n"
+        fileStr .= "; ====================================== NAVIGATION KEYS ======================================`n"
     }
     if(key = controlKeysArray[1]){
         fileStr .= "; ====================================== CONTROL KEYS ======================================`n"
+    }
+    if(key = modifierKeysArray[1]){
+        fileStr .= "; ====================================== MODIFIER KEYS ======================================`n"
     }
     if(key = numKeysArray[1]){
         fileStr .= "; ====================================== NUMPAD ======================================`n"
