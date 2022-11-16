@@ -17,39 +17,54 @@ settings := {
     includeMediaKeys: readTemplateSettings("includeMediaKeys"),
     includeFunctionKeys: readTemplateSettings("includeFunctionKeys"),
 
-    ; Whether or not to include Shift modifier variations
+    ; Including modifiers and their variations
     includeShift: readTemplateSettings("includeShift"),
     includeShiftRightLeft: readTemplateSettings("includeShiftRightLeft"),
-
-    ; Whether or not to include Control modifier variations
     includeControl: readTemplateSettings("includeControl"),
     includeControlRightLeft: readTemplateSettings("includeControlRightLeft"),
-
-    ; Whether or not to include Alt modifier variations
     includeAlt: readTemplateSettings("includeAlt"),
     includeAltRightLeft: readTemplateSettings("includeAltRightLeft"),
-
-    ; Whether or not to include Windows modifier variations
     includeWindows: readTemplateSettings("includeWindows"),
-
-    ; Whether or not to include wildcard modifier and wildcard + modifier combinations
     includeWildcard: readTemplateSettings("includeWildcard"),
-
-    ; Whether or not to include AltGr modifier variations
     includeAltGr: readTemplateSettings("includeAltGr"),
+
+    ; Modifier Combinations
+    includeControlShift: readTemplateSettings("includeControlShift"),
+    includeAltShift: readTemplateSettings("includeAltShift"),
+    includeWindowsShift: readTemplateSettings("includeWindowsShift"),
+    includeWindowsAlt: readTemplateSettings("includeWindowsAlt"),
+    includeControlAlt: readTemplateSettings("includeControlAlt"),
+    includeControlWindows: readTemplateSettings("includeControlWindows"),
+    includeControlAltShift: readTemplateSettings("includeControlAltShift"),
+    includeControlAltWindows: readTemplateSettings("includeControlAltWindows"),
+
+    ; Whether or not multipress is set up for each key
+    multipress: readTemplateSettings("multipress"),
 
     ; Sets the default function
     defaultAction: readTemplateSettings("defaultAction"),
+    ; Sets the default function, only used when formatting is on
+    defaultFunction: readTemplateSettings("defaultFunction"),
 
-    ; Whether to include advancedMode,
-    formatted: readTemplateSettings("formatted"),
+    ; If this is a dead layer, adds a toggleLayer(previousyLayer) to each hotkey
+    deadlayer: readTemplateSettings("deadlayer"),
 
     ; Any additional keys to set, plus any optional modifiers (essentially chords, or AHK's combo keys). These are space seperated strings if included, unlike the previous Booleans
     additionalKeys: readTemplateSettings("additionalKeys"),
     additionalModifiers: readTemplateSettings("additionalModifiers"),
 
+    ; Whether to include advancedMode,
+    formatted: readTemplateSettings("formatted"),
+
     ; Sets default folder in config folder to hold the generated template file
     defaultFolder: readTemplateSettings("defaultFolder"),
+}
+
+if(settings.deadlayer || settings.multipress){
+    settings.formatted := 1
+    if(settings.deadlayer) {
+        settings.defaultFunction .= "`ntoggleLayer(previousLayer)`n"
+    }
 }
 
 ; Gui to set the templates layer
@@ -98,8 +113,16 @@ objectTemplate(targetKey) {
     keyStr := targetKey ":`:"
 
     ; If formatting is requested braces are installed around the default action, otherwise the default action is just directly attatched to the hotkey
-    if(settings.formatted) {
-        keyStr .= "{`n" settings.defaultAction "`n}`n"
+    if(settings.multipress){
+        keyStr .= "{`nstatic keyPresses := 0`nif(keyPresses > 0){`nkeyPresses += 1`nreturn`n}`nkeyPresses := 1`nSetTimer pressTimer, -400`npressTimer(){`nif(keyPresses = 1){`n`n"
+        keyStr .= settings.defaultFunction
+        keyStr .= "`n`n}else if(keyPresses = 2){`n`n"
+        keyStr .= settings.defaultFunction
+        keyStr .= "`n`n}else if(keyPresses > 2){`n`n"
+        keyStr .= settings.defaultFunction
+        keyStr .= "`n`n}`nkeyPresses := 0`n}`n}`n"
+    } else if(settings.formatted) {
+        keyStr .= "{`n" settings.defaultFunction "`n}`n"
     } else {
         keyStr .= settings.defaultAction "`n"
     }
@@ -115,9 +138,6 @@ objectTemplateWithModifiers(key) {
     ; Shift key modifier and variants
     if(settings.includeShift){
         fileStr .= objectTemplate("+" key)
-        fileStr .= objectTemplate("^+" key)
-        fileStr .= objectTemplate("!+" key)
-        fileStr .= objectTemplate("^!+" key)
     }
     if(settings.includeShiftRightLeft){
         fileStr .= objectTemplate("<+" key)
@@ -127,9 +147,6 @@ objectTemplateWithModifiers(key) {
     ; Control key modifier and variants
     if(settings.includeControl){
         fileStr .= objectTemplate("^" key)
-        fileStr .= objectTemplate("^!" key)
-        fileStr .= objectTemplate("^+" key)
-        fileStr .= objectTemplate("^+!" key)
     }
     if(settings.includeControlRightLeft){
         fileStr .= objectTemplate("<^" key)
@@ -139,9 +156,6 @@ objectTemplateWithModifiers(key) {
     ; Alt key modifier and variants
     if(settings.includeAlt){
         fileStr .= objectTemplate("!" key)
-        fileStr .= objectTemplate("!^" key)
-        fileStr .= objectTemplate("!+" key)
-        fileStr .= objectTemplate("!+^" key)
     }
     if(settings.includeAltRightLeft){
         fileStr .= objectTemplate("<!" key)
@@ -153,6 +167,38 @@ objectTemplateWithModifiers(key) {
         fileStr .= objectTemplate("#" key)
     }
 
+    ; Modifier Combinations
+    if(settings.includeControlShift) {
+        fileStr .= objectTemplate("^+" key)
+    }
+
+    if(settings.includeAltShift) {
+        fileStr .= objectTemplate("!+" key)
+    }
+
+    if(settings.includeWindowsShift) {
+        fileStr .= objectTemplate("#+" key)
+    }
+
+    if(settings.includeWindowsAlt) {
+        fileStr .= objectTemplate("#!" key)
+    }
+
+    if(settings.includeControlAlt) {
+        fileStr .= objectTemplate("^!" key)
+    }
+
+    if(settings.includeControlWindows) {
+
+    }
+
+    if(settings.includeControlAltShift) {
+
+    }
+
+    if(settings.includeControlAltWindows) {
+
+    }
     ; Wildcard modifier that sends the key regardless of what modifiers are being held down
     if(settings.includeWildcard){
         fileStr .= objectTemplate("*" key)
@@ -314,12 +360,6 @@ if (settings.additionalModifiers) {
 }
 
 ; ============================== FILE CREATION ==============================
-; Checks if a template already exists and deletes it so each template generated is new
-; if (FileExist("./layer-template.ahk")) {
-;     FileDelete("./layer-template.ahk")
-; }
-
-; Creates the template file
 filepath := A_WorkingDir "\config" settings.defaultFolder "\layerX.ahk"
 ; Replace file extensions with .ahk or add .ahk if it isn't present
 filename := RegExReplace(FileSelect("S24", filePath, "Save New Template", ".ahk"), "\.([^\.]+)(?<!\.ahk)$", ".ahk")
@@ -334,4 +374,3 @@ try {
 } catch {
     Return
 }
-
