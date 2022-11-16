@@ -68,7 +68,25 @@ if(settings.deadlayer || settings.multipress){
 }
 
 ; Gui to set the templates layer
-templateLayer := 1
+; Gather information on number of files in layer folder for a 'smart' default number
+configFiles := ""
+layerFolder := readConfigSettings("layerFolder")
+folderPath := "./config/" layerFolder "/*.ahk"
+Loop Files folderPath {
+    configFiles .= A_LoopFileName " "
+}
+
+; The sorted string is turned into an array and the length is used as the number of files + 1, since the addition of the delimiting space after each file creates an additional extra entry
+configFilesArray := StrSplit(configFiles, " ")
+
+responseObj := InputBox("Please enter the number for this layer. `n`nEntering anything other than a number will result in layer toggling becoming more difficult to manage, and possibly inaccessible.", "Layer Number", "W350 H150" ,configFilesArray.Length)
+
+; If the user cancels out or leaves, the script will simply stop
+if(responseObj.Result = "OK") {
+    templateLayer := responseObj.Value
+} else {
+    Return
+}
 
 ; Final string that contains template text
 fileStr := "#HotIf currentLayer = " templateLayer "`n"
@@ -189,15 +207,15 @@ objectTemplateWithModifiers(key) {
     }
 
     if(settings.includeControlWindows) {
-
+        fileStr .= objectTemplate("^#" key)
     }
 
     if(settings.includeControlAltShift) {
-
+        fileStr .= objectTemplate("^!+" key)
     }
 
     if(settings.includeControlAltWindows) {
-
+        fileStr .= objectTemplate("^!#" key)
     }
     ; Wildcard modifier that sends the key regardless of what modifiers are being held down
     if(settings.includeWildcard){
@@ -360,7 +378,7 @@ if (settings.additionalModifiers) {
 }
 
 ; ============================== FILE CREATION ==============================
-filepath := A_WorkingDir "\config" settings.defaultFolder "\layerX.ahk"
+filepath := A_WorkingDir "\config" settings.defaultFolder "\layer" templateLayer ".ahk"
 ; Replace file extensions with .ahk or add .ahk if it isn't present
 filename := RegExReplace(FileSelect("S24", filePath, "Save New Template", ".ahk"), "\.([^\.]+)(?<!\.ahk)$", ".ahk")
 
