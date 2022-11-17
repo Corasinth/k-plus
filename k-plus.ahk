@@ -7,6 +7,11 @@
 ; ============================== MAIN VARIABLES ==============================
 ; This is the tracker that determines the current layer
 currentLayer := 1
+defaultLayer := readConfigSettings("defaultLayer")
+if(defaultLayer) {
+    currentLayer := defaultLayer
+}
+
 ; This is a number used to record CURRENT_LAYER for temporary layer swaps
 previousLayer := 0
 
