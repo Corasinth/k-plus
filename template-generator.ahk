@@ -47,6 +47,8 @@ settings := {
     defaultAction: readTemplateSettings("defaultAction"),
     ; Sets the default function, only used when formatting is on
     defaultFunction: readTemplateSettings("defaultFunction"),
+    ; Sets a hotkey in every file that goes to the directory
+    universalDirectoryKey: readTemplateSettings("universalDirectoryKey")
 
     ; If this is a dead layer, adds a toggleLayer(previousyLayer) to each hotkey
     deadlayer: readTemplateSettings("deadlayer"),
@@ -245,6 +247,11 @@ objectTemplateWithModifiers(key) {
 ; ============================== BUILDING KEY ARRAY ==============================
 
 ; Pushes each group into the array. Groups are split for easy rearranging and so that some can be excluded based on the settings.ini file
+
+if(settings.universalDirectoryKey){
+    keyArray.Push(settings.universalDirectoryKey)
+}
+
 if(settings.includeMouseButtons){
     for key in mouseButtonsArray {
         keyArray.Push(key)
@@ -316,6 +323,10 @@ if(settings.additionalKeys) {
 ; Generates the template file from the key array and adds comments.
 for key in keyArray {
     ; These if statements provide some useful comments to denote different sections
+    if(key = settings.universalDirectoryKey){
+        fileStr .= "; ====================================== DIRECTORY KEY ======================================`n"
+        Continue
+    }
     if(key = mouseButtonsArray[1]){
         fileStr .= "; ====================================== MOUSE BUTTONS ======================================`n"
     }
