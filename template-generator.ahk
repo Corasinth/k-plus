@@ -72,7 +72,7 @@ if(settings.deadlayer){
 ; Gui to set the templates layer
 ; Gather information on number of files in layer folder for a 'smart' default number
 configFiles := ""
-layerFolder := readConfigSettings("layerFolder")
+layerFolder := readTemplateSettings("defaultFolder")
 folderPath := "./config/" layerFolder "/*.ahk"
 Loop Files folderPath {
     configFiles .= A_LoopFileName " "
@@ -100,10 +100,10 @@ keyArray := []
 mouseButtons := "LButton RButton MButton XButton1 XButton2 WheelDown WheelUp WheelLeft WheelRight"
 letterKeys := "qwertyuiopasdfghjklzxcvbnm"
 numberKeys := "1234567890"
-; The four backticks are sadly nessecary to escape the backticks for the punctuationKeys string, and then later to escape the backticks in the various layers.
-punctuationKeys := "- = [ ] \ ```; \ ' , . / ``"
+; Backticks are used to escape the semicolon and backtick keys
+punctuationKeys := "- = [ ] \ `; \ ' , . / ``"
 controlKeys := "Space Tab Enter Escape Backspace Delete ScrollLock AppsKey PrintScreen CtrlBreak Pause Help Sleep"
-modifierKeys := "CapsLock Shift Control LControl RControl Shift LShift RShift Alt RAlt LAlt LWin RWin"
+modifierKeys := "CapsLock Shift Control LControl RControl Shift LShift RShift Alt LAlt RAlt LWin RWin"
 navigationKeys := "Up Down Left Right Insert Home End PgUp PgDn"
 numKeys := "NumLock NumpadDiv NumpadMult NumpadAdd NumpadSub NumpadEnter Numpad0 Numpad1 Numpad2 Numpad3 Numpad4 Numpad5 Numpad6 Numpad7 Numpad8 Numpad9"
 mediaKeys := "Browser_Back Browser_Forward Browser_Refresh Browser_Stop Browser_Search Browser_Favorites Browser_Home Volume_Mute Volume_Down Volume_Up Media_Next Media_Prev Media_Stop Media_Play_Pause Launch_Mail Launch_Media Launch_App1 Launch_App2"
@@ -352,7 +352,17 @@ for key in keyArray {
         }
     }
 
+    ; Adds an escape to prevent ahk from reading the semicolon key as a commented out line
+    if(key = ";"){
+        key := "``;"
+    }
+
     fileStr .= objectTemplate(key)
+
+    ; And then undoes this for the remainder of any modifiers since it is no longer needed
+    if(key = "``;") {
+        key := ";"
+    }
 
     ; Shift key modifier and variants
     if(settings.includeShift){
@@ -411,3 +421,4 @@ try {
 } catch {
     Return
 }
+

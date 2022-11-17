@@ -20,7 +20,7 @@ toggleLayer(targetLayer) {
 ; ============================== INCLUDE HOTKEYS ==============================
 ; Include master file of layers. This file contains nothing but #Include commands for the rest of the config files
 #Include ./config/layer-list.ahk
-
+#HotIf
 ; ============================== SHUTDOWN & SUSPEND HOTKEYS ==============================
 ; Create universal quit and suspend keys
 quitKey := readConfigSettings("universalQuitKey")
