@@ -325,6 +325,7 @@ for key in keyArray {
     ; These if statements provide some useful comments to denote different sections
     if(key = settings.universalDirectoryKey){
         fileStr .= "; ====================================== DIRECTORY KEY ======================================`n"
+        filestr .= "`n" key ":`: toggleLayer(1)`n"
         Continue
     }
     if(key = mouseButtonsArray[1]){
