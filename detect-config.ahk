@@ -1,7 +1,7 @@
 #Requires AutoHotkey v2.0-beta
 #SingleInstance Force
 ; Adds ini util function
-#Include ./config/util/ini-reader.ahk
+#Include ./util/ini-reader.ahk
 ; ============================== MAIN VARIABLES ==============================
 
 ; Will hold a list of config files for sorting

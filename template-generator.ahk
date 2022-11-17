@@ -1,7 +1,7 @@
 #Requires AutoHotkey v2.0-beta
 #SingleInstance Force
 ; Include the ini util functions
-#Include ./config/util/ini-reader.ahk
+#Include ./util/ini-reader.ahk
 ; ============================== VARIABLES ==============================
 
 ; Settings object

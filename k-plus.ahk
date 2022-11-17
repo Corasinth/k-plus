@@ -1,7 +1,7 @@
 ﻿#Requires AutoHotkey v2.0-beta
 #SingleInstance Force
 ; Include ini reader util functions
-#Include ./config/util/ini-reader.ahk
+#Include ./util/ini-reader.ahk
 ; Allow layers to trigger other script hotkeys/strings
 #InputLevel 1
 ; ============================== MAIN VARIABLES ==============================
