@@ -48,7 +48,7 @@ settings := {
     ; Sets the default function, only used when formatting is on
     defaultFunction: readTemplateSettings("defaultFunction"),
     ; Sets a hotkey in every file that goes to the directory
-    universalDirectoryKey: readTemplateSettings("universalDirectoryKey")
+    universalDirectoryKey: readTemplateSettings("universalDirectoryKey"),
 
     ; If this is a dead layer, adds a toggleLayer(previousyLayer) to each hotkey
     deadlayer: readTemplateSettings("deadlayer"),
