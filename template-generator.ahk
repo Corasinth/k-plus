@@ -138,11 +138,15 @@ objectTemplate(targetKey) {
 
     ; If formatting is requested braces are installed around the default action, otherwise the default action is just directly attatched to the hotkey
     if(settings.multipress){
-        keyStr .= "{`nstatic keyPresses := 0`nif(keyPresses > 0){`nkeyPresses += 1`nreturn`n}`nkeyPresses := 1`nSetTimer pressTimer, -400`npressTimer(){`nif(keyPresses = 1){`n`n"
+        keyStr .= "{`nstatic keyPresses := 0`nif(keyPresses > 0){`nkeyPresses += 1`nreturn`n}`nkeyPresses := 1`nSetTimer pressTimer, -400`npressTimer(){`nif(keyPresses = 1){`n"
+        keyStr .= "; Function for single press goes here`n"
         keyStr .= settings.defaultFunction
         keyStr .= "`n`n}else if(keyPresses = 2){`n`n"
+        keyStr .= "; Function for double press goes here`n"
         keyStr .= settings.defaultFunction
         keyStr .= "`n`n}else if(keyPresses > 2){`n`n"
+        keyStr .= "; Function for triple press goes here`n"
+        keyStr .= settings.defaultFunction
         keyStr .= settings.defaultFunction
         keyStr .= "`n`n}`nkeyPresses := 0`n}`n}`n"
     } else if (settings.inclusiveMultipress) {
