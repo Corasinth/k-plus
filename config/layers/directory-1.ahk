@@ -1,7 +1,7 @@
 #HotIf currentLayer = 1
 ; ====================================== LETTERS ======================================
-q::toggleLayer(2)
-w::toggleLayer(3)
+; q::toggleLayer(2)
+; w::toggleLayer(3)
 ; e::toggleLayer(4)
 ; r::toggleLayer(5)
 ; t::toggleLayer(6)
