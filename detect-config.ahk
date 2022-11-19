@@ -8,7 +8,8 @@
 configFiles := ""
 layerFolder := readConfigSettings("layerFolder")
 folderPath := "./config/" layerFolder "/*.ahk"
-; ============================== ASSEMBLING CONFIG FILES INTO MATRIX ==============================
+; ============================== ASSEMBLING CONFIG FILES ==============================
+; The files in the designated folder are sorted, so that in future releases if certain hotkeys need to be generated from a matrix this will make it easier to arrange them in the correct order
 Loop Files folderPath {
     ; It is nessecary to include a space after each file for parsing
     configFiles .= A_LoopFileName " "
