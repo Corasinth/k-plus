@@ -155,17 +155,13 @@ Lastly, numpad keys behave differently depending on whether or not `NumLock` is 
 
 If you encounter unexpected compatability issues, I reccomend checking out the source code and the [AHK v2 docs](https://lexikos.github.io/v2/docs/AutoHotkey.htm). You can also open an issue.
 
-## **Contributing**
+## **Contributing and Future Development**
 
-Feel free to fork/create a pull request to fix bugs, refactor code, or add new featues. While I aimed to create something flexible and easy to configure, I'm certainly not a master of AHK and there's certainly room for improvement.
+Feel free to fork/create a pull request to fix bugs, refactor code, or add new featues. While I aimed to create something flexible and easy to configure, I'm not a master of AHK and there's certainly room for improvement.
 
-In particular, the settings for creating template layers must be edited manually, and would likely benefit from some simple GUI options. Morevoer, there may be more efficient ways of formatting and setting up the templates, or making it easier to navigate them to fill in functions as desired.
+In particular, the settings for creating template layers must be edited manually, and would benefit from some GUI controls. Morevoer, there may be more efficient ways of formatting and setting up the templates, or making it easier to navigate them to fill in functions as desired.
 
-Currently, k-plus does not support hotstrings. While you can of course generate your own hotstring scripts, you cannot define custom hotstrings in a given layer. Adding this functionality while maintaining performance is a good project to contribute to.
-
-Finally, a general refactoring of code might provide a way to use the script with `.ini` files instead of `.ahk` libraries. This would provide the advantage of having a script whose layers are configurable even after being compiled. That would simplify the installation process and likely make the user configuration experience simpler. 
-
-It's probable the code can be refactored to work entirely with `.ini` files, without losing too much efficacy, though I suspect some degree of versatility will be inevitably lost. If `.ini` files are better for you, and you're interested in tackling the refactoring, go for it, I'll make a dedicated branch for the project.
+Currently, k-plus does not support hotstrings. While you can of course generate your own hotstring scripts, you cannot define custom hotstrings in a given layer. Adding this functionality in a clean and convenient way is a probable area of future development
 
 Other fixes, suggestions, improvements, and additional features are welcome.
 
