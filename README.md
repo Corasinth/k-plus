@@ -21,11 +21,12 @@ If you just want some simple remapped layers (for programming for example) skip 
         * [Ordering Layers](#ordering-layers)    
 * [Usage](#usage)
 * [Features](#features)
+    * [Direct Remapping](#direct-remapping)
     * [Dead Layers](#dead-layers)
     * [Tips on Chords](#tips-on-chords)
-    * [Direct Remapping](#direct-remapping)
     * [Multipress](#multipress)
     * [Inclusive Multipress](#inclusive-multipress)
+    * [Mapping Modifier Keys](#mapping-modifier-keys)
 * [Compatibility](#compatibility)
 * [Contributing](#contributing)
 * [Credits](#credits)
@@ -108,8 +109,8 @@ Below is a full list of the various template generator settings, their possible 
 `includeControlWindows`: Boolean. Handles the `Control+Windows` combination prefix to hotkeys.
 `includeControlAltShift`: Boolean. Handles the `Control+Alt+Shift` combination prefix to hotkeys.
 `includeControlAltWindows`: Boolean. Handles the `Control+Alt+Windows` combination prefix to hotkeys.
-`multipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single, double, or triple keypress (400 ms delay max).
-`inclusiveMultipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single or double press (400 ms delay max), that always sends the single press action.
+`multipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single, double, or triple keypress (400 ms delay max). Cannot be used with inclusiveMultipress.
+`inclusiveMultipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single or double press (400 ms delay max), that always sends the single press action. Cannot be used with regular multipress.
 `defaultAction`: A function call or single key. Adds the contents of the string to the single line hotkey as so:
 ```
 <hotkey>::<defaultAction>
@@ -165,27 +166,88 @@ It's also inadvisable to wholly remap your control keys and mouse buttons when s
 
 However, if you do find yourself in a similar situation, I have included universal quit and suspend keys. by default these are `Ctrl+Alt+Windows+Shift+q` and `Ctrl+Alt+Windows+Shift+s` respectively. These can be changed in `settings.ini` of course, but by default template generators do not include all possible modifier combinations to avoid conflicts with these default shortcuts.
 
-Finally, hotkeys not included in layer will 'fall through', defaulting to their registry mappings. Usually this will be the normal QWERTY keyboard, unless you've made specific changes. You can change this default behavior by remapping keys to the keyword `Return`, which will effectively disable a key entirely in a given layer.
+Additionally, when generating your templates I highly reccomend copy and pasting the specific sections you want. For example, if you want to add multipress options to just a few keys, generate a template layer with multipress for that key group, copy the keys you want, and paste them into your actual layer file, replacing the defaults for the keys there.
+
+You can stitch together templates like this for greater customizability.
+
+Hotkeys not included in layer will 'fall through', defaulting to their registry mappings. Usually this will be the normal QWERTY keyboard, unless you've made specific changes. You can change this default behavior by remapping keys to the keyword `Return`, which will effectively disable a key entirely in a given layer.
+
+Finally, by default hotkeys are sent with an input level of 1. This means that they are capable of triggerings hotkeys and hotstrings in other scripts with a lower input level (if no input level is specified in a script, the level is 0). So when pressing the hotkey `a` to trigger the hotkey `h`, any other scripts that have a hotkey of `h` will be triggered. 
+
+If you have scripts with higher input levels, you can edit k-plus directly to change the default input level. Otherwise, k-plus is meant to act for most people as a replacement keyboard layout that can directly interface with your other AHK scripts as if you weren't using a layer script and the keys showing up on the screen were the physical keys you were pressing.
 
 ## **Features**
 
-[Descripton of features and basic method for loading in the config files]
+K-plus has a lot of features that can be accessed via `settings.ini`. However, each and every feature here is simply something you can do with AutoHotKey itself, and so their [official docs](https://lexikos.github.io/v2/docs/AutoHotkey.htm) are a much better source of support and ideas for what you can make your layers do.
 
-### **Dead Layers**
-
-### **Tips on Chords**
-
-[Include details about more than one modifier key, lack of inclusion for everything but shift key]
-
-If you want to add a custom chord, but don't want to generate combos for every key displayed, you can do so by replacing the key with `key1 & key2`. The hotkey will work perfectly. Note however, as per the AHK specifications, that `key1` will lose its native function. Personally, I think this is a feature, not a bug, as it prevents unintentional key presses.
-
-However, if you really want a key to work in concert with another while keeping its native function (or just having any function at all), simply assign `key1` its own hotkey in the layer's config file. 
+Below I have included some of the core features I believe will be central to anyone using multiple layers, but these should not be taken as an exahustive list, merely suggestions about what you can do with k-plus without too much effort.
 
 ### **Direct Remapping**
 
+The easiest way to use k-plus is direct remapping. Direct remapping looks like this: `a::h`, and is the default way to use k-plus. 
+
+In the previous example, `a` is remapped to `h`. Remapping in this way also remaps modifier combinations, which is extremely useful. So `Ctrl+a` will function identically to `Ctrl+h` and capitalization will work as expected.
+
+You can read the full details [here](https://lexikos.github.io/v2/docs/misc/Remap.htm).
+
+### **Dead Layers**
+
+Dead layers are how k-plus implements dead keys. For those unfamiliar, dead keys do nothing when pressed, but the subsequent key has an altered function. For example, the English international keyboard uses the apostrophe key as a dead key to produce diacritical marks over specific letters.
+
+K-plus also allows you to create custom dead keys by linking them to a custom dead layer. In short, the dead key toggles to a new dead layer where each key does some custom function (like produce a special letter variant), and then toggles back to the previous layer. 
+
+This can be handy for symbols or punctuation layers, where you only want to send a single punctuation mark before automatically returning to your usual letters. 
+
+The template generator can automatically make a layer 'dead' via the appropriate setting. You can create as many dead layers as you wish, as long as you can keep track of how to navigate to them.
+
+### **Tips on Chords**
+
+AHK happily supports custom key combinations. A custom cumbo takes the following form: `key1 & key2::<output event>`. AHK does not support more than two keys in combination at a time. 
+
+A custom combination disables the usual function of `key1` in order to prevent unwanted inputs when using the combination. However, this can be overridden by specificying a hotkey for `key1`. 
+
+While you can add custom combinations to a layer manually or by including the combos in the `additionalKeys` setting, you can also include keys in the `additional modifier` settings. This will generate a custom combination for each key you include + every other key on the keyboard included in your template. 
+
+Custom combinations do not support prefix modifiers, so you cannot chord together `Ctrl+Alt+z+y` for example.
+
+A custom modifier is useful for generating a new shift-like layer within a layer.
+
 ### **Multipress**
 
+K-plus includes a special setting for multipress detection. Turning this option on in the settings attatches a piece of code to every hotkey which distinguishes between single, double, and triple presses. You can fill in custom functions to send keys or perform other tasks under each option.
+
+Multipress works by waiting 400ms for a new keypress and keeping track of the number of keypresses in a row. That means if you want a single press function to trigger, there is a 400ms delay while the script checks to make sure you aren't actualy trying to input a double press.
+
+That makes multipress an inconvenient option for rapid keyboard inputs or even quick toggling between layers. However, for uses like running a specific program or complex functions you use infrequently and don't require immediate subsequent key presses, it is an excellent option.
+
 ### **Inclusive Multipress**
+
+Inclusive multipress works similarly to multipress, adding a new batch of code with slots for custom functions. However, there are a few key differences. 
+
+Firstly, it only distinguishes between single and double presses, triple press support is not present at this time. 
+
+More importantly, when pressing an inclusive multipress key the single press option always fires. If the single press option has the key send the character `x`, while the double press option sends the character `y`, then the actual behaviour of a double press will be to first send `x`, then on the second press send `y`. 
+
+This can be inconvient, but inclusive multipress has been included in k-plus for a few reasons.
+
+It's much more responsive than regular multipress, requiring no delay before action is taken. 
+
+For sending characters, one can set the double press action to backspace the previously typed character before sending the appropriate character. 
+
+And modifier keys can be set up with inclusive multipress since a single press of, for example, Shift, usually does nothing anyway. 
+
+### Mapping Modifier Keys
+
+If you'd like, you can also remap modifier keys so that they retain their normal function when holding them down, but produce a new result or character when tapped. To do this, use the following format: 
+```
+modifierKey::SendInput("customCharacter")/customFunction
+modifierKey & <Any other Key>::<Any custom function or character> 
+```
+By creating a custom combination with the modifier key, the modifiers native function is restored. See the docs for [more information](https://lexikos.github.io/v2/docs/HotkeyFeatures.htm#easy-to-reach).
+
+It is important that when remapping modifier keys you do not use the direct remapping format of `modifierKey::outputCharacter`. This format can cause issues, occasionally even across layers for reasons I do not understand. 
+
+Notably, directly remapping a key in this way prevents you from defining custom combinations of modifier keys like `Ctrl+Shift`. You can define a hotkey as `Ctrl+key` or `Shift+key`, but not `Ctrl+Shift+Key` or any other combinations. This interferes with the default universal quit and suspend hotkeys.
 
 ## **Compatibility**
 
