@@ -181,6 +181,16 @@ K-plus has a lot of features that can be accessed via `settings.ini`. However, e
 
 Below I have included some of the core features I believe will be central to anyone using multiple layers, but these should not be taken as an exahustive list, merely suggestions about what you can do with k-plus without too much effort.
 
+### **Previous Layer**
+
+K-plus keeps a record of your last layer. This is to enable dead layers toggling back to your previous layer and enable keys set to `toggleLayer(previousLayer)` to send you back to your last used layer.
+
+In the `settings.ini` file, the `ignoreLayerAsPreviousLayer` option can be set to a layer that is never recorded as the previous layer. If this is set to 1 (usually the directory layer), you can swap from, for example, layer 4 to the directory and then to layer 5, then use a toggle-to-previous-layer hotkey to move back to layer 4. 
+
+If, as reccomended, you have a key on every layer that points to the directory, it provides no benefit to toggle to the previous layer when the previous layer is the directory. Thus, you can exclude it from consideration.
+
+The setting can be set to any number, so if you prefer to have your directory be a layer other than 1, you can still set it up to be skipped easily.
+
 ### **Direct Remapping**
 
 The easiest way to use k-plus is direct remapping. Direct remapping looks like this: `a::h`, and is the default way to use k-plus. 
