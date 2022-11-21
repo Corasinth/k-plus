@@ -18,7 +18,10 @@ previousLayer := 0
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
     global
-    previousLayer := currentLayer
+    ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory
+    if (currentLayer != readConfigSettings("ignoreDirectoryAsPreviousLayer")) {
+        previousLayer := currentLayer
+    }
     currentLayer := targetLayer
 }
 
