@@ -6,7 +6,7 @@ q::Esc
 w::WheelUp
 e::Browser_Back
 r::Browser_Forward
-t::MouseMove(0,10,,R)
+t::MouseMove(0,-10,,"R")
 y::PgUp
 u::Home
 i::Up
@@ -16,7 +16,7 @@ a::Alt
 s::WheelDown
 d::Shift
 f::Ctrl
-g::MouseMove(0,-10,,R)
+g::MouseMove(0,10,,"R")
 h::PgDn
 j::Left
 k::Down
@@ -40,7 +40,7 @@ m::RButton
 9::F9
 0::F10
 ; ====================================== ADDITIONAL KEYS ======================================
-Enter::PrtSc
+Enter::PrintScreen
 Backspace::CtrlBreak
 Space::Enter
 -::F11
@@ -48,5 +48,5 @@ Space::Enter
 [::Esc
 ]::Insert
 `;::BackSpace
-,::MouseMove(-10,0,,R)
-.::MouseMove(10,0,,R)
+,::MouseMove(-10,0,,"R")
+.::MouseMove(10,0,,"R")
