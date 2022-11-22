@@ -276,9 +276,11 @@ Feel free to fork/create a pull request to fix bugs, refactor code, or add new f
 
 In particular, the settings for creating template layers must be edited manually, and would benefit from some GUI controls. Morevoer, there may be more efficient ways of formatting and setting up the templates, or making it easier to navigate them to fill in functions as desired.
 
-Currently, k-plus does not support hotstrings. While you can of course generate your own hotstring scripts, you cannot define custom hotstrings in a given layer. Adding this functionality in a clean and convenient way is a probable area of future development.
+Currently, k-plus does not support hotstrings. While you can of course generate your own hotstring scripts or custom add hotstrings to a layer, there is no built in generator for hotstrings, hotstring options, or hotstring end characters. Adding this functionality in a clean and convenient way is a probable area of future development.
 
-Finally, implementing k-plus in a way that allows for layerd `Alt+Tab` and other hotkeys unaffected by `#HotIf` would be great. A possible avenue here is looping through an array of objects when switching between layers for these special remappings.
+Another area for improvement is implementing k-plus in a way that allows for layerd `Alt+Tab` and other hotkeys unaffected by `#HotIf` would be great. A possible avenue here is looping through an array of objects when switching between layers for these special remappings.
+
+Finally, developing new layers can be very useful, but k-plus does not include a convenient way to refrence the keybindings of a particular layer. Developing a script to create a refrence map for a layer would be beneficial, as printing out a keyboard layout and penciling in your options can be inconvenient.
 
 Other fixes, suggestions, improvements, and additional features are welcome.
 
