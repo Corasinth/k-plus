@@ -1,6 +1,8 @@
-#HotIf currentLayer = 3
+#HotIf currentLayer = 4
 ; ====================================== UNIVERSAL DIRECTORY KEY ======================================
-CapsLock::toggleLayer(1)
+Alt::toggleLayer(1)
+; Reenable alt as a modifier
+Alt & 1::!1
 ; ====================================== LETTERS ======================================
 q::Esc
 w::WheelUp

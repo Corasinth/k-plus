@@ -2,7 +2,7 @@
 ; ====================================== LETTERS ======================================
 q::toggleLayer(2)
 w::toggleLayer(3)
-; e::toggleLayer(4)
+e::toggleLayer(4)
 ; r::toggleLayer(5)
 ; t::toggleLayer(6)
 ; y::toggleLayer(7)
