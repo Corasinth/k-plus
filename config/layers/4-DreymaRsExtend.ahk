@@ -45,6 +45,8 @@ m::RButton
 Enter::PrintScreen
 Backspace::CtrlBreak
 Space::Enter
+; Sends you back to the previous layer, effectively letting capslock be a toggle between the Extend layer and other layers
+CapsLock::toggleLayer(previousLayer)
 -::F11
 =::F12
 [::Esc
