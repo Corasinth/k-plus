@@ -109,8 +109,12 @@ Below is a full list of the various template generator settings, their possible 
 `includeControlWindows`: Boolean. Handles the `Control+Windows` combination prefix to hotkeys.  
 `includeControlAltShift`: Boolean. Handles the `Control+Alt+Shift` combination prefix to hotkeys.  
 `includeControlAltWindows`: Boolean. Handles the `Control+Alt+Windows` combination prefix to hotkeys.  
-`multipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single, double, or triple keypress (400 ms delay max). Cannot be used with inclusiveMultipress.  
-`inclusiveMultipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single or double press (400 ms delay max), that always sends the single press action. Cannot be used with regular multipress.  
+`additionalKeys`: String (include the value in "double quotes, as demonstrated here"). Seperate the keys you wish to include with a comme, as follows:  
+```  
+additionalkeys = "x,y,z,CapsLock,a & s"  
+```  
+This includes the keys listed as their own entries in the template file. Useful for when you don't wish to include an entire group (such as all letters or all media keys), but don't want to create the objects manually. Note that the last entry is a chord, requiring you to press `a` and `s` together to trigger the hotkey.
+`additionalModifiers`: String (include the value in "double quotes, as demonstrated here"). Seperate any desired modifier keys with a comma, as above. Modifier keys effectively add another sublayer that behaves like `Shift` to the layer. It creates a chord in the following format: `modifierKey & everyOtherKey`, for every key otherwise included in the template file. Thus, an additional modifier layer.  
 `defaultAction`: A function call or single key. Adds the contents of the string to the single line hotkey as so:  
 ```  
 <hotkey>::<defaultAction>  
@@ -118,12 +122,8 @@ Below is a full list of the various template generator settings, their possible 
 `defaultFunction`: String (include the value in "double quotes, as demonstrated here"). This details the default actions placed inside the hotkey object's function. Do not add typical function wrappings like `()=>{}`. Instead simply paste the code you would put inside the function, using `` `n `` to create line breaks. As an example:   
 `universalDirectoryKey`: String. This optional entry, if set to a specific key, will always set that key to toggle back to layer 1, the directory layer. Useful when generating multiple templates.  
 `deadLayer`: Boolean. If true, the template generated will be treated like a dead layer, and an additional `toggleLayer(previousLayer)` function call will be added to each hotkey to toggle the layer back after any key is pressed.  
-`additionalKeys`: String (include the value in "double quotes, as demonstrated here"). Seperate the keys you wish to include with a comme, as follows:  
-```  
-additionalkeys = "x,y,z,CapsLock,a & s"  
-```  
-This includes the keys listed as their own entries in the template file. Useful for when you don't wish to include an entire group (such as all letters or all media keys), but don't want to create the objects manually. Note that the last entry is a chord, requiring you to press `a` and `s` together to trigger the hotkey.
-`additionalModifiers`: String (include the value in "double quotes, as demonstrated here"). Seperate any desired modifier keys with a comma, as above. Modifier keys effectively add another sublayer that behaves like `Shift` to the layer. It creates a chord in the following format: `modifierKey & everyOtherKey`, for every key otherwise included in the template file. Thus, an additional modifier layer.  
+`multipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single, double, or triple keypress (400 ms delay max). Cannot be used with inclusiveMultipress.  
+`inclusiveMultipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single or double press (400 ms delay max), that always sends the single press action. Cannot be used with regular multipress.  
 `formatted`: Boolean. Determines whether or not the hotkey objects are on a single line, or formatted for readability. Turning formatting on makes it easier to add custom functions, especially multiline functions, to each hotkey object. However, it makes it more difficult to quickly scan several hotkeys at once, or easily change a single variable in each (as per remapping)    
 `defaultFolder`: String. Sets the default folder for saving a template. Useful when generating multiple template layers.  
 
