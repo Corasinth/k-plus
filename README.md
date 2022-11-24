@@ -144,7 +144,9 @@ Ensuring your layer files are appropriately ordered is simple. When you generate
 
 Later, if you want to change the layer number you can edit the first line of the layer file so that `currentLayer` equals the layer number you wish.
 
-For the sake of clarity, I reccomend including the layer number in the filename along with whatever else you wish to name the layer.
+For the sake of clarity, I reccomend including the layer number in the filename along with whatever else you wish to name the layer. 
+
+**IMPORTANT:** Do not include spaces in your layer name. Other symbols are fine, but spaces cause issues with the config detector script and will likely result in errors.
 
 ## **Usage**
 
