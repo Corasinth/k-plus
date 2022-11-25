@@ -19,10 +19,32 @@ previousLayer := 0
 toggleLayer(targetLayer) {
     global
     ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory
-    if (currentLayer != readConfigSettings("ignoreDirectoryAsPreviousLayer")) {
+    if (currentLayer != readConfigSettings("ignoreLayerAsPreviousLayer")) {
         previousLayer := currentLayer
     }
     currentLayer := targetLayer
+}
+
+; ============================== UTILITY FUNCTIONS ==============================
+; Sets up string that  
+timeParameter := "T" readTemplateSettings("longPressDelay")
+
+longPress(ThisHotkey, defaultString, longPressString){
+    SendInput(defaultString)
+    if(!KeyWait(ThisHotkey, timeParameter)){
+        SendInput("{BackSpace}")
+        SendInput(longPressString)
+        KeyWait(ThisHotkey)
+    }
+}
+
+onReleaseLongPress(ThisHotkey, defaultString, longPressString){
+    SendInput(defaultString)
+    if(!KeyWait(ThisHotkey, timeParameter)){
+        KeyWait(ThisHotkey)
+        SendInput("{BackSpace}")
+        SendInput(longPressString)
+    }
 }
 
 ; ============================== INCLUDE HOTKEYS ==============================

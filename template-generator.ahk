@@ -43,6 +43,10 @@ settings := {
     multipress: readTemplateSettings("multipress"),
     inclusiveMultipress: readTemplateSettings("inclusiveMultipress"),
 
+    ; Long press settings
+    longPress: readTemplateSettings("longPress"),
+    longPressOnRelease: readTemplateSettings("longPressOnRelease"),
+
     ; Sets the default function
     defaultAction: readTemplateSettings("defaultAction"),
     ; Sets the default function, only used when formatting is on
@@ -69,6 +73,18 @@ if(settings.deadlayer){
     if(settings.deadlayer) {
         settings.defaultFunction .= "`ntoggleLayer(previousLayer)`n"
     }
+}
+
+; Sets the placeholder long press or long press on release function
+; Sets default function and action in case formatting is turned on by one of the other functions
+if(settings.longPress){
+    settings.defaultAction := "longPress(ThisHotkey, `"defaultString`", `"longPressString`")"
+    settings.defaultFunction := "longPress(ThisHotkey, `"defaultString`", `"longPressString`")"
+}
+
+if(settings.longPressOnRelease){
+    settings.defaultAction := "onReleaseLongPress(ThisHotkey, `"defaultString`", `"longPressString`")"
+    settings.defaultFunction := "onReleaseLongPress(ThisHotkey, `"defaultString`", `"longPressString`")"
 }
 
 ; Gui to set the templates layer
@@ -146,7 +162,6 @@ objectTemplate(targetKey) {
         keyStr .= settings.defaultFunction
         keyStr .= "`n`n}else if(keyPresses > 2){`n`n"
         keyStr .= "; Function for triple press goes here`n"
-        keyStr .= settings.defaultFunction
         keyStr .= settings.defaultFunction
         keyStr .= "`n`n}`nkeyPresses := 0`n}`n}`n"
     } else if (settings.inclusiveMultipress) {
