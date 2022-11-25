@@ -31,8 +31,10 @@ timeParameter := "T" readTemplateSettings("longPressDelay")
 
 longPress(ThisHotkey, defaultString, longPressString){
     SendInput(defaultString)
+    defaultStringLength := StrLen(defaultString)
+    backspaceInput := "{Backspace " defaultStringLength "}"
     if(!KeyWait(ThisHotkey, timeParameter)){
-        SendInput("{BackSpace}")
+        SendInput(backspaceInput)
         SendInput(longPressString)
         KeyWait(ThisHotkey)
     }
@@ -40,9 +42,11 @@ longPress(ThisHotkey, defaultString, longPressString){
 
 onReleaseLongPress(ThisHotkey, defaultString, longPressString){
     SendInput(defaultString)
+    defaultStringLength := StrLen(defaultString)
+    backspaceInput := "{Backspace " defaultStringLength "}"
     if(!KeyWait(ThisHotkey, timeParameter)){
         KeyWait(ThisHotkey)
-        SendInput("{BackSpace}")
+        SendInput(backspaceInput)
         SendInput(longPressString)
     }
 }
