@@ -6,7 +6,13 @@ K-plus is tool for enabling layers on non-mechanical keyboards that don't usuall
 
 It's designed to be configurable and flexible; supporting as many layers as you'd like to include. Once configured, a compiled version can easily be carried on a flash drive and run on any Windows device, letting you move your layers between devices.
 
-While configuration is a little complex, it sacrifices simplicity for versatility. K-plus supports layer toggling, AHK's version of chords (usable on their own, or as global modifiers), multipress options, and dead keys (though the implementation is a little hacky). 
+While configuration is a little complex, it sacrifices simplicity for versatility. K-plus supports layer toggling, AHK's version of chords (usable on their own, or as global modifiers), multipress options, dead keys (though the implementation is a little hacky), and variable length presses (for use in implementing Autoshift and similar features).
+
+Being built on AHK, the majority of the features are simply a part of the AHK scripting language, and their docs are much more helpful than the brief descriptions of configuration options below. However, I have included somewhat detailed explanations of what features I have found relevant in creating layers for those who might be interested. 
+
+If you find yourself needing these advanced features, or planning on a set of layers that makes heavy use of them, you might benefit more from some of the software found in the [Additional Resources](#additional-resources) section. Ultimately, this set of scripts was designed around my personal use, and while you may find it useful it won't be as well implemented as more actively maintained/developed software.
+
+You can also check out the 'personal' branch where I keep my personal and somewhat elaborate layer setup for examples that go beyond the simple default layers. 
 
 If you just want some simple remapped layers (for programming for example) skip to [Remapping](#remapping)
 
@@ -27,6 +33,7 @@ If you just want some simple remapped layers (for programming for example) skip 
     * [Multipress](#multipress)
     * [Inclusive Multipress](#inclusive-multipress)
     * [Mapping Modifier Keys](#mapping-modifier-keys)
+    * [Long Press](#long-press)
 * [Compatibility](#compatibility)
 * [Contributing](#contributing)
 * [Credits](#credits)
@@ -124,6 +131,9 @@ This includes the keys listed as their own entries in the template file. Useful 
 `deadLayer`: Boolean. If true, the template generated will be treated like a dead layer, and an additional `toggleLayer(previousLayer)` function call will be added to each hotkey to toggle the layer back after any key is pressed.  
 `multipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single, double, or triple keypress (400 ms delay max). Cannot be used with inclusiveMultipress.  
 `inclusiveMultipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single or double press (400 ms delay max), that always sends the single press action. Cannot be used with regular multipress.  
+`longPress`: Boolean. Whether or not to use the `longPress` function as the default action. See [Long Press](#long-press) for more details.
+`longPressOnRelease`: Boolean. Whether or not to use the long press function that has the secondary result trigger on key release, rather than simply after a duration has expired.
+`longPressDelay`: Floating point number. The time (in seconds) that one must hold a key down for the long press to be activated.
 `formatted`: Boolean. Determines whether or not the hotkey objects are on a single line, or formatted for readability. Turning formatting on makes it easier to add custom functions, especially multiline functions, to each hotkey object. However, it makes it more difficult to quickly scan several hotkeys at once, or easily change a single variable in each (as per remapping)    
 `defaultFolder`: String. Sets the default folder for saving a template. Useful when generating multiple template layers.  
 
@@ -260,6 +270,59 @@ It is important that when remapping modifier keys you do not use the direct rema
 
 Notably, directly remapping a key in this way prevents you from defining custom combinations of modifier keys like `Ctrl+Shift`. You can define a hotkey as `Ctrl+key` or `Shift+key`, but not `Ctrl+Shift+Key` or any other combinations. This interferes with the default universal quit and suspend hotkeys.
 
+### Long Press
+
+The long press options uses a premade function to generate a variable effect based on how long a key has been pressed. The built in function is used primarily for typing characters using `SendInput()`.
+
+The function for long presses, and long presses on release are identical in use. They take three paramters, as follows:
+```
+longPress(ThisHotkey, defaultString, longPressString)
+```
+The default string is the string sent when pressing the key. If the key is held down for long enough the rest of the long press function kicks in. The function backspaces what was previously typed, then sends the new long press string. 
+
+The long press functions are designed to only work with strings of typed characters. In fact, their primary purpose is to allow a more readable implementation of Autoshift (which is when a key outputs its shifted state on a long press) that can be easily customized for non-standard symbol/punctuation keys.
+
+Implementing Autoshift works pretty well, however, if your layer is a non-QWERTY layout remapping gets more complicated. That's because while simple remapping, like `a::b` is complete in that it also automatically includes modifiers (so that `Ctrl+a` would send `Ctrl+b`), setting up a long press like `a::longPress(ThisHotkey, "b", "B")` would **not** include modifiers.
+
+You would have to add those remappings seperately, like so:
+```
+^a::^b
++a::+b
+!a::!b
+```
+
+For more custom code, the long press function can be found in `k-plus.ahk`, copied, and modified to suit. While it is not the best implementation of long presses in AHK, if you can see how to improve it you can also probably improve it yourself. Copying the code and pasting it into a layer file is sufficient for custom long press functions.
+
+One likely use of a custom long press function is to enable homerow mods. These would let you use your home row keys as normal, but on a long press the typed character would be deleted and instead a modifier like shift would be active until released. This is a more limited and easier to use version of home row mods (since key presses are still sent on a depress so you don't have to retrain, but also sending a character and a backspace each time you use the mod, even if you aren't in a text field).
+
+An implementation of homerow shift modifiers for the `d` and `k` keys works like this:
+```
+$<+d::Return
+$d::{
+    SendInput("d")
+    if(!KeyWait("d","T0.130")){
+        SendInput("{BackSpace}")
+        SendInput("{LShift down}")
+        KeyWait("d")
+        SendInput("{LShift up}")
+    }
+}
+
+$>+k::Return
+$k::{
+    SendInput("k")
+    if(!KeyWait("k","T0.130")){
+        SendInput("{BackSpace}")
+        SendInput("{RShift down}")
+        KeyWait("k")
+        SendInput("{RShift up}")
+    }
+}
+```
+It's important to do the right and left versions of the modifier seperately, so that you can prevent, for example, `Shift+k` being sent repeatedly. You prevent that by simply returning the right/left `Shift+key`. By specifying the right/left versions you can continue to use the other version on a key, so that `RShift` still applies to `d` and vice versa.
+
+All that said, Autoshift is still a better use of this implementation of long presses, and if you really want home row mods I reccomend more advanced layer software (as in the [Additional Resources](#additional-resources) section).
+
 ## **Compatibility**
 
 K-plus is built entirely with AHK, which means that it inherits the issues AHK has. These are extensive, and several are buried in the AHK documentation. 
@@ -294,9 +357,9 @@ In addition, [DreymaR's Extend layer](https://github.com/DreymaR/BigBagKbdTrixPK
 
 ## **Additional Resources**
 
-K-plus is a useful tool, but it was designed to serve a single individual's needs. DreymaR's Extend layer is a modifier-based program with a great deal more versatility than k-plus. Although it lacks layer toggling (its one major flaw) it does come with a GUI, support for a variety of keyboard layouts, an active community with active developers, and many more features (like powerstrings, chords, and more advanced dead keys) than I could create. I reccomend checking it out for more details. 
+K-plus is a useful tool, but it was designed to serve a single individual's needs. DreymaR's Extend layer is a modifier-based program with a great deal more versatility than k-plus. Although it lacks layer toggling (its one major flaw) it does come with a GUI, support for a variety of keyboard layouts, an active community with active developers, and many more features (like powerstrings) than I could create. I reccomend checking it out for more details. 
 
-I also have to reccomend [kmonad](https://github.com/kmonad/kmonad), an incredibly flexible layer program designed to work (to one degree or another) on Linux, Windows, and Mac. While the tool is less actively developed, it includes a wider variety of features including layer toggling, dead keys, chords, powerstrings, modifier-based layers, and variable key functions depending on how the key is pressed (double-tapped, held vs tapped, etc.). While support seems to be primarily focused on Linux systems, kmonad truly offers it all, though it comes with a comparable amount of configuration to set up even simple layers. Definately give it a whirl if you lean more towards 'poweruser'.
+I also have to reccomend [kmonad](https://github.com/kmonad/kmonad), an incredibly flexible layer program designed to work (to one degree or another) on Linux, Windows, and Mac. While the tool is less actively developed than DreymaR's Extend, it includes a wider variety of features including layer toggling, dead keys, chords, powerstrings, modifier-based layers, and variable key functions depending on how the key is pressed (double-tapped, held vs tapped, etc.). While support seems to be primarily focused on Linux systems, kmonad truly offers it all, though it comes with a comparable amount of configuration to set up even simple layers. Definately give it a whirl if you lean more towards 'poweruser'.
 
 ## **[License](./LICENSE)**
 This program uses the open-source MIT License.
