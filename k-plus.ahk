@@ -23,6 +23,7 @@ toggleLayer(targetLayer) {
         previousLayer := currentLayer
     }
     currentLayer := targetLayer
+    MsgBox(currentLayer)
 }
 
 ; ============================== UTILITY FUNCTIONS ==============================
