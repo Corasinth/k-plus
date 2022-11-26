@@ -16,6 +16,12 @@ if(defaultLayer) {
 previousLayer := 0
 ; Which variable to ignore when storing the previous layer
 ignoreLayer := readConfigSettings("ignoreLayerAsPreviousLayer")
+
+; Sets absolute coordinates for tooltip
+CoordMode("ToolTip", "Screen")
+; Assign coordinates
+xCoordinate := readConfigSettings("tooltipXCoordinate")
+yCoordinate := readConfigSettings("tooltipYCoordinate")
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
     global
@@ -24,10 +30,19 @@ toggleLayer(targetLayer) {
         previousLayer := currentLayer
     }
     currentLayer := targetLayer
+    if(readConfigSettings("tooltip")){
+        Tooltip(currentLayer, xCoordinate, yCoordinate)
+    }
 }
 
+; To Do!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+; Set up tooltip code
+; Test capital letters instead of Shift + letter
+; Test Shift Up command after Shift + letter
+; Test Shift down and up EXPLICITLY
+
 ; ============================== UTILITY FUNCTIONS ==============================
-; Sets up string that  
+; Sets up string that
 timeParameter := "T" readTemplateSettings("longPressDelay")
 
 longPress(ThisHotkey, defaultString, longPressString){
@@ -52,6 +67,10 @@ onReleaseLongPress(ThisHotkey, defaultString, longPressString){
     }
 }
 
+; Runs ToolTip at start
+if(readConfigSettings("tooltip")){
+    Tooltip(currentLayer, xCoordinate, ycoordinate)
+}
 ; ============================== INCLUDE HOTKEYS ==============================
 ; Include master file of layers. This file contains nothing but #Include commands for the rest of the config files
 #Include ./config/layer-list.ahk
