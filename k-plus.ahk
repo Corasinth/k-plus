@@ -14,12 +14,13 @@ if(defaultLayer) {
 
 ; This is a number used to record CURRENT_LAYER for temporary layer swaps
 previousLayer := 0
-
+; Which variable to ignore when storing the previous layer
+ignoreLayer := readConfigSettings("ignoreLayerAsPreviousLayer")
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
     global
-    ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory
-    if (currentLayer != readConfigSettings("ignoreLayerAsPreviousLayer")) {
+    ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
+    if (currentLayer != ignoreLayer) {
         previousLayer := currentLayer
     }
     currentLayer := targetLayer
