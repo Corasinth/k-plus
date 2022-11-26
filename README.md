@@ -274,7 +274,7 @@ Notably, directly remapping a key in this way prevents you from defining custom 
 
 The long press options uses a premade function to generate a variable effect based on how long a key has been pressed. The built in function is used primarily for typing characters using `SendInput()`.
 
-The function for long presses, and long presses on release are identical in use. They take three paramters, as follows:
+The function for long presses, and long presses on release are identical in use. They take three parameters, as follows:
 ```
 longPress(ThisHotkey, defaultString, longPressString)
 ```
