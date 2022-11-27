@@ -14,8 +14,8 @@ if(defaultLayer) {
 
 ; This is a number used to record CURRENT_LAYER for temporary layer swaps
 previousLayer := 0
-
-; ============================== TOGGLE LAYERS ==============================
+CoordMode("ToolTip")
+; ============================== TOGGLE LAYERS ============================== 
 toggleLayer(targetLayer) {
     global
     ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory
@@ -23,7 +23,8 @@ toggleLayer(targetLayer) {
         previousLayer := currentLayer
     }
     currentLayer := targetLayer
-    MsgBox(currentLayer)
+    CoordMode("ToolTip")
+    ToolTip(currentLayer, 1920, 1080)
 }
 
 ; ============================== UTILITY FUNCTIONS ==============================
@@ -32,7 +33,8 @@ timeParameter := "T" readTemplateSettings("longPressDelay")
 
 longPress(ThisHotkey, defaultString, longPressString){
     SendInput(defaultString)
-    defaultStringLength := StrLen(defaultString)
+    ; defaultStringLength := StrLen(defaultString)
+    defaultStringLength := 1
     backspaceInput := "{Backspace " defaultStringLength "}"
     if(!KeyWait(ThisHotkey, timeParameter)){
         SendInput(backspaceInput)

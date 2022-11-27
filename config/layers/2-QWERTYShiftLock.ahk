@@ -1,339 +1,355 @@
-#HotIf currentLayer = 2
+#HotIf currentLayer = "QwertyShiftLocked"
 ; ====================================== LETTERS ======================================
 q::{
     if(A_PriorHotkey != "q" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+q", "q")
+        longPress(ThisHotkey, "Q", "q", 1)
     } else {
-        SendInput("+q")
+        SendInput("Q")
     }
 }
 w::{
     if(A_PriorHotkey != "w" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+w", "w")
+        longPress(ThisHotkey, "W", "w", 1)
     } else {
-        SendInput("+w")
+        SendInput("W")
     }
 }
 e::{
     if(A_PriorHotkey != "e" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+e", "e")
+        longPress(ThisHotkey, "E", "e", 1)
     } else {
-        SendInput("+e")
+        SendInput("E")
     }
 }
 r::{
     if(A_PriorHotkey != "r" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+r", "r")
+        longPress(ThisHotkey, "R", "r", 1)
     } else {
-        SendInput("+r")
+        SendInput("R")
     }
 }
 t::{
     if(A_PriorHotkey != "t" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+t", "t")
+        longPress(ThisHotkey, "T", "t", 1)
     } else {
-        SendInput("+t")
+        SendInput("T")
     }
 }
 y::{
     if(A_PriorHotkey != "y" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+y", "y")
+        longPress(ThisHotkey, "Y", "y", 1)
     } else {
-        SendInput("+y")
+        SendInput("Y")
     }
 }
 u::{
     if(A_PriorHotkey != "u" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+u", "u")
+        longPress(ThisHotkey, "U", "u", 1)
     } else {
-        SendInput("+u")
+        SendInput("U")
     }
 }
 i::{
     if(A_PriorHotkey != "i" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+i", "i")
+        longPress(ThisHotkey, "I", "i", 1)
     } else {
-        SendInput("+i")
+        SendInput("I")
     }
 }
 o::{
     if(A_PriorHotkey != "o" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+o", "o")
+        longPress(ThisHotkey, "O", "o", 1)
     } else {
-        SendInput("+o")
+        SendInput("O")
     }
 }
 p::{
     if(A_PriorHotkey != "p" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+p", "p")
+        longPress(ThisHotkey, "P", "p", 1)
     } else {
-        SendInput("+p")
+        SendInput("P")
     }
 }
 a::{
     if(A_PriorHotkey != "a" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+a", "a")
+        longPress(ThisHotkey, "A", "a", 1)
     } else {
-        SendInput("+a")
+        SendInput("A")
     }
 }
 s::{
     if(A_PriorHotkey != "s" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+s", "s")
+        longPress(ThisHotkey, "S", "s", 1)
     } else {
-        SendInput("+s")
+        SendInput("S")
     }
 }
 d::{
     if(A_PriorHotkey != "d" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+d", "d")
+        longPress(ThisHotkey, "D", "d", 1)
     } else {
-        SendInput("+d")
+        SendInput("D")
     }
 }
 f::{
     if(A_PriorHotkey != "f" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+f", "f")
+        longPress(ThisHotkey, "F", "f", 1)
     } else {
-        SendInput("+f")
+        SendInput("F")
     }
 }
 g::{
     if(A_PriorHotkey != "g" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+g", "g")
+        longPress(ThisHotkey, "G", "g", 1)
     } else {
-        SendInput("+g")
+        SendInput("G")
     }
 }
 h::{
     if(A_PriorHotkey != "h" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+h", "h")
+        longPress(ThisHotkey, "H", "h", 1)
     } else {
-        SendInput("+h")
+        SendInput("H")
     }
 }
 j::{
     if(A_PriorHotkey != "j" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+j", "j")
+        longPress(ThisHotkey, "J", "j", 1)
     } else {
-        SendInput("+j")
+        SendInput("J")
     }
 }
 k::{
     if(A_PriorHotkey != "k" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+k", "k")
+        longPress(ThisHotkey, "K", "k", 1)
     } else {
-        SendInput("+k")
+        SendInput("K")
     }
 }
 l::{
     if(A_PriorHotkey != "l" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+l", "l")
+        longPress(ThisHotkey, "L", "l", 1)
     } else {
-        SendInput("+l")
+        SendInput("L")
     }
 }
 z::{
     if(A_PriorHotkey != "z" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+z", "z")
+        longPress(ThisHotkey, "Z", "z", 1)
     } else {
-        SendInput("+z")
+        SendInput("Z")
     }
 }
 x::{
     if(A_PriorHotkey != "x" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+x", "x")
+        longPress(ThisHotkey, "X", "x", 1)
     } else {
-        SendInput("+x")
+        SendInput("X")
     }
 }
 c::{
     if(A_PriorHotkey != "c" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+c", "c")
+        longPress(ThisHotkey, "C", "c", 1)
     } else {
-        SendInput("+c")
+        SendInput("C")
     }
 }
 v::{
     if(A_PriorHotkey != "v" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+v", "v")
+        longPress(ThisHotkey, "V", "v", 1)
     } else {
-        SendInput("+v")
+        SendInput("V")
     }
 }
 b::{
     if(A_PriorHotkey != "b" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+b", "b")
+        longPress(ThisHotkey, "B", "b", 1)
     } else {
-        SendInput("+b")
+        SendInput("B")
     }
 }
 n::{
     if(A_PriorHotkey != "n" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+n", "n")
+        longPress(ThisHotkey, "N", "n", 1)
     } else {
-        SendInput("+n")
+        SendInput("N")
     }
 }
 m::{
     if(A_PriorHotkey != "m" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+m", "m")
+        longPress(ThisHotkey, "M", "m", 1)
     } else {
-        SendInput("+m")
-
+        SendInput("M")
     }
 }
 ; ====================================== NUMBERS ======================================
 1::{
     if(A_PriorHotkey != "1" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+1", "1")
+        longPress(ThisHotkey, "!", "1", 1)
     } else {
-        SendInput("+1")
+        SendInput("!")
     }
 }
 2::{
     if(A_PriorHotkey != "2" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+2", "2")
+        longPress(ThisHotkey, "@", "2", 1)
     } else {
-        SendInput("+2")
+        SendInput("@")
     }
 }
 3::{
     if(A_PriorHotkey != "3" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+3", "3")
+        longPress(ThisHotkey, "#", "3", 1)
     } else {
-        SendInput("+3")
+        SendInput("#")
     }
 }
 4::{
     if(A_PriorHotkey != "4" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+4", "4")
+        longPress(ThisHotkey, "$", "4", 1)
     } else {
-        SendInput("+4")
+        SendInput("$")
     }
 }
 5::{
     if(A_PriorHotkey != "5" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+5", "5")
+        longPress(ThisHotkey, "%", "5", 1)
     } else {
-        SendInput("+5")
+        SendInput("%")
     }
 }
 6::{
     if(A_PriorHotkey != "6" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+6", "6")
+        longPress(ThisHotkey, "^", "6", 1)
     } else {
-        SendInput("+6")
+        SendInput("^")
     }
 }
 7::{
     if(A_PriorHotkey != "7" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+7", "7")
+        longPress(ThisHotkey, "&", "7", 1)
     } else {
-        SendInput("+7")
+        SendInput("&")
     }
 }
 8::{
     if(A_PriorHotkey != "8" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+8", "8")
+        longPress(ThisHotkey, "*", "8", 1)
     } else {
-        SendInput("+8")
+        SendInput("*")
     }
 }
 9::{
     if(A_PriorHotkey != "9" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+9", "9")
+        longPress(ThisHotkey, "(", "9", 1)
     } else {
-        SendInput("+9")
+        SendInput("(")
     }
 }
 0::{
     if(A_PriorHotkey != "0" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+0", "0")
+        longPress(ThisHotkey, ")", "0", 1)
     } else {
-        SendInput("+0")
+        SendInput(")")
     }
 }
 ; ====================================== PUNCTUATION ======================================
 -::{
     if(A_PriorHotkey != "-" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+-", "-")
+        longPress(ThisHotkey, "_", "-", 1)
     } else {
-        SendInput("+-")
+        SendInput("_")
     }
 }
 =::{
     if(A_PriorHotkey != "=" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+=", "=")
+        longPress(ThisHotkey, "+", "=", 1)
     } else {
-        SendInput("+=")
+        SendInput("+")
     }
 }
 [::{
     if(A_PriorHotkey != "[" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+[", "[")
+        longPress(ThisHotkey, "{", "[", 1)
     } else {
-        SendInput("+[")
+        SendInput("{")
     }
 }
 ]::{
     if(A_PriorHotkey != "]" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+]", "]")
+        longPress(ThisHotkey, "}", "]", 1)
     } else {
-        SendInput("+]")
+        SendInput("}")
     }
 }
 \::{
     if(A_PriorHotkey != "\" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+\", "\")
+        longPress(ThisHotkey, "|", "\", 1)
     } else {
-        SendInput("+\")
+        SendInput("|")
     }
 }
 `;::{
 if(A_PriorHotkey != ";" || A_TimeSincePriorHotkey > 350){
-    longPress(ThisHotkey, "+;", ";")
+    longPress(ThisHotkey, ":", ";", 1)
 } else {
-    SendInput("+;")
+    SendInput(":")
 }
 }
 '::{
     if(A_PriorHotkey != "'" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+'", "'")
+        longPress(ThisHotkey, "`"", "'", 1)
     } else {
-        SendInput("+'")
+        SendInput("`"")
     }
 }
 ,::{
     if(A_PriorHotkey != "," || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+,", ",")
+        longPress(ThisHotkey, "<", ",", 1)
     } else {
-        SendInput("+,")
+        SendInput("<")
     }
 }
 .::{
     if(A_PriorHotkey != "." || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+.", ".")
+        longPress(ThisHotkey, ">", ".", 1)
     } else {
-        SendInput("+.")
+        SendInput(">")
     }
 }
 /::{
     if(A_PriorHotkey != "/" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+/", "/")
+        longPress(ThisHotkey, "?", "/", 1)
     } else {
-        SendInput("+/")
+        SendInput("?")
     }
 }
 `::{
     if(A_PriorHotkey != "``" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+``", "``")
+        longPress(ThisHotkey, "~", "``", 1)
     } else {
-        SendInput("+``")
+        SendInput("~")
     }
 }
 ; ====================================== ADDITIONAL KEYS ======================================
-CapsLock::BackSpace
-Shift::toggleLayer(1)
-Shift & 1::+1
-Alt & CapsLock::toggleLayer(3)
+Space::{
+    if(A_PriorHotkey != "Space" || A_TimeSincePriorHotkey > 350){
+        SendInput("{Space}")
+        backspaceInput := "{Backspace}"
+        if(!KeyWait(ThisHotkey, "T0.240")){
+            SendInput(backspaceInput)
+            SendInput("^{Backspace}")
+            KeyWait(ThisHotkey)
+        }
+    } else {
+        SendInput("{Space}")
+    }
+}
+Esc::{
+    SendInput("{Esc}")
+    toggleLayer("Vim")
+}
+RShift::toggleLayer("Qwerty")
+RShift & 1::+1
+Alt::toggleLayer("Numpad")
+Alt & 1::!1
