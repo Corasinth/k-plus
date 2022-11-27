@@ -35,20 +35,13 @@ toggleLayer(targetLayer) {
     }
 }
 
-; To Do!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-; Set up tooltip code
-; Test capital letters instead of Shift + letter
-; Test Shift Up command after Shift + letter
-; Test Shift down and up EXPLICITLY
-
 ; ============================== UTILITY FUNCTIONS ==============================
 ; Sets up string that
 timeParameter := "T" readTemplateSettings("longPressDelay")
 
-longPress(ThisHotkey, defaultString, longPressString){
+longPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     SendInput(defaultString)
-    defaultStringLength := StrLen(defaultString)
-    backspaceInput := "{Backspace " defaultStringLength "}"
+    backspaceInput := "{Backspace " numOfBackspaces "}"
     if(!KeyWait(ThisHotkey, timeParameter)){
         SendInput(backspaceInput)
         SendInput(longPressString)
@@ -56,10 +49,9 @@ longPress(ThisHotkey, defaultString, longPressString){
     }
 }
 
-onReleaseLongPress(ThisHotkey, defaultString, longPressString){
+onReleaseLongPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     SendInput(defaultString)
-    defaultStringLength := StrLen(defaultString)
-    backspaceInput := "{Backspace " defaultStringLength "}"
+    backspaceInput := "{Backspace " numOfBackspaces "}"
     if(!KeyWait(ThisHotkey, timeParameter)){
         KeyWait(ThisHotkey)
         SendInput(backspaceInput)
