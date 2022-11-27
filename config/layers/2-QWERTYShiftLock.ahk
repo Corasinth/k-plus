@@ -351,5 +351,5 @@ Esc::{
 }
 RShift::toggleLayer("Qwerty")
 RShift & 1::+1
-Alt::toggleLayer("Numpad")
-Alt & 1::!1
+RControl::toggleLayer("Numpad")
+RControl & 1::^1

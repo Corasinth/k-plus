@@ -339,5 +339,6 @@ Esc::{
     SendInput("{Esc}")
     toggleLayer("Vim")
 }
-Alt::toggleLayer(previousLayer)
-Alt & 1::!1
+RControl::toggleLayer("Qwerty")
+RControl & 1::^1
+
