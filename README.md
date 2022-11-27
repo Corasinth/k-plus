@@ -162,7 +162,13 @@ For the sake of clarity, I reccomend including the layer number in the filename 
 
 Using k-plus for complex layer arrangments requires a little more than just configuring your template files and filling in your hotkeys.
 
-The main issue, especially if you have several layers, is handling the navigation between them. There are three main ways to navigate to a given layer.
+The main issue, especially if you have several layers, is handling the navigation between them and keeping track of what layer you're on. Eventually, tracking the layers becomes more about muscle memory, but in the beggining you can turn on the `tooltip` setting under `[Config Settings]` by setting it to 1. This generates a tooltip that displays the current layer, and you can customize where the tooltip appears on the screen with the coordinate settings also included.
+
+Coordinates are pixel locations on the screen (so for example 1920 x 1080 would be the lower right on a screen of that size).
+
+Actually navigating a layer is a little trickier. There are three main ways.
+
+
 1. You can set a hotkey to the `toggleLayer(<layer number>)` function, where `<layer number>` is replaced with the destination layer number. That will let you move directly from one layer to another predetermined layer. 
 2. You can set a hotkey to the `toggleLayer(previousLayer)` function. That will let you move from your current layer to your previous layer.  
 3. And you can set a hotkey to the `toggleLayer(1)` function. That will let you move from your current layer to the directory layer, where you can then select any of your layers. 

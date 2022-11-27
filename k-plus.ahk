@@ -14,28 +14,34 @@ if(defaultLayer) {
 
 ; This is a number used to record CURRENT_LAYER for temporary layer swaps
 previousLayer := 0
-CoordMode("ToolTip")
-; ============================== TOGGLE LAYERS ============================== 
+; Which variable to ignore when storing the previous layer
+ignoreLayer := readConfigSettings("ignoreLayerAsPreviousLayer")
+
+; Sets absolute coordinates for tooltip
+CoordMode("ToolTip", "Screen")
+; Assign coordinates
+xCoordinate := readConfigSettings("tooltipXCoordinate")
+yCoordinate := readConfigSettings("tooltipYCoordinate")
+; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
     global
-    ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory
-    if (currentLayer != readConfigSettings("ignoreLayerAsPreviousLayer")) {
+    ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
+    if (currentLayer != ignoreLayer) {
         previousLayer := currentLayer
     }
     currentLayer := targetLayer
-    CoordMode("ToolTip")
-    ToolTip(currentLayer, 1920, 1080)
+    if(readConfigSettings("tooltip")){
+        Tooltip(currentLayer, xCoordinate, yCoordinate)
+    }
 }
 
 ; ============================== UTILITY FUNCTIONS ==============================
-; Sets up string that  
+; Sets up string that
 timeParameter := "T" readTemplateSettings("longPressDelay")
 
-longPress(ThisHotkey, defaultString, longPressString){
+longPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     SendInput(defaultString)
-    ; defaultStringLength := StrLen(defaultString)
-    defaultStringLength := 1
-    backspaceInput := "{Backspace " defaultStringLength "}"
+    backspaceInput := "{Backspace " numOfBackspaces "}"
     if(!KeyWait(ThisHotkey, timeParameter)){
         SendInput(backspaceInput)
         SendInput(longPressString)
@@ -43,10 +49,9 @@ longPress(ThisHotkey, defaultString, longPressString){
     }
 }
 
-onReleaseLongPress(ThisHotkey, defaultString, longPressString){
+onReleaseLongPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     SendInput(defaultString)
-    defaultStringLength := StrLen(defaultString)
-    backspaceInput := "{Backspace " defaultStringLength "}"
+    backspaceInput := "{Backspace " numOfBackspaces "}"
     if(!KeyWait(ThisHotkey, timeParameter)){
         KeyWait(ThisHotkey)
         SendInput(backspaceInput)
@@ -54,6 +59,10 @@ onReleaseLongPress(ThisHotkey, defaultString, longPressString){
     }
 }
 
+; Runs ToolTip at start
+if(readConfigSettings("tooltip")){
+    Tooltip(currentLayer, xCoordinate, ycoordinate)
+}
 ; ============================== INCLUDE HOTKEYS ==============================
 ; Include master file of layers. This file contains nothing but #Include commands for the rest of the config files
 #Include ./config/layer-list.ahk
