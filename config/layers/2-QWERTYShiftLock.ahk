@@ -185,9 +185,9 @@ m::{
 ; ====================================== NUMBERS ======================================
 1::{
     if(A_PriorHotkey != "1" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "!", "1", 1)
+        longPress(ThisHotkey, "{!}", "1", 1)
     } else {
-        SendInput("!")
+        SendInput("{!}")
     }
 }
 2::{
@@ -199,9 +199,9 @@ m::{
 }
 3::{
     if(A_PriorHotkey != "3" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "#", "3", 1)
+        longPress(ThisHotkey, "{#}", "3", 1)
     } else {
-        SendInput("#")
+        SendInput("{#}")
     }
 }
 4::{
@@ -220,9 +220,9 @@ m::{
 }
 6::{
     if(A_PriorHotkey != "6" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "^", "6", 1)
+        longPress(ThisHotkey, "{^}", "6", 1)
     } else {
-        SendInput("^")
+        SendInput("{^}")
     }
 }
 7::{
@@ -263,9 +263,9 @@ m::{
 }
 =::{
     if(A_PriorHotkey != "=" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "+", "=", 1)
+        longPress(ThisHotkey, "{+}", "=", 1)
     } else {
-        SendInput("+")
+        SendInput("{+}")
     }
 }
 [::{

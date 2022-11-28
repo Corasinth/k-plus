@@ -185,70 +185,70 @@ m::{
 ; ====================================== NUMBERS ======================================
 1::{
     if(A_PriorHotkey != "1" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "1", "+1", 1)
+        longPress(ThisHotkey, "1", "{!}", 1)
     } else {
         SendInput("1")
     }
 }
 2::{
     if(A_PriorHotkey != "2" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "2", "+2", 1)
+        longPress(ThisHotkey, "2", "@", 1)
     } else {
         SendInput("2")
     }
 }
 3::{
     if(A_PriorHotkey != "3" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "3", "+3", 1)
+        longPress(ThisHotkey, "3", "{#}", 1)
     } else {
         SendInput("3")
     }
 }
 4::{
     if(A_PriorHotkey != "4" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "4", "+4", 1)
+        longPress(ThisHotkey, "4", "$", 1)
     } else {
         SendInput("4")
     }
 }
 5::{
     if(A_PriorHotkey != "5" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "5", "+5", 1)
+        longPress(ThisHotkey, "5", "%", 1)
     } else {
         SendInput("5")
     }
 }
 6::{
     if(A_PriorHotkey != "6" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "6", "+6", 1)
+        longPress(ThisHotkey, "6", "{^}", 1)
     } else {
         SendInput("6")
     }
 }
 7::{
     if(A_PriorHotkey != "7" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "7", "+7", 1)
+        longPress(ThisHotkey, "7", "&", 1)
     } else {
         SendInput("7")
     }
 }
 8::{
     if(A_PriorHotkey != "8" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "8", "+8", 1)
+        longPress(ThisHotkey, "8", "*", 1)
     } else {
         SendInput("8")
     }
 }
 9::{
     if(A_PriorHotkey != "9" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "9", "+9", 1)
+        longPress(ThisHotkey, "9", "(", 1)
     } else {
         SendInput("9")
     }
 }
 0::{
     if(A_PriorHotkey != "0" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "0", "+0", 1)
+        longPress(ThisHotkey, "0", ")", 1)
     } else {
         SendInput("0")
     }
@@ -263,7 +263,7 @@ m::{
 }
 =::{
     if(A_PriorHotkey != "=" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "=", "+=", 1)
+        longPress(ThisHotkey, "=", "{+}", 1)
     } else {
         SendInput("=")
     }
