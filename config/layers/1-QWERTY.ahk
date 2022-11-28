@@ -353,7 +353,7 @@ Esc::{
 RShift::toggleLayer("QwertyShiftLocked")
 ; LShift::MsgBox(currentLayer)
 RShift & 1::+1
-; RControl::toggleLayer("Numpad")
-; RControl & 1::^1
-LAlt::toggleLayer("Numpad")
-LAlt & 1::!1
+RControl::toggleLayer("Numpad")
+RControl & 1::^1
+; LAlt::toggleLayer("Numpad")
+; LAlt & 1::!1
