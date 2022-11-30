@@ -37,25 +37,34 @@ toggleLayer(targetLayer) {
 
 ; ============================== UTILITY FUNCTIONS ==============================
 ; Sets up string that
-timeParameter := "T" readTemplateSettings("longPressDelay")
+longPressDelay := readTemplateSettings("longPressDelay")
 
 longPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
+    startTime := A_TickCount
     SendInput(defaultString)
     backspaceInput := "{Backspace " numOfBackspaces "}"
-    if(!KeyWait(ThisHotkey, timeParameter)){
-        SendInput(backspaceInput)
-        SendInput(longPressString)
-        KeyWait(ThisHotkey)
+    ; Instead of a sleep or simlar delay, a loop is used so that, in the process of rapid typing, one cannot release the hotkey and then press it again, falsely triggering the script into backspacing, missing that the key had been released
+    while(GetKeyState(ThisHotkey, "P")) {
+        endTime := A_TickCount - startTime
+        if(ThisHotkey = A_ThisHotkey && endTime > longPressDelay) {
+            SendInput(backspaceInput)
+            SendInput(longPressString)
+            KeyWait(ThisHotkey)
+        }
     }
 }
 
 onReleaseLongPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
+    startTime := A_TickCount
     SendInput(defaultString)
     backspaceInput := "{Backspace " numOfBackspaces "}"
-    if(!KeyWait(ThisHotkey, timeParameter)){
-        KeyWait(ThisHotkey)
-        SendInput(backspaceInput)
-        SendInput(longPressString)
+    while(GetKeyState(ThisHotkey, "P")) {
+        endTime := A_TickCount - startTime
+        if(ThisHotkey = A_ThisHotkey && endTime > longPressDelay) {
+            KeyWait(ThisHotkey)
+            SendInput(backspaceInput)
+            SendInput(longPressString)
+        }
     }
 }
 
