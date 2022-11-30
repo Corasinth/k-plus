@@ -17,6 +17,11 @@ previousLayer := 0
 ; Which variable to ignore when storing the previous layer
 ignoreLayer := readConfigSettings("ignoreLayerAsPreviousLayer")
 
+; Sets up number for the millescond delay
+longPressDelay := Number(readTemplateSettings("longPressDelay"))
+; Lets you use the long press delay for uses of KeyWait as well, though only for times less than a full second 
+timeParameter := "T0." readTemplateSettings("longPressDelay")
+
 ; Sets absolute coordinates for tooltip
 CoordMode("ToolTip", "Screen")
 ; Assign coordinates
@@ -36,8 +41,6 @@ toggleLayer(targetLayer) {
 }
 
 ; ============================== UTILITY FUNCTIONS ==============================
-; Sets up string that
-longPressDelay := readTemplateSettings("longPressDelay")
 
 longPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     startTime := A_TickCount
