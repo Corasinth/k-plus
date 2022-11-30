@@ -334,11 +334,21 @@ if(A_PriorHotkey != ";" || A_TimeSincePriorHotkey > 350){
     }
 }
 ; ====================================== ADDITIONAL KEYS ======================================
-; Shift::toggleLayer(2)
-Esc::{
+CapsLock::{
     SendInput("{Esc}")
     toggleLayer("Vim")
 }
-RControl::toggleLayer("Qwerty")
-RControl & 1::^1
 
+RAlt::{
+    SendInput("{RControl down}")
+    if(KeyWait(ThisHotkey, "T.180")){
+        KeyWait(ThisHotkey)
+        SendInput("{RControl up}")
+        if(ThisHotkey = A_ThisHotkey){
+            toggleLayer("Qwerty")
+        }
+    } else {
+        KeyWait(ThisHotkey)
+        SendInput("{RControl up}")
+    }
+}

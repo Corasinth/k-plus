@@ -2,7 +2,7 @@
 ; ====================================== LETTERS ======================================
 i::{
     SendInput("i")
-    if(A_PriorKey != "y" && A_PriorKey != "d"){
+    if(A_PriorKey != "y" && A_PriorKey != "d" && A_PriorKey != "c"){
         toggleLayer(previousLayer)
     }
 }
@@ -12,9 +12,14 @@ a::{
     toggleLayer(previousLayer)
 }
 
+
 s::{
-    SendInput("s")
-    toggleLayer(previousLayer)
+    if(!GetKeyState("Control")){
+        SendInput("s")
+        toggleLayer(previousLayer)
+    } else {
+        SendInput("^s")
+    }
 }
 
 o::{
@@ -39,8 +44,14 @@ o::{
     toggleLayer(previousLayer)
 }
 
-
 +o::{
     SendInput("+o")
     toggleLayer(previousLayer)
 }
+
+:B0Z?*:cw::{
+    toggleLayer(previousLayer)
+}
+
+RAlt::RControl
+CapsLock::Esc

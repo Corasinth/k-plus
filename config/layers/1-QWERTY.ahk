@@ -270,14 +270,14 @@ m::{
 }
 [::{
     if(A_PriorHotkey != "[" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "[", "{", 1)
+        longPress(ThisHotkey, "[", "{{}", 1)
     } else {
         SendInput("[")
     }
 }
 ]::{
     if(A_PriorHotkey != "]" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "]", "}", 1)
+        longPress(ThisHotkey, "]", "{}}", 1)
     } else {
         SendInput("]")
     }
@@ -332,28 +332,21 @@ if(A_PriorHotkey != ";" || A_TimeSincePriorHotkey > 350){
     }
 }
 ; ====================================== ADDITIONAL KEYS ======================================
-; Space::{
-;     if(A_PriorHotkey != "Space" || A_TimeSincePriorHotkey > 350){
-;         SendInput("{Space}")
-;         backspaceInput := "{Backspace}"
-;         if(!KeyWait(ThisHotkey, "T0.200")){
-;             SendInput(backspaceInput)
-;             toggleLayer("QwertyShiftLocked")
-;             KeyWait(ThisHotkey)
-;         }
-;     } else {
-;         SendInput("{Space}")
-;     }
-; }
-Esc::{
+CapsLock::{
     SendInput("{Esc}")
     toggleLayer("Vim")
 }
 
-; RShift::^BackSpace
-; RShift & 1::+1
-; LShift::MsgBox(currentLayer)
-RControl::toggleLayer("Numpad")
-RControl & 1::^1
-; LAlt::toggleLayer("Numpad")
-; LAlt & 1::!1
+RAlt::{
+    SendInput("{RControl down}")
+    if(KeyWait(ThisHotkey, "T.18")){
+        KeyWait(ThisHotkey)
+        SendInput("{RControl up}")
+        if(ThisHotkey = A_ThisHotkey){
+            toggleLayer("Numpad")
+        }
+    } else {
+        KeyWait(ThisHotkey)
+        SendInput("{RControl up}")
+    }
+}
