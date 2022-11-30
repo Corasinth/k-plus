@@ -350,3 +350,17 @@ RAlt::{
         SendInput("{RControl up}")
     }
 }
+
+Shift::{
+    SendInput("{Shift down}")
+    if(KeyWait(ThisHotkey, "T.18")){
+        KeyWait(ThisHotkey)
+        SendInput("{Shift up}")
+        if(ThisHotkey = A_ThisHotkey){
+            toggleLayer("Qwerty")
+        }
+    } else {
+        KeyWait(ThisHotkey)
+        SendInput("{Shift up}")
+    }
+}
