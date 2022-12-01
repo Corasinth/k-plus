@@ -270,16 +270,16 @@ m::{
 }
 [::{
     if(A_PriorHotkey != "[" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "{", "[", 1)
+        longPress(ThisHotkey, "{{}", "[", 1)
     } else {
-        SendInput("{")
+        SendInput("{{}")
     }
 }
 ]::{
     if(A_PriorHotkey != "]" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "}", "]", 1)
+        longPress(ThisHotkey, "{}}}", "]", 1)
     } else {
-        SendInput("}")
+        SendInput("{}}")
     }
 }
 \::{
