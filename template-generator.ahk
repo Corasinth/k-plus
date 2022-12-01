@@ -165,7 +165,7 @@ objectTemplate(targetKey) {
         keyStr .= settings.defaultFunction
         keyStr .= "`n`n}`nkeyPresses := 0`n}`n}`n"
     } else if (settings.inclusiveMultipress) {
-       keyStr .= "{`nif(A_PriorHotkey != `""
+       keyStr .= "{`nif(A_PriorKey != `""
        keyStr .= targetKey "`""
        keystr .= " || A_TimeSincePriorHotkey > 400){`nReturn`n} else {`n`n"
        keyStr .= settings.defaultFunction
