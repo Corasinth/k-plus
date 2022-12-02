@@ -71,6 +71,16 @@ onReleaseLongPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     }
 }
 
+; Custom function to allow a key to have different effects whether its tapped, held, or double tapped and held
+; There are limitations to this functionality (like sending backspace keystrokes), but it works for some specific Autoshift purposes
+multiLongPress(ThisHotkey, defaultSend, longPressSend, numOfBackspaces, timeDelay){
+  if(A_PriorKey != ThisHotkey || A_TimeSincePriorHotkey > timeDelay){
+        longPress(ThisHotkey, defaultSend, longPressSend, numOfBackspaces)
+    } else {
+        SendInput(defaultSend)
+    }
+}
+
 ; Runs ToolTip at start
 if(readConfigSettings("tooltip")){
     Tooltip(currentLayer, xCoordinate, ycoordinate)
