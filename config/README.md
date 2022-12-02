@@ -1,7 +1,6 @@
 # **Personal Layout**
 
 ## Introduction
-
 Below is a relatively up to date explanation of my various layers, how I manage them, and the design principles I used. 
 
 For this last category, I've limited the explanations to those choices that I haven't seen elsewhere or are peculiar to me. More general explanations of the design principles behind alternate layouts can be found all over the web, usually in areas like Reddit, Discord, forums, and personal sites dedicated to a range of topics including Dvorak, Colemak, alternate keyboard layouts, QMK, mechanical keyboards, ergonomic keyboards, and more. 
@@ -25,8 +24,8 @@ Key positions are generally referred to by their ANSI QWERTY positions, while wh
     * [Shift Lock](#shift-lock)
 * [Core Ecosystems](#core-ecosystems)
     * [Alpha](#alpha)
-    * [Sym](#directory)
-    * [Nav](#directory)
+    * [Sym](#sym)
+    * [Ext](#ext)
 * [Additional Layers](#additional-layers)
     * [Diacritics](#diacritics)
     * [Function Keys](#function-keys)
@@ -78,13 +77,13 @@ While the official navigation layer has a regular `Backspace` (and `Delete`) in 
 
 ### **CapsLock**
 
-Rightly considered a joke, `CapsLock` is a useful key that does not deserve a homerow position. On every layer wher this matters, tapping swaps to the navigation layer.
+Rightly considered a joke, `CapsLock` is a useful key that does not deserve a homerow position. On every layer where this matters, tapping swaps to the navigation layer.
 
 ### **Autoshift**
 
-While `LShift` isn't awful, it is still annoying to press as often as it is. That's why, for every layer that types characters, autoshift has been implemented. Long pressing a key results in its shifted state, whether I'm typing letters or symbols.
+While `LShift` isn't awful, it is still annoying to press as often as it is needed. That's why, for every layer that types characters, autoshift has been implemented. Long pressing a key results in its shifted state, whether I'm typing letters or symbols.
 
-Ultimately, I don't like the 'character types on key release' effect of having home row mods, so this I went with autoshift. Longpressing backspaces a character and retypes the letter, so it's wise to be careful where an unintentional backspace could cause issues.
+Ultimately, I don't like the 'character types on key release' effect of having home row mods, so I went with autoshift instead of a homerow mod-tap. Longpressing backspaces a character and retypes the letter, so it's wise to be careful where an unintentional backspace could cause issues.
 
 Also, unlike QMK's implementation, because it backspaces rather than waiting for a key release, you don't have to wait for the key to release for the character to appear. If you like the QMK implementation, you'll probably want to use the other utility function for longpresses included with k-plus.
 
@@ -106,11 +105,11 @@ Here are the core layers that get used most frequently, and usually have keys de
 
 Technically, there are two ecosystems, though they are almost identical to each other. 
 
-The issue is that before I got started on my custom keyboard layout, I learned the basics of Vim keybindings. Currently, I use those bindings in VS code through an extension. That's useful muscle memory I have no wish to waste or retrain, and Vim is a nicer navigation/editing 'layer' than my own design. Besides, my muscle memory is for the keys of Vim, not the letters......
+The issue is that before I got started on my custom keyboard layout, I learned the basics of Vim keybindings. Currently, I use those bindings in VS Code through an extension. That's useful muscle memory I have no wish to waste or retrain, and Vim is a nicer navigation/editing 'layer' than my own design. Besides, my muscle memory is for the keys of Vim, not the letters......
 
 One ecosystem is traditional, and `CapsLock` toggles my navigation layer. The other ecosystem is specifcally for my Vim usage. It's identical, except `CapsLock` outputs `Esc` and then toggles to a special 'Vim' layer that is basically just QWERTY. 
 
-However, the strings and keys that one would use to go from Normal mode in Vim to Insert mode send their respective characters, than toggle back to the regular Alpha layer. Maybe its not the most efficient setup, but I'm attached to Vim and have no desire to orient the layout of my regular letters for Vim convenience. This is a suitable compromise, though it means I have two core ecosytems that are almost identical twins save for the function of `CapsLock`.
+However, the strings and keys that one would use to go from Normal mode in Vim to Insert mode send their respective characters, than toggle back to the regular Alpha layer. Maybe its not the most efficient setup, but I'm attached to Vim and have no desire to orient the layout of my regular letters for Vim convenience. This is a suitable compromise, though it means I have two core ecosytems that are almost identical save for the function of `CapsLock`.
 
 ### **Alpha**
 
@@ -136,9 +135,9 @@ The symbol layer assumes the 'curl' mod for the home row, and avoids the sfb of 
 
 The dead symbol layer also only reverts to the previous layer once you release a key, so as long as you aren't tapping the same key, you can often get away with typing two characters on the dead layer, rather than one (handy for bigrams like `${` and `+=`).
 
-### **Nav**
+### **Ext**
 
-The Vim 'nav' is hardly worth mentioning. The actual nav layer is heavily based on DreymaR's Extend (see Additional Resources in the root [README.md](../README.md)). It orients around left hand homerow mods and right hand arrow keys, which when combined let you do any of the navigating, highlighting, deleting, copying, pasting, and similar tasks one might need when editing text.
+The Vim 'nav' is hardly worth mentioning. The actual nav layer is heavily based on DreymaR's Extend (see Additional Resources in the root [README.md](../README.md)), thus the naming. It orients around left hand homerow mods and right hand arrow keys, which when combined let you do any of the navigating, highlighting, deleting, copying, pasting, and similar tasks one might need when editing text.
 
 Check out the layer for the full list of shortcuts and keys used.
 
