@@ -16,7 +16,7 @@ if(defaultLayer) {
 previousLayer := 0
 ; Which variable to ignore when storing the previous layer
 ignoreLayer := readConfigSettings("ignoreLayerAsPreviousLayer")
-
+secondIgnoreLayer := readConfigSettings("secondIgnoreLayer")
 ; Sets up number for the millescond delay
 longPressDelay := Number(readTemplateSettings("longPressDelay"))
 ; Lets you use the long press delay for uses of KeyWait as well, though only for times less than a full second 
@@ -30,11 +30,13 @@ yCoordinate := readConfigSettings("tooltipYCoordinate")
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
     global
-    ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
-    if (currentLayer != ignoreLayer) {
-        previousLayer := currentLayer
-    }
+    ; Set the current layer as soon as possible before handling the previous layer tracker
+    tempLayer := currentLayer
     currentLayer := targetLayer
+    ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
+    if (tempLayer != ignoreLayer && tempLayer != secondIgnoreLayer) {
+        previousLayer := tempLayer
+    }
     if(readConfigSettings("tooltip")){
         Tooltip(currentLayer, xCoordinate, yCoordinate)
     }
@@ -68,6 +70,16 @@ onReleaseLongPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
             SendInput(backspaceInput)
             SendInput(longPressString)
         }
+    }
+}
+
+; Custom function to allow a key to have different effects whether its tapped, held, or double tapped and held
+; There are limitations to this functionality (like sending backspace keystrokes), but it works for some specific Autoshift purposes
+multiLongPress(ThisHotkey, defaultSend, longPressSend, numOfBackspaces, timeDelay){
+  if(A_PriorKey != ThisHotkey || A_TimeSincePriorHotkey > timeDelay){
+        longPress(ThisHotkey, defaultSend, longPressSend, numOfBackspaces)
+    } else {
+        SendInput(defaultSend)
     }
 }
 
