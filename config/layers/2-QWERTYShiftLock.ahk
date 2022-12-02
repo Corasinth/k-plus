@@ -342,7 +342,7 @@ RAlt::{
     if(KeyWait(ThisHotkey, "T.18")){
         KeyWait(ThisHotkey)
         SendInput("{RControl up}")
-        if(ThisHotkey = A_ThisHotkey){
+        if(ThisHotkey = A_PriorHotkey){
             toggleLayer("Numpad")
         }
     } else {
