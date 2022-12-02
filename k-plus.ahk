@@ -51,7 +51,7 @@ longPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     ; Instead of a sleep or simlar delay, a loop is used so that, in the process of rapid typing, one cannot release the hotkey and then press it again, falsely triggering the script into backspacing, missing that the key had been released
     while(GetKeyState(ThisHotkey, "P")) {
         endTime := A_TickCount - startTime
-        if(ThisHotkey = A_ThisHotkey && endTime > longPressDelay) {
+        if(ThisHotkey = A_PriorKey && endTime > longPressDelay) {
             SendInput(backspaceInput)
             SendInput(longPressString)
             KeyWait(ThisHotkey)
@@ -59,18 +59,17 @@ longPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     }
 }
 
-onReleaseLongPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
+onReleaseLongPress(ThisHotkey, defaultString, longPressString){
     startTime := A_TickCount
-    SendInput(defaultString)
-    backspaceInput := "{Backspace " numOfBackspaces "}"
     while(GetKeyState(ThisHotkey, "P")) {
         endTime := A_TickCount - startTime
-        if(ThisHotkey = A_ThisHotkey && endTime > longPressDelay) {
+        if(ThisHotkey = A_PriorKey && endTime > longPressDelay) {
             KeyWait(ThisHotkey)
-            SendInput(backspaceInput)
             SendInput(longPressString)
+            return
         }
     }
+    SendInput(defaultString)
 }
 
 ; Custom function to allow a key to have different effects whether its tapped, held, or double tapped and held
