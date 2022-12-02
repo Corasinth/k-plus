@@ -16,7 +16,7 @@ if(defaultLayer) {
 previousLayer := 0
 ; Which variable to ignore when storing the previous layer
 ignoreLayer := readConfigSettings("ignoreLayerAsPreviousLayer")
-
+secondIgnoreLayer := readConfigSettings("secondIgnoreLayer")
 ; Sets up number for the millescond delay
 longPressDelay := Number(readTemplateSettings("longPressDelay"))
 ; Lets you use the long press delay for uses of KeyWait as well, though only for times less than a full second 
@@ -31,10 +31,11 @@ yCoordinate := readConfigSettings("tooltipYCoordinate")
 toggleLayer(targetLayer) {
     global
     ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
-    if (currentLayer != ignoreLayer) {
-        previousLayer := currentLayer
-    }
+    tempLayer := currentLayer
     currentLayer := targetLayer
+    if (tempLayer != ignoreLayer && tempLayer != secondIgnoreLayer) {
+        previousLayer := tempLayer
+    }
     if(readConfigSettings("tooltip")){
         Tooltip(currentLayer, xCoordinate, yCoordinate)
     }
