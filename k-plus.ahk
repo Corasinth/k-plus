@@ -30,9 +30,10 @@ yCoordinate := readConfigSettings("tooltipYCoordinate")
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
     global
-    ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
+    ; Set the current layer as soon as possible before handling the previous layer tracker
     tempLayer := currentLayer
     currentLayer := targetLayer
+    ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
     if (tempLayer != ignoreLayer && tempLayer != secondIgnoreLayer) {
         previousLayer := tempLayer
     }
