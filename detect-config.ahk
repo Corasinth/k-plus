@@ -1,4 +1,4 @@
-#Requires AutoHotkey v2.0-beta
+#Requires AutoHotkey v2.0-rc.2
 #SingleInstance Force
 ; Adds ini util function
 #Include ./util/ini-reader.ahk
