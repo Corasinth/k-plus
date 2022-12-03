@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey v2.0-beta
+﻿#Requires AutoHotkey v2.0-rc.2
 #SingleInstance Force
 ; Include ini reader util functions
 #Include ./util/ini-reader.ahk
@@ -14,9 +14,10 @@ if(defaultLayer) {
 
 ; This is a number used to record CURRENT_LAYER for temporary layer swaps
 previousLayer := 0
-; Which variable to ignore when storing the previous layer
-ignoreLayer := readConfigSettings("ignoreLayerAsPreviousLayer")
-secondIgnoreLayer := readConfigSettings("secondIgnoreLayer")
+
+; String of layers to ignore when storing previous layer
+layersToIgnore := readConfigSettings("layersToIgnoreAsPreviousLayer")
+
 ; Sets up number for the millescond delay
 longPressDelay := Number(readTemplateSettings("longPressDelay"))
 ; Lets you use the long press delay for uses of KeyWait as well, though only for times less than a full second 
@@ -33,8 +34,9 @@ toggleLayer(targetLayer) {
     ; Set the current layer as soon as possible before handling the previous layer tracker
     tempLayer := currentLayer
     currentLayer := targetLayer
-    ; Doesn't record the specified layer as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
-    if (tempLayer != ignoreLayer && tempLayer != secondIgnoreLayer) {
+    ; Doesn't record the specified layers as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
+    ; Layers are wrapped in parantheses so that something like 1 is not detected in 12 
+    if (!InStr(layersToIgnore, "(" tempLayer ")")) {
         previousLayer := tempLayer
     }
     if(readConfigSettings("tooltip")){
@@ -59,7 +61,7 @@ longPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     }
 }
 
-onReleaseLongPress(ThisHotkey, defaultString, longPressString){
+longPressOnRelease(ThisHotkey, defaultString, longPressString){
     startTime := A_TickCount
     while(GetKeyState(ThisHotkey, "P")) {
         endTime := A_TickCount - startTime
