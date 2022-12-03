@@ -84,6 +84,31 @@ multiLongPress(ThisHotkey, defaultSend, longPressSend, numOfBackspaces, timeDela
     }
 }
 
+; Sets up a key to be a modifier with an alternate function on tap
+; Only works with a single custom function
+modTap(ThisHotkey, theKey, modKey, customFunc, funcParameter){
+    SendInput("{Blind}{" modKey " downR}")
+    if !(released := KeyWait(theKey, timeParameter)){
+        KeyWait(theKey)
+    }
+    SendInput("{Blind}{" modKey " up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        customFunc(funcParameter)
+    }
+}
+
+; Alternate version where the modifier only triggers after a delay, useful for Alt and Windows keys
+modTapAlt(ThisHotkey, theKey, modKey, customFunc, funcParameter){
+    if !(released := KeyWait(modKey, timeParameter)){
+        SendInput("{Blind}{" modKey " downR}")
+        KeyWait(theKey)
+    }
+    SendInput("{Blind}{" modKey " up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        customFunc(funcParameter)
+    }
+}
+
 ; Runs ToolTip at start
 if(readConfigSettings("tooltip")){
     Tooltip(currentLayer, xCoordinate, ycoordinate)
