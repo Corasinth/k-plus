@@ -61,7 +61,7 @@ longPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     }
 }
 
-onReleaseLongPress(ThisHotkey, defaultString, longPressString){
+longPressOnRelease(ThisHotkey, defaultString, longPressString){
     startTime := A_TickCount
     while(GetKeyState(ThisHotkey, "P")) {
         endTime := A_TickCount - startTime
