@@ -32,6 +32,7 @@ Key positions are generally referred to by their ANSI QWERTY positions, while wh
     * [Greek](#greek)
     * [Mathematical Symbols](#mathematical-symbols)
     * [Alchemical Symbols](#alchemical-symbols)
+    * [Morse](#morse)
 
 ## **Design Principles**
 
@@ -164,3 +165,11 @@ Specialized mathematical symbols for typing equations and the like. I don't use 
 ### **Alchemical Symbols**
 
 The alchemical symbols, which are always fun to use. A full keyboard of these makes for interesting key smashes. 
+
+### **Morse**
+
+This layer turns the specified hotkeys into morse code buttons. By default, it waits for you to be idle for a certain period of time before typing a character, and a longer period of time before typing a space. Dots and dashes are determined by short vs long presses. You can also specify a hotkey to tap after every letter if you're learning and don't have the timing down. 
+
+Why you want to type in morse code is your business, but you can make every letter key a morse code key if you wish letting you pretend to type random letters while inexplicably still outputting readable text. 
+
+Just like in actual morse code, capitalization is not supported. I reccomend a seperate script that will auto-capitalize for you.
