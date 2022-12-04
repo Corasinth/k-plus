@@ -99,7 +99,7 @@ Loop Files folderPath {
 ; The sorted string is turned into an array and the length is used as the number of files + 1, since the addition of the delimiting space after each file creates an additional extra entry
 configFilesArray := StrSplit(configFiles, " ")
 
-responseObj := InputBox("Please enter the number for this layer. `n`nEntering anything other than a number will result in layer toggling becoming more difficult to manage, and possibly inaccessible.", "Layer Number", "W350 H150" ,configFilesArray.Length)
+responseObj := InputBox("Please enter the number for this layer. `nEntering anything other than a number will result in layer toggling becoming more complex.", "Layer Number", "W350 H150", configFilesArray.Length)
 
 ; If the user cancels out or leaves, the script will simply stop
 if(responseObj.Result = "OK") {
@@ -438,7 +438,7 @@ if (settings.additionalModifiers) {
 }
 
 ; ============================== FILE CREATION ==============================
-filepath := A_WorkingDir "\config" settings.defaultFolder "\layer" templateLayer ".ahk"
+filepath := A_WorkingDir "\config" settings.defaultFolder "\" templateLayer ".ahk"
 ; Replace file extensions with .ahk or add .ahk if it isn't present
 filename := RegExReplace(FileSelect("S24", filePath, "Save New Template", ".ahk"), "\.([^\.]+)(?<!\.ahk)$", ".ahk")
 
