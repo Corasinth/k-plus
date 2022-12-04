@@ -339,16 +339,4 @@ CapsLock::{
     toggleLayer("Vim")
 }
 
-RAlt::{
-    SendInput("{RControl down}")
-    if(KeyWait(ThisHotkey, "T.180")){
-        KeyWait(ThisHotkey)
-        SendInput("{RControl up}")
-        if(ThisHotkey = A_ThisHotkey){
-            toggleLayer("Qwerty")
-        }
-    } else {
-        KeyWait(ThisHotkey)
-        SendInput("{RControl up}")
-    }
-}
+*RAlt::modTap(ThisHotkey, "RAlt", "RControl", toggleLayer, "Qwerty")

@@ -336,31 +336,5 @@ CapsLock::{
     SendInput("{Esc}")
     toggleLayer("Vim")
 }
-
-RAlt::{
-    SendInput("{RControl down}")
-    if(KeyWait(ThisHotkey, "T.18")){
-        KeyWait(ThisHotkey)
-        SendInput("{RControl up}")
-        if(ThisHotkey = A_PriorHotkey){
-            toggleLayer("Numpad")
-        }
-    } else {
-        KeyWait(ThisHotkey)
-        SendInput("{RControl up}")
-    }
-}
-
-Shift::{
-    SendInput("{Shift down}")
-    if(KeyWait(ThisHotkey, "T.18")){
-        KeyWait(ThisHotkey)
-        SendInput("{Shift up}")
-        if(ThisHotkey = A_ThisHotkey){
-            toggleLayer("QwertyShiftLocked")
-        }
-    } else {
-        KeyWait(ThisHotkey)
-        SendInput("{Shift up}")
-    }
-}
+*RAlt::modTap(ThisHotkey, "RAlt", "RControl", toggleLayer, "Numpad")
+*Shift::modTap(ThisHotkey, "Shift", "Shift", toggleLayer, "QwertyShiftLocked")
