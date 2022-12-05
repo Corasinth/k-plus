@@ -56,7 +56,7 @@ longPress(thisKey, defaultString, longPressString, numOfBackspaces){
         if(thisKey = A_PriorKey && endTime > longPressDelay) {
             SendInput(backspaceInput)
             SendInput(longPressString)
-            KeyWait(ThisHotkey)
+            KeyWait(thisKey)
         }
     }
 }
@@ -99,7 +99,7 @@ modTap(ThisHotkey, theKey, modKey, customFunc, funcParameter){
 
 ; Alternate version where the modifier only triggers after a delay, useful for Alt and Windows keys
 modTapAlt(ThisHotkey, theKey, modKey, customFunc, funcParameter){
-    if !(released := KeyWait(modKey, timeParameter)){
+    if !(released := KeyWait(theKey, timeParameter)){
         SendInput("{Blind}{" modKey " downR}")
         KeyWait(theKey)
     }
