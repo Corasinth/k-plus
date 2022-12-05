@@ -1,336 +1,101 @@
 #HotIf currentLayer = "QwertyShiftLocked"
 ; ====================================== LETTERS ======================================
-q::{
-    if(A_PriorHotkey != "q" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "Q", "q", 1)
-    } else {
-        SendInput("Q")
-    }
-}
-w::{
-    if(A_PriorHotkey != "w" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "W", "w", 1)
-    } else {
-        SendInput("W")
-    }
-}
-e::{
-    if(A_PriorHotkey != "e" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "E", "e", 1)
-    } else {
-        SendInput("E")
-    }
-}
-r::{
-    if(A_PriorHotkey != "r" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "R", "r", 1)
-    } else {
-        SendInput("R")
-    }
-}
-t::{
-    if(A_PriorHotkey != "t" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "T", "t", 1)
-    } else {
-        SendInput("T")
-    }
-}
-y::{
-    if(A_PriorHotkey != "y" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "Y", "y", 1)
-    } else {
-        SendInput("Y")
-    }
-}
-u::{
-    if(A_PriorHotkey != "u" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "U", "u", 1)
-    } else {
-        SendInput("U")
-    }
-}
-i::{
-    if(A_PriorHotkey != "i" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "I", "i", 1)
-    } else {
-        SendInput("I")
-    }
-}
-o::{
-    if(A_PriorHotkey != "o" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "O", "o", 1)
-    } else {
-        SendInput("O")
-    }
-}
-p::{
-    if(A_PriorHotkey != "p" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "P", "p", 1)
-    } else {
-        SendInput("P")
-    }
-}
-a::{
-    if(A_PriorHotkey != "a" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "A", "a", 1)
-    } else {
-        SendInput("A")
-    }
-}
-s::{
-    if(A_PriorHotkey != "s" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "S", "s", 1)
-    } else {
-        SendInput("S")
-    }
-}
-d::{
-    if(A_PriorHotkey != "d" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "D", "d", 1)
-    } else {
-        SendInput("D")
-    }
-}
-f::{
-    if(A_PriorHotkey != "f" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "F", "f", 1)
-    } else {
-        SendInput("F")
-    }
-}
-g::{
-    if(A_PriorHotkey != "g" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "G", "g", 1)
-    } else {
-        SendInput("G")
-    }
-}
-h::{
-    if(A_PriorHotkey != "h" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "H", "h", 1)
-    } else {
-        SendInput("H")
-    }
-}
-j::{
-    if(A_PriorHotkey != "j" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "J", "j", 1)
-    } else {
-        SendInput("J")
-    }
-}
-k::{
-    if(A_PriorHotkey != "k" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "K", "k", 1)
-    } else {
-        SendInput("K")
-    }
-}
-l::{
-    if(A_PriorHotkey != "l" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "L", "l", 1)
-    } else {
-        SendInput("L")
-    }
-}
-z::{
-    if(A_PriorHotkey != "z" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "Z", "z", 1)
-    } else {
-        SendInput("Z")
-    }
-}
-x::{
-    if(A_PriorHotkey != "x" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "X", "x", 1)
-    } else {
-        SendInput("X")
-    }
-}
-c::{
-    if(A_PriorHotkey != "c" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "C", "c", 1)
-    } else {
-        SendInput("C")
-    }
-}
-v::{
-    if(A_PriorHotkey != "v" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "V", "v", 1)
-    } else {
-        SendInput("V")
-    }
-}
-b::{
-    if(A_PriorHotkey != "b" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "B", "b", 1)
-    } else {
-        SendInput("B")
-    }
-}
-n::{
-    if(A_PriorHotkey != "n" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "N", "n", 1)
-    } else {
-        SendInput("N")
-    }
-}
-m::{
-    if(A_PriorHotkey != "m" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "M", "m", 1)
-    } else {
-        SendInput("M")
-    }
-}
+q::multiLongPress("q", "{Blind+}Q", "{Blind+}q", 1, 500)
++q::multiLongPress("q", "{Blind}q", "{Blind}Q", 1, 500)
+w::multiLongPress("w", "{Blind+}W", "{Blind+}w", 1, 500)
++w::multiLongPress("w", "{Blind}w", "{Blind}W", 1, 500)
+e::multiLongPress("e", "{Blind+}E", "{Blind+}e", 1, 500)
++e::multiLongPress("e", "{Blind}e", "{Blind}E", 1, 500)
+r::multiLongPress("r", "{Blind+}R", "{Blind+}r", 1, 500)
++r::multiLongPress("r", "{Blind}r", "{Blind}R", 1, 500)
+t::multiLongPress("t", "{Blind+}T", "{Blind+}t", 1, 500)
++t::multiLongPress("t", "{Blind}t", "{Blind}T", 1, 500)
+y::multiLongPress("y", "{Blind+}Y", "{Blind+}y", 1, 500)
++y::multiLongPress("y", "{Blind}y", "{Blind}Y", 1, 500)
+u::multiLongPress("u", "{Blind+}U", "{Blind+}u", 1, 500)
++u::multiLongPress("u", "{Blind}u", "{Blind}U", 1, 500)
+i::multiLongPress("i", "{Blind+}I", "{Blind+}i", 1, 500)
++i::multiLongPress("i", "{Blind}i", "{Blind}I", 1, 500)
+o::multiLongPress("o", "{Blind+}O", "{Blind+}o", 1, 500)
++o::multiLongPress("o", "{Blind}o", "{Blind}O", 1, 500)
+p::multiLongPress("p", "{Blind+}P", "{Blind+}p", 1, 500)
++p::multiLongPress("p", "{Blind}p", "{Blind}P", 1, 500)
+a::multiLongPress("a", "{Blind+}A", "{Blind+}a", 1, 500)
++a::multiLongPress("a", "{Blind}a", "{Blind}A", 1, 500)
+s::multiLongPress("s", "{Blind+}S", "{Blind+}s", 1, 500)
++s::multiLongPress("s", "{Blind}s", "{Blind}S", 1, 500)
+d::multiLongPress("d", "{Blind+}D", "{Blind+}d", 1, 500)
++d::multiLongPress("d", "{Blind}d", "{Blind}D", 1, 500)
+f::multiLongPress("f", "{Blind+}F", "{Blind+}f", 1, 500)
++f::multiLongPress("f", "{Blind}f", "{Blind}F", 1, 500)
+g::multiLongPress("g", "{Blind+}G", "{Blind+}g", 1, 500)
++g::multiLongPress("g", "{Blind}g", "{Blind}G", 1, 500)
+h::multiLongPress("h", "{Blind+}H", "{Blind+}h", 1, 500)
++h::multiLongPress("h", "{Blind}h", "{Blind}H", 1, 500)
+j::multiLongPress("j", "{Blind+}J", "{Blind+}j", 1, 500)
++j::multiLongPress("j", "{Blind}j", "{Blind}J", 1, 500)
+k::multiLongPress("k", "{Blind+}K", "{Blind+}k", 1, 500)
++k::multiLongPress("k", "{Blind}k", "{Blind}K", 1, 500)
+l::multiLongPress("l", "{Blind+}L", "{Blind+}l", 1, 500)
++l::multiLongPress("l", "{Blind}l", "{Blind}L", 1, 500)
+z::multiLongPress("z", "{Blind+}Z", "{Blind+}z", 1, 500)
++z::multiLongPress("z", "{Blind}z", "{Blind}Z", 1, 500)
+x::multiLongPress("x", "{Blind+}X", "{Blind+}x", 1, 500)
++x::multiLongPress("x", "{Blind}x", "{Blind}X", 1, 500)
+c::multiLongPress("c", "{Blind+}C", "{Blind+}c", 1, 500)
++c::multiLongPress("c", "{Blind}c", "{Blind}C", 1, 500)
+v::multiLongPress("v", "{Blind+}V", "{Blind+}v", 1, 500)
++v::multiLongPress("v", "{Blind}v", "{Blind}V", 1, 500)
+b::multiLongPress("b", "{Blind+}B", "{Blind+}b", 1, 500)
++b::multiLongPress("b", "{Blind}b", "{Blind}B", 1, 500)
+n::multiLongPress("n", "{Blind+}N", "{Blind+}n", 1, 500)
++n::multiLongPress("n", "{Blind}n", "{Blind}N", 1, 500)
+m::multiLongPress("m", "{Blind+}M", "{Blind+}m", 1, 500)
++m::multiLongPress("m", "{Blind}m", "{Blind}M", 1, 500)
 ; ====================================== NUMBERS ======================================
-1::{
-    if(A_PriorHotkey != "1" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "{!}", "1", 1)
-    } else {
-        SendInput("{!}")
-    }
-}
-2::{
-    if(A_PriorHotkey != "2" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "@", "2", 1)
-    } else {
-        SendInput("@")
-    }
-}
-3::{
-    if(A_PriorHotkey != "3" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "{#}", "3", 1)
-    } else {
-        SendInput("{#}")
-    }
-}
-4::{
-    if(A_PriorHotkey != "4" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "$", "4", 1)
-    } else {
-        SendInput("$")
-    }
-}
-5::{
-    if(A_PriorHotkey != "5" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "%", "5", 1)
-    } else {
-        SendInput("%")
-    }
-}
-6::{
-    if(A_PriorHotkey != "6" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "{^}", "6", 1)
-    } else {
-        SendInput("{^}")
-    }
-}
-7::{
-    if(A_PriorHotkey != "7" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "&", "7", 1)
-    } else {
-        SendInput("&")
-    }
-}
-8::{
-    if(A_PriorHotkey != "8" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "*", "8", 1)
-    } else {
-        SendInput("*")
-    }
-}
-9::{
-    if(A_PriorHotkey != "9" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "(", "9", 1)
-    } else {
-        SendInput("(")
-    }
-}
-0::{
-    if(A_PriorHotkey != "0" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, ")", "0", 1)
-    } else {
-        SendInput(")")
-    }
-}
+1::multiLongPress("1", "{Blind+}{!}", "{Blind+}1", 1, 500)
++1::multiLongPress("1", "{Blind}1", "{Blind}{!}", 1, 500)
+2::multiLongPress("2", "{Blind+}@", "{Blind+}2", 1, 500)
++2::multiLongPress("2", "{Blind}2", "{Blind}@", 1, 500)
+3::multiLongPress("3", "{Blind+}{#}", "{Blind+}3", 1, 500)
++3::multiLongPress("3", "{Blind}3", "{Blind}{#}", 1, 500)
+4::multiLongPress("4", "{Blind+}$", "{Blind+}4", 1, 500)
++4::multiLongPress("4", "{Blind}4", "{Blind}$", 1, 500)
+5::multiLongPress("5", "{Blind+}%", "{Blind+}5", 1, 500)
++5::multiLongPress("5", "{Blind}5", "{Blind}%", 1, 500)
+6::multiLongPress("6", "{Blind+}{^}", "{Blind+}6", 1, 500)
++6::multiLongPress("6", "{Blind}6", "{Blind}{^}", 1, 500)
+7::multiLongPress("7", "{Blind+}&", "{Blind+}7", 1, 500)
++7::multiLongPress("7", "{Blind}7", "{Blind}&", 1, 500)
+8::multiLongPress("8", "{Blind+}*", "{Blind+}8", 1, 500)
++8::multiLongPress("8", "{Blind}8", "{Blind}*", 1, 500)
+9::multiLongPress("9", "{Blind+}(", "{Blind+}9", 1, 500)
++9::multiLongPress("9", "{Blind}9", "{Blind}(", 1, 500)
+0::multiLongPress("0", "{Blind+})", "{Blind+}0", 1, 500)
++0::multiLongPress("0", "{Blind}0", "{Blind})", 1, 500)
 ; ====================================== PUNCTUATION ======================================
--::{
-    if(A_PriorHotkey != "-" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "_", "-", 1)
-    } else {
-        SendInput("_")
-    }
-}
-=::{
-    if(A_PriorHotkey != "=" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "{+}", "=", 1)
-    } else {
-        SendInput("{+}")
-    }
-}
-[::{
-    if(A_PriorHotkey != "[" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "{", "[", 1)
-    } else {
-        SendInput("{")
-    }
-}
-]::{
-    if(A_PriorHotkey != "]" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "}", "]", 1)
-    } else {
-        SendInput("}")
-    }
-}
-\::{
-    if(A_PriorHotkey != "\" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "|", "\", 1)
-    } else {
-        SendInput("|")
-    }
-}
-`;::{
-if(A_PriorHotkey != ";" || A_TimeSincePriorHotkey > 500){
-    longPress(ThisHotkey, ":", ";", 1)
-} else {
-    SendInput(":")
-}
-}
-'::{
-    if(A_PriorHotkey != "'" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "`"", "'", 1)
-    } else {
-        SendInput("`"")
-    }
-}
-,::{
-    if(A_PriorHotkey != "," || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "<", ",", 1)
-    } else {
-        SendInput("<")
-    }
-}
-.::{
-    if(A_PriorHotkey != "." || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, ">", ".", 1)
-    } else {
-        SendInput(">")
-    }
-}
-/::{
-    if(A_PriorHotkey != "/" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "?", "/", 1)
-    } else {
-        SendInput("?")
-    }
-}
-`::{
-    if(A_PriorHotkey != "``" || A_TimeSincePriorHotkey > 500){
-        longPress(ThisHotkey, "~", "``", 1)
-    } else {
-        SendInput("~")
-    }
-}
+-::multiLongPress("-", "{Blind+}_", "{Blind+}-", 1, 500)
++-::multiLongPress("-", "{Blind}-", "{Blind}_", 1, 500)
+=::multiLongPress("=", "{Blind+}+", "{Blind+}=", 1, 500)
++=::multiLongPress("=", "{Blind}=", "{Blind}+", 1, 500)
+[::multiLongPress("[", "{Blind+}{", "{Blind+}[", 1, 500)
++[::multiLongPress("[", "{Blind}[", "{Blind}{", 1, 500)
+]::multiLongPress("]", "{Blind+}}", "{Blind+}]", 1, 500)
++]::multiLongPress("]", "{Blind}]", "{Blind}}", 1, 500)
+\::multiLongPress("\", "{Blind+}|", "{Blind+}\", 1, 500)
++\::multiLongPress("\", "{Blind}\", "{Blind}|", 1, 500)
+`;::multiLongPress("`", "{Blind+}:", "{Blind+};", 1, 500)
++;::multiLongPress("`", "{Blind};", "{Blind}:", 1, 500)
+'::multiLongPress("'", "{Blind+}`"", "{Blind+}'", 1, 500)
++'::multiLongPress("'", "{Blind}'", "{Blind}`'", 1, 500)
+,::multiLongPress(",", "{Blind+}<", "{Blind+},", 1, 500)
++,::multiLongPress(",", "{Blind},", "{Blind}<", 1, 500)
+.::multiLongPress(".", "{Blind+}>", "{Blind+}.", 1, 500)
++.::multiLongPress(".", "{Blind}.", "{Blind}>", 1, 500)
+/::multiLongPress("/", "{Blind+}?", "{Blind+}/", 1, 500)
++/::multiLongPress("/", "{Blind}/", "{Blind}?", 1, 500)
+`::multiLongPress("`", "{Blind+}~", "{Blind+}``", 1, 500)
++`::multiLongPress("`", "{Blind}``", "{Blind}~", 1, 500)
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::BackSpace
 *RAlt::modTap(ThisHotkey, "RAlt", "RControl", toggleLayer, "Numpad")
