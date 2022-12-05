@@ -46,14 +46,14 @@ toggleLayer(targetLayer) {
 
 ; ============================== UTILITY FUNCTIONS ==============================
 
-longPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
+longPress(thisKey, defaultString, longPressString, numOfBackspaces){
     startTime := A_TickCount
     SendInput(defaultString)
     backspaceInput := "{Backspace " numOfBackspaces "}"
     ; Instead of a sleep or simlar delay, a loop is used so that, in the process of rapid typing, one cannot release the hotkey and then press it again, falsely triggering the script into backspacing, missing that the key had been released
-    while(GetKeyState(ThisHotkey, "P")) {
+    while(GetKeyState(thisKey, "P")) {
         endTime := A_TickCount - startTime
-        if(ThisHotkey = A_PriorKey && endTime > longPressDelay) {
+        if(thisKey = A_PriorKey && endTime > longPressDelay) {
             SendInput(backspaceInput)
             SendInput(longPressString)
             KeyWait(ThisHotkey)
@@ -61,12 +61,12 @@ longPress(ThisHotkey, defaultString, longPressString, numOfBackspaces){
     }
 }
 
-longPressOnRelease(ThisHotkey, defaultString, longPressString){
+longPressOnRelease(thisKey, defaultString, longPressString){
     startTime := A_TickCount
-    while(GetKeyState(ThisHotkey, "P")) {
+    while(GetKeyState(thisKey, "P")) {
         endTime := A_TickCount - startTime
-        if(ThisHotkey = A_PriorKey && endTime > longPressDelay) {
-            KeyWait(ThisHotkey)
+        if(thisKey = A_PriorKey && endTime > longPressDelay) {
+            KeyWait(thisKey)
             SendInput(longPressString)
             return
         }
@@ -76,9 +76,9 @@ longPressOnRelease(ThisHotkey, defaultString, longPressString){
 
 ; Custom function to allow a key to have different effects whether its tapped, held, or double tapped and held
 ; There are limitations to this functionality (like sending backspace keystrokes), but it works for some specific Autoshift purposes
-multiLongPress(ThisHotkey, defaultSend, longPressSend, numOfBackspaces, timeDelay){
-  if(A_PriorKey != ThisHotkey || A_TimeSincePriorHotkey > timeDelay){
-        longPress(ThisHotkey, defaultSend, longPressSend, numOfBackspaces)
+multiLongPress(thisKey, defaultSend, longPressSend, numOfBackspaces, timeDelay){
+  if(A_PriorKey != thisKey || A_TimeSincePriorHotkey > timeDelay){
+        longPress(thisKey, defaultSend, longPressSend, numOfBackspaces)
     } else {
         SendInput(defaultSend)
     }
