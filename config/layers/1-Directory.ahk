@@ -1,0 +1,33 @@
+#HotIf currentLayer = "Directory"
+; ====================================== LETTERS ======================================
+q::toggleLayer("Morse")
+w::toggleLayer("Func-D")
+e::toggleLayer("Diacritics")
+r::toggleLayer("Alchemical")
+t::toggleLayer("Macros")
+y::toggleLayer("Media")
+u::toggleLayer("Math")
+i::toggleLayer("Greek")
+o::toggleLayer("Func")
+
+a::toggleLayer("Alpha")
+s::toggleLayer("Alpha-Sl")
+d::toggleLayer("Sym")
+f::toggleLayer("Sym-Sl")
+g::toggleLayer("Sym-D")
+h::toggleLayer("CSym-D")
+j::toggleLayer("CSym-Sl")
+k::toggleLayer("CSym")
+l::toggleLayer("CAlpha-Sl")
+`;::toggleLayer("CAlpha")
+
+; x::toggleLayer("")
+c::toggleLayer("Ext")
+; v::toggleLayer("")
+; b::toggleLayer("")
+; n::toggleLayer("")
+m::toggleLayer("Vim")
+; ,::toggleLayer("")
+; .::toggleLayer("")
+; ====================================== ADDITIONAL KEYS ======================================
+*RAlt::modTap(ThisHotkey, "RAlt", "Control", toggleLayer, previousLayer)

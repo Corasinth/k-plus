@@ -3,20 +3,20 @@
 i::{
     SendInput("i")
     if(A_PriorKey != "y" && A_PriorKey != "d" && A_PriorKey != "c"){
-        toggleLayer(previousLayer)
+        toggleLayer("CAlpha")
     }
 }
 
 a::{
     SendInput("a")
-    toggleLayer(previousLayer)
+    toggleLayer("CAlpha")
 }
 
 
 s::{
     if(!GetKeyState("Control")){
         SendInput("s")
-        toggleLayer(previousLayer)
+        toggleLayer("CAlpha")
     } else {
         SendInput("^s")
     }
@@ -24,33 +24,33 @@ s::{
 
 o::{
     SendInput("o")
-    toggleLayer(previousLayer)
+    toggleLayer("CAlpha")
 }
 
 +i::{
     SendInput("I")
     if(A_PriorKey != "y" && A_PriorKey != "d" && A_PriorKey != "c"){
-        toggleLayer(previousLayer)
+        toggleLayer("CAlpha")
     }
 }
 
 +a::{
     SendInput("A")
-    toggleLayer(previousLayer)
+    toggleLayer("CAlpha")
 }
 
 +s::{
     SendInput("S")
-    toggleLayer(previousLayer)
+    toggleLayer("CAlpha")
 }
 
 +o::{
     SendInput("+o")
-    toggleLayer(previousLayer)
+    toggleLayer("CAlpha")
 }
 
 :B0Z?*:cw::{
-    toggleLayer(previousLayer)
+    toggleLayer("CAlpha")
 }
 
 RAlt::RControl
