@@ -2,6 +2,8 @@
 
 ## **Description**
 
+**Note** While the the information below is generally accurate and k-plus works for straightforward remapping, unfortunately strange issues seem to crop up while using the more elaborate functions in combination. Occasionally the hotkeys will fail, and rapid typing can even permanently disable the script until it is reloaded. The investigation into why this occurs is ongoing, but until resolved these issue make k-plus guaranteed functional only for simple remapping layers. 
+
 K-plus is tool for enabling layers on non-mechanical keyboards that don't usually have access to alternate layouts. K-plus is built on [AutoHotKey Script v2-beta](https://lexikos.github.io/v2/docs/AutoHotkey.htm) and is therefore a Windows only tool. 
 
 It's designed to be configurable and flexible; supporting as many layers as you'd like to include. Once configured, a compiled version (along with the `settings.ini` file) can easily be carried on a flash drive and run on any Windows device, letting you use your layers between devices.
@@ -11,8 +13,6 @@ Each layer is setup using AHK's hotkeys. This can be a little complex if you are
 AHK's own docs are the first place to turn for help managing specific hotkeys. However, in this README you can find explanations for using the template layer generator and managing the more useful features.
 
 If you find yourself needing advanced features, however, or planning on a set of layers that makes heavy use of them, you might benefit more from some of the software found in the [Additional Resources](#additional-resources) section. Ultimately, this set of scripts was designed around my personal use, and while you may find it useful it won't be as well implemented as more actively maintained/developed software.
-
-I've included some simple standard layers for use, but you can also check out the 'personal' branch where I keep my personal configuration for examples that go beyond the simple default layers. 
 
 If you just want some simple remapped layers (for programming for example) skip to [Remapping](#remapping)
 
@@ -281,8 +281,6 @@ By creating a custom combination with the modifier key, the modifiers native fun
 It is important that when remapping modifier keys you do not use the direct remapping format of `modifierKey::outputCharacter`. This format can cause issues, occasionally even across layers for reasons I do not understand. 
 
 Notably, directly remapping a key in this way prevents you from defining custom combinations of modifier keys like `Ctrl+Shift`. You can define a hotkey as `Ctrl+key` or `Shift+key`, but not `Ctrl+Shift+Key` or any other combinations. This interferes with the default universal quit and suspend hotkeys.
-
-You can also check out my personal layer setup to see additional ways I remap and rearrange modifier keys.
 
 ### Long Press
 
