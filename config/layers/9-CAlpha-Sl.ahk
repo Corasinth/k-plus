@@ -891,3 +891,4 @@ CapsLock::{
         SendInput("{Blind}^{Backspace}")
     }
 }
+`;::toggleLayer("CSym-D")

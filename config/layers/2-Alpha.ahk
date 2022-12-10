@@ -888,3 +888,4 @@ CapsLock::toggleLayer("Ext")
         SendInput("{Blind}^{Backspace}")
     }
 }
+`;::toggleLayer("Sym-D")
