@@ -5,7 +5,15 @@
 #Include ./layers/13-Vim.ahk
 #Include ./layers/14-Func.ahk
 #Include ./layers/15-Func-D.ahk
+#Include ./layers/16-Diacritics.ahk
+#Include ./layers/17-Greek.ahk
+#Include ./layers/18-Greek-Sl.ahk
+#Include ./layers/19-Alchemical.ahk
 #Include ./layers/2-Alpha.ahk
+#Include ./layers/20-Math.ahk
+#Include ./layers/21-Macros.ahk
+#Include ./layers/22-Media.ahk
+#Include ./layers/23-Morse.ahk
 #Include ./layers/3-Alpha-Sl.ahk
 #Include ./layers/4-Sym.ahk
 #Include ./layers/5-Sym-Sl.ahk
