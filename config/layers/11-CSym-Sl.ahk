@@ -591,7 +591,7 @@ l::{
             }
         }
     } else {
-        SendInput("{Blind}{Text}{}}")
+        SendInput("{Blind}{Text}}")
     }
 }
 +;::{

@@ -626,7 +626,7 @@ l up::toggleLayer(previousLayer)
             }
         }
     } else {
-        SendInput("{Blind}{Text}{}}")
+        SendInput("{Blind}{Text}}")
     }
 }
 `; up::toggleLayer(previousLayer)
