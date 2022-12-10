@@ -1,8 +1,4 @@
 #HotIf currentLayer = "Ext"
-; ====================================== CONTROL KEYS ======================================
-Tab::Esc
-Space::Enter
-CapsLock::toggleLayer("Alpha")
 ; ====================================== LETTERS ======================================
 q::^f
 w::^x
@@ -33,9 +29,11 @@ n::PgUp
 m::^a
 ,::PgDn
 ; ====================================== ADDITIONAL KEYS ======================================
-; '::Tab
+'::Tab
+Tab::Esc
+Space::Enter
+CapsLock::toggleLayer("Alpha")
 
-; CapsLock::toggleLayer("Ext")
 *Shift::{
     SendInput("{Blind}{Shift downR}")
     if !(released := KeyWait("Shift", "T0.18")){
