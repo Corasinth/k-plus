@@ -123,10 +123,10 @@ quitKey := readConfigSettings("universalQuitKey")
 suspendKey := readConfigSettings("universalSuspendKey")
 
 if(quitKey) {
-    hotkey(quitKey, exitFunction,"I1 On S")
+    hotkey(quitKey, exitFunction,"I2 On S")
 }
 if(suspendKey){
-    hotkey(suspendKey, suspendFunction,"I1 On S")
+    hotkey(suspendKey, suspendFunction,"I2 On S")
 }
 
 ; Exit and Suspend functions so they can be placed in the hotkey() function
