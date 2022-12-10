@@ -2,8 +2,6 @@
 
 ## **Description**
 
-**Note** While the the information below is generally accurate and k-plus works for straightforward remapping, unfortunately strange issues seem to crop up while using the more elaborate functions in combination. Occasionally the hotkeys will fail, and rapid typing can even permanently disable the script until it is reloaded. The investigation into why this occurs is ongoing, but until resolved these issue make k-plus guaranteed functional only for simple remapping layers. 
-
 K-plus is tool for enabling layers on non-mechanical keyboards that don't usually have access to alternate layouts. K-plus is built on [AutoHotKey Script v2-beta](https://lexikos.github.io/v2/docs/AutoHotkey.htm) and is therefore a Windows only tool. 
 
 It's designed to be configurable and flexible; supporting as many layers as you'd like to include. Once configured, a compiled version (along with the `settings.ini` file) can easily be carried on a flash drive and run on any Windows device, letting you use your layers between devices.
@@ -16,15 +14,16 @@ If you find yourself needing advanced features, however, or planning on a set of
 
 If you just want some simple remapped layers (for programming for example) skip to [Remapping](#remapping)
 
+**Note** While the the information below is generally accurate and k-plus works for straightforward remapping, unfortunately strange issues seem to crop up while using the more elaborate functions in combination. Occasionally the hotkeys will fail, and rapid typing can even permanently disable the script until it is reloaded. The investigation into why this occurs is ongoing, but I until resolved I can only reccomend k-plus for simple remapping. 
+
+I have found that, instead of using variables and orderly utility functions, replicating desired code and values everywhere they are used cuts down on some of these issues, despite making the code much much harder to manage and read. You can check out the `personal` branch for how I am managing the issues. 
+
 ## **Table of Contents**
 
 
 * [Installation](#installation)
 * [Remapping](#remapping)
 * [Configuration](#configuration)
-    * [Template Configuration](#template-configuration)    
-    * [Layer Configuration](#layer-configuration)
-        * [Ordering Layers](#ordering-layers)    
 * [Usage](#usage)
 * [Features](#features)
     * [Direct Remapping](#direct-remapping)
@@ -85,87 +84,7 @@ Finally, config files must be hooked up to the main `k-plus.ahk` script. This pa
 
 You can set the folder that k-plus will look to find layers (within the config folder) by adjusting the `layerFolder` setting in `settings.ini` under `[Config Settings]`. This is primarily useful if you want to occasionally swap between different sets of layers, and have created a few folders in `config` that hold your alternate layer setups.
 
-### **Template Configuration**
-
-Configuring the template is primarily done through the `settings.ini` file using the values under the heading `[Template Generator Settings]`. By changing the values on the right hand side of the equals signs, you can choose what kinds of keys you would like to have appear in your template file as well as default actions. 
-
-Below is a full list of the various template generator settings, their possible values, and their meaning. Boolean values are either 0 (excluded), or 1 (included).
-
-`includeMouseButtons`: Boolean. Handles inclusion of mouse specific buttons.  
-`includeLetterKeys`: Boolean. Handles inclusion of all letter keys.    
-`includeNumberKeys`: Boolean. Handles inclusion of all number keys.    
-`includePunctuationKeys`: Boolean. Handles inclusion of all keys dedicated entirely to punctuation or symbols.    
-`includeControlKeys`: Boolean. Handles inclusion of keys like `CapsLock`, `Backspace`, `Delete`, etc.    
-`includeModifierKeys`: Boolean. Handle inclusion of `Control`, `Alt`, `Shift`, and `Windows` keys as the actual buttons themselves, rather than as modifiers to other keys.  
-`includeNavigationKeys`: Boolean. Handles inclusion of keys like `Home`, `PgUp`, the arrow keys, etc.    
-`includeNumKeys`: Boolean. Handles inclusion of all numpad keys. Based on the status of Numlock, these behave differently. See AHK docs for more detail.    
-`includeMediaKeys`: Boolean. Handles inclusion of media specific keys that handle pressing play, pause, skipping to the next track, and other such specialized commands.    
-`includeShift`: Boolean. Handles inclusion of all `Shift+key` hotkeys. Useful for remapping new `Shift` layers.    
-`includeShiftRightLeft`: Boolean. Handles inclusion of `Shift` variants specific to either the right `Shift` button or the left. Useful for variable `Shift` layers.    
-`includeControl`: Boolean. Handles inclusion of all `Control+key` variants, as per shift    
-`includeControlRightLeft`: Boolean. Handles inclusion of right and left variants as per shift.    
-`includeAlt`: Boolean. Same as above.    
-`includeAltRightLeft`: Boolean. Same as previous right-left variants.    
-`includeWindows`: Boolean. Same as previous, however no right-left variant exists for the `Windows` key as distinguishing between them is not supported.    
-`includeAltGr`: Boolean. Includes AltGr modifier. However, many keyboards don't have this key.  
-`includeWildcard`: Boolean. Includes wildcard modifier, which sends a hotkey regardless of what modifiers are being held down.  
-`includeControlShift`: Boolean. Handles the `Ctrl+Shift` combination prefix to hotkeys.  
-`includeAltShift`: Boolean. Handles the `Alt+Shift` combination prefix to hotkeys.  
-`includeWindowsShift`: Boolean. Handles the `Windows+Shift` combination prefix to hotkeys.  
-`includeWindowsAlt`: Boolean. Handles the `Windows+Alt` combination prefix to hotkeys.  
-`includeControlAlt`: Boolean. Handles the `Control+Alt` combination prefix to hotkeys.  
-`includeControlWindows`: Boolean. Handles the `Control+Windows` combination prefix to hotkeys.  
-`includeControlAltShift`: Boolean. Handles the `Control+Alt+Shift` combination prefix to hotkeys.  
-`includeControlAltWindows`: Boolean. Handles the `Control+Alt+Windows` combination prefix to hotkeys.  
-`additionalKeys`: String (include the value in "double quotes, as demonstrated here"). Seperate the keys you wish to include with a comme, as follows:  
-```  
-additionalkeys = "x,y,z,CapsLock,a & s"  
-```  
-This includes the keys listed as their own entries in the template file. Useful for when you don't wish to include an entire group (such as all letters or all media keys), but don't want to create the objects manually. Note that the last entry is a chord, requiring you to press `a` and `s` together to trigger the hotkey.
-`additionalModifiers`: String (include the value in "double quotes, as demonstrated here"). Seperate any desired modifier keys with a comma, as above. Modifier keys effectively add another sublayer that behaves like `Shift` to the layer. It creates a chord in the following format: `modifierKey & everyOtherKey`, for every key otherwise included in the template file. Thus, an additional modifier layer.  
-`defaultAction`: A function call or single key. Adds the contents of the string to the single line hotkey as so:  
-```  
-<hotkey>::<defaultAction>  
-```  
-`defaultFunction`: String (include the value in "double quotes, as demonstrated here"). This details the default actions placed inside the hotkey object's function. Do not add typical function wrappings like `()=>{}`. Instead simply paste the code you would put inside the function, using `` `n `` to create line breaks. As an example:   
-`universalDirectoryKey`: String. This optional entry, if set to a specific key, will always set that key to toggle back to layer 1, the directory layer. Useful when generating multiple templates.  
-`deadLayer`: Boolean. If true, the template generated will be treated like a dead layer, and an additional `toggleLayer(previousLayer)` function call will be added to each hotkey to toggle the layer back after any key is pressed.  
-`multipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single, double, or triple keypress (400 ms delay max). Cannot be used with inclusiveMultipress.  
-`inclusiveMultipress`: Boolean. Handles whether or not to include formatted code allowing for a distinction between a single or double press (400 ms delay max), that always sends the single press action. Cannot be used with regular multipress.  
-`longPress`: Boolean. Whether or not to use the `longPress` function as the default action. See [Long Press](#long-press) for more details.
-`longPressOnRelease`: Boolean. Whether or not to use the long press function that has the result trigger on key release, rather than simply after a duration has expired.
-`longPressDelay`: Number. The time (in seconds) that one must hold a key down for the long press to be activated.
-`formatted`: Boolean. Determines whether or not the hotkey objects are on a single line, or formatted for readability. Turning formatting on makes it easier to add custom functions, especially multiline functions, to each hotkey object. However, it makes it more difficult to quickly scan several hotkeys at once, or easily change a single variable in each (as per remapping).
-`defaultFolder`: String. Sets the default folder for saving a template. Useful when generating multiple template layers.  
-
-Additionally, there are a few settings under `[Config Settings]` that are useful to know. 
-`universalQuitKey`/`universalSuspendKey`: A string for the hot keys that quit or suspend k-plus, regardless of what layer you're on. Useful to have. By default, they are set to `Alt + Shift + q` `Alt + Shift + s` respectively.
-`defaultLayer`: Set this to 0 to disable it or to whichver layer number you want k-plus to start with.
-`layersToIgnoreAsPreviousLayer`: String. Space seperated list of layers, where each layer number/name is enclosed in parantheses. These layers aren't counted when the script toggles back to the previous layer. Useful for ignoring the directory and dead layers.
-`tooltip`: Boolean. Turn this on to show a little tooltip displaying your current layer at all times. The options below this let you set the location of the tooltip; the default is the upper left corner of the screen. 
-
-If you are ever unsure how to represent a particular key, or what a particular hotkey represents you can check out the [AHK v2 docs](https://lexikos.github.io/v2/docs/KeyList.htm) for the full list of keys and key codes.
-
-### **Layer Configuration**
-
-Once you've generated a layer template, or all your layer templates, you'll want to fill them out and ensure they are properly ordered. 
-
-There are generally two ways to go about this. By default, the templates assigns each hotkey the letter `x`. If you're only goal is to remap keys for convenience across different layers, then all you need do is replace the `x` with whatever key you wish. As always, the [AHK v2 docs](https://lexikos.github.io/v2/docs/KeyList.htm) have a full list of keys you can rebind.
-
-You'll also want to make sure some hotkeys are attached to the `toggleLayer(number)` function, so that you can appropriately swap between layers.
-
-The alternative is to define your own functions, as per the AHK scripting language. In this case, I reccomend simply reading the docs and testing out your functions seperately before including them in your layer. Once configured, layers should work like a charm. 
-
-#### **Ordering Layers**
-Ensuring your layer files are appropriately ordered is simple. When you generate a layer, make sure you input the appropriate layer number into the dialogue box that pops up. 
-
-Later, if you want to change the layer number you can edit the first line of the layer file so that `currentLayer` equals the layer number you wish.
-
-For the sake of clarity, I reccomend including the layer number in the filename along with whatever else you wish to name the layer. 
-
-**IMPORTANT:** Do not include spaces in your layer file name. Other symbols are fine, but spaces cause issues with the config detector script and will likely result in errors.
-
-Technically, you can create custom names for the layers instead of assigning them numbers. To do this, you need to change the line at the top of each file that says `currentLayer = ` and replace the number in that line with the case sensitive name of your layer, in double quotes. Like this: `currentLayer = "Directory"`. The `toggleLayer()` function needs to be similarly changed for the appropriate layer.
+For a full breakdown of how to use `template-generator.ahk` and `settings.ini`, refer to [config.md](./config.md).
 
 ## **Usage**
 
@@ -204,6 +123,10 @@ If you have scripts with higher input levels, you can edit k-plus directly to ch
 K-plus has a lot of features that can be accessed via `settings.ini`. However, each and every feature here is simply something you can do with AutoHotKey itself, and so their [official docs](https://lexikos.github.io/v2/docs/AutoHotkey.htm) are a much better source of support and ideas for what you can make your layers do.
 
 Below I have included some of the core features I believe will be central to anyone using multiple layers, but these should not be taken as an exahustive list, merely suggestions about what you can do with k-plus without too much effort.
+
+It should be noted that while the included utility functions that can be used to implent k-plus are convenient and generally work, using the extensively results in wild and unpredicatable errors (as seen in the note at the top).
+
+For more advanced users, the utility functions should be used as a blueprint for reliability. 
 
 ### **Previous Layer**
 
@@ -367,7 +290,13 @@ If you encounter unexpected compatability issues, I reccomend checking out the s
 
 Feel free to fork/create a pull request to fix bugs, refactor code, or add new featues. While I aimed to create something flexible and easy to configure, I'm not a master of AHK and there's certainly room for improvement.
 
-In particular, the settings for creating template layers must be edited manually, and would benefit from some GUI controls. Morevoer, there may be more efficient ways of formatting and setting up the templates, or making it easier to navigate them to fill in functions as desired.
+Currently, k-plus responds much better when each piece of code and the values it uses (like the current key) are hardcoded. Why this should be the case, I cannot say, and where the line is is unclear. However, until the issue is resolved this means that increasing the flexibility, power, and configurability of the `template-generator.ahk` is critical to making k-plus convenient and easy-ish to use. 
+
+In particular, making it easier to add custom code blocks is important, as well as improving how the `template-generator` script handles writing these code blocks. 
+
+K-plus would also benefit heavily from a configuration option that takes in a list of keys, and slots them into the code attached to each hot key, so that one does not have to manually edit a layer file to have `X` hotkey output `Y` character.
+
+There are also a few additional areas for improvement.
 
 Currently, k-plus does not support hotstrings. While you can of course generate your own hotstring scripts or custom add hotstrings to a layer, there is no built in generator for hotstrings, hotstring options, or hotstring end characters. Adding this functionality in a clean and convenient way is a probable area of future development.
 
@@ -387,7 +316,7 @@ In addition, [DreymaR's Extend layer](https://github.com/DreymaR/BigBagKbdTrixPK
 
 K-plus is a useful tool, but it was designed to serve a single individual's needs. [DreymaR's Extend layer](https://github.com/DreymaR/BigBagKbdTrixPKL) is a modifier-based program with a great deal more versatility than k-plus. Although it lacks layer toggling it does come with a GUI, support for a variety of keyboard layouts, an active community with active developers, and many more features (like powerstrings) than I could create. I reccomend checking it out for more details. 
 
-I also have to reccomend [kmonad](https://github.com/kmonad/kmonad), an incredibly flexible layer program designed to work (to one degree or another) on Linux, Windows, and Mac. While the tool is less actively developed than DreymaR's Extend, it includes a wider variety of features including layer toggling, dead keys, chords, powerstrings, modifier-based layers, and variable key functions depending on how the key is pressed (double-tapped, held vs tapped, etc.). While support seems to be primarily focused on Linux systems, kmonad truly offers it all, though it comes with a comparable amount of configuration to set up even simple layers. Definately give it a whirl if you lean more towards 'poweruser'.
+I also have to reccomend [kmonad](https://github.com/kmonad/kmonad), an incredibly flexible layer program designed to work (to one degree or another) on Linux, Windows, and Mac. While the tool is less actively developed than DreymaR's Extend, it includes a wide variety of features including layer toggling, leader keys, chords, powerstrings, modifier-based layers, and variable key functions depending on how the key is pressed (double-tapped, held vs tapped, etc.). While support seems to be primarily focused on Linux systems, kmonad offers features for all three major operating systems (Mac, Windows, and Linux). However, it does have less flexibility in designing the kind of custom functions you can attach to keys with AHK, and lacks conveniences like a `previousLayer` variable and a notification that tracks the current layer. Despite that, it offers a lot of flexibility in constructing custom layouts, and is definately worth checking out.
 
 ## **[License](./LICENSE)**
 This program uses the open-source MIT License.
