@@ -64,13 +64,3 @@ CapsLock::toggleLayer("Alpha")
         toggleLayer(previousLayer)
     }
 }
-*'::{
-    SendInput("{Blind}{Control downR}")
-    if !(released := KeyWait("RAlt", "T0.18")){
-        KeyWait("RAlt")
-    }
-    SendInput("{Blind}{Control up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        SendInput("{Blind}^{Backspace}")
-    }
-}
