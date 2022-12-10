@@ -1,886 +1,889 @@
-#HotIf currentLayer = "Sym"
+#HotIf currentLayer = "CSym-Sl"
 ; ====================================== LETTERS ======================================
 q::{
-    if(A_PriorHotKey != "q" || A_TimeSincePriorHotkey > 500){
+    if(A_PriorHotKey != "q" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}~")
+        SendInput("{Blind}°")
         while(GetKeyState("q", "P")){
             endTime := A_TickCount - startTime
-            if("q" = A_PriorKey && endTime > 180){
+            if("q" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}°")
+                SendInput("{Blind}~")
                 KeyWait("q")
             }
         }
     } else {
-        SendInput("{Blind}~")
+        SendInput("{Blind}°")
     }
 }
 +q::{
-    if(A_PriorHotKey != "+q" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "+q" || A_TimeSincePriorHotkey > 500){
         startTime := A_TickCount
-        SendInput("{Blind+}°")
+        SendInput("{Blind+}~")
         while(GetKeyState("q", "P")){
             endTime := A_TickCount - startTime
-            if("q" = A_PriorKey && endTime > 180){
+            if("q" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}~")
+                SendInput("{Blind+}°")
                 KeyWait("q")
             }
         }
     } else {
-        SendInput("{Blind+}°")
+        SendInput("{Blind+}~")
     }
 }
 w::{
     if(A_PriorHotKey != "w" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}<")
+        SendInput("{Blind}@")
         while(GetKeyState("w", "P")){
             endTime := A_TickCount - startTime
-            if("w" = A_PriorKey && endTime > 180){
+            if("w" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}@")
+                SendInput("{Blind}>")
                 KeyWait("w")
             }
         }
     } else {
-        SendInput("{Blind}<")
+        SendInput("{Blind}@")
     }
 }
 +w::{
     if(A_PriorHotKey != "+w" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}@")
+        SendInput("{Blind+}<")
         while(GetKeyState("w", "P")){
             endTime := A_TickCount - startTime
-            if("w" = A_PriorKey && endTime > 180){
+            if("w" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}>")
+                SendInput("{Blind+}@")
                 KeyWait("w")
             }
         }
     } else {
-        SendInput("{Blind+}@")
+        SendInput("{Blind+}<")
     }
 }
 e::{
     if(A_PriorHotKey != "e" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}[")
+        SendInput("{Blind}%")
         while(GetKeyState("e", "P")){
             endTime := A_TickCount - startTime
-            if("e" = A_PriorKey && endTime > 180){
+            if("e" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}%")
+                SendInput("{Blind}[")
                 KeyWait("e")
             }
         }
     } else {
-        SendInput("{Blind}[")
+        SendInput("{Blind}%")
     }
 }
 +e::{
     if(A_PriorHotKey != "+e" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}%")
+        SendInput("{Blind+}[")
         while(GetKeyState("e", "P")){
             endTime := A_TickCount - startTime
-            if("e" = A_PriorKey && endTime > 180){
+            if("e" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}[")
+                SendInput("{Blind+}%")
                 KeyWait("e")
             }
         }
     } else {
-        SendInput("{Blind+}%")
+        SendInput("{Blind+}[")
     }
 }
 r::{
     if(A_PriorHotKey != "r" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}\")
+        SendInput("{Blind}{^}")
         while(GetKeyState("r", "P")){
             endTime := A_TickCount - startTime
-            if("r" = A_PriorKey && endTime > 180){
+            if("r" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{^}")
+                SendInput("{Blind}\")
                 KeyWait("r")
             }
         }
     } else {
-        SendInput("{Blind}\")
+        SendInput("{Blind}{^}")
     }
 }
 +r::{
     if(A_PriorHotKey != "+r" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{^}")
+        SendInput("{Blind+}\")
         while(GetKeyState("r", "P")){
             endTime := A_TickCount - startTime
-            if("r" = A_PriorKey && endTime > 180){
+            if("r" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}\")
+                SendInput("{Blind+}{^}")
                 KeyWait("r")
             }
         }
     } else {
-        SendInput("{Blind+}{^}")
+        SendInput("{Blind+}\")
     }
 }
 t::{
     if(A_PriorHotKey != "t" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}—")
+        SendInput("{Blind}–")
         while(GetKeyState("t", "P")){
             endTime := A_TickCount - startTime
-            if("t" = A_PriorKey && endTime > 180){
+            if("t" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}–")
+                SendInput("{Blind}—")
                 KeyWait("t")
             }
         }
     } else {
-        SendInput("{Blind}—")
+        SendInput("{Blind}–")
     }
 }
 +t::{
     if(A_PriorHotKey != "+t" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}–")
+        SendInput("{Blind+}—")
         while(GetKeyState("t", "P")){
             endTime := A_TickCount - startTime
-            if("t" = A_PriorKey && endTime > 180){
+            if("t" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}—")
+                SendInput("{Blind+}–")
                 KeyWait("t")
             }
         }
     } else {
-        SendInput("{Blind+}–")
+        SendInput("{Blind+}—")
     }
 }
 y::{
     if(A_PriorHotKey != "y" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}{U+00AB}")
+        SendInput("{Blind}{U+00BB}")
         while(GetKeyState("y", "P")){
             endTime := A_TickCount - startTime
-            if("y" = A_PriorKey && endTime > 180){
+            if("y" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{U+00BB}")
+                SendInput("{Blind}{U+00AB}")
                 KeyWait("y")
             }
         }
     } else {
-        SendInput("{Blind}{U+00AB}")
+        SendInput("{Blind}{U+00BB}")
     }
 }
 +y::{
     if(A_PriorHotKey != "+y" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{U+00BB}")
+        SendInput("{Blind+}{U+00AB}")
         while(GetKeyState("y", "P")){
             endTime := A_TickCount - startTime
-            if("y" = A_PriorKey && endTime > 180){
+            if("y" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}{U+00AB}")
+                SendInput("{Blind+}{U+00BB}")
                 KeyWait("y")
             }
         }
     } else {
-        SendInput("{Blind+}{U+00BB}")
+        SendInput("{Blind+}{U+00AB}")
     }
 }
 u::{
     if(A_PriorHotKey != "u" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}/")
+        SendInput("{Blind}{Numpad1}")
         while(GetKeyState("u", "P")){
             endTime := A_TickCount - startTime
-            if("u" = A_PriorKey && endTime > 180){
+            if("u" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad1}")
+                SendInput("{Blind}/")
                 KeyWait("u")
             }
         }
     } else {
-        SendInput("{Blind}/")
+        SendInput("{Blind}{Numpad1}")
     }
 }
 +u::{
     if(A_PriorHotKey != "+u" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad1}")
+        SendInput("{Blind+}/")
         while(GetKeyState("u", "P")){
             endTime := A_TickCount - startTime
-            if("u" = A_PriorKey && endTime > 180){
+            if("u" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}/")
+                SendInput("{Blind+}{Numpad1}")
                 KeyWait("u")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad1}")
+        SendInput("{Blind+}/")
     }
 }
 i::{
     if(A_PriorHotKey != "i" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}]")
+        SendInput("{Blind}{Numpad2}")
         while(GetKeyState("i", "P")){
             endTime := A_TickCount - startTime
-            if("i" = A_PriorKey && endTime > 180){
+            if("i" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad2}")
+                SendInput("{Blind}]")
                 KeyWait("i")
             }
         }
     } else {
-        SendInput("{Blind}]")
+        SendInput("{Blind}{Numpad2}")
     }
 }
 +i::{
     if(A_PriorHotKey != "+i" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad2}")
+        SendInput("{Blind+}]")
         while(GetKeyState("i", "P")){
             endTime := A_TickCount - startTime
-            if("i" = A_PriorKey && endTime > 180){
+            if("i" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}]")
+                SendInput("{Blind+}{Numpad2}")
                 KeyWait("i")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad2}")
+        SendInput("{Blind+}]")
     }
 }
 o::{
     if(A_PriorHotKey != "o" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}>")
+        SendInput("{Blind}{Numpad3}")
         while(GetKeyState("o", "P")){
             endTime := A_TickCount - startTime
-            if("o" = A_PriorKey && endTime > 180){
+            if("o" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad3}")
+                SendInput("{Blind}>")
                 KeyWait("o")
             }
         }
     } else {
-        SendInput("{Blind}>")
+        SendInput("{Blind}{Numpad3}")
     }
 }
 +o::{
     if(A_PriorHotKey != "+o" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad3}")
+        SendInput("{Blind+}>")
         while(GetKeyState("o", "P")){
             endTime := A_TickCount - startTime
-            if("o" = A_PriorKey && endTime > 180){
+            if("o" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}>")
+                SendInput("{Blind+}{Numpad3}")
                 KeyWait("o")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad3}")
+        SendInput("{Blind+}>")
     }
 }
 
 a::{
     if(A_PriorHotKey != "a" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}{{}")
+        SendInput("{Blind}``")
         while(GetKeyState("a", "P")){
             endTime := A_TickCount - startTime
-            if("a" = A_PriorKey && endTime > 180){
+            if("a" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}``")
+                SendInput("{Blind}{{}")
                 KeyWait("a")
             }
         }
     } else {
-        SendInput("{Blind}{{}")
+        SendInput("{Blind}``")
     }
 }
 +a::{
     if(A_PriorHotKey != "+a" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}``")
+        SendInput("{Blind+}{{}")
         while(GetKeyState("a", "P")){
             endTime := A_TickCount - startTime
-            if("a" = A_PriorKey && endTime > 180){
+            if("a" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}{{}")
+                SendInput("{Blind+}``")
                 KeyWait("a")
             }
         }
     } else {
-        SendInput("{Blind+}``")
+        SendInput("{Blind+}{{}")
     }
 }
 s::{
     if(A_PriorHotKey != "s" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}(")
+        SendInput("{Blind}$")
         while(GetKeyState("s", "P")){
             endTime := A_TickCount - startTime
-            if("s" = A_PriorKey && endTime > 180){
+            if("s" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}$")
+                SendInput("{Blind}(")
                 KeyWait("s")
             }
         }
     } else {
-        SendInput("{Blind}(")
+        SendInput("{Blind}$")
     }
 }
 +s::{
     if(A_PriorHotKey != "+s" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}$")
+        SendInput("{Blind+}(")
         while(GetKeyState("s", "P")){
             endTime := A_TickCount - startTime
-            if("s" = A_PriorKey && endTime > 180){
+            if("s" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}(")
+                SendInput("{Blind+}$")
                 KeyWait("s")
             }
         }
     } else {
-        SendInput("{Blind+}$")
+        SendInput("{Blind+}(")
     }
 }
 d::{
     if(A_PriorHotKey != "d" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}.")
+        SendInput("{Blind}:")
         while(GetKeyState("d", "P")){
             endTime := A_TickCount - startTime
-            if("d" = A_PriorKey && endTime > 180){
+            if("d" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}:")
+                SendInput("{Blind}.")
                 KeyWait("d")
             }
         }
     } else {
-        SendInput("{Blind}.")
+        SendInput("{Blind}:")
     }
 }
 +d::{
     if(A_PriorHotKey != "+d" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}:")
+        SendInput("{Blind+}.")
         while(GetKeyState("d", "P")){
             endTime := A_TickCount - startTime
-            if("d" = A_PriorKey && endTime > 180){
+            if("d" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}.")
+                SendInput("{Blind+}:")
                 KeyWait("d")
             }
         }
     } else {
-        SendInput("{Blind+}:")
+        SendInput("{Blind+}.")
     }
 }
 f::{
     if(A_PriorHotKey != "f" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind},")
+        SendInput("{Blind};")
         while(GetKeyState("f", "P")){
             endTime := A_TickCount - startTime
-            if("f" = A_PriorKey && endTime > 180){
+            if("f" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind};")
+                SendInput("{Blind},")
                 KeyWait("f")
             }
         }
     } else {
-        SendInput("{Blind},")
+        SendInput("{Blind};")
     }
 }
 +f::{
     if(A_PriorHotKey != "+f" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+};")
+        SendInput("{Blind+},")
         while(GetKeyState("f", "P")){
             endTime := A_TickCount - startTime
-            if("f" = A_PriorKey && endTime > 180){
+            if("f" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+},")
+                SendInput("{Blind+};")
                 KeyWait("f")
             }
         }
     } else {
-        SendInput("{Blind+};")
+        SendInput("{Blind+},")
     }
 }
 g::{
     if(A_PriorHotKey != "g" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}=")
+        SendInput("{Blind}?")
         while(GetKeyState("g", "P")){
             endTime := A_TickCount - startTime
-            if("g" = A_PriorKey && endTime > 180){
+            if("g" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}?")
+                SendInput("{Blind}=")
                 KeyWait("g")
             }
         }
     } else {
-        SendInput("{Blind}=")
+        SendInput("{Blind}?")
     }
 }
 +g::{
     if(A_PriorHotKey != "+g" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}?")
+        SendInput("{Blind+}=")
         while(GetKeyState("g", "P")){
             endTime := A_TickCount - startTime
-            if("g" = A_PriorKey && endTime > 180){
+            if("g" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}=")
+                SendInput("{Blind+}?")
                 KeyWait("g")
             }
         }
     } else {
-        SendInput("{Blind+}?")
+        SendInput("{Blind+}=")
     }
 }
 h::{
     if(A_PriorHotKey != "h" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}{+}")
+        SendInput("{Blind}{!}")
         while(GetKeyState("h", "P")){
             endTime := A_TickCount - startTime
-            if("h" = A_PriorKey && endTime > 180){
+            if("h" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{!}")
+                SendInput("{Blind}{+}")
                 KeyWait("h")
             }
         }
     } else {
-        SendInput("{Blind}{+}")
+        SendInput("{Blind}{!}")
     }
 }
 +h::{
     if(A_PriorHotKey != "+h" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{!}")
+        SendInput("{Blind+}{+}")
         while(GetKeyState("h", "P")){
             endTime := A_TickCount - startTime
-            if("h" = A_PriorKey && endTime > 180){
+            if("h" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}{+}")
+                SendInput("{Blind+}{!}")
                 KeyWait("h")
             }
         }
     } else {
-        SendInput("{Blind+}{!}")
+        SendInput("{Blind+}{+}")
     }
 }
 j::{
     if(A_PriorHotKey != "j" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}-")
+        SendInput("{Blind}{Numpad4}")
         while(GetKeyState("j", "P")){
             endTime := A_TickCount - startTime
-            if("j" = A_PriorKey && endTime > 180){
+            if("j" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad4}")
+                SendInput("{Blind}-")
                 KeyWait("j")
             }
         }
     } else {
-        SendInput("{Blind}-")
+        SendInput("{Blind}{Numpad4}")
     }
 }
 +j::{
     if(A_PriorHotKey != "+j" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad4}")
+        SendInput("{Blind+}-")
         while(GetKeyState("j", "P")){
             endTime := A_TickCount - startTime
-            if("j" = A_PriorKey && endTime > 180){
+            if("j" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}-")
+                SendInput("{Blind+}{Numpad4}")
                 KeyWait("j")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad4}")
+        SendInput("{Blind+}-")
     }
 }
 k::{
     if(A_PriorHotKey != "k" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}`"")
+        SendInput("{Blind}{Numpad5}")
         while(GetKeyState("k", "P")){
             endTime := A_TickCount - startTime
-            if("k" = A_PriorKey && endTime > 180){
+            if("k" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad5}")
+                SendInput("{Blind}`"")
                 KeyWait("k")
             }
         }
     } else {
-        SendInput("{Blind}`"")
+        SendInput("{Blind}{Numpad5}")
     }
 }
 +k::{
     if(A_PriorHotKey != "+k" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad5}")
+        SendInput("{Blind+}`"")
         while(GetKeyState("k", "P")){
             endTime := A_TickCount - startTime
-            if("k" = A_PriorKey && endTime > 180){
+            if("k" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}`"")
+                SendInput("{Blind+}{Numpad5}")
                 KeyWait("k")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad5}")
+        SendInput("{Blind+}`"")
     }
 }
 l::{
     if(A_PriorHotKey != "l" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind})")
+        SendInput("{Blind}{Numpad6}")
         while(GetKeyState("l", "P")){
             endTime := A_TickCount - startTime
-            if("l" = A_PriorKey && endTime > 180){
+            if("l" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad6}")
+                SendInput("{Blind})")
                 KeyWait("l")
             }
         }
     } else {
-        SendInput("{Blind})")
+        SendInput("{Blind}{Numpad6}")
     }
 }
 +l::{
     if(A_PriorHotKey != "+l" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad6}")
+        SendInput("{Blind+})")
         while(GetKeyState("l", "P")){
             endTime := A_TickCount - startTime
-            if("l" = A_PriorKey && endTime > 180){
+            if("l" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+})")
+                SendInput("{Blind+}{Numpad6}")
                 KeyWait("l")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad6}")
+        SendInput("{Blind+})")
     }
 }
 `;::{
     if(A_PriorHotKey != ";" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}{}}")
+        SendInput("{Blind}{Numpad0}")
         while(GetKeyState(";", "P")){
             endTime := A_TickCount - startTime
-            if(";" = A_PriorKey && endTime > 180){
+            if(";" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad0}")
+                SendInput("{Blind}{}}")
                 KeyWait(";")
             }
         }
     } else {
-        SendInput("{Blind}{}}")
+        SendInput("{Blind}{Numpad0}")
     }
 }
 +;::{
     if(A_PriorHotKey != "+;" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad0}")
+        SendInput("{Blind+}{}}")
         while(GetKeyState(";", "P")){
             endTime := A_TickCount - startTime
-            if(";" = A_PriorKey && endTime > 180){
+            if(";" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}{}}")
+                SendInput("{Blind+}{Numpad0}")
                 KeyWait(";")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad0}")
+        SendInput("{Blind+}{}}")
     }
 }
 
 x::{
     if(A_PriorHotKey != "x" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}€")
+        SendInput("{Blind}©")
         while(GetKeyState("x", "P")){
             endTime := A_TickCount - startTime
-            if("x" = A_PriorKey && endTime > 180){
+            if("x" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}©")
+                SendInput("{Blind}€")
                 KeyWait("x")
             }
         }
     } else {
-        SendInput("{Blind}€")
+        SendInput("{Blind}©")
     }
 }
 +x::{
     if(A_PriorHotKey != "+x" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}©")
+        SendInput("{Blind+}€")
         while(GetKeyState("x", "P")){
             endTime := A_TickCount - startTime
-            if("x" = A_PriorKey && endTime > 180){
+            if("x" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}€")
+                SendInput("{Blind+}©")
                 KeyWait("x")
             }
         }
     } else {
-        SendInput("{Blind+}©")
+        SendInput("{Blind+}€")
     }
 }
 c::{
     if(A_PriorHotKey != "c" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}&")
+        SendInput("{Blind}|")
         while(GetKeyState("c", "P")){
             endTime := A_TickCount - startTime
-            if("c" = A_PriorKey && endTime > 180){
+            if("c" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}|")
+                SendInput("{Blind}&")
                 KeyWait("c")
             }
         }
     } else {
-        SendInput("{Blind}&")
+        SendInput("{Blind}|")
     }
 }
 +c::{
     if(A_PriorHotKey != "+c" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}|")
+        SendInput("{Blind+}&")
         while(GetKeyState("c", "P")){
             endTime := A_TickCount - startTime
-            if("c" = A_PriorKey && endTime > 180){
+            if("c" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}&")
+                SendInput("{Blind+}|")
                 KeyWait("c")
             }
         }
     } else {
-        SendInput("{Blind+}|")
+        SendInput("{Blind+}&")
     }
 }
 v::{
-    if(A_PriorHotKey != "v" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "vv" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}{#}")
+        SendInput("{Blind}*")
         while(GetKeyState("v", "P")){
             endTime := A_TickCount - startTime
-            if("v" = A_PriorKey && endTime > 180){
+            if("v" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}*")
+                SendInput("{Blind}{#}")
                 KeyWait("v")
             }
         }
     } else {
-        SendInput("{Blind}{#}")
+        SendInput("{Blind}*")
     }
 }
 +v::{
-    if(A_PriorHotKey != "+vv" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "+v" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}*")
+        SendInput("{Blind+}{#}")
         while(GetKeyState("v", "P")){
             endTime := A_TickCount - startTime
-            if("v" = A_PriorKey && endTime > 180){
+            if("v" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}{#}")
+                SendInput("{Blind+}*")
                 KeyWait("v")
             }
         }
     } else {
-        SendInput("{Blind+}*")
+        SendInput("{Blind+}{#}")
     }
 }
 b::{
     if(A_PriorHotKey != "b" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}¿")
+        SendInput("{Blind}¡")
         while(GetKeyState("b", "P")){
             endTime := A_TickCount - startTime
-            if("b" = A_PriorKey && endTime > 180){
+            if("b" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}¡")
+                SendInput("{Blind}¿")
                 KeyWait("b")
             }
         }
     } else {
-        SendInput("{Blind}¿")
+        SendInput("{Blind}¡")
     }
 }
 +b::{
     if(A_PriorHotKey != "+b" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}¡")
+        SendInput("{Blind+}¿")
         while(GetKeyState("b", "P")){
             endTime := A_TickCount - startTime
-            if("b" = A_PriorKey && endTime > 180){
+            if("b" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}¿")
+                SendInput("{Blind+}¡")
                 KeyWait("b")
             }
         }
     } else {
-        SendInput("{Blind+}¡")
+        SendInput("{Blind+}¿")
     }
 }
 n::{
     if(A_PriorHotKey != "n" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}_")
+        SendInput("{Blind}{Numpad7}")
         while(GetKeyState("n", "P")){
             endTime := A_TickCount - startTime
-            if("n" = A_PriorKey && endTime > 180){
+            if("n" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad7}")
+                SendInput("{Blind}_")
                 KeyWait("n")
             }
         }
     } else {
-        SendInput("{Blind}_")
+        SendInput("{Blind}{Numpad7}")
     }
 }
 +n::{
     if(A_PriorHotKey != "+n" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad7}")
+        SendInput("{Blind+}_")
         while(GetKeyState("n", "P")){
             endTime := A_TickCount - startTime
-            if("n" = A_PriorKey && endTime > 180){
+            if("n" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}_")
+                SendInput("{Blind+}{Numpad7}")
                 KeyWait("n")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad7}")
+        SendInput("{Blind+}_")
     }
 }
 m::{
     if(A_PriorHotKey != "m" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}'")
+        SendInput("{Blind}{Numpad8}")
         while(GetKeyState("m", "P")){
             endTime := A_TickCount - startTime
-            if("m" = A_PriorKey && endTime > 180){
+            if("m" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad8}")
+                SendInput("{Blind}'")
                 KeyWait("m")
             }
         }
     } else {
-        SendInput("{Blind}'")
+        SendInput("{Blind}{Numpad8}")
     }
 }
 +m::{
     if(A_PriorHotKey != "+m" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad8}")
+        SendInput("{Blind+}'")
         while(GetKeyState("m", "P")){
             endTime := A_TickCount - startTime
-            if("m" = A_PriorKey && endTime > 180){
+            if("m" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}'")
+                SendInput("{Blind+}{Numpad8}")
                 KeyWait("m")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad8}")
+        SendInput("{Blind+}'")
     }
 }
 ,::{
     if(A_PriorHotKey != "," || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}§")
+        SendInput("{Blind}{Numpad9}")
         while(GetKeyState(",", "P")){
             endTime := A_TickCount - startTime
-            if("," = A_PriorKey && endTime > 180){
+            if("," = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad9}")
+                SendInput("{Blind}§")
                 KeyWait(",")
             }
         }
     } else {
-        SendInput("{Blind}§")
+        SendInput("{Blind}{Numpad9}")
     }
 }
 +,::{
     if(A_PriorHotKey != "+," || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad9}")
+        SendInput("{Blind+}§")
         while(GetKeyState(",", "P")){
             endTime := A_TickCount - startTime
-            if("," = A_PriorKey && endTime > 180){
+            if("," = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}§")
+                SendInput("{Blind+}{Numpad9}")
                 KeyWait(",")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad9}")
+        SendInput("{Blind+}§")
     }
 }
 .::{
     if(A_PriorHotKey != "." || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}¶")
+        SendInput("{Blind}™")
         while(GetKeyState(".", "P")){
             endTime := A_TickCount - startTime
-            if("." = A_PriorKey && endTime > 180){
+            if("." = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}™")
+                SendInput("{Blind}¶")
                 KeyWait(".")
             }
         }
     } else {
-        SendInput("{Blind}¶")
+        SendInput("{Blind}™")
     }
 }
 +.::{
     if(A_PriorHotKey != "+." || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}™")
+        SendInput("{Blind+}¶")
         while(GetKeyState(".", "P")){
             endTime := A_TickCount - startTime
-            if("." = A_PriorKey && endTime > 180){
+            if("." = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}¶")
+                SendInput("{Blind+}™")
                 KeyWait(".")
             }
         }
     } else {
-        SendInput("{Blind+}™")
+        SendInput("{Blind+}¶")
     }
 }
 ; ====================================== ADDITIONAL KEYS ======================================
-CapsLock::toggleLayer("Ext")
+CapsLock::{
+    SendInput("{Blind}{Esc}")
+    toggleLayer("Vim")
+}
 *Shift::{
     SendInput("{Blind}{Shift downR}")
-    if !(released := KeyWait("Shift", "T0.18")){
+    if !(released := KeyWait("Shift", "T0.22")){
         KeyWait("Shift")
     }
     SendInput("{Blind}{Shift up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Alpha-Sl")
+        toggleLayer("CSym-Sl")
     }
 }
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
-    if !(released := KeyWait("LAlt", "T0.18")){
+    if !(released := KeyWait("LAlt", "T0.22")){
         KeyWait("LAlt")
     }
     SendInput("{Blind}{Alt up}")
@@ -890,7 +893,7 @@ CapsLock::toggleLayer("Ext")
 }
 *RAlt::{
     SendInput("{Blind}{Control downR}")
-    if !(released := KeyWait("RAlt", "T0.18")){
+    if !(released := KeyWait("RAlt", "T0.22")){
         KeyWait("RAlt")
     }
     SendInput("{Blind}{Control up}")
@@ -899,11 +902,11 @@ CapsLock::toggleLayer("Ext")
     }
 }
 *'::{
-    SendInput("{Blind}{Control downR}")
-    if !(released := KeyWait("RAlt", "T0.18")){
-        KeyWait("RAlt")
+    if !(released := KeyWait("'", "T0.22")){
+        SendInput("{Blind}{RWin downR}")
+        KeyWait("'")
     }
-    SendInput("{Blind}{Control up}")
+    SendInput("{Blind}{RWin up}")
     if(released && ThisHotkey = A_ThisHotkey) {
         SendInput("{Blind}^{Backspace}")
     }

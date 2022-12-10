@@ -6,7 +6,7 @@ q::{
         SendInput("{Blind}~")
         while(GetKeyState("q", "P")){
             endTime := A_TickCount - startTime
-            if("q" = A_PriorKey && endTime > 180){
+            if("q" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}°")
                 KeyWait("q")
@@ -22,7 +22,7 @@ q::{
         SendInput("{Blind+}°")
         while(GetKeyState("q", "P")){
             endTime := A_TickCount - startTime
-            if("q" = A_PriorKey && endTime > 180){
+            if("q" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}~")
                 KeyWait("q")
@@ -38,7 +38,7 @@ w::{
         SendInput("{Blind}<")
         while(GetKeyState("w", "P")){
             endTime := A_TickCount - startTime
-            if("w" = A_PriorKey && endTime > 180){
+            if("w" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}@")
                 KeyWait("w")
@@ -54,7 +54,7 @@ w::{
         SendInput("{Blind+}@")
         while(GetKeyState("w", "P")){
             endTime := A_TickCount - startTime
-            if("w" = A_PriorKey && endTime > 180){
+            if("w" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}>")
                 KeyWait("w")
@@ -70,7 +70,7 @@ e::{
         SendInput("{Blind}[")
         while(GetKeyState("e", "P")){
             endTime := A_TickCount - startTime
-            if("e" = A_PriorKey && endTime > 180){
+            if("e" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}%")
                 KeyWait("e")
@@ -86,7 +86,7 @@ e::{
         SendInput("{Blind+}%")
         while(GetKeyState("e", "P")){
             endTime := A_TickCount - startTime
-            if("e" = A_PriorKey && endTime > 180){
+            if("e" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}[")
                 KeyWait("e")
@@ -102,7 +102,7 @@ r::{
         SendInput("{Blind}\")
         while(GetKeyState("r", "P")){
             endTime := A_TickCount - startTime
-            if("r" = A_PriorKey && endTime > 180){
+            if("r" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{^}")
                 KeyWait("r")
@@ -118,7 +118,7 @@ r::{
         SendInput("{Blind+}{^}")
         while(GetKeyState("r", "P")){
             endTime := A_TickCount - startTime
-            if("r" = A_PriorKey && endTime > 180){
+            if("r" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}\")
                 KeyWait("r")
@@ -134,7 +134,7 @@ t::{
         SendInput("{Blind}—")
         while(GetKeyState("t", "P")){
             endTime := A_TickCount - startTime
-            if("t" = A_PriorKey && endTime > 180){
+            if("t" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}–")
                 KeyWait("t")
@@ -150,7 +150,7 @@ t::{
         SendInput("{Blind+}–")
         while(GetKeyState("t", "P")){
             endTime := A_TickCount - startTime
-            if("t" = A_PriorKey && endTime > 180){
+            if("t" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}—")
                 KeyWait("t")
@@ -166,7 +166,7 @@ y::{
         SendInput("{Blind}{U+00AB}")
         while(GetKeyState("y", "P")){
             endTime := A_TickCount - startTime
-            if("y" = A_PriorKey && endTime > 180){
+            if("y" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{U+00BB}")
                 KeyWait("y")
@@ -182,7 +182,7 @@ y::{
         SendInput("{Blind+}{U+00BB}")
         while(GetKeyState("y", "P")){
             endTime := A_TickCount - startTime
-            if("y" = A_PriorKey && endTime > 180){
+            if("y" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}{U+00AB}")
                 KeyWait("y")
@@ -198,7 +198,7 @@ u::{
         SendInput("{Blind}/")
         while(GetKeyState("u", "P")){
             endTime := A_TickCount - startTime
-            if("u" = A_PriorKey && endTime > 180){
+            if("u" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad1}")
                 KeyWait("u")
@@ -214,7 +214,7 @@ u::{
         SendInput("{Blind+}{Numpad1}")
         while(GetKeyState("u", "P")){
             endTime := A_TickCount - startTime
-            if("u" = A_PriorKey && endTime > 180){
+            if("u" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}/")
                 KeyWait("u")
@@ -230,7 +230,7 @@ i::{
         SendInput("{Blind}]")
         while(GetKeyState("i", "P")){
             endTime := A_TickCount - startTime
-            if("i" = A_PriorKey && endTime > 180){
+            if("i" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad2}")
                 KeyWait("i")
@@ -246,7 +246,7 @@ i::{
         SendInput("{Blind+}{Numpad2}")
         while(GetKeyState("i", "P")){
             endTime := A_TickCount - startTime
-            if("i" = A_PriorKey && endTime > 180){
+            if("i" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}]")
                 KeyWait("i")
@@ -262,7 +262,7 @@ o::{
         SendInput("{Blind}>")
         while(GetKeyState("o", "P")){
             endTime := A_TickCount - startTime
-            if("o" = A_PriorKey && endTime > 180){
+            if("o" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad3}")
                 KeyWait("o")
@@ -278,7 +278,7 @@ o::{
         SendInput("{Blind+}{Numpad3}")
         while(GetKeyState("o", "P")){
             endTime := A_TickCount - startTime
-            if("o" = A_PriorKey && endTime > 180){
+            if("o" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}>")
                 KeyWait("o")
@@ -295,7 +295,7 @@ a::{
         SendInput("{Blind}{{}")
         while(GetKeyState("a", "P")){
             endTime := A_TickCount - startTime
-            if("a" = A_PriorKey && endTime > 180){
+            if("a" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}``")
                 KeyWait("a")
@@ -311,7 +311,7 @@ a::{
         SendInput("{Blind+}``")
         while(GetKeyState("a", "P")){
             endTime := A_TickCount - startTime
-            if("a" = A_PriorKey && endTime > 180){
+            if("a" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}{{}")
                 KeyWait("a")
@@ -327,7 +327,7 @@ s::{
         SendInput("{Blind}(")
         while(GetKeyState("s", "P")){
             endTime := A_TickCount - startTime
-            if("s" = A_PriorKey && endTime > 180){
+            if("s" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}$")
                 KeyWait("s")
@@ -343,7 +343,7 @@ s::{
         SendInput("{Blind+}$")
         while(GetKeyState("s", "P")){
             endTime := A_TickCount - startTime
-            if("s" = A_PriorKey && endTime > 180){
+            if("s" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}(")
                 KeyWait("s")
@@ -359,7 +359,7 @@ d::{
         SendInput("{Blind}.")
         while(GetKeyState("d", "P")){
             endTime := A_TickCount - startTime
-            if("d" = A_PriorKey && endTime > 180){
+            if("d" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}:")
                 KeyWait("d")
@@ -375,7 +375,7 @@ d::{
         SendInput("{Blind+}:")
         while(GetKeyState("d", "P")){
             endTime := A_TickCount - startTime
-            if("d" = A_PriorKey && endTime > 180){
+            if("d" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}.")
                 KeyWait("d")
@@ -391,7 +391,7 @@ f::{
         SendInput("{Blind},")
         while(GetKeyState("f", "P")){
             endTime := A_TickCount - startTime
-            if("f" = A_PriorKey && endTime > 180){
+            if("f" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind};")
                 KeyWait("f")
@@ -407,7 +407,7 @@ f::{
         SendInput("{Blind+};")
         while(GetKeyState("f", "P")){
             endTime := A_TickCount - startTime
-            if("f" = A_PriorKey && endTime > 180){
+            if("f" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+},")
                 KeyWait("f")
@@ -423,7 +423,7 @@ g::{
         SendInput("{Blind}=")
         while(GetKeyState("g", "P")){
             endTime := A_TickCount - startTime
-            if("g" = A_PriorKey && endTime > 180){
+            if("g" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}?")
                 KeyWait("g")
@@ -439,7 +439,7 @@ g::{
         SendInput("{Blind+}?")
         while(GetKeyState("g", "P")){
             endTime := A_TickCount - startTime
-            if("g" = A_PriorKey && endTime > 180){
+            if("g" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}=")
                 KeyWait("g")
@@ -455,7 +455,7 @@ h::{
         SendInput("{Blind}{+}")
         while(GetKeyState("h", "P")){
             endTime := A_TickCount - startTime
-            if("h" = A_PriorKey && endTime > 180){
+            if("h" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{!}")
                 KeyWait("h")
@@ -471,7 +471,7 @@ h::{
         SendInput("{Blind+}{!}")
         while(GetKeyState("h", "P")){
             endTime := A_TickCount - startTime
-            if("h" = A_PriorKey && endTime > 180){
+            if("h" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}{+}")
                 KeyWait("h")
@@ -487,7 +487,7 @@ j::{
         SendInput("{Blind}-")
         while(GetKeyState("j", "P")){
             endTime := A_TickCount - startTime
-            if("j" = A_PriorKey && endTime > 180){
+            if("j" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad4}")
                 KeyWait("j")
@@ -503,7 +503,7 @@ j::{
         SendInput("{Blind+}{Numpad4}")
         while(GetKeyState("j", "P")){
             endTime := A_TickCount - startTime
-            if("j" = A_PriorKey && endTime > 180){
+            if("j" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}-")
                 KeyWait("j")
@@ -519,7 +519,7 @@ k::{
         SendInput("{Blind}`"")
         while(GetKeyState("k", "P")){
             endTime := A_TickCount - startTime
-            if("k" = A_PriorKey && endTime > 180){
+            if("k" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad5}")
                 KeyWait("k")
@@ -535,7 +535,7 @@ k::{
         SendInput("{Blind+}{Numpad5}")
         while(GetKeyState("k", "P")){
             endTime := A_TickCount - startTime
-            if("k" = A_PriorKey && endTime > 180){
+            if("k" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}`"")
                 KeyWait("k")
@@ -551,7 +551,7 @@ l::{
         SendInput("{Blind})")
         while(GetKeyState("l", "P")){
             endTime := A_TickCount - startTime
-            if("l" = A_PriorKey && endTime > 180){
+            if("l" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad6}")
                 KeyWait("l")
@@ -567,7 +567,7 @@ l::{
         SendInput("{Blind+}{Numpad6}")
         while(GetKeyState("l", "P")){
             endTime := A_TickCount - startTime
-            if("l" = A_PriorKey && endTime > 180){
+            if("l" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+})")
                 KeyWait("l")
@@ -583,7 +583,7 @@ l::{
         SendInput("{Blind}{}}")
         while(GetKeyState(";", "P")){
             endTime := A_TickCount - startTime
-            if(";" = A_PriorKey && endTime > 180){
+            if(";" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad0}")
                 KeyWait(";")
@@ -599,7 +599,7 @@ l::{
         SendInput("{Blind+}{Numpad0}")
         while(GetKeyState(";", "P")){
             endTime := A_TickCount - startTime
-            if(";" = A_PriorKey && endTime > 180){
+            if(";" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}{}}")
                 KeyWait(";")
@@ -616,7 +616,7 @@ x::{
         SendInput("{Blind}€")
         while(GetKeyState("x", "P")){
             endTime := A_TickCount - startTime
-            if("x" = A_PriorKey && endTime > 180){
+            if("x" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}©")
                 KeyWait("x")
@@ -632,7 +632,7 @@ x::{
         SendInput("{Blind+}©")
         while(GetKeyState("x", "P")){
             endTime := A_TickCount - startTime
-            if("x" = A_PriorKey && endTime > 180){
+            if("x" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}€")
                 KeyWait("x")
@@ -648,7 +648,7 @@ c::{
         SendInput("{Blind}&")
         while(GetKeyState("c", "P")){
             endTime := A_TickCount - startTime
-            if("c" = A_PriorKey && endTime > 180){
+            if("c" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}|")
                 KeyWait("c")
@@ -664,7 +664,7 @@ c::{
         SendInput("{Blind+}|")
         while(GetKeyState("c", "P")){
             endTime := A_TickCount - startTime
-            if("c" = A_PriorKey && endTime > 180){
+            if("c" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}&")
                 KeyWait("c")
@@ -680,7 +680,7 @@ v::{
         SendInput("{Blind}{#}")
         while(GetKeyState("v", "P")){
             endTime := A_TickCount - startTime
-            if("v" = A_PriorKey && endTime > 180){
+            if("v" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}*")
                 KeyWait("v")
@@ -696,7 +696,7 @@ v::{
         SendInput("{Blind+}*")
         while(GetKeyState("v", "P")){
             endTime := A_TickCount - startTime
-            if("v" = A_PriorKey && endTime > 180){
+            if("v" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}{#}")
                 KeyWait("v")
@@ -712,7 +712,7 @@ b::{
         SendInput("{Blind}¿")
         while(GetKeyState("b", "P")){
             endTime := A_TickCount - startTime
-            if("b" = A_PriorKey && endTime > 180){
+            if("b" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}¡")
                 KeyWait("b")
@@ -728,7 +728,7 @@ b::{
         SendInput("{Blind+}¡")
         while(GetKeyState("b", "P")){
             endTime := A_TickCount - startTime
-            if("b" = A_PriorKey && endTime > 180){
+            if("b" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}¿")
                 KeyWait("b")
@@ -744,7 +744,7 @@ n::{
         SendInput("{Blind}_")
         while(GetKeyState("n", "P")){
             endTime := A_TickCount - startTime
-            if("n" = A_PriorKey && endTime > 180){
+            if("n" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad7}")
                 KeyWait("n")
@@ -760,7 +760,7 @@ n::{
         SendInput("{Blind+}{Numpad7}")
         while(GetKeyState("n", "P")){
             endTime := A_TickCount - startTime
-            if("n" = A_PriorKey && endTime > 180){
+            if("n" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}_")
                 KeyWait("n")
@@ -776,7 +776,7 @@ m::{
         SendInput("{Blind}'")
         while(GetKeyState("m", "P")){
             endTime := A_TickCount - startTime
-            if("m" = A_PriorKey && endTime > 180){
+            if("m" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad8}")
                 KeyWait("m")
@@ -792,7 +792,7 @@ m::{
         SendInput("{Blind+}{Numpad8}")
         while(GetKeyState("m", "P")){
             endTime := A_TickCount - startTime
-            if("m" = A_PriorKey && endTime > 180){
+            if("m" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}'")
                 KeyWait("m")
@@ -808,7 +808,7 @@ m::{
         SendInput("{Blind}§")
         while(GetKeyState(",", "P")){
             endTime := A_TickCount - startTime
-            if("," = A_PriorKey && endTime > 180){
+            if("," = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad9}")
                 KeyWait(",")
@@ -824,7 +824,7 @@ m::{
         SendInput("{Blind+}{Numpad9}")
         while(GetKeyState(",", "P")){
             endTime := A_TickCount - startTime
-            if("," = A_PriorKey && endTime > 180){
+            if("," = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}§")
                 KeyWait(",")
@@ -840,7 +840,7 @@ m::{
         SendInput("{Blind}¶")
         while(GetKeyState(".", "P")){
             endTime := A_TickCount - startTime
-            if("." = A_PriorKey && endTime > 180){
+            if("." = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind}™")
                 KeyWait(".")
@@ -856,7 +856,7 @@ m::{
         SendInput("{Blind+}™")
         while(GetKeyState(".", "P")){
             endTime := A_TickCount - startTime
-            if("." = A_PriorKey && endTime > 180){
+            if("." = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
                 SendInput("{Blind+}¶")
                 KeyWait(".")
@@ -870,17 +870,17 @@ m::{
 CapsLock::toggleLayer("Ext")
 *Shift::{
     SendInput("{Blind}{Shift downR}")
-    if !(released := KeyWait("Shift", "T0.18")){
+    if !(released := KeyWait("Shift", "T0.22")){
         KeyWait("Shift")
     }
     SendInput("{Blind}{Shift up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Alpha-Sl")
+        toggleLayer("Sym-Sl")
     }
 }
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
-    if !(released := KeyWait("LAlt", "T0.18")){
+    if !(released := KeyWait("LAlt", "T0.22")){
         KeyWait("LAlt")
     }
     SendInput("{Blind}{Alt up}")
@@ -890,7 +890,7 @@ CapsLock::toggleLayer("Ext")
 }
 *RAlt::{
     SendInput("{Blind}{Control downR}")
-    if !(released := KeyWait("RAlt", "T0.18")){
+    if !(released := KeyWait("RAlt", "T0.22")){
         KeyWait("RAlt")
     }
     SendInput("{Blind}{Control up}")
@@ -899,11 +899,11 @@ CapsLock::toggleLayer("Ext")
     }
 }
 *'::{
-    SendInput("{Blind}{Control downR}")
-    if !(released := KeyWait("RAlt", "T0.18")){
-        KeyWait("RAlt")
+    if !(released := KeyWait("'", "T0.22")){
+        SendInput("{Blind}{RWin downR}")
+        KeyWait("'")
     }
-    SendInput("{Blind}{Control up}")
+    SendInput("{Blind}{RWin up}")
     if(released && ThisHotkey = A_ThisHotkey) {
         SendInput("{Blind}^{Backspace}")
     }

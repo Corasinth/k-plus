@@ -1,0 +1,142 @@
+#HotIf currentLayer = "Func-D"
+; ====================================== LETTERS ======================================
+q::{
+    SendInput("{Blind}{F1}")
+    toggleLayer(previousLayer)
+}
+w::{
+    SendInput("{Blind}{F2}")
+    toggleLayer(previousLayer)
+}
+e::{
+    SendInput("{Blind}{F3}")
+    toggleLayer(previousLayer)
+}
+r::{
+    SendInput("{Blind}{F4}")
+    toggleLayer(previousLayer)
+}
+t::{
+    SendInput("{Blind}{F5}")
+    toggleLayer(previousLayer)
+}
+u::{
+    SendInput("{Blind}{F6}")
+    toggleLayer(previousLayer)
+}
+i::{
+    SendInput("{Blind}{F7}")
+    toggleLayer(previousLayer)
+}
+o::{
+    SendInput("{Blind}{F8}")
+    toggleLayer(previousLayer)
+}
+
+a::{
+    SendInput("{Blind}{F9}")
+    toggleLayer(previousLayer)
+}
+s::{
+    SendInput("{Blind}{F10}")
+    toggleLayer(previousLayer)
+}
+d::{
+    SendInput("{Blind}{F11}")
+    toggleLayer(previousLayer)
+}
+f::{
+    SendInput("{Blind}{F12}")
+    toggleLayer(previousLayer)
+}
+g::{
+    SendInput("{Blind}{F13}")
+    toggleLayer(previousLayer)
+}
+h::{
+    SendInput("{Blind}{F14}")
+    toggleLayer(previousLayer)
+}
+j::{
+    SendInput("{Blind}{F15}")
+    toggleLayer(previousLayer)
+}
+k::{
+    SendInput("{Blind}{F16}")
+    toggleLayer(previousLayer)
+}
+l::{
+    SendInput("{Blind}{F17}")
+    toggleLayer(previousLayer)
+}
+`;::{
+    SendInput("{Blind}{F18}")
+    toggleLayer(previousLayer)
+}
+
+x::{
+    SendInput("{Blind}{F19}")
+    toggleLayer(previousLayer)
+}
+c::{
+    SendInput("{Blind}{F20}")
+    toggleLayer(previousLayer)
+}
+v::{
+    SendInput("{Blind}{F21}")
+    toggleLayer(previousLayer)
+}
+n::{
+    SendInput("{Blind}{F22}")
+    toggleLayer(previousLayer)
+}
+m::{
+    SendInput("{Blind}{F23}")
+    toggleLayer(previousLayer)
+}
+,::{
+    SendInput("{Blind}{F24}")
+    toggleLayer(previousLayer)
+}
+; ====================================== ADDITIONAL KEYS ======================================
+CapsLock::toggleLayer("Ext")
+*Shift::{
+    SendInput("{Blind}{Shift downR}")
+    if !(released := KeyWait("Shift", "T0.18")){
+        KeyWait("Shift")
+    }
+    SendInput("{Blind}{Shift up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("Alpha-Sl")
+    }
+}
+*LAlt::{
+    SendInput("{Blind}{Alt downR}")
+    if !(released := KeyWait("LAlt", "T0.18")){
+        KeyWait("LAlt")
+    }
+    SendInput("{Blind}{Alt up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("Directory")
+    }
+}
+*RAlt::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("RAlt", "T0.18")){
+        KeyWait("RAlt")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer(previousLayer)
+    }
+}
+*'::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("RAlt", "T0.18")){
+        KeyWait("RAlt")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        SendInput("{Blind}^{Backspace}")
+    }
+}
