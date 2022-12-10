@@ -746,7 +746,7 @@ n::{
             endTime := A_TickCount - startTime
             if("n" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad7}")
+                SendInput("{Blind}{Numpad1}")
                 KeyWait("n")
             }
         }
@@ -757,7 +757,7 @@ n::{
 +n::{
     if(A_PriorHotKey != "+n" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad7}")
+        SendInput("{Blind+}{Numpad1}")
         while(GetKeyState("n", "P")){
             endTime := A_TickCount - startTime
             if("n" = A_PriorKey && endTime > 220){
@@ -767,7 +767,7 @@ n::{
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad7}")
+        SendInput("{Blind+}{Numpad1}")
     }
 }
 m::{
@@ -778,7 +778,7 @@ m::{
             endTime := A_TickCount - startTime
             if("m" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad8}")
+                SendInput("{Blind}{Numpad2}")
                 KeyWait("m")
             }
         }
@@ -789,7 +789,7 @@ m::{
 +m::{
     if(A_PriorHotKey != "+m" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad8}")
+        SendInput("{Blind+}{Numpad2}")
         while(GetKeyState("m", "P")){
             endTime := A_TickCount - startTime
             if("m" = A_PriorKey && endTime > 220){
@@ -799,7 +799,7 @@ m::{
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad8}")
+        SendInput("{Blind+}{Numpad2}")
     }
 }
 ,::{
@@ -810,7 +810,7 @@ m::{
             endTime := A_TickCount - startTime
             if("," = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad9}")
+                SendInput("{Blind}{Numpad3}")
                 KeyWait(",")
             }
         }
@@ -821,7 +821,7 @@ m::{
 +,::{
     if(A_PriorHotKey != "+," || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad9}")
+        SendInput("{Blind+}{Numpad3}")
         while(GetKeyState(",", "P")){
             endTime := A_TickCount - startTime
             if("," = A_PriorKey && endTime > 220){
@@ -831,7 +831,7 @@ m::{
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad9}")
+        SendInput("{Blind+}{Numpad3}")
     }
 }
 .::{
