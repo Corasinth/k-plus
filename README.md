@@ -2,8 +2,6 @@
 
 ## **Description**
 
-**Note** While the the information below is generally accurate and k-plus works for straightforward remapping, unfortunately strange issues seem to crop up while using the more elaborate functions in combination. Occasionally the hotkeys will fail, and rapid typing can even permanently disable the script until it is reloaded. The investigation into why this occurs is ongoing, but until resolved these issue make k-plus guaranteed functional only for simple remapping layers. 
-
 K-plus is tool for enabling layers on non-mechanical keyboards that don't usually have access to alternate layouts. K-plus is built on [AutoHotKey Script v2-beta](https://lexikos.github.io/v2/docs/AutoHotkey.htm) and is therefore a Windows only tool. 
 
 It's designed to be configurable and flexible; supporting as many layers as you'd like to include. Once configured, a compiled version (along with the `settings.ini` file) can easily be carried on a flash drive and run on any Windows device, letting you use your layers between devices.
@@ -15,6 +13,10 @@ AHK's own docs are the first place to turn for help managing specific hotkeys. H
 If you find yourself needing advanced features, however, or planning on a set of layers that makes heavy use of them, you might benefit more from some of the software found in the [Additional Resources](#additional-resources) section. Ultimately, this set of scripts was designed around my personal use, and while you may find it useful it won't be as well implemented as more actively maintained/developed software.
 
 If you just want some simple remapped layers (for programming for example) skip to [Remapping](#remapping)
+
+**Note** While the the information below is generally accurate and k-plus works for straightforward remapping, unfortunately strange issues seem to crop up while using the more elaborate functions in combination. Occasionally the hotkeys will fail, and rapid typing can even permanently disable the script until it is reloaded. The investigation into why this occurs is ongoing, but I until resolved I can only reccomend k-plus for simple remapping. 
+
+I have found that, instead of using variables and orderly utility functions, replicating desired code and values everywhere they are used cuts down on some of these issues, despite making the code much much harder to manage and read. You can check out the `personal` branch for how I am managing the issues. 
 
 ## **Table of Contents**
 
@@ -367,7 +369,13 @@ If you encounter unexpected compatability issues, I reccomend checking out the s
 
 Feel free to fork/create a pull request to fix bugs, refactor code, or add new featues. While I aimed to create something flexible and easy to configure, I'm not a master of AHK and there's certainly room for improvement.
 
-In particular, the settings for creating template layers must be edited manually, and would benefit from some GUI controls. Morevoer, there may be more efficient ways of formatting and setting up the templates, or making it easier to navigate them to fill in functions as desired.
+Currently, k-plus responds much better when each piece of code and the values it uses (like the current key) are hardcoded. Why this should be the case, I cannot say, and where the line is is unclear. However, until the issue is resolved this means that increasing the flexibility, power, and configurability of the `template-generator.ahk` is critical to making k-plus convenient and easy-ish to use. 
+
+In particular, making it easier to add custom code blocks is important, as well as improving how the `template-generator` script handles writing these code blocks. 
+
+K-plus would also benefit heavily from a configuration option that takes in a list of keys, and slots them into the code attached to each hot key, so that one does not have to manually edit a layer file to have `X` hotkey output `Y` character.
+
+There are also a few additional areas for improvement.
 
 Currently, k-plus does not support hotstrings. While you can of course generate your own hotstring scripts or custom add hotstrings to a layer, there is no built in generator for hotstrings, hotstring options, or hotstring end characters. Adding this functionality in a clean and convenient way is a probable area of future development.
 
