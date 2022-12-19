@@ -31,7 +31,10 @@ timeParameter := "T0.180"
 ; Edit key defitions and input level as desired
 #InputLevel 0
 #SuspendExempt True
-^!+s::Suspend(-1)
+^!+s::{
+    ToolTip()
+    Suspend(-1)
+}
 ^!+q::ExitApp
 #SuspendExempt False
 
