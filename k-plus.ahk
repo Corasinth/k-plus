@@ -7,6 +7,7 @@ CoordMode("ToolTip", "Screen")
 ; Also the layer that k-plus starts up with
 currentLayer := 1
 ; This is a number used to record currentLayer for temporary layer swaps
+; At the start, it is setup to be the starting layer, so you don't accidentally send yourself to a nonexistent layer
 previousLayer := currentLayer
 
 ; The script will ignore the layers in this value when remembering the previous layer
@@ -29,6 +30,14 @@ timeParameter := "T0.180"
 ; Assign coordinates
 xCoordinate := 0
 yCoordinate := 0
+
+; Universal quit and suspend key definitions go here
+; Edit key defitions and input level as desired
+#InputLevel 0
+#SuspendExempt True
+^!+s::Suspend(-1)
+^!+q::ExitApp
+#SuspendExempt False
 
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
@@ -116,7 +125,8 @@ modTapAlt(ThisHotkey, theKey, modKey, customFunc, funcParameter){
 }
 
 ; ============================== INCLUDE HOTKEYS ==============================
-; Include master file of layers. This file contains nothing but #Include commands for the rest of the config files
+; Ensures the input level is above the default for other scripts
 #InputLevel 1
+; Include master file of layers. This file contains nothing but #Include commands for the rest of the config files
 #Include ./config/layer-list.ahk
 #HotIf
