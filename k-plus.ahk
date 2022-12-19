@@ -6,7 +6,7 @@ SetCapsLockState("AlwaysOff")
 ; ============================== MAIN VARIABLES ==============================
 ; This is the tracker that determines the current layer
 ; Also the layer that k-plus starts up with
-currentLayer := 1
+currentLayer := "Alpha"
 ; This is a number used to record currentLayer for temporary layer swaps
 ; At the start, it is setup to be the starting layer, so you don't accidentally send yourself to a nonexistent layer
 previousLayer := currentLayer
@@ -16,23 +16,23 @@ previousLayer := currentLayer
 
 ; This is primarily useful when set to the directory layer (usually layer 1), since when toggling to your previous layer it is more desirable to toggle to the previous non-directory layer
 ; When you already have a direct key to go the directory, its not more convenient to count the directory as the previous layer, but it is more convenient to use the directory to go to a layer, and then return to original starting layer
-layersToIgnore := "(1)"
+layersToIgnore := "(Directory) (Sym-D) (Alpha-Sl) (Sym-Sl)"
 
 ; Tooltip and coordinate settings; whether or not to have a tooltip active and where it should be located
 tooltipOn := 1
-xCoordinate := 0
-yCoordinate := 0
+xCoordinate := 1920
+yCoordinate := 1080
 
 ; Sets up number for the millescond delay
 longPressDelay := 200
 ; Lets you use the long press delay for uses of KeyWait as well 
-timeParameter := "T0.180" 
+timeParameter := "T0.2" 
 
 ; Universal quit and suspend key definitions go here
 ; Edit key defitions and input level as desired
 #InputLevel 0
 #SuspendExempt True
-^!+s::Suspend(-1)
+^!+w::Suspend(-1)
 ^!+q::ExitApp
 #SuspendExempt False
 
