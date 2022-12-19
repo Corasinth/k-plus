@@ -1,33 +1,35 @@
 ﻿#Requires AutoHotkey v2.0-rc.2
 #SingleInstance Force
-; Include ini reader util functions
-#Include ./util/ini-reader.ahk
-; Allow layers to trigger other script hotkeys/strings
-#InputLevel 1
-; ============================== MAIN VARIABLES ==============================
-; This is the tracker that determines the current layer
-currentLayer := 1
-defaultLayer := readConfigSettings("defaultLayer")
-if(defaultLayer) {
-    currentLayer := defaultLayer
-}
-
-; This is a number used to record CURRENT_LAYER for temporary layer swaps
-previousLayer := 0
-
-; String of layers to ignore when storing previous layer
-layersToIgnore := readConfigSettings("layersToIgnoreAsPreviousLayer")
-
-; Sets up number for the millescond delay
-longPressDelay := Number(readTemplateSettings("longPressDelay"))
-; Lets you use the long press delay for uses of KeyWait as well, though only for times less than a full second 
-timeParameter := "T0." readTemplateSettings("longPressDelay")
-
 ; Sets absolute coordinates for tooltip
 CoordMode("ToolTip", "Screen")
+; ============================== MAIN VARIABLES ==============================
+; This is the tracker that determines the current layer
+; Also the layer that k-plus starts up with
+currentLayer := 1
+; This is a number used to record currentLayer for temporary layer swaps
+previousLayer := currentLayer
+
+; The script will ignore the layers in this value when remembering the previous layer
+; To include a layer, add the name of the layer inside a set of parantheses. For example, ignoring layers 1 and 2 would look like "(1) (2)"
+
+; This is primarily useful when set to the directory layer (usually layer 1), since when toggling to your previous layer it is more desirable to toggle to the previous non-directory layer
+; When you already have a direct key to go the directory, its not more convenient to count the directory as the previous layer, but it is more convenient to use the directory to go to a layer, and then return to original starting layer
+layersToIgnore := "(1)"
+
+; Tooltip and coordinate settings; whether or not to have a tooltip active and where it should be located
+tooltipOn := 1
+tooltipXCoordinate := 0
+tooltipYCoordinate := 0
+
+; Sets up number for the millescond delay
+longPressDelay := 200
+; Lets you use the long press delay for uses of KeyWait as well 
+timeParameter := "T0.180" 
+
 ; Assign coordinates
-xCoordinate := readConfigSettings("tooltipXCoordinate")
-yCoordinate := readConfigSettings("tooltipYCoordinate")
+xCoordinate := 0
+yCoordinate := 0
+
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
     global
@@ -39,12 +41,16 @@ toggleLayer(targetLayer) {
     if (!InStr(layersToIgnore, "(" tempLayer ")")) {
         previousLayer := tempLayer
     }
-    if(readConfigSettings("tooltip")){
+    if(tooltipOn){
         Tooltip(currentLayer, xCoordinate, yCoordinate)
     }
 }
 
 ; ============================== UTILITY FUNCTIONS ==============================
+; Runs ToolTip at start
+if(tooltipOn){
+    Tooltip(currentLayer, xCoordinate, ycoordinate)
+}
 
 longPress(thisKey, defaultString, longPressString, numOfBackspaces){
     startTime := A_TickCount
@@ -56,7 +62,7 @@ longPress(thisKey, defaultString, longPressString, numOfBackspaces){
         if(thisKey = A_PriorKey && endTime > longPressDelay) {
             SendInput(backspaceInput)
             SendInput(longPressString)
-            KeyWait(ThisHotkey)
+            KeyWait(thisKey)
         }
     }
 }
@@ -109,31 +115,8 @@ modTapAlt(ThisHotkey, theKey, modKey, customFunc, funcParameter){
     }
 }
 
-; Runs ToolTip at start
-if(readConfigSettings("tooltip")){
-    Tooltip(currentLayer, xCoordinate, ycoordinate)
-}
 ; ============================== INCLUDE HOTKEYS ==============================
 ; Include master file of layers. This file contains nothing but #Include commands for the rest of the config files
+#InputLevel 1
 #Include ./config/layer-list.ahk
 #HotIf
-; ============================== SHUTDOWN & SUSPEND HOTKEYS ==============================
-; Create universal quit and suspend keys
-quitKey := readConfigSettings("universalQuitKey")
-suspendKey := readConfigSettings("universalSuspendKey")
-
-if(quitKey) {
-    hotkey(quitKey, exitFunction,"I2 On S")
-}
-if(suspendKey){
-    hotkey(suspendKey, suspendFunction,"I2 On S")
-}
-
-; Exit and Suspend functions so they can be placed in the hotkey() function
-; Putting these functions directly into the hotkey() function causes issues as they other hotkey options get interpreted as the inner function's parameters
-exitFunction(x) {
-    ExitApp()
-}
-suspendFunction(x){
-    Suspend(-1)
-}
