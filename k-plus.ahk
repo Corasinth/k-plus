@@ -19,17 +19,13 @@ layersToIgnore := "(1)"
 
 ; Tooltip and coordinate settings; whether or not to have a tooltip active and where it should be located
 tooltipOn := 1
-tooltipXCoordinate := 0
-tooltipYCoordinate := 0
+xCoordinate := 0
+yCoordinate := 0
 
 ; Sets up number for the millescond delay
 longPressDelay := 200
 ; Lets you use the long press delay for uses of KeyWait as well 
 timeParameter := "T0.180" 
-
-; Assign coordinates
-xCoordinate := 0
-yCoordinate := 0
 
 ; Universal quit and suspend key definitions go here
 ; Edit key defitions and input level as desired
