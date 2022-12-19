@@ -2,31 +2,31 @@
 ; ====================================== LETTERS ======================================
 ; q::toggleLayer("")
 ; Swap to main layers
-; w::{
-;     SendInput("^!+#w")
-;     Suspend(-1)
-; }
+w::{
+    SendInput("^!+#w")
+    Suspend(-1)
+}
 ; Swap to code layers
 e::{
     SendInput("^!+#e")
     Suspend(-1)
 }
 ; Swap to misc layers
-r::{
-    SendInput("^!+#r")
-    Suspend(-1)
-}
+; r::{
+;     SendInput("^!+#r")
+;     Suspend(-1)
+; }
 ; t::toggleLayer("")
 ; y::toggleLayer("")
 ; u::toggleLayer("")
 ; i::toggleLayer("")
 ; o::toggleLayer("")
 
-a::toggleLayer("Alpha")
-s::toggleLayer("Alpha-Sl")
-d::toggleLayer("Sym")
-f::toggleLayer("Sym-Sl")
-g::toggleLayer("Ext")
+a::toggleLayer("Diacritics")
+s::toggleLayer("Alchemical")
+d::toggleLayer("Math")
+f::toggleLayer("Greek")
+g::toggleLayer("Greek-Sl")
 ; h::toggleLayer("")
 ; j::toggleLayer("")
 ; k::toggleLayer("")
@@ -34,7 +34,7 @@ g::toggleLayer("Ext")
 ; `;::toggleLayer("")
 
 ; x::toggleLayer("")
-c::toggleLayer("Sym-D")
+c::toggleLayer("Morse")
 ; v::toggleLayer("")
 ; b::toggleLayer("")
 ; n::toggleLayer("")

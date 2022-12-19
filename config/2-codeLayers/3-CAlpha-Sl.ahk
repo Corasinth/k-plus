@@ -1,183 +1,183 @@
 #HotIf currentLayer = "CAlpha-Sl"
 ; ====================================== LETTERS ======================================
-q::{
+*q::{
     if(A_PriorKey != "q" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "Q", "q", 1)
+        longPress("q", "Q", "q", 1)
     } else {
         SendInput("Q")
     }
 }
-w::{
+*w::{
     if(A_PriorKey != "w" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "W", "w", 1)
+        longPress("w", "W", "w", 1)
     } else {
         SendInput("W")
     }
 }
-e::{
+*e::{
     if(A_PriorKey != "e" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "E", "e", 1)
+        longPress("e", "E", "e", 1)
     } else {
         SendInput("E")
     }
 }
-r::{
+*r::{
     if(A_PriorKey != "r" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "R", "r", 1)
+        longPress("r", "R", "r", 1)
     } else {
         SendInput("R")
     }
 }
-t::{
+*t::{
     if(A_PriorKey != "t" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "T", "t", 1)
+        longPress("t", "T", "t", 1)
     } else {
         SendInput("T")
     }
 }
-y::{
+*y::{
     if(A_PriorKey != "y" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "Y", "y", 1)
+        longPress("y", "Y", "y", 1)
     } else {
         SendInput("Y")
     }
 }
-u::{
+*u::{
     if(A_PriorKey != "u" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "U", "u", 1)
+        longPress("u", "U", "u", 1)
     } else {
         SendInput("U")
     }
 }
-i::{
+*i::{
     if(A_PriorKey != "i" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "I", "i", 1)
+        longPress("i", "I", "i", 1)
     } else {
         SendInput("I")
     }
 }
-o::{
+*o::{
     if(A_PriorKey != "o" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "O", "o", 1)
+        longPress("o", "O", "o", 1)
     } else {
         SendInput("O")
     }
 }
-p::{
+*p::{
     if(A_PriorKey != "p" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "P", "p", 1)
+        longPress("p", "P", "p", 1)
     } else {
         SendInput("P")
     }
 }
-a::{
+*a::{
     if(A_PriorKey != "a" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "A", "a", 1)
+        longPress("a", "A", "a", 1)
     } else {
         SendInput("A")
     }
 }
-s::{
+*s::{
     if(A_PriorKey != "s" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "S", "s", 1)
+        longPress("s", "S", "s", 1)
     } else {
         SendInput("S")
     }
 }
-d::{
+*d::{
     if(A_PriorKey != "d" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "D", "d", 1)
+        longPress("d", "D", "d", 1)
     } else {
         SendInput("D")
     }
 }
-f::{
+*f::{
     if(A_PriorKey != "f" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "F", "f", 1)
+        longPress("f", "F", "f", 1)
     } else {
         SendInput("F")
     }
 }
-g::{
+*g::{
     if(A_PriorKey != "g" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "G", "g", 1)
+        longPress("g", "G", "g", 1)
     } else {
         SendInput("G")
     }
 }
-h::{
+*h::{
     if(A_PriorKey != "h" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "H", "h", 1)
+        longPress("h", "H", "h", 1)
     } else {
         SendInput("H")
     }
 }
-j::{
+*j::{
     if(A_PriorKey != "j" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "J", "j", 1)
+        longPress("j", "J", "j", 1)
     } else {
         SendInput("J")
     }
 }
-k::{
+*k::{
     if(A_PriorKey != "k" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "K", "k", 1)
+        longPress("k", "K", "k", 1)
     } else {
         SendInput("K")
     }
 }
-l::{
+*l::{
     if(A_PriorKey != "l" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "L", "l", 1)
+        longPress("l", "L", "l", 1)
     } else {
         SendInput("L")
     }
 }
-z::{
+*z::{
     if(A_PriorKey != "z" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "Z", "z", 1)
+        longPress("z", "Z", "z", 1)
     } else {
         SendInput("Z")
     }
 }
-x::{
+*x::{
     if(A_PriorKey != "x" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "X", "x", 1)
+        longPress("x", "X", "x", 1)
     } else {
         SendInput("X")
     }
 }
-c::{
+*c::{
     if(A_PriorKey != "c" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "C", "c", 1)
+        longPress("c", "C", "c", 1)
     } else {
         SendInput("C")
     }
 }
-v::{
+*v::{
     if(A_PriorKey != "v" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "V", "v", 1)
+        longPress("v", "V", "v", 1)
     } else {
         SendInput("V")
     }
 }
-b::{
+*b::{
     if(A_PriorKey != "b" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "B", "b", 1)
+        longPress("b", "B", "b", 1)
     } else {
         SendInput("B")
     }
 }
-n::{
+*n::{
     if(A_PriorKey != "n" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "N", "n", 1)
+        longPress("n", "N", "n", 1)
     } else {
         SendInput("N")
     }
 }
-m::{
+*m::{
     if(A_PriorKey != "m" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "M", "m", 1)
+        longPress("m", "M", "m", 1)
     } else {
         SendInput("M")
     }

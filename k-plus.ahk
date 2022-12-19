@@ -4,6 +4,7 @@
 #Include ./util/ini-reader.ahk
 ; Allow layers to trigger other script hotkeys/strings
 #InputLevel 1
+SetCapsLockState("AlwaysOff")
 ; ============================== MAIN VARIABLES ==============================
 ; This is the tracker that determines the current layer
 currentLayer := 1

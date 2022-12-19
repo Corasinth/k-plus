@@ -1,7 +1,7 @@
-#HotIf currentLayer = "CSym"
+#HotIf currentLayer = "CSym-D"
 ; ====================================== LETTERS ======================================
-q::{
-    if(A_PriorHotKey != "q" || A_TimeSincePriorHotkey > 500){
+*q::{
+    if(A_PriorHotKey != "*q" || A_TimeSincePriorHotkey > 500){
         startTime := A_TickCount
         SendInput("{Blind}~")
         while(GetKeyState("q", "P")){
@@ -16,8 +16,9 @@ q::{
         SendInput("{Blind}~")
     }
 }
-+q::{
-    if(A_PriorHotKey != "+q" || A_TimeSincePriorHotkey > 350){
+*q up::toggleLayer(previousLayer)
+*+q::{
+    if(A_PriorHotKey != "*+q" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}°")
         while(GetKeyState("q", "P")){
@@ -32,8 +33,9 @@ q::{
         SendInput("{Blind+}°")
     }
 }
-w::{
-    if(A_PriorHotKey != "w" || A_TimeSincePriorHotkey > 350){
+*+q up::toggleLayer(previousLayer)
+*w::{
+    if(A_PriorHotKey != "*w" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}<")
         while(GetKeyState("w", "P")){
@@ -48,8 +50,9 @@ w::{
         SendInput("{Blind}<")
     }
 }
-+w::{
-    if(A_PriorHotKey != "+w" || A_TimeSincePriorHotkey > 350){
+*w up::toggleLayer(previousLayer)
+*+w::{
+    if(A_PriorHotKey != "*+w" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}@")
         while(GetKeyState("w", "P")){
@@ -64,8 +67,9 @@ w::{
         SendInput("{Blind+}@")
     }
 }
-e::{
-    if(A_PriorHotKey != "e" || A_TimeSincePriorHotkey > 350){
+*+w up::toggleLayer(previousLayer)
+*e::{
+    if(A_PriorHotKey != "*e" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}[")
         while(GetKeyState("e", "P")){
@@ -80,8 +84,9 @@ e::{
         SendInput("{Blind}[")
     }
 }
-+e::{
-    if(A_PriorHotKey != "+e" || A_TimeSincePriorHotkey > 350){
+*e up::toggleLayer(previousLayer)
+*+e::{
+    if(A_PriorHotKey != "*+e" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}%")
         while(GetKeyState("e", "P")){
@@ -96,10 +101,11 @@ e::{
         SendInput("{Blind+}%")
     }
 }
-r::{
-    if(A_PriorHotKey != "r" || A_TimeSincePriorHotkey > 350){
+*+e up::toggleLayer(previousLayer)
+*r::{
+    if(A_PriorHotKey != "*r" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}\")
+        SendInput("{Blind}/")
         while(GetKeyState("r", "P")){
             endTime := A_TickCount - startTime
             if("r" = A_PriorKey && endTime > 220){
@@ -109,18 +115,19 @@ r::{
             }
         }
     } else {
-        SendInput("{Blind}\")
+        SendInput("{Blind}/")
     }
 }
-+r::{
-    if(A_PriorHotKey != "+r" || A_TimeSincePriorHotkey > 350){
+*r up::toggleLayer(previousLayer)
+*+r::{
+    if(A_PriorHotKey != "*+r" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}{^}")
         while(GetKeyState("r", "P")){
             endTime := A_TickCount - startTime
             if("r" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}\")
+                SendInput("{Blind+}/")
                 KeyWait("r")
             }
         }
@@ -128,8 +135,9 @@ r::{
         SendInput("{Blind+}{^}")
     }
 }
-t::{
-    if(A_PriorHotKey != "t" || A_TimeSincePriorHotkey > 350){
+*+r up::toggleLayer(previousLayer)
+*t::{
+    if(A_PriorHotKey != "*t" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}—")
         while(GetKeyState("t", "P")){
@@ -144,8 +152,9 @@ t::{
         SendInput("{Blind}—")
     }
 }
-+t::{
-    if(A_PriorHotKey != "+t" || A_TimeSincePriorHotkey > 350){
+*t up::toggleLayer(previousLayer)
+*+t::{
+    if(A_PriorHotKey != "*+t" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}–")
         while(GetKeyState("t", "P")){
@@ -160,8 +169,9 @@ t::{
         SendInput("{Blind+}–")
     }
 }
-y::{
-    if(A_PriorHotKey != "y" || A_TimeSincePriorHotkey > 350){
+*+t up::toggleLayer(previousLayer)
+*y::{
+    if(A_PriorHotKey != "*y" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}{U+00AB}")
         while(GetKeyState("y", "P")){
@@ -176,8 +186,9 @@ y::{
         SendInput("{Blind}{U+00AB}")
     }
 }
-+y::{
-    if(A_PriorHotKey != "+y" || A_TimeSincePriorHotkey > 350){
+*y up::toggleLayer(previousLayer)
+*+y::{
+    if(A_PriorHotKey != "*+y" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}{U+00BB}")
         while(GetKeyState("y", "P")){
@@ -192,47 +203,50 @@ y::{
         SendInput("{Blind+}{U+00BB}")
     }
 }
-u::{
-    if(A_PriorHotKey != "u" || A_TimeSincePriorHotkey > 350){
+*+y up::toggleLayer(previousLayer)
+*u::{
+    if(A_PriorHotKey != "*u" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}/")
+        SendInput("{Blind}\")
         while(GetKeyState("u", "P")){
             endTime := A_TickCount - startTime
             if("u" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad1}")
+                SendInput("{Blind}{Numpad7}")
                 KeyWait("u")
             }
         }
     } else {
-        SendInput("{Blind}/")
+        SendInput("{Blind}\")
     }
 }
-+u::{
-    if(A_PriorHotKey != "+u" || A_TimeSincePriorHotkey > 350){
+*u up::toggleLayer(previousLayer)
+*+u::{
+    if(A_PriorHotKey != "*+u" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad1}")
+        SendInput("{Blind+}{Numpad7}")
         while(GetKeyState("u", "P")){
             endTime := A_TickCount - startTime
             if("u" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}/")
+                SendInput("{Blind+}\")
                 KeyWait("u")
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad1}")
+        SendInput("{Blind+}{Numpad7}")
     }
 }
-i::{
-    if(A_PriorHotKey != "i" || A_TimeSincePriorHotkey > 350){
+*+u up::toggleLayer(previousLayer)
+*i::{
+    if(A_PriorHotKey != "*i" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}]")
         while(GetKeyState("i", "P")){
             endTime := A_TickCount - startTime
             if("i" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad2}")
+                SendInput("{Blind}{Numpad8}")
                 KeyWait("i")
             }
         }
@@ -240,10 +254,11 @@ i::{
         SendInput("{Blind}]")
     }
 }
-+i::{
-    if(A_PriorHotKey != "+i" || A_TimeSincePriorHotkey > 350){
+*i up::toggleLayer(previousLayer)
+*+i::{
+    if(A_PriorHotKey != "*+i" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad2}")
+        SendInput("{Blind+}{Numpad8}")
         while(GetKeyState("i", "P")){
             endTime := A_TickCount - startTime
             if("i" = A_PriorKey && endTime > 220){
@@ -253,18 +268,19 @@ i::{
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad2}")
+        SendInput("{Blind+}{Numpad8}")
     }
 }
-o::{
-    if(A_PriorHotKey != "o" || A_TimeSincePriorHotkey > 350){
+*+i up::toggleLayer(previousLayer)
+*o::{
+    if(A_PriorHotKey != "*o" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}>")
         while(GetKeyState("o", "P")){
             endTime := A_TickCount - startTime
             if("o" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad3}")
+                SendInput("{Blind}{Numpad9}")
                 KeyWait("o")
             }
         }
@@ -272,10 +288,11 @@ o::{
         SendInput("{Blind}>")
     }
 }
-+o::{
-    if(A_PriorHotKey != "+o" || A_TimeSincePriorHotkey > 350){
+*o up::toggleLayer(previousLayer)
+*+o::{
+    if(A_PriorHotKey != "*+o" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind+}{Numpad3}")
+        SendInput("{Blind+}{Numpad9}")
         while(GetKeyState("o", "P")){
             endTime := A_TickCount - startTime
             if("o" = A_PriorKey && endTime > 220){
@@ -285,12 +302,13 @@ o::{
             }
         }
     } else {
-        SendInput("{Blind+}{Numpad3}")
+        SendInput("{Blind+}{Numpad9}")
     }
 }
+*+o up::toggleLayer(previousLayer)
 
-a::{
-    if(A_PriorHotKey != "a" || A_TimeSincePriorHotkey > 350){
+*a::{
+    if(A_PriorHotKey != "*a" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}{{}")
         while(GetKeyState("a", "P")){
@@ -305,8 +323,9 @@ a::{
         SendInput("{Blind}{{}")
     }
 }
-+a::{
-    if(A_PriorHotKey != "+a" || A_TimeSincePriorHotkey > 350){
+*a up::toggleLayer(previousLayer)
+*+a::{
+    if(A_PriorHotKey != "*+a" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}``")
         while(GetKeyState("a", "P")){
@@ -321,8 +340,9 @@ a::{
         SendInput("{Blind+}``")
     }
 }
-s::{
-    if(A_PriorHotKey != "s" || A_TimeSincePriorHotkey > 350){
+*+a up::toggleLayer(previousLayer)
+*s::{
+    if(A_PriorHotKey != "*s" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}(")
         while(GetKeyState("s", "P")){
@@ -337,8 +357,9 @@ s::{
         SendInput("{Blind}(")
     }
 }
-+s::{
-    if(A_PriorHotKey != "+s" || A_TimeSincePriorHotkey > 350){
+*s up::toggleLayer(previousLayer)
+*+s::{
+    if(A_PriorHotKey != "*+s" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}$")
         while(GetKeyState("s", "P")){
@@ -353,8 +374,9 @@ s::{
         SendInput("{Blind+}$")
     }
 }
-d::{
-    if(A_PriorHotKey != "d" || A_TimeSincePriorHotkey > 350){
+*+s up::toggleLayer(previousLayer)
+*d::{
+    if(A_PriorHotKey != "*d" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}.")
         while(GetKeyState("d", "P")){
@@ -369,8 +391,9 @@ d::{
         SendInput("{Blind}.")
     }
 }
-+d::{
-    if(A_PriorHotKey != "+d" || A_TimeSincePriorHotkey > 350){
+*d up::toggleLayer(previousLayer)
+*+d::{
+    if(A_PriorHotKey != "*+d" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}:")
         while(GetKeyState("d", "P")){
@@ -385,8 +408,9 @@ d::{
         SendInput("{Blind+}:")
     }
 }
-f::{
-    if(A_PriorHotKey != "f" || A_TimeSincePriorHotkey > 350){
+*+d up::toggleLayer(previousLayer)
+*f::{
+    if(A_PriorHotKey != "*f" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind},")
         while(GetKeyState("f", "P")){
@@ -401,8 +425,9 @@ f::{
         SendInput("{Blind},")
     }
 }
-+f::{
-    if(A_PriorHotKey != "+f" || A_TimeSincePriorHotkey > 350){
+*f up::toggleLayer(previousLayer)
+*+f::{
+    if(A_PriorHotKey != "*+f" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+};")
         while(GetKeyState("f", "P")){
@@ -417,8 +442,9 @@ f::{
         SendInput("{Blind+};")
     }
 }
-g::{
-    if(A_PriorHotKey != "g" || A_TimeSincePriorHotkey > 350){
+*+f up::toggleLayer(previousLayer)
+*g::{
+    if(A_PriorHotKey != "*g" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}=")
         while(GetKeyState("g", "P")){
@@ -433,8 +459,9 @@ g::{
         SendInput("{Blind}=")
     }
 }
-+g::{
-    if(A_PriorHotKey != "+g" || A_TimeSincePriorHotkey > 350){
+*g up::toggleLayer(previousLayer)
+*+g::{
+    if(A_PriorHotKey != "*+g" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}?")
         while(GetKeyState("g", "P")){
@@ -449,8 +476,9 @@ g::{
         SendInput("{Blind+}?")
     }
 }
-h::{
-    if(A_PriorHotKey != "h" || A_TimeSincePriorHotkey > 350){
+*+g up::toggleLayer(previousLayer)
+*h::{
+    if(A_PriorHotKey != "*h" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}{+}")
         while(GetKeyState("h", "P")){
@@ -465,8 +493,9 @@ h::{
         SendInput("{Blind}{+}")
     }
 }
-+h::{
-    if(A_PriorHotKey != "+h" || A_TimeSincePriorHotkey > 350){
+*h up::toggleLayer(previousLayer)
+*+h::{
+    if(A_PriorHotKey != "*+h" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}{!}")
         while(GetKeyState("h", "P")){
@@ -481,10 +510,11 @@ h::{
         SendInput("{Blind+}{!}")
     }
 }
-j::{
-    if(A_PriorHotKey != "j" || A_TimeSincePriorHotkey > 350){
+*+h up::toggleLayer(previousLayer)
+*j::{
+    if(A_PriorHotKey != "*j" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}-")
+        SendInput("{Blind}'")
         while(GetKeyState("j", "P")){
             endTime := A_TickCount - startTime
             if("j" = A_PriorKey && endTime > 220){
@@ -494,18 +524,19 @@ j::{
             }
         }
     } else {
-        SendInput("{Blind}-")
+        SendInput("{Blind}'")
     }
 }
-+j::{
-    if(A_PriorHotKey != "+j" || A_TimeSincePriorHotkey > 350){
+*j up::toggleLayer(previousLayer)
+*+j::{
+    if(A_PriorHotKey != "*+j" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}{Numpad4}")
         while(GetKeyState("j", "P")){
             endTime := A_TickCount - startTime
             if("j" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}-")
+                SendInput("{Blind+}'")
                 KeyWait("j")
             }
         }
@@ -513,8 +544,9 @@ j::{
         SendInput("{Blind+}{Numpad4}")
     }
 }
-k::{
-    if(A_PriorHotKey != "k" || A_TimeSincePriorHotkey > 350){
+*+j up::toggleLayer(previousLayer)
+*k::{
+    if(A_PriorHotKey != "*k" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}`"")
         while(GetKeyState("k", "P")){
@@ -529,8 +561,9 @@ k::{
         SendInput("{Blind}`"")
     }
 }
-+k::{
-    if(A_PriorHotKey != "+k" || A_TimeSincePriorHotkey > 350){
+*k up::toggleLayer(previousLayer)
+*+k::{
+    if(A_PriorHotKey != "*+k" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}{Numpad5}")
         while(GetKeyState("k", "P")){
@@ -545,8 +578,9 @@ k::{
         SendInput("{Blind+}{Numpad5}")
     }
 }
-l::{
-    if(A_PriorHotKey != "l" || A_TimeSincePriorHotkey > 350){
+*+k up::toggleLayer(previousLayer)
+*l::{
+    if(A_PriorHotKey != "*l" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind})")
         while(GetKeyState("l", "P")){
@@ -561,8 +595,9 @@ l::{
         SendInput("{Blind})")
     }
 }
-+l::{
-    if(A_PriorHotKey != "+l" || A_TimeSincePriorHotkey > 350){
+*l up::toggleLayer(previousLayer)
+*+l::{
+    if(A_PriorHotKey != "*+l" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}{Numpad6}")
         while(GetKeyState("l", "P")){
@@ -577,8 +612,9 @@ l::{
         SendInput("{Blind+}{Numpad6}")
     }
 }
-`;::{
-    if(A_PriorHotKey != ";" || A_TimeSincePriorHotkey > 350){
+*+l up::toggleLayer(previousLayer)
+*;::{
+    if(A_PriorHotKey != "*;" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}{}}")
         while(GetKeyState(";", "P")){
@@ -587,14 +623,16 @@ l::{
                 SendInput("{Backspace}")
                 SendInput("{Blind}{Numpad0}")
                 KeyWait(";")
+                toggleLayer(previousLayer)
             }
         }
+        toggleLayer(previousLayer)
     } else {
         SendInput("{Blind}{}}")
     }
 }
-+;::{
-    if(A_PriorHotKey != "+;" || A_TimeSincePriorHotkey > 350){
+*+;::{
+    if(A_PriorHotKey != "*+;" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}{Numpad0}")
         while(GetKeyState(";", "P")){
@@ -609,9 +647,10 @@ l::{
         SendInput("{Blind+}{Numpad0}")
     }
 }
+*+; up::toggleLayer(previousLayer)
 
-x::{
-    if(A_PriorHotKey != "x" || A_TimeSincePriorHotkey > 350){
+*x::{
+    if(A_PriorHotKey != "*x" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}€")
         while(GetKeyState("x", "P")){
@@ -626,8 +665,9 @@ x::{
         SendInput("{Blind}€")
     }
 }
-+x::{
-    if(A_PriorHotKey != "+x" || A_TimeSincePriorHotkey > 350){
+*x up::toggleLayer(previousLayer)
+*+x::{
+    if(A_PriorHotKey != "*+x" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}©")
         while(GetKeyState("x", "P")){
@@ -642,8 +682,9 @@ x::{
         SendInput("{Blind+}©")
     }
 }
-c::{
-    if(A_PriorHotKey != "c" || A_TimeSincePriorHotkey > 350){
+*+x up::toggleLayer(previousLayer)
+*c::{
+    if(A_PriorHotKey != "*c" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}&")
         while(GetKeyState("c", "P")){
@@ -658,8 +699,9 @@ c::{
         SendInput("{Blind}&")
     }
 }
-+c::{
-    if(A_PriorHotKey != "+c" || A_TimeSincePriorHotkey > 350){
+*c up::toggleLayer(previousLayer)
+*+c::{
+    if(A_PriorHotKey != "*+c" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}|")
         while(GetKeyState("c", "P")){
@@ -674,8 +716,9 @@ c::{
         SendInput("{Blind+}|")
     }
 }
-v::{
-    if(A_PriorHotKey != "v" || A_TimeSincePriorHotkey > 350){
+*+c up::toggleLayer(previousLayer)
+*v::{
+    if(A_PriorHotKey != "*v" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}{#}")
         while(GetKeyState("v", "P")){
@@ -690,8 +733,9 @@ v::{
         SendInput("{Blind}{#}")
     }
 }
-+v::{
-    if(A_PriorHotKey != "+vv" || A_TimeSincePriorHotkey > 350){
+*v up::toggleLayer(previousLayer)
+*+v::{
+    if(A_PriorHotKey != "*+vv" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}*")
         while(GetKeyState("v", "P")){
@@ -706,8 +750,9 @@ v::{
         SendInput("{Blind+}*")
     }
 }
-b::{
-    if(A_PriorHotKey != "b" || A_TimeSincePriorHotkey > 350){
+*+v up::toggleLayer(previousLayer)
+*b::{
+    if(A_PriorHotKey != "*b" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}¿")
         while(GetKeyState("b", "P")){
@@ -722,8 +767,9 @@ b::{
         SendInput("{Blind}¿")
     }
 }
-+b::{
-    if(A_PriorHotKey != "+b" || A_TimeSincePriorHotkey > 350){
+*b up::toggleLayer(previousLayer)
+*+b::{
+    if(A_PriorHotKey != "*+b" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}¡")
         while(GetKeyState("b", "P")){
@@ -738,8 +784,9 @@ b::{
         SendInput("{Blind+}¡")
     }
 }
-n::{
-    if(A_PriorHotKey != "n" || A_TimeSincePriorHotkey > 350){
+*+b up::toggleLayer(previousLayer)
+*n::{
+    if(A_PriorHotKey != "*n" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}_")
         while(GetKeyState("n", "P")){
@@ -754,8 +801,9 @@ n::{
         SendInput("{Blind}_")
     }
 }
-+n::{
-    if(A_PriorHotKey != "+n" || A_TimeSincePriorHotkey > 350){
+*n up::toggleLayer(previousLayer)
+*+n::{
+    if(A_PriorHotKey != "*+n" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}{Numpad1}")
         while(GetKeyState("n", "P")){
@@ -770,10 +818,11 @@ n::{
         SendInput("{Blind+}{Numpad1}")
     }
 }
-m::{
-    if(A_PriorHotKey != "m" || A_TimeSincePriorHotkey > 350){
+*+n up::toggleLayer(previousLayer)
+*m::{
+    if(A_PriorHotKey != "*m" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
-        SendInput("{Blind}'")
+        SendInput("{Blind}-")
         while(GetKeyState("m", "P")){
             endTime := A_TickCount - startTime
             if("m" = A_PriorKey && endTime > 220){
@@ -783,18 +832,19 @@ m::{
             }
         }
     } else {
-        SendInput("{Blind}'")
+        SendInput("{Blind}-")
     }
 }
-+m::{
-    if(A_PriorHotKey != "+m" || A_TimeSincePriorHotkey > 350){
+*m up::toggleLayer(previousLayer)
+*+m::{
+    if(A_PriorHotKey != "*+m" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}{Numpad2}")
         while(GetKeyState("m", "P")){
             endTime := A_TickCount - startTime
             if("m" = A_PriorKey && endTime > 220){
                 SendInput("{Backspace}")
-                SendInput("{Blind+}'")
+                SendInput("{Blind+}-")
                 KeyWait("m")
             }
         }
@@ -802,8 +852,9 @@ m::{
         SendInput("{Blind+}{Numpad2}")
     }
 }
-,::{
-    if(A_PriorHotKey != "," || A_TimeSincePriorHotkey > 350){
+*+m up::toggleLayer(previousLayer)
+*,::{
+    if(A_PriorHotKey != "*," || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}§")
         while(GetKeyState(",", "P")){
@@ -818,8 +869,9 @@ m::{
         SendInput("{Blind}§")
     }
 }
-+,::{
-    if(A_PriorHotKey != "+," || A_TimeSincePriorHotkey > 350){
+*, up::toggleLayer(previousLayer)
+*+,::{
+    if(A_PriorHotKey != "*+," || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}{Numpad3}")
         while(GetKeyState(",", "P")){
@@ -834,8 +886,9 @@ m::{
         SendInput("{Blind+}{Numpad3}")
     }
 }
-.::{
-    if(A_PriorHotKey != "." || A_TimeSincePriorHotkey > 350){
+*+, up::toggleLayer(previousLayer)
+*.::{
+    if(A_PriorHotKey != "*." || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind}¶")
         while(GetKeyState(".", "P")){
@@ -850,8 +903,9 @@ m::{
         SendInput("{Blind}¶")
     }
 }
-+.::{
-    if(A_PriorHotKey != "+." || A_TimeSincePriorHotkey > 350){
+*. up::toggleLayer(previousLayer)
+*+.::{
+    if(A_PriorHotKey != "*+." || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}™")
         while(GetKeyState(".", "P")){
@@ -866,21 +920,13 @@ m::{
         SendInput("{Blind+}™")
     }
 }
+*+. up::toggleLayer(previousLayer)
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::{
     SendInput("{Blind}{Esc}")
     toggleLayer("Vim")
 }
-*Shift::{
-    SendInput("{Blind}{Shift downR}")
-    if !(released := KeyWait("Shift", "T0.22")){
-        KeyWait("Shift")
-    }
-    SendInput("{Blind}{Shift up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("CSym-Sl")
-    }
-}
+Tab::toggleLayer("CSym")
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.22")){
@@ -901,13 +947,4 @@ CapsLock::{
         toggleLayer(previousLayer)
     }
 }
-*'::{
-    if !(released := KeyWait("'", "T0.22")){
-        SendInput("{Blind}{RWin downR}")
-        KeyWait("'")
-    }
-    SendInput("{Blind}{RWin up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        SendInput("{Blind}^{Backspace}")
-    }
-}
+*'::RWin

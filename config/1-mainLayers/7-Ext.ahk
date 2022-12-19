@@ -15,11 +15,11 @@ s::Alt
 d::Shift
 f::Ctrl 
 g::WheelUp
-h::Delete
+h::BackSpace
 j::Left
 k::Down
 l::Right
-`;::BackSpace
+`;::Delete
 
 x::AppsKey
 c::^z
@@ -33,17 +33,8 @@ m::^a
 Tab::Esc
 Space::Enter
 CapsLock::toggleLayer("Alpha")
-
-*Shift::{
-    SendInput("{Blind}{Shift downR}")
-    if !(released := KeyWait("Shift", "T0.18")){
-        KeyWait("Shift")
-    }
-    SendInput("{Blind}{Shift up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Alpha-Sl")
-    }
-}
+Shift::toggleLayer("Macros")
+Enter::toggleLayer("Func-D")
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.18")){

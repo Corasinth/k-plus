@@ -1,185 +1,185 @@
 #HotIf currentLayer = "CAlpha"
 ; ====================================== LETTERS ======================================
-q::{
+*q::{
     if(A_PriorKey != "q" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "q", "Q", 1)
+        longPress("q", "{Blind}q", "{Blind}Q", 1)
     } else {
-        SendInput("q")
+        SendInput("{Blind}q")
     }
 }
-w::{
+*w::{
     if(A_PriorKey != "w" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "w", "W", 1)
+        longPress("w", "{Blind}w", "{Blind}W", 1)
     } else {
-        SendInput("w")
+        SendInput("{Blind}w")
     }
 }
-e::{
+*e::{
     if(A_PriorKey != "e" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "e", "E", 1)
+        longPress("e", "{Blind}e", "{Blind}E", 1)
     } else {
-        SendInput("e")
+        SendInput("{Blind}e")
     }
 }
-r::{
+*r::{
     if(A_PriorKey != "r" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "r", "R", 1)
+        longPress("r", "{Blind}r", "{Blind}R", 1)
     } else {
-        SendInput("r")
+        SendInput("{Blind}r")
     }
 }
-t::{
+*t::{
     if(A_PriorKey != "t" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "t", "T", 1)
+        longPress("t", "{Blind}t", "{Blind}T", 1)
     } else {
-        SendInput("t")
+        SendInput("{Blind}t")
     }
 }
-y::{
+*y::{
     if(A_PriorKey != "y" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "y", "Y", 1)
+        longPress("y", "{Blind}y", "{Blind}Y", 1)
     } else {
-        SendInput("y")
+        SendInput("{Blind}y")
     }
 }
-u::{
+*u::{
     if(A_PriorKey != "u" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "u", "U", 1)
+        longPress("u", "{Blind}u", "{Blind}U", 1)
     } else {
-        SendInput("u")
+        SendInput("{Blind}u")
     }
 }
-i::{
+*i::{
     if(A_PriorKey != "i" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "i", "I", 1)
+        longPress("i", "{Blind}i", "{Blind}I", 1)
     } else {
-        SendInput("i")
+        SendInput("{Blind}i")
     }
 }
-o::{
+*o::{
     if(A_PriorKey != "o" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "o", "O", 1)
+        longPress("o", "{Blind}o", "{Blind}O", 1)
     } else {
-        SendInput("o")
+        SendInput("{Blind}o")
     }
 }
-p::{
+*p::{
     if(A_PriorKey != "p" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "p", "P", 1)
+        longPress("p", "{Blind}p", "{Blind}P", 1)
     } else {
-        SendInput("p")
+        SendInput("{Blind}p")
     }
 }
-a::{
+*a::{
     if(A_PriorKey != "a" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "a", "A", 1)
+        longPress("a", "{Blind}a", "{Blind}A", 1)
     } else {
-        SendInput("a")
+        SendInput("{Blind}a")
     }
 }
-s::{
+*s::{
     if(A_PriorKey != "s" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "s", "S", 1)
+        longPress("s", "{Blind}s", "{Blind}S", 1)
     } else {
-        SendInput("s")
+        SendInput("{Blind}s")
     }
 }
-d::{
+*d::{
     if(A_PriorKey != "d" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "d", "D", 1)
+        longPress("d", "{Blind}d", "{Blind}D", 1)
     } else {
-        SendInput("d")
+        SendInput("{Blind}d")
     }
 }
-f::{
+*f::{
     if(A_PriorKey != "f" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "f", "F", 1)
+        longPress("f", "{Blind}f", "{Blind}F", 1)
     } else {
-        SendInput("f")
+        SendInput("{Blind}f")
     }
 }
-g::{
+*g::{
     if(A_PriorKey != "g" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "g", "G", 1)
+        longPress("g", "{Blind}g", "{Blind}G", 1)
     } else {
-        SendInput("g")
+        SendInput("{Blind}g")
     }
 }
-h::{
+*h::{
     if(A_PriorKey != "h" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "h", "H", 1)
+        longPress("h", "{Blind}h", "{Blind}H", 1)
     } else {
-        SendInput("h")
+        SendInput("{Blind}h")
     }
 }
-j::{
+*j::{
     if(A_PriorKey != "j" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "j", "J", 1)
+        longPress("j", "{Blind}j", "{Blind}J", 1)
     } else {
-        SendInput("j")
+        SendInput("{Blind}j")
     }
 }
-k::{
+*k::{
     if(A_PriorKey != "k" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "k", "K", 1)
+        longPress("k", "{Blind}k", "{Blind}K", 1)
     } else {
-        SendInput("k")
+        SendInput("{Blind}k")
     }
 }
-l::{
+*l::{
     if(A_PriorKey != "l" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "l", "L", 1)
+        longPress("l", "{Blind}l", "{Blind}L", 1)
     } else {
-        SendInput("l")
+        SendInput("{Blind}l")
     }
 }
-z::{
+*z::{
     if(A_PriorKey != "z" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "z", "Z", 1)
+        longPress("z", "{Blind}z", "{Blind}Z", 1)
     } else {
-        SendInput("z")
+        SendInput("{Blind}z")
     }
 }
-x::{
+*x::{
     if(A_PriorKey != "x" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "x", "X", 1)
+        longPress("x", "{Blind}x", "{Blind}X", 1)
     } else {
-        SendInput("x")
+        SendInput("{Blind}x")
     }
 }
-c::{
+*c::{
     if(A_PriorKey != "c" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "c", "C", 1)
+        longPress("c", "{Blind}c", "{Blind}C", 1)
     } else {
-        SendInput("c")
+        SendInput("{Blind}c")
     }
 }
-v::{
+*v::{
     if(A_PriorKey != "v" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "v", "V", 1)
+        longPress("v", "{Blind}v", "{Blind}V", 1)
     } else {
-        SendInput("v")
+        SendInput("{Blind}v")
     }
 }
-b::{
+*b::{
     if(A_PriorKey != "b" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "b", "B", 1)
+        longPress("b", "{Blind}b", "{Blind}B", 1)
     } else {
-        SendInput("b")
+        SendInput("{Blind}b")
     }
 }
-n::{
+*n::{
     if(A_PriorKey != "n" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "n", "N", 1)
+        longPress("n", "{Blind}n", "{Blind}N", 1)
     } else {
-        SendInput("n")
+        SendInput("{Blind}n")
     }
 }
-m::{
+*m::{
     if(A_PriorKey != "m" || A_TimeSincePriorHotkey > 350){
-        longPress(ThisHotkey, "m", "M", 1)
+        longPress("m", "{Blind}m", "{Blind}M", 1)
     } else {
-        SendInput("m")
+        SendInput("{Blind}m")
     }
 }
 ; ====================================== ADDITIONAL KEYS ======================================
