@@ -27,6 +27,11 @@ o::{
     toggleLayer("CAlpha")
 }
 
++r::{
+    SendInput("R")
+    toggleLayer("CAlpha")
+}
+
 +i::{
     SendInput("I")
     if(A_PriorKey != "y" && A_PriorKey != "d" && A_PriorKey != "c"){

@@ -33,6 +33,11 @@ m::Tab
 Tab::Esc
 Space::Enter
 CapsLock::toggleLayer("Alpha")
+CapsLock up::{
+    if(A_PriorKey = "Space"){
+        toggleLayer("Alpha")
+    }
+}
 Shift::toggleLayer("Func-D")
 Enter::toggleLayer("Func-D")
 *LAlt::{
