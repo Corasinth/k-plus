@@ -21,9 +21,9 @@ k::Down
 l::Right
 `;::Delete
 
-x::^a
+x::^y
 c::^z
-v::^y
+v::^a
 b::WheelDown
 n::PgUp
 m::Tab
