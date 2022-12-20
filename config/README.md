@@ -7,6 +7,8 @@ For this last category, I've limited the explanations to those choices that I ha
 
 If you want to try out my layers, or modify them for yourself, I reccomend giving this a read since the layers themselves are not commented. However, this is not the place to examine the exact layouts of each layer. While I might eventually generate some nice images for core layers, generally you should just checkout the layer files themseleves if you want to know how the buttons are arranged.
 
+My current layer files are kept in the numbered folders, while the others remain for legacy reasons.
+
 I'll try to keep this up to date as it also serves as a central area to keep notes about my layer system.
 
 Key positions are generally referred to by their ANSI QWERTY positions, while what they actually output is specified as they typed result.
@@ -14,6 +16,7 @@ Key positions are generally referred to by their ANSI QWERTY positions, while wh
 ## **Table of Contents**
 
 * [Design Principles](#design-principles)
+* [Issues](#issues)
 * [Universal Features](#universal-features)
     * [Directory Key](#directory-key)
     * [Previous Layer](#previous-layer)
@@ -50,6 +53,20 @@ Finally, I personally prefer layers accessed by toggling or used as one-shots (w
 
 I will acknowledge that the downside of tap vs hold layer switches is that you must also tap back. That can make typing certain keys, like periods and commas, tedious indeed. As a compromise, I use dead layers. Essentially, an entire layer is coded so that upon pressing any key the layer swaps back to the previous layer. This greatly increases the number of layers I have, but k-plus does not have a real limit and the solution is worth avoiding complex chords that strain the hands.
 
+## **Issues**
+
+Of course, starting principles and one's loft goals can diverge quite heavily from the final product. 
+
+In the case of k-plus, a full accounting of my desired layers resulted in a host of issues. Random capitalizations, sudden failures of a hotkey or 8, immense lag, stuck down modifier keys, and the sudden cessation of any hotkey at all firing ever again are just some of the issues that appeared. Worse, I have yet to pin down a precise cause and some issues appear to crop up without any alteration to the code.
+
+One way or the other I have eliminated several of these issues, though undoubtedly some still remain. Several incredibly repetitive chunks of code appear to work much much better when hardcoded, rather than using a variable or function as is best practice. Thus my layers are somewhat difficult to read. Why this would be the case still baffles me.
+
+Moreover, it seems that k-plus becomes unreliable past a certain number of layers, or perhaps hotkeys, or perhaps even lines of code. I cannot say for certain. What I do know is that below 9 or so layers things become much more stable. Since I desired something like 21 layers, this was an issue. 
+
+I resolved this by creating multiple sets of layers, compiling a version of k-plus with each set of layers, and linking the sets via the suspend function.
+
+By running multiple compiled `.exe`s simultaneously, but leaving all but a single one suspended, I can effectively swap between layers by strategically suspending and unsuspending each script. By binding the unsuspend hotkey for one script in another script's directory (along with a command to suspend itself), I can swap between scripts almost as easily as I would swap between layers. 
+
 ## **Universal Features**
 
 There are some features and keys that remain constant across layers. This makes learning to navigate the layers easier, and some macros and keys simply need to be accesible everywhere, or almost everywhere. 
@@ -64,9 +81,11 @@ On every layer the same key is dedicated to toggling to the directory layer. `LA
 
 ### **Previous Layer**
 
-On every layer the same key is dedicated to toggling to the previous layer, where the previous layer is the last layer used that isn't one of two exceptions. These exceptions are the directory, and the symbol dead layer. 
+On several layers the same key is dedicated to toggling to the previous layer, where the previous layer is the last layer used that isn't one of two exceptions. These exceptions are the directory, and dead layers. 
 
 The key used to toggle to the previous layer is `RAlt`. This is setup similarly to the directory key, where holding down `RAlt` and pressing another key lets it act like `Control`, while simply tapping it activates the previous layer macro.
+
+However, for several layers (mainly the core letter and symbol layers), `RAlt` instead swaps from either letters to symbols or vice versa.
 
 ### **Windows Backspace Key**
 
