@@ -214,7 +214,7 @@ CapsLock::{
     }
     SendInput("{Blind}{Control up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer(previousLayer)
+        toggleLayer("CSym")
     }
 }
 *'::{

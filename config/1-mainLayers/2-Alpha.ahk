@@ -212,7 +212,7 @@ CapsLock::toggleLayer("Ext")
     }
     SendInput("{RControl up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer(previousLayer)
+        toggleLayer("Sym")
     }
 }
 *'::{

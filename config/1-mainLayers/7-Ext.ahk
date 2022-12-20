@@ -21,15 +21,15 @@ k::Down
 l::Right
 `;::Delete
 
-x::AppsKey
+x::^a
 c::^z
 v::^y
 b::WheelDown
 n::PgUp
-m::^a
+m::Tab
 ,::PgDn
 ; ====================================== ADDITIONAL KEYS ======================================
-'::Tab
+'::AppsKey
 Tab::Esc
 Space::Enter
 CapsLock::toggleLayer("Alpha")

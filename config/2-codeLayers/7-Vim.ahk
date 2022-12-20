@@ -56,16 +56,6 @@ o::{
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::Esc
 Enter::toggleLayer("Func-D")
-*Shift::{
-    SendInput("{Blind}{Shift downR}")
-    if !(released := KeyWait("Shift", "T0.18")){
-        KeyWait("Shift")
-    }
-    SendInput("{Blind}{Shift up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Alpha-Sl")
-    }
-}
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.18")){
