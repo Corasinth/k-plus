@@ -18,7 +18,7 @@ previousLayer := currentLayer
 layersToIgnore := "(1)"
 
 ; Tooltip and coordinate settings; whether or not to have a tooltip active and where it should be located
-tooltipOn := 1
+tooltipOn := 0
 xCoordinate := 0
 yCoordinate := 0
 
@@ -31,8 +31,9 @@ timeParameter := "T0.180"
 ; Edit key defitions and input level as desired
 #InputLevel 0
 #SuspendExempt True
+; The suspend shortcut also disables the tooltip if it was active, though the tooltip remains if suspended via the GUI
 ^!+s::{
-    ToolTip()
+    (A_IsSuspended && tooltipOn) ? ToolTip(currentLayer, xCoordinate, yCoordinate) : ToolTip()
     Suspend(-1)
 }
 ^!+q::ExitApp
@@ -60,6 +61,14 @@ if(tooltipOn){
     Tooltip(currentLayer, xCoordinate, ycoordinate)
 }
 
+; Function to toggle whether or not the script displays a tooltip, for use in layers
+tooltipToggle(){
+    tooltipOn := tooltipOn ? 0 : 1
+    if(tooltipOn) ToolTip(currentLayer, xCoordinate, yCoordinate)
+    else ToolTip()
+}
+
+; Long press utility functions
 longPress(thisKey, defaultString, longPressString, numOfBackspaces){
     startTime := A_TickCount
     SendInput(defaultString)
