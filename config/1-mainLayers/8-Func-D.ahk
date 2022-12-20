@@ -1,27 +1,35 @@
 #HotIf currentLayer = "Func-D"
 ; ====================================== LETTERS ======================================
 *q::{
+    SendInput("git add -A{Enter}git commit -m `"")
     toggleLayer(previousLayer)
 }
-*w::{
-    toggleLayer(previousLayer)
-}
-*e::{
-    toggleLayer(previousLayer)
-}
-*r::{
-    toggleLayer(previousLayer)
-}
-*t::{
-    toggleLayer(previousLayer)
-}
+; *w::{
+;     toggleLayer(previousLayer)
+; }
+; *e::{
+;     toggleLayer(previousLayer)
+; }
+; *r::{
+;     toggleLayer(previousLayer)
+; }
+; *t::{
+;     toggleLayer(previousLayer)
+; }
 *u::{
+    SendInput("mysql -u root -p {Enter}")
+    Sleep(700)
+    SendInput("password")
+    Sleep(500)
+    SendInput("{Enter}")
     toggleLayer(previousLayer)
 }
 *i::{
+    SendInput("source ./db/schema.sql {Enter}")
     toggleLayer(previousLayer)
 }
 *o::{
+    SendInput("source ./db/seeds.sql {Enter}")
     toggleLayer(previousLayer)
 }
 *a::{
@@ -60,33 +68,33 @@
     SendInput("{Blind}{F9}")
     toggleLayer(previousLayer)
 }
-*;::{
-    SendInput("{Blind}{F10}")
-    toggleLayer(previousLayer)
+    *;::{
+SendInput("{Blind}{F10}")
+toggleLayer(previousLayer)
 }
-*x::{
-    toggleLayer(previousLayer)
-}
+; *x::{
+;     toggleLayer(previousLayer)
+; }
 *c::{
     SendInput("{Blind}{F11}")
     toggleLayer(previousLayer)
 }
-*v::{
-    toggleLayer(previousLayer)
-}
-*n::{
-    toggleLayer(previousLayer)
-}
+; *v::{
+;     toggleLayer(previousLayer)
+; }
+; *n::{
+;     toggleLayer(previousLayer)
+; }
 *m::{
     SendInput("{Blind}{F12}")
     toggleLayer(previousLayer)
 }
-*,::{
-    toggleLayer(previousLayer)
-}
-*.::{
-    toggleLayer(previousLayer)
-}
+; *,::{
+;     toggleLayer(previousLayer)
+; }
+; *.::{
+;     toggleLayer(previousLayer)
+; }
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::toggleLayer("Ext")
 *LAlt::{

@@ -1,105 +1,105 @@
 #HotIf currentLayer = "Func-D"
 ; ====================================== LETTERS ======================================
-q::{
+*q::{ 
+    SendInput("git add -A{Enter}git commit -m `"")
+    toggleLayer(previousLayer)
+}
+; *w::{
+;     toggleLayer(previousLayer)
+; }
+; *e::{
+;     toggleLayer(previousLayer)
+; }
+; *r::{
+;     toggleLayer(previousLayer)
+; }
+; *t::{
+;     toggleLayer(previousLayer)
+; }
+*u::{
+    SendInput("mysql -u root -p {Enter}")
+    Sleep(700)
+    SendInput("password")
+    Sleep(500)
+    SendInput("{Enter}")
+    toggleLayer(previousLayer)
+}
+*i::{
+    SendInput("source ./db/schema.sql {Enter}")
+    toggleLayer(previousLayer)
+}
+*o::{
+    SendInput("source ./db/seeds.sql {Enter}")
+    toggleLayer(previousLayer)
+}
+*a::{
     SendInput("{Blind}{F1}")
     toggleLayer(previousLayer)
 }
-w::{
+*s::{
     SendInput("{Blind}{F2}")
     toggleLayer(previousLayer)
 }
-e::{
+*d::{
     SendInput("{Blind}{F3}")
     toggleLayer(previousLayer)
 }
-r::{
+*f::{
     SendInput("{Blind}{F4}")
     toggleLayer(previousLayer)
 }
-t::{
+*g::{
     SendInput("{Blind}{F5}")
     toggleLayer(previousLayer)
 }
-u::{
+*h::{
     SendInput("{Blind}{F6}")
     toggleLayer(previousLayer)
 }
-i::{
+*j::{
     SendInput("{Blind}{F7}")
     toggleLayer(previousLayer)
 }
-o::{
+*k::{
     SendInput("{Blind}{F8}")
     toggleLayer(previousLayer)
 }
-
-a::{
+*l::{
     SendInput("{Blind}{F9}")
     toggleLayer(previousLayer)
 }
-s::{
-    SendInput("{Blind}{F10}")
-    toggleLayer(previousLayer)
+    *;::{
+SendInput("{Blind}{F10}")
+toggleLayer(previousLayer)
 }
-d::{
+; *x::{
+;     toggleLayer(previousLayer)
+; }
+*c::{
     SendInput("{Blind}{F11}")
     toggleLayer(previousLayer)
 }
-f::{
+; *v::{
+;     toggleLayer(previousLayer)
+; }
+; *n::{
+;     toggleLayer(previousLayer)
+; }
+*m::{
     SendInput("{Blind}{F12}")
     toggleLayer(previousLayer)
 }
-g::{
-    SendInput("{Blind}{F13}")
-    toggleLayer(previousLayer)
-}
-h::{
-    SendInput("{Blind}{F14}")
-    toggleLayer(previousLayer)
-}
-j::{
-    SendInput("{Blind}{F15}")
-    toggleLayer(previousLayer)
-}
-k::{
-    SendInput("{Blind}{F16}")
-    toggleLayer(previousLayer)
-}
-l::{
-    SendInput("{Blind}{F17}")
-    toggleLayer(previousLayer)
-}
-`;::{
-    SendInput("{Blind}{F18}")
-    toggleLayer(previousLayer)
-}
-
-x::{
-    SendInput("{Blind}{F19}")
-    toggleLayer(previousLayer)
-}
-c::{
-    SendInput("{Blind}{F20}")
-    toggleLayer(previousLayer)
-}
-v::{
-    SendInput("{Blind}{F21}")
-    toggleLayer(previousLayer)
-}
-n::{
-    SendInput("{Blind}{F22}")
-    toggleLayer(previousLayer)
-}
-m::{
-    SendInput("{Blind}{F23}")
-    toggleLayer(previousLayer)
-}
-,::{
-    SendInput("{Blind}{F24}")
-    toggleLayer(previousLayer)
-}
+; *,::{
+;     toggleLayer(previousLayer)
+; }
+; *.::{
+;     toggleLayer(previousLayer)
+; }
 ; ====================================== ADDITIONAL KEYS ======================================
-CapsLock::toggleLayer("Ext")
+CapsLock::{
+    SendInput("Blind{Esc}")
+    toggleLayer("Ext")
+}
 *Shift::{
     SendInput("{Blind}{Shift downR}")
     if !(released := KeyWait("Shift", "T0.18")){

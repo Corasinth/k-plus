@@ -54,8 +54,7 @@ o::{
 }
 
 ; ====================================== ADDITIONAL KEYS ======================================
-; RAlt::RControl
-
+CapsLock::Esc
 *Shift::{
     SendInput("{Blind}{Shift downR}")
     if !(released := KeyWait("Shift", "T0.18")){
