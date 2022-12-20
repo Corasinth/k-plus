@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey v2.0-rc.2
+﻿#Requires AutoHotkey v2.0-beta
 #SingleInstance Force
 ; Sets absolute coordinates for tooltip
 CoordMode("ToolTip", "Screen")
@@ -25,16 +25,54 @@ yCoordinate := 1080
 
 ; Sets up number for the millescond delay
 longPressDelay := 200
-; Lets you use the long press delay for uses of KeyWait as well 
-timeParameter := "T0.2" 
+; Lets you use the long press delay for uses of KeyWait as well
+timeParameter := "T0.2"
 
 ; Universal quit and suspend key definitions go here
 ; Edit key defitions and input level as desired
 #InputLevel 0
 #SuspendExempt True
-^!+w::Suspend(-1)
+; The suspend shortcut also disables the tooltip if it was active, though the tooltip remains if suspended via the GUI
+^!+s::{
+    ; (A_IsSuspended && tooltipOn) ? ToolTip(currentLayer, xCoordinate, yCoordinate) : ToolTip()
+    Suspend(-1)
+}
 ^!+q::ExitApp
 #SuspendExempt False
+
+; ============================== TOOLTIP HANDLING ==============================
+SuspendC := Suspend.GetMethod("Call")
+Suspend.DefineProp("Call", {
+Call:(this, mode:=-1) => (SuspendC(this, mode), OnSuspend(A_IsSuspended ? 1 : 0))
+})
+OnMessage(0x111, OnTraySuspend)
+
+; wp numbers grabbed via this bit of code
+; OnMessage(0x111, WM_COMMAND)
+
+; WM_COMMAND(wparam, lparam, msg, hwnd) {
+;     OutputDebug "wp: " wparam " | lp: " lparam "`n"
+; }
+OnTraySuspend(wp, *) {
+    if (wp = 65305) || (wp = 65404){
+        OnSuspend(A_IsSuspended ? 1 : 0)
+    }
+}
+
+; Function runs when script is suspended
+OnSuspend(mode) {
+    ; Mode is whether the script is currently suspended
+    if (mode = 1){
+        ToolTip()
+    } else if (mode = 0){
+        ToolTip(currentLayer, xCoordinate, yCoordinate)
+    }
+}
+
+; Runs ToolTip at start
+if(tooltipOn){
+    Tooltip(currentLayer, xCoordinate, ycoordinate)
+}
 
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
@@ -43,7 +81,7 @@ toggleLayer(targetLayer) {
     tempLayer := currentLayer
     currentLayer := targetLayer
     ; Doesn't record the specified layers as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
-    ; Layers are wrapped in parantheses so that something like 1 is not detected in 12 
+    ; Layers are wrapped in parantheses so that something like 1 is not detected in 12
     if (!InStr(layersToIgnore, "(" tempLayer ")")) {
         previousLayer := tempLayer
     }
@@ -53,11 +91,17 @@ toggleLayer(targetLayer) {
 }
 
 ; ============================== UTILITY FUNCTIONS ==============================
-; Runs ToolTip at start
-if(tooltipOn){
-    Tooltip(currentLayer, xCoordinate, ycoordinate)
+; Function to toggle whether or not the script displays a tooltip, for use in layers
+tooltipToggle(){
+    tooltipOn := tooltipOn ? 0 : 1
+    if(tooltipOn){
+        ToolTip(currentLayer, xCoordinate, yCoordinate)
+    } else {
+        ToolTip()
+    }
 }
 
+; Long press utility functions
 longPress(thisKey, defaultString, longPressString, numOfBackspaces){
     startTime := A_TickCount
     SendInput(defaultString)
@@ -89,7 +133,7 @@ longPressOnRelease(thisKey, defaultString, longPressString){
 ; Custom function to allow a key to have different effects whether its tapped, held, or double tapped and held
 ; There are limitations to this functionality (like sending backspace keystrokes), but it works for some specific Autoshift purposes
 multiLongPress(thisKey, defaultSend, longPressSend, numOfBackspaces, timeDelay){
-  if(A_PriorKey != thisKey || A_TimeSincePriorHotkey > timeDelay){
+    if(A_PriorKey != thisKey || A_TimeSincePriorHotkey > timeDelay){
         longPress(thisKey, defaultSend, longPressSend, numOfBackspaces)
     } else {
         SendInput(defaultSend)
