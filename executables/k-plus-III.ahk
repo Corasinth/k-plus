@@ -2,45 +2,26 @@
 #SingleInstance Force
 ; Sets absolute coordinates for tooltip
 CoordMode("ToolTip", "Screen")
-SetCapsLockState("AlwaysOff")
 ; ============================== MAIN VARIABLES ==============================
-; This is the tracker that determines the current layer
-; Also the layer that k-plus starts up with
-currentLayer := "Alpha"
-; This is a number used to record currentLayer for temporary layer swaps
-; At the start, it is setup to be the starting layer, so you don't accidentally send yourself to a nonexistent layer
+currentLayer := "Directory"
 previousLayer := currentLayer
-
-; The script will ignore the layers in this value when remembering the previous layer
-; To include a layer, add the name of the layer inside a set of parantheses. For example, ignoring layers 1 and 2 would look like "(1) (2)"
-
-; This is primarily useful when set to the directory layer (usually layer 1), since when toggling to your previous layer it is more desirable to toggle to the previous non-directory layer
-; When you already have a direct key to go the directory, its not more convenient to count the directory as the previous layer, but it is more convenient to use the directory to go to a layer, and then return to original starting layer
-layersToIgnore := "(Directory) (Sym-D) (Func-D)"
-
-; Tooltip and coordinate settings; whether or not to have a tooltip active and where it should be located
+layersToIgnore := "(Directory)"
 tooltipOn := 1
 xCoordinate := 1920
 yCoordinate := 1080
-
-; Sets up number for the millescond delay
 longPressDelay := 200
-; Lets you use the long press delay for uses of KeyWait as well
-timeParameter := "T0.2"
+timeParameter := "T0.2" 
 
-; Universal quit and suspend key definitions go here
-; Edit key defitions and input level as desired
 #InputLevel 0
 #SuspendExempt True
-; The suspend shortcut also disables the tooltip if it was active, though the tooltip remains if suspended via the GUI
-^!+s::Suspend(-1)
+^!+r::Suspend(-1)
 ^!+q::ExitApp
 #SuspendExempt False
 
 ; ============================== TOOLTIP HANDLING ==============================
 SuspendC := Suspend.GetMethod("Call")
 Suspend.DefineProp("Call", {
-Call:(this, mode:=-1) => (SuspendC(this, mode), OnSuspend(A_IsSuspended))
+    Call:(this, mode:=-1) => (SuspendC(this, mode), OnSuspend(A_IsSuspended))
 })
 OnMessage(0x111, OnSuspendMsg)
 OnSuspendMsg(wp, *) {
@@ -63,11 +44,11 @@ OnSuspend(mode) {
         ToolTip(currentLayer, xCoordinate, yCoordinate)
     }
 }
-
 ; Runs ToolTip at start
 if(tooltipOn){
     Tooltip(currentLayer, xCoordinate, ycoordinate)
 }
+Suspend(-1)
 
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
@@ -76,7 +57,7 @@ toggleLayer(targetLayer) {
     tempLayer := currentLayer
     currentLayer := targetLayer
     ; Doesn't record the specified layers as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
-    ; Layers are wrapped in parantheses so that something like 1 is not detected in 12
+    ; Layers are wrapped in parantheses so that something like 1 is not detected in 12 
     if (!InStr(layersToIgnore, "(" tempLayer ")")) {
         previousLayer := tempLayer
     }
@@ -96,7 +77,6 @@ tooltipToggle(){
     }
 }
 
-; Long press utility functions
 longPress(thisKey, defaultString, longPressString, numOfBackspaces){
     startTime := A_TickCount
     SendInput(defaultString)
@@ -128,7 +108,7 @@ longPressOnRelease(thisKey, defaultString, longPressString){
 ; Custom function to allow a key to have different effects whether its tapped, held, or double tapped and held
 ; There are limitations to this functionality (like sending backspace keystrokes), but it works for some specific Autoshift purposes
 multiLongPress(thisKey, defaultSend, longPressSend, numOfBackspaces, timeDelay){
-    if(A_PriorKey != thisKey || A_TimeSincePriorHotkey > timeDelay){
+  if(A_PriorKey != thisKey || A_TimeSincePriorHotkey > timeDelay){
         longPress(thisKey, defaultSend, longPressSend, numOfBackspaces)
     } else {
         SendInput(defaultSend)

@@ -1,19 +1,19 @@
-#HotIf currentLayer = "Directory"
+#HotIf currentLayer = "Directory-II"
 ; ====================================== LETTERS ======================================
 ; q::toggleLayer("")
 ; Swap to main layers
 w::{
-    SendInput("^!+#w")
+    SendInput("^!+w")
     Suspend(-1)
 }
 ; Swap to code layers
 ; e::{
-;     SendInput("^!+#e")
+;     SendInput("^!+e")
 ;     Suspend(-1)
 ; }
 ; Swap to misc layers
 r::{
-    SendInput("^!+#r")
+    SendInput("^!+r")
     Suspend(-1)
 }
 ; t::toggleLayer("")
@@ -29,9 +29,9 @@ f::toggleLayer("CSym-Sl")
 ; g::toggleLayer("")
 ; h::toggleLayer("")
 j::toggleLayer("Vim")
-k::toggleLayer("CSym-D")
-l::toggleLayer("Func-D")
-; `;::toggleLayer("")
+k::toggleLayer("Func-D")
+; l::toggleLayer("")
+`;::toggleLayer("CSym-D")
 
 ; x::toggleLayer("")
 ; c::toggleLayer("")

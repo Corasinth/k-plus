@@ -104,7 +104,7 @@ CapsLock::toggleLayer("Ext")
     }
     SendInput("{Blind}{Alt up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Directory")
+        toggleLayer("Directory-I")
     }
 }
 *RAlt::{

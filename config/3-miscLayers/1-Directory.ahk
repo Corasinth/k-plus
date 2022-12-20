@@ -1,4 +1,4 @@
-#HotIf currentLayer = "Directory"
+#HotIf currentLayer = "Directory-III"
 ; ====================================== LETTERS ======================================
 ; q::toggleLayer("")
 ; Swap to main layers

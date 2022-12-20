@@ -717,7 +717,7 @@ CapsLock::{
     }
     SendInput("{Blind}{Alt up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Directory")
+        toggleLayer("Directory-II")
     }
 }
 *RAlt::{
@@ -727,7 +727,7 @@ CapsLock::{
     }
     SendInput("{Blind}{Control up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("CAlpha")
+        toggleLayer(previousLayer)
     }
 }
 ; Tab::toggleLayer("CSym")

@@ -98,17 +98,7 @@ toggleLayer(previousLayer)
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::{
     SendInput("Blind{Esc}")
-    toggleLayer("Ext")
-}
-*Shift::{
-    SendInput("{Blind}{Shift downR}")
-    if !(released := KeyWait("Shift", "T0.18")){
-        KeyWait("Shift")
-    }
-    SendInput("{Blind}{Shift up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Alpha-Sl")
-    }
+    toggleLayer("Vim")
 }
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
@@ -117,7 +107,7 @@ CapsLock::{
     }
     SendInput("{Blind}{Alt up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Directory")
+        toggleLayer("Directory-II")
     }
 }
 *RAlt::{
@@ -130,13 +120,4 @@ CapsLock::{
         toggleLayer(previousLayer)
     }
 }
-*'::{
-    SendInput("{Blind}{Control downR}")
-    if !(released := KeyWait("RAlt", "T0.18")){
-        KeyWait("RAlt")
-    }
-    SendInput("{Blind}{Control up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        SendInput("{Blind}^{Backspace}")
-    }
-}
+*'::RWin

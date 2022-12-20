@@ -53,9 +53,14 @@ o::{
     toggleLayer("CAlpha")
 }
 
+:B0Z?*:ciw::{
+    toggleLayer("CAlpha")
+}
+
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::Esc
 Enter::toggleLayer("Func-D")
+*;::toggleLayer("CSym-D")
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.18")){
@@ -63,25 +68,16 @@ Enter::toggleLayer("Func-D")
     }
     SendInput("{Blind}{Alt up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Directory")
+        toggleLayer("Directory-II")
     }
 }
-*RAlt::{
-    SendInput("{Blind}{Control downR}")
-    if !(released := KeyWait("RAlt", "T0.18")){
-        KeyWait("RAlt")
-    }
-    SendInput("{Blind}{Control up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer(previousLayer)
-    }
-}
+RAlt::Control
 *'::{
-    SendInput("{Blind}{Control downR}")
+    SendInput("{Blind}{RWin downR}")
     if !(released := KeyWait("RAlt", "T0.18")){
         KeyWait("RAlt")
     }
-    SendInput("{Blind}{Control up}")
+    SendInput("{Blind}{RWin up}")
     if(released && ThisHotkey = A_ThisHotkey) {
         SendInput("{Blind}^{Backspace}")
     }

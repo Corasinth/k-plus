@@ -1,7 +1,5 @@
 #HotIf currentLayer = "CSym"
 ; ====================================== LETTERS ======================================
-#HotIf currentLayer = "Sym"
-; ====================================== LETTERS ======================================
 *q::{
     if(A_PriorHotKey != "*q" || A_TimeSincePriorHotkey > 500){
         startTime := A_TickCount
@@ -890,7 +888,7 @@ CapsLock::{
     }
     SendInput("{Blind}{Alt up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Directory")
+        toggleLayer("Directory-II")
     }
 }
 *RAlt::{
