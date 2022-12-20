@@ -39,9 +39,9 @@ OnSuspendMsg(wp, *) {
 ; }
 OnSuspend(mode) {
     global
-    if (mode = 1){
+    if (tooltipOn && mode = 1){
         ToolTip()
-    } else if (mode = 0){
+    } else if (tooltipOn && mode = 0){
         currentLayer := "Alpha"
         ToolTip(currentLayer, xCoordinate, yCoordinate)
     }
