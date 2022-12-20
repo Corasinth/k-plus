@@ -32,13 +32,57 @@ timeParameter := "T0.180"
 #InputLevel 0
 #SuspendExempt True
 ; The suspend shortcut also disables the tooltip if it was active, though the tooltip remains if suspended via the GUI
-^!+s::{
-    (A_IsSuspended && tooltipOn) ? ToolTip(currentLayer, xCoordinate, yCoordinate) : ToolTip()
-    Suspend(-1)
-}
+^!+s::Suspend(-1)
 ^!+q::ExitApp
 #SuspendExempt False
 
+; ============================== TOOLTIP HANDLING ==============================
+SuspendC := Suspend.GetMethod("Call")
+Suspend.DefineProp("Call", {
+Call:(this, mode:=-1) => (SuspendC(this, mode), OnSuspend(A_IsSuspended))
+})
+OnMessage(0x111, OnSuspendMsg)
+OnSuspendMsg(wp, *) {
+    if ((wp = 65305) || (wp = 65404)){
+        OnSuspend(!A_IsSuspended)
+    }
+}
+
+; wp numbers grabbed via this bit of code
+; OnMessage(0x111, WM_COMMAND)
+
+; WM_COMMAND(wparam, lparam, msg, hwnd) {
+;     OutputDebug "wp: " wparam " | lp: " lparam "`n"
+; }
+OnSuspend(mode) {
+    global
+    if (tooltipOn && mode = 1){
+        ToolTip()
+    } else if (tooltipOn && mode = 0){
+        ToolTip(currentLayer, xCoordinate, yCoordinate)
+    }
+}
+
+; Runs ToolTip at start
+if(tooltipOn){
+    Tooltip(currentLayer, xCoordinate, ycoordinate)
+}
+
+; ============================== TOGGLE LAYERS ==============================
+toggleLayer(targetLayer) {
+    global
+    ; Set the current layer as soon as possible before handling the previous layer tracker
+    tempLayer := currentLayer
+    currentLayer := targetLayer
+    ; Doesn't record the specified layers as the previous layer so that hotkeys that toggle back to the previous layer skip over the directory (or layer of choice)
+    ; Layers are wrapped in parantheses so that something like 1 is not detected in 12
+    if (!InStr(layersToIgnore, "(" tempLayer ")")) {
+        previousLayer := tempLayer
+    }
+    if(tooltipOn){
+        Tooltip(currentLayer, xCoordinate, yCoordinate)
+    }
+}
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
     global
