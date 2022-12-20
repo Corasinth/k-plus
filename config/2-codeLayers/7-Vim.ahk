@@ -55,6 +55,7 @@ o::{
 
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::Esc
+Enter::toggleLayer("Func-D")
 *Shift::{
     SendInput("{Blind}{Shift downR}")
     if !(released := KeyWait("Shift", "T0.18")){

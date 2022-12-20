@@ -33,7 +33,7 @@ m::^a
 Tab::Esc
 Space::Enter
 CapsLock::toggleLayer("Alpha")
-Shift::toggleLayer("Macros")
+Shift::toggleLayer("Func-D")
 Enter::toggleLayer("Func-D")
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
