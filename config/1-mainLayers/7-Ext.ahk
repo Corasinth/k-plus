@@ -35,6 +35,7 @@ Space::Enter
 CapsLock::toggleLayer("Alpha")
 CapsLock up::{
     if(A_PriorKey = "Space"){
+        SendInput("{Enter up}")
         toggleLayer("Alpha")
     }
 }
