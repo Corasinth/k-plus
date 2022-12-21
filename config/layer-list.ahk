@@ -1,8 +1,8 @@
-#Include ./1-mainLayers/1-Directory.ahk
-#Include ./1-mainLayers/2-Alpha.ahk
-#Include ./1-mainLayers/3-Alpha-Sl.ahk
-#Include ./1-mainLayers/4-Sym.ahk
-#Include ./1-mainLayers/5-Sym-Sl.ahk
-#Include ./1-mainLayers/6-Sym-D.ahk
-#Include ./1-mainLayers/7-Ext.ahk
-#Include ./1-mainLayers/8-Func-D.ahk
+#Include ./2-codeLayers-wide/1-Directory.ahk
+#Include ./2-codeLayers-wide/2-CAlpha.ahk
+#Include ./2-codeLayers-wide/3-CAlpha-Sl.ahk
+#Include ./2-codeLayers-wide/4-CSym.ahk
+#Include ./2-codeLayers-wide/5-CSym-Sl.ahk
+#Include ./2-codeLayers-wide/6-CSym-D.ahk
+#Include ./2-codeLayers-wide/7-Vim.ahk
+#Include ./2-codeLayers-wide/8-Func-D.ahk
