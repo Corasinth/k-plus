@@ -17,7 +17,7 @@
     }
 }
 *+q::{
-    if(A_PriorHotKey != "*+q" || A_TimeSincePriorHotkey > 500){
+    if(A_PriorHotKey != "*+q" || A_TimeSincePriorHotkey > 350){
         startTime := A_TickCount
         SendInput("{Blind+}~")
         while(GetKeyState("q", "P")){
