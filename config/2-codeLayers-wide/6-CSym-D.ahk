@@ -1029,7 +1029,16 @@ CapsLock::{
 }
 Control::toggleLayer("CAlpha")
 Control & 1::^1
-RAlt::toggleLayer("CSym")
+RAlt::{
+    startTime := A_TickCount
+    while(GetKeyState("RAlt", "P")){
+        endTime := A_TickCount - startTime
+        if("RAlt" = A_PriorKey && endTime > 220){
+            toggleLayer("Sym")
+            Return
+        }
+    }
+}
 *Shift::{
     SendInput("{Blind}{Shift downR}")
     if !(released := KeyWait("Shift", "T0.22")){

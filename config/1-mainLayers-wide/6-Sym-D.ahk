@@ -647,21 +647,21 @@
     }
 }
 *+l up::toggleLayer(previousLayer)
-*;::{
-    if(A_PriorHotKey != "*;" || A_TimeSincePriorHotkey > 350){
-        startTime := A_TickCount
-        SendInput("{Blind})")
-        while(GetKeyState(";", "P")){
-            endTime := A_TickCount - startTime
-            if(";" = A_PriorKey && endTime > 220){
-                SendInput("{Backspace}")
-                SendInput("{Blind}{Numpad6}")
-                KeyWait(";")
-            }
+    *;::{
+if(A_PriorHotKey != "*;" || A_TimeSincePriorHotkey > 350){
+    startTime := A_TickCount
+    SendInput("{Blind})")
+    while(GetKeyState(";", "P")){
+        endTime := A_TickCount - startTime
+        if(";" = A_PriorKey && endTime > 220){
+            SendInput("{Backspace}")
+            SendInput("{Blind}{Numpad6}")
+            KeyWait(";")
         }
-    } else {
-        SendInput("{Blind})")
     }
+} else {
+    SendInput("{Blind})")
+}
 }
 *; up::toggleLayer(previousLayer)
 *+;::{
@@ -1026,7 +1026,16 @@
 CapsLock::toggleLayer("Ext")
 Control::toggleLayer("Alpha")
 Control & 1::^1
-RAlt::toggleLayer("Sym")
+RAlt::{
+    startTime := A_TickCount
+    while(GetKeyState("RAlt", "P")){
+        endTime := A_TickCount - startTime
+        if("RAlt" = A_PriorKey && endTime > 220){
+            toggleLayer("Sym")
+            Return
+        }
+    }
+}
 *Shift::{
     SendInput("{Blind}{Shift downR}")
     if !(released := KeyWait("Shift", "T0.22")){

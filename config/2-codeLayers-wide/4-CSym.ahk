@@ -969,6 +969,7 @@ CapsLock::{
 }
 Control::toggleLayer("CAlpha")
 Control & 1::^1
+RAlt up::toggleLayer(previousLayer)
 *Shift::{
     SendInput("{Blind}{Shift downR}")
     if !(released := KeyWait("Shift", "T0.22")){
