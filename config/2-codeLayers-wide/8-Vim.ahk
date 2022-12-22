@@ -76,7 +76,7 @@ m::n
 
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::Esc
-Enter::toggleLayer("Func-D")
+Space::toggleLayer("Func-D")
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.18")){
