@@ -6,7 +6,7 @@ SetCapsLockState("AlwaysOff")
 ; ============================== MAIN VARIABLES ==============================
 currentLayer := "Alpha"
 previousLayer := currentLayer
-layersToIgnore := "(Directory-I) (Sym-D) (Func-D)"
+layersToIgnore := "(Directory-I) (Sym-D) (Func-D) (Alpha-Sl-D)"
 tooltipOn := 1
 xCoordinate := 1920
 yCoordinate := 1080

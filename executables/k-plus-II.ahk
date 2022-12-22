@@ -5,7 +5,7 @@ CoordMode("ToolTip", "Screen")
 ; ============================== MAIN VARIABLES ==============================
 currentLayer := "CAlpha"
 previousLayer := currentLayer
-layersToIgnore := "(Directory-II) (CSym-D) (Func-D)"
+layersToIgnore := "(Directory-II) (CSym-D) (Func-D) (CAlpha-Sl-D)"
 tooltipOn := 1
 xCoordinate := 1920
 yCoordinate := 1080
