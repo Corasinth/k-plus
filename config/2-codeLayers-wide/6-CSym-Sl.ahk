@@ -237,7 +237,7 @@
             }
         }
     } else {
-        SendInput("{Blind+}{Nmpad7}")
+        SendInput("{Blind+}{Numpad7}")
     }
 }
 *+i::{
@@ -269,7 +269,7 @@
             }
         }
     } else {
-        SendInput("{Blind+}{Nmpad8}")
+        SendInput("{Blind+}{Numpad8}")
     }
 }
 *+o::{
@@ -301,7 +301,7 @@
             }
         }
     } else {
-        SendInput("{Blind+}{Nmpad9}")
+        SendInput("{Blind+}{Numpad9}")
     }
 }
 *+p::{
@@ -334,7 +334,7 @@
             }
         }
     } else {
-        SendInput("{Blind+``")
+        SendInput("{Blind+}``")
     }
 }
 *+a::{
@@ -350,7 +350,7 @@
             }
         }
     } else {
-        SendInput("{Blind}{+{}")
+        SendInput("{Blind+}{{}")
     }
 }
 *s::{
@@ -558,7 +558,7 @@
             }
         }
     } else {
-        SendInput("{Blind+}{Nmpad4}")
+        SendInput("{Blind+}{Numpad4}")
     }
 }
 *+k::{
@@ -590,7 +590,7 @@
             }
         }
     } else {
-        SendInput("{Blind+}{Nmpad5}")
+        SendInput("{Blind+}{Numpad5}")
     }
 }
 *+l::{
@@ -622,7 +622,7 @@
             }
         }
     } else {
-        SendInput("{Blind+}{Nmpad6}")
+        SendInput("{Blind+}{Numpad6}")
     }
 }
 *+;::{
@@ -654,7 +654,7 @@
             }
         }
     } else {
-        SendInput("{Blind+}{Nmpad0}")
+        SendInput("{Blind+}{Numpad0}")
     }
 }
 *+'::{
@@ -847,7 +847,7 @@
             }
         }
     } else {
-        SendInput("{Blind+}{Nmpad1}")
+        SendInput("{Blind+}{Numpad1}")
     }
 }
 *+m::{
@@ -879,7 +879,7 @@
             }
         }
     } else {
-        SendInput("{Blind+}{Nmpad2}")
+        SendInput("{Blind+}{Numpad2}")
     }
 }
 *+,::{
@@ -911,7 +911,7 @@
             }
         }
     } else {
-        SendInput("{Blind+}{Nmpad3}")
+        SendInput("{Blind+}{Numpad3}")
     }
 }
 *+.::{
