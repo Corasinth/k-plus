@@ -670,7 +670,7 @@
             }
         }
     } else {
-        SendInput("{Blind}{+}}")
+        SendInput("{Blind+}{}}")
     }
 }
 
