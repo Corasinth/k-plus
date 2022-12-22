@@ -63,3 +63,13 @@ RAlt::toggleLayer("Func-D")
         toggleLayer(previousLayer)
     }
 }
+*Control::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("Control", "T0.18")){
+        KeyWait("Control")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer(previousLayer)
+    }
+}

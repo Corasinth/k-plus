@@ -127,8 +127,6 @@ toggleLayer(previousLayer)
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::toggleLayer("Ext")
 RAlt::toggleLayer("Sym-D")
-Control::toggleLayer("Sym")
-Control & 1::^1
 *Shift::toggleLayer("CAlpha-Sl")
 *LAlt::{
     SendInput("{Alt downR}")
@@ -145,6 +143,16 @@ Control & 1::^1
     SendInput("{RControl downR}")
     if !(released := KeyWait("PrintScreen", "T0.22")){
         KeyWait("PrintScreen")
+    }
+    SendInput("{RControl up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("Sym")
+    }
+}
+*Control::{
+    SendInput("{RControl downR}")
+    if !(released := KeyWait("Control", "T0.22")){
+        KeyWait("Control")
     }
     SendInput("{RControl up}")
     if(released && ThisHotkey = A_ThisHotkey) {

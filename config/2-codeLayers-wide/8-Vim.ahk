@@ -52,13 +52,13 @@ s::{
     SendInput("S")
     toggleLayer("CAlpha")
 }
-j::h
+j::Left
 +j::+h
-k::j
+k::Down
 +k::+j
-l::k
+l::Up
 +l::+k
-`;::l
+`;::Right
 +;::+l
 n::b
 +n::+b
@@ -76,6 +76,26 @@ m::n
 
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::Esc
+*PrintScreen::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("PrintScreen", "T0.22")){
+        KeyWait("PrintScreen")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("CSym")
+    }
+}
+*Control::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("Control", "T0.22")){
+        KeyWait("Control")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("CSym")
+    }
+}
 Space::toggleLayer("Func-D")
 *LAlt::{
     SendInput("{Blind}{Alt downR}")

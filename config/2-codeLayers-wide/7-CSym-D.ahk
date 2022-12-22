@@ -787,14 +787,12 @@ CapsLock::{
     SendInput("{Blind}{Esc}")
     toggleLayer("Vim")
 }
-Control::toggleLayer("CAlpha")
-Control & 1::^1
 RAlt::{
     startTime := A_TickCount
     while(GetKeyState("RAlt", "P")){
         endTime := A_TickCount - startTime
         if("RAlt" = A_PriorKey && endTime > 220){
-            toggleLayer("Sym")
+            toggleLayer("CSym")
             Return
         }
     }
@@ -823,6 +821,16 @@ RAlt::{
     SendInput("{Blind}{Control downR}")
     if !(released := KeyWait("PrintScreen", "T0.22")){
         KeyWait("PrintScreen")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("CAlpha")
+    }
+}
+*Control::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("Control", "T0.22")){
+        KeyWait("Control")
     }
     SendInput("{Blind}{Control up}")
     if(released && ThisHotkey = A_ThisHotkey) {

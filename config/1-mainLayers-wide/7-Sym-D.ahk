@@ -784,8 +784,6 @@ while(GetKeyState(";", "P")){
 *+/ up::toggleLayer(previousLayer)
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::toggleLayer("Ext")
-Control::toggleLayer("Alpha")
-Control & 1::^1
 RAlt::{
     startTime := A_TickCount
     while(GetKeyState("RAlt", "P")){
@@ -820,6 +818,16 @@ RAlt::{
     SendInput("{Blind}{Control downR}")
     if !(released := KeyWait("PrintScreen", "T0.22")){
         KeyWait("PrintScreen")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("Alpha")
+    }
+}
+*Control::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("Control", "T0.22")){
+        KeyWait("Control")
     }
     SendInput("{Blind}{Control up}")
     if(released && ThisHotkey = A_ThisHotkey) {

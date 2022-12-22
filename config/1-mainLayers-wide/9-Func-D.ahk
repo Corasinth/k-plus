@@ -108,10 +108,20 @@ CapsLock::toggleLayer("Ext")
         toggleLayer("Directory-I")
     }
 }
-*RAlt::{
+*PrintScreen::{
     SendInput("{Blind}{Control downR}")
-    if !(released := KeyWait("RAlt", "T0.18")){
-        KeyWait("RAlt")
+    if !(released := KeyWait("PrintScreen", "T0.18")){
+        KeyWait("PrintScreen")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer(previousLayer)
+    }
+}
+*Control::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("Control", "T0.18")){
+        KeyWait("Control")
     }
     SendInput("{Blind}{Control up}")
     if(released && ThisHotkey = A_ThisHotkey) {

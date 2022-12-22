@@ -1,5 +1,9 @@
 #HotIf currentLayer = "Vim"
 ; ====================================== LETTERS ======================================
+j::Down
+k::Up
+l::Right
+h::Left
 i::{
     SendInput("i")
     if(A_PriorKey != "y" && A_PriorKey != "d" && A_PriorKey != "c"){

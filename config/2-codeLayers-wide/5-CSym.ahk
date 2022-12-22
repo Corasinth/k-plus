@@ -967,8 +967,6 @@ CapsLock::{
     SendInput("{Blind}{Esc}")
     toggleLayer("Vim")
 }
-Control::toggleLayer("CAlpha")
-Control & 1::^1
 RAlt up::toggleLayer(previousLayer)
 *Shift::{
     SendInput("{Blind}{Shift downR}")
@@ -994,6 +992,16 @@ RAlt up::toggleLayer(previousLayer)
     SendInput("{Blind}{Control downR}")
     if !(released := KeyWait("PrintScreen", "T0.22")){
         KeyWait("PrintScreen")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("CAlpha")
+    }
+}
+*Control::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("Control", "T0.22")){
+        KeyWait("Control")
     }
     SendInput("{Blind}{Control up}")
     if(released && ThisHotkey = A_ThisHotkey) {
