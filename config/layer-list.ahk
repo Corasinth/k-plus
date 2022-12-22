@@ -1,5 +1,6 @@
 #Include ./1-mainLayers-wide/1-Directory.ahk
 #Include ./1-mainLayers-wide/2-Alpha.ahk
+#Include ./1-mainLayers-wide/3-Alpha-Sl-D.ahk
 #Include ./1-mainLayers-wide/3-Alpha-Sl.ahk
 #Include ./1-mainLayers-wide/4-Sym.ahk
 #Include ./1-mainLayers-wide/5-Sym-Sl.ahk

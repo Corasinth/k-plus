@@ -439,16 +439,7 @@ CapsLock::toggleLayer("Ext")
 RAlt::toggleLayer("Sym-D")
 Control::toggleLayer("Sym")
 Control & 1::^1
-*Shift::{
-    SendInput("{Shift downR}")
-    if !(released := KeyWait("Shift", "T0.22")){
-        KeyWait("Shift")
-    }
-    SendInput("{Shift up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Alpha-Sl")
-    }
-}
+*Shift::toggleLayer("Alpha-Sl-D")
 *LAlt::{
     SendInput("{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.22")){
