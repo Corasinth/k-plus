@@ -967,7 +967,7 @@ CapsLock::{
     SendInput("{Blind}{Esc}")
     toggleLayer("Vim")
 }
-RAlt up::toggleLayer(previousLayer)
+RAlt up::toggleLayer("CAlpha")
 *Shift::{
     SendInput("{Blind}{Shift downR}")
     if !(released := KeyWait("Shift", "T0.22")){

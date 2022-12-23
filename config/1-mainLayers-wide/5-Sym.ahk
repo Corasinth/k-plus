@@ -964,7 +964,7 @@
 }
 ; ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::toggleLayer("Ext")
-RAlt up::toggleLayer(previousLayer)
+RAlt up::toggleLayer("Alpha")
 *Shift::{
     SendInput("{Blind}{Shift downR}")
     if !(released := KeyWait("Shift", "T0.22")){
