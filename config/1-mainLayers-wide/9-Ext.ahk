@@ -35,13 +35,19 @@ m::PgUp
 \::AppsKey
 Tab::Esc
 Space::Enter
-CapsLock::toggleLayer("Alpha")
-; CapsLock up::{
-;     if(A_PriorKey = "Space"){
-;         SendInput("{Enter up}")
-;         toggleLayer("Alpha")
-;     }
-; }
+CapsLock::{
+    global
+    if(capslockReleased){
+        toggleLayer("Alpha")
+    }
+}
+CapsLock up::{
+    global
+    capslockReleased := 1
+    if(A_PriorKey != "CapsLock" && A_TimeSincePriorHotkey > 100){
+        toggleLayer("Alpha")
+    }
+}
 RAlt::toggleLayer("Func-D")
 *LAlt::{
     SendInput("{Blind}{Alt downR}")

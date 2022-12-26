@@ -1,17 +1,10 @@
-#HotIf currentLayer = "Alpha-Sl"
+#HotIf currentLayer = "CAlpha-Sl"
 ; ====================================== LETTERS ======================================
 *q::{
     if(A_PriorKey != "q" || A_TimeSincePriorHotkey > 350){
         longPress("q", "{Blind}Q", "{Blind}q", 1)
     } else {
         SendInput("{Blind}Q")
-    }
-}
-*+q::{
-    if(A_PriorKey != "+q" || A_TimeSincePriorHotkey > 350){
-        longPress("q", "{Blind+}q", "{Blind+}Q", 1)
-    } else {
-        SendInput("{Blind+}q")
     }
 }
 *w::{
@@ -21,25 +14,11 @@
         SendInput("{Blind}W")
     }
 }
-*+w::{
-    if(A_PriorKey != "+w" || A_TimeSincePriorHotkey > 350){
-        longPress("w", "{Blind+}w", "{Blind+}W", 1)
-    } else {
-        SendInput("{Blind+}w")
-    }
-}
 *e::{
     if(A_PriorKey != "e" || A_TimeSincePriorHotkey > 350){
         longPress("e", "{Blind}E", "{Blind}e", 1)
     } else {
         SendInput("{Blind}E")
-    }
-}
-*+e::{
-    if(A_PriorKey != "+e" || A_TimeSincePriorHotkey > 350){
-        longPress("e", "{Blind+}e", "{Blind+}E", 1)
-    } else {
-        SendInput("{Blind+}e")
     }
 }
 *r::{
@@ -49,25 +28,11 @@
         SendInput("{Blind}R")
     }
 }
-*+r::{
-    if(A_PriorKey != "+r" || A_TimeSincePriorHotkey > 350){
-        longPress("r", "{Blind+}r", "{Blind+}R", 1)
-    } else {
-        SendInput("{Blind+}r")
-    }
-}
 *t::{
     if(A_PriorKey != "t" || A_TimeSincePriorHotkey > 350){
         longPress("t", "{Blind}T", "{Blind}t", 1)
     } else {
         SendInput("{Blind}T")
-    }
-}
-*+t::{
-    if(A_PriorKey != "+t" || A_TimeSincePriorHotkey > 350){
-        longPress("t", "{Blind+}t", "{Blind+}T", 1)
-    } else {
-        SendInput("{Blind+}t")
     }
 }
 *y::{
@@ -77,25 +42,11 @@
         SendInput("{Blind}Y")
     }
 }
-*+y::{
-    if(A_PriorKey != "+y" || A_TimeSincePriorHotkey > 350){
-        longPress("y", "{Blind+}y", "{Blind+}Y", 1)
-    } else {
-        SendInput("{Blind+}y")
-    }
-}
 *u::{
     if(A_PriorKey != "u" || A_TimeSincePriorHotkey > 350){
         longPress("u", "{Blind}Y", "{Blind}y", 1)
     } else {
         SendInput("{Blind}Y")
-    }
-}
-*+u::{
-    if(A_PriorKey != "+u" || A_TimeSincePriorHotkey > 350){
-        longPress("u", "{Blind+}y", "{Blind+}Y", 1)
-    } else {
-        SendInput("{Blind+}y")
     }
 }
 *i::{
@@ -105,25 +56,11 @@
         SendInput("{Blind}U")
     }
 }
-*+i::{
-    if(A_PriorKey != "+i" || A_TimeSincePriorHotkey > 350){
-        longPress("i", "{Blind+}u", "{Blind+}U", 1)
-    } else {
-        SendInput("{Blind+}u")
-    }
-}
 *o::{
     if(A_PriorKey != "o" || A_TimeSincePriorHotkey > 350){
         longPress("o", "{Blind}I", "{Blind}i", 1)
     } else {
         SendInput("{Blind}I")
-    }
-}
-*+o::{
-    if(A_PriorKey != "+o" || A_TimeSincePriorHotkey > 350){
-        longPress("o", "{Blind+}i", "{Blind+}I", 1)
-    } else {
-        SendInput("{Blind+}i")
     }
 }
 *p::{
@@ -133,25 +70,11 @@
         SendInput("{Blind}O")
     }
 }
-*+p::{
-    if(A_PriorKey != "+p" || A_TimeSincePriorHotkey > 350){
-        longPress("p", "{Blind+}o", "{Blind+}O", 1)
-    } else {
-        SendInput("{Blind+}o")
-    }
-}
 *[::{
     if(A_PriorKey != "[" || A_TimeSincePriorHotkey > 350){
         longPress("[", "{Blind}P", "{Blind}p", 1)
     } else {
         SendInput("{Blind}P")
-    }
-}
-*+[::{
-    if(A_PriorKey != "+[" || A_TimeSincePriorHotkey > 350){
-        longPress("[", "{Blind+}p", "{Blind+}P", 1)
-    } else {
-        SendInput("{Blind+}p")
     }
 }
 *a::{
@@ -161,25 +84,11 @@
         SendInput("{Blind}A")
     }
 }
-*+a::{
-    if(A_PriorKey != "+a" || A_TimeSincePriorHotkey > 350){
-        longPress("a", "{Blind+}a", "{Blind+}A", 1)
-    } else {
-        SendInput("{Blind+}a")
-    }
-}
 *s::{
     if(A_PriorKey != "s" || A_TimeSincePriorHotkey > 350){
         longPress("s", "{Blind}S", "{Blind}s", 1)
     } else {
         SendInput("{Blind}S")
-    }
-}
-*+s::{
-    if(A_PriorKey != "+s" || A_TimeSincePriorHotkey > 350){
-        longPress("s", "{Blind+}s", "{Blind+}S", 1)
-    } else {
-        SendInput("{Blind+}s")
     }
 }
 *d::{
@@ -189,25 +98,11 @@
         SendInput("{Blind}D")
     }
 }
-*+d::{
-    if(A_PriorKey != "+d" || A_TimeSincePriorHotkey > 350){
-        longPress("d", "{Blind+}d", "{Blind+}D", 1)
-    } else {
-        SendInput("{Blind+}d")
-    }
-}
 *f::{
     if(A_PriorKey != "f" || A_TimeSincePriorHotkey > 350){
         longPress("f", "{Blind}F", "{Blind}f", 1)
     } else {
         SendInput("{Blind}F")
-    }
-}
-*+f::{
-    if(A_PriorKey != "+f" || A_TimeSincePriorHotkey > 350){
-        longPress("f", "{Blind+}f", "{Blind+}F", 1)
-    } else {
-        SendInput("{Blind+}f")
     }
 }
 *g::{
@@ -217,25 +112,11 @@
         SendInput("{Blind}G")
     }
 }
-*+g::{
-    if(A_PriorKey != "+g" || A_TimeSincePriorHotkey > 350){
-        longPress("g", "{Blind+}g", "{Blind+}G", 1)
-    } else {
-        SendInput("{Blind+}g")
-    }
-}
 *h::{
     if(A_PriorKey != "h" || A_TimeSincePriorHotkey > 350){
         longPress("h", "{Blind}H", "{Blind}h", 1)
     } else {
         SendInput("{Blind}H")
-    }
-}
-*+h::{
-    if(A_PriorKey != "+h" || A_TimeSincePriorHotkey > 350){
-        longPress("h", "{Blind+}h", "{Blind+}H", 1)
-    } else {
-        SendInput("{Blind+}h")
     }
 }
 *j::{
@@ -245,25 +126,11 @@
         SendInput("{Blind}H")
     }
 }
-*+j::{
-    if(A_PriorKey != "+j" || A_TimeSincePriorHotkey > 350){
-        longPress("j", "{Blind+}h", "{Blind+}H", 1)
-    } else {
-        SendInput("{Blind+}h")
-    }
-}
 *k::{
     if(A_PriorKey != "k" || A_TimeSincePriorHotkey > 350){
         longPress("k", "{Blind}J", "{Blind}j", 1)
     } else {
         SendInput("{Blind}J")
-    }
-}
-*+k::{
-    if(A_PriorKey != "+k" || A_TimeSincePriorHotkey > 350){
-        longPress("k", "{Blind+}j", "{Blind+}J", 1)
-    } else {
-        SendInput("{Blind+}j")
     }
 }
 *l::{
@@ -273,25 +140,11 @@
         SendInput("{Blind}K")
     }
 }
-*+l::{
-    if(A_PriorKey != "+l" || A_TimeSincePriorHotkey > 350){
-        longPress("l", "{Blind+}k", "{Blind+}K", 1)
-    } else {
-        SendInput("{Blind+}k")
-    }
-}
 *;::{
     if(A_PriorKey != ";" || A_TimeSincePriorHotkey > 350){
         longPress(";", "{Blind}L", "{Blind}l", 1)
     } else {
         SendInput("{Blind}L")
-    }
-}
-*+;::{
-    if(A_PriorKey != "+;" || A_TimeSincePriorHotkey > 350){
-        longPress(";", "{Blind+}l", "{Blind+}L", 1)
-    } else {
-        SendInput("{Blind+}l")
     }
 }
 ; *'::{
@@ -301,25 +154,11 @@
 ;         SendInput("{Blind}Z")
 ;     }
 ; }
-; *+'::{
-;     if(A_PriorKey != "+'" || A_TimeSincePriorHotkey > 350){
-;         longPress("'", "{Blind+}z", "{Blind+}Z", 1)
-;     } else {
-;         SendInput("{Blind+}z")
-;     }
-; }
 *z::{
     if(A_PriorKey != "z" || A_TimeSincePriorHotkey > 350){
         longPress("z", "{Blind}Z", "{Blind}z", 1)
     } else {
         SendInput("{Blind}Z")
-    }
-}
-*+z::{
-    if(A_PriorKey != "+z" || A_TimeSincePriorHotkey > 350){
-        longPress("z", "{Blind+}z", "{Blind+}Z", 1)
-    } else {
-        SendInput("{Blind+}z")
     }
 }
 *x::{
@@ -329,25 +168,11 @@
         SendInput("{Blind}X")
     }
 }
-*+x::{
-    if(A_PriorKey != "+x" || A_TimeSincePriorHotkey > 350){
-        longPress("x", "{Blind+}x", "{Blind+}X", 1)
-    } else {
-        SendInput("{Blind+}x")
-    }
-}
 *c::{
     if(A_PriorKey != "c" || A_TimeSincePriorHotkey > 350){
         longPress("c", "{Blind}C", "{Blind}c", 1)
     } else {
         SendInput("{Blind}C")
-    }
-}
-*+c::{
-    if(A_PriorKey != "+c" || A_TimeSincePriorHotkey > 350){
-        longPress("c", "{Blind+}c", "{Blind+}C", 1)
-    } else {
-        SendInput("{Blind+}c")
     }
 }
 *v::{
@@ -357,25 +182,11 @@
         SendInput("{Blind}V")
     }
 }
-*+v::{
-    if(A_PriorKey != "+v" || A_TimeSincePriorHotkey > 350){
-        longPress("v", "{Blind+}v", "{Blind+}V", 1)
-    } else {
-        SendInput("{Blind+}v")
-    }
-}
 *b::{
     if(A_PriorKey != "b" || A_TimeSincePriorHotkey > 350){
         longPress("b", "{Blind}B", "{Blind}b", 1)
     } else {
         SendInput("{Blind}B")
-    }
-}
-*+b::{
-    if(A_PriorKey != "+b" || A_TimeSincePriorHotkey > 350){
-        longPress("b", "{Blind+}b", "{Blind+}B", 1)
-    } else {
-        SendInput("{Blind+}b")
     }
 }
 *n::{
@@ -385,25 +196,11 @@
         SendInput("{Blind}B")
     }
 }
-*+n::{
-    if(A_PriorKey != "+n" || A_TimeSincePriorHotkey > 350){
-        longPress("n", "{Blind+}b", "{Blind+}B", 1)
-    } else {
-        SendInput("{Blind+}b")
-    }
-}
 *m::{
     if(A_PriorKey != "m" || A_TimeSincePriorHotkey > 350){
         longPress("m", "{Blind}N", "{Blind}n", 1)
     } else {
         SendInput("{Blind}N")
-    }
-}
-*+m::{
-    if(A_PriorKey != "+m" || A_TimeSincePriorHotkey > 350){
-        longPress("m", "{Blind+}n", "{Blind+}N", 1)
-    } else {
-        SendInput("{Blind+}n")
     }
 }
 *,::{
@@ -413,13 +210,6 @@
         SendInput("{Blind}M")
     }
 }
-*+,::{
-    if(A_PriorKey != "+," || A_TimeSincePriorHotkey > 350){
-        longPress(",", "{Blind+}m", "{Blind+}M", 1)
-    } else {
-        SendInput("{Blind+}m")
-    }
-}
 ; *.::{
 ;     if(A_PriorKey != "." || A_TimeSincePriorHotkey > 350){
 ;         longPress(".", "{Blind}m", "{Blind}M", 1)
@@ -427,24 +217,24 @@
 ;         SendInput("{Blind}m")
 ;     }
 ; }
-; *+.::{
-;     if(A_PriorKey != "+." || A_TimeSincePriorHotkey > 350){
-;         longPress(".", "{Blind+}M", "{Blind+}m", 1)
-;     } else {
-;         SendInput("{Blind+}M")
-;     }
-; }
 ; ====================================== ADDITIONAL KEYS ======================================
-CapsLock::toggleLayer("Ext")
-RAlt::toggleLayer("Sym-D")
-*Shift::{
-    SendInput("{Shift downR}")
-    if !(released := KeyWait("Shift", "T0.22")){
-        KeyWait("Shift")
+CapsLock::{
+    SendInput("{Blind}{Esc}")
+    toggleLayer("Vim")
+}
+RAlt::toggleLayer("CSym-D")
+Shift::{
+    global
+    if(shiftReleased){
+        shiftReleased := 0
+        toggleLayer("CAlpha")
     }
-    SendInput("{Shift up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Alpha")
+}
+Shift up::{
+    global
+    shiftReleased := 1
+    if(A_PriorHotKey != "Shift" && !GetKeyState("Shift", "P")){
+        toggleLayer("CAlpha")
     }
 }
 *LAlt::{
@@ -455,7 +245,7 @@ RAlt::toggleLayer("Sym-D")
     SendInput("{Alt up}")
     if(released && ThisHotkey = A_ThisHotkey) {
         SendInput("{Alt downR}{Alt up}")
-        toggleLayer("Directory-I")
+        toggleLayer("Directory-II")
     }
 }
 *PrintScreen::{
@@ -465,7 +255,7 @@ RAlt::toggleLayer("Sym-D")
     }
     SendInput("{RControl up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Sym")
+        toggleLayer("CSym")
     }
 }
 *Control::{
@@ -475,7 +265,7 @@ RAlt::toggleLayer("Sym-D")
     }
     SendInput("{RControl up}")
     if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Sym")
+        toggleLayer("CSym")
     }
 }
 *\::{

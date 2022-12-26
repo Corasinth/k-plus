@@ -1,9 +1,10 @@
 #Include ./1-mainLayers-wide/1-Directory.ahk
+#Include ./1-mainLayers-wide/10-Func-D.ahk
 #Include ./1-mainLayers-wide/2-Alpha.ahk
-#Include ./1-mainLayers-wide/3-Alpha-Sl-D.ahk
-#Include ./1-mainLayers-wide/4-Alpha-Sl.ahk
+#Include ./1-mainLayers-wide/3-Alpha-Sl.ahk
+#Include ./1-mainLayers-wide/4-Alpha-Sl-D.ahk
 #Include ./1-mainLayers-wide/5-Sym.ahk
 #Include ./1-mainLayers-wide/6-Sym-Sl.ahk
 #Include ./1-mainLayers-wide/7-Sym-D.ahk
-#Include ./1-mainLayers-wide/8-Ext.ahk
-#Include ./1-mainLayers-wide/9-Func-D.ahk
+#Include ./1-mainLayers-wide/8-Sym-Sl-D.ahk
+#Include ./1-mainLayers-wide/9-Ext.ahk

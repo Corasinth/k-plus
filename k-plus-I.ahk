@@ -6,7 +6,7 @@ SetCapsLockState("AlwaysOff")
 ; ============================== MAIN VARIABLES ==============================
 currentLayer := "Alpha"
 previousLayer := currentLayer
-layersToIgnore := "(Directory-I) (Sym-D) (Func-D) (Alpha-Sl-D)"
+layersToIgnore := "(Directory-I) (Sym-D) (Func-D) (Alpha-Sl-D) (Sym-Sl-D)"
 tooltipOn := 1
 xCoordinate := 1920
 yCoordinate := 1080
@@ -18,7 +18,10 @@ timeParameter := "T0.2"
 ^!+w::Suspend(-1)
 ^!+q::ExitApp
 #SuspendExempt False
-
+; Variable to work around keyrepeat issues when swapping between layers
+; Just a boolean to track whether or not the key has been released
+shiftReleased := 1
+capslockReleased := 0
 ; ============================== TOOLTIP HANDLING ==============================
 SuspendC := Suspend.GetMethod("Call")
 Suspend.DefineProp("Call", {

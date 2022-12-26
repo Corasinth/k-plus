@@ -68,9 +68,9 @@
     SendInput("{Blind}{F8}")
     toggleLayer(previousLayer)
 }
-*;::{
-    SendInput("{Blind}{F9}")
-    toggleLayer(previousLayer)
+    *;::{
+SendInput("{Blind}{F9}")
+toggleLayer(previousLayer)
 }
 *'::{
     SendInput("{Blind}{F10}")
@@ -97,7 +97,11 @@
 ;     toggleLayer(previousLayer)
 ; }
 ; ====================================== ADDITIONAL KEYS ======================================
-CapsLock::toggleLayer("Ext")
+CapsLock::{
+    global
+    capslockReleased := 0
+    toggleLayer("Ext")
+}
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.18")){

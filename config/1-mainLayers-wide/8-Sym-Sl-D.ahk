@@ -1,133 +1,136 @@
-#HotIf currentLayer = "CAlpha-Sl-D"
+#HotIf currentLayer = "Sym-Sl-D"
 ; ====================================== LETTERS ======================================
 *q::{
-    SendInput("{Blind}Q")
+    SendInput("{Blind}°")
     toggleLayer(previousLayer)
 }
 *w::{
-    SendInput("{Blind}W")
+    SendInput("{Blind}@")
     toggleLayer(previousLayer)
 }
 *e::{
-    SendInput("{Blind}E")
+    SendInput("{Blind}%")
     toggleLayer(previousLayer)
 }
 *r::{
-    SendInput("{Blind}R")
+    SendInput("{Blind}{^}")
     toggleLayer(previousLayer)
 }
 *t::{
-    SendInput("{Blind}T")
+    SendInput("{Blind}–")
     toggleLayer(previousLayer)
 }
 *y::{
-    SendInput("{Blind}Y")
+    SendInput("{Blind}{U+00BB}")
     toggleLayer(previousLayer)
 }
 *u::{
-    SendInput("{Blind}Y")
+    SendInput("{Blind}{U+00BB}")
     toggleLayer(previousLayer)
 }
 *i::{
-    SendInput("{Blind}U")
+    SendInput("{Blind}{Numpad7}")
     toggleLayer(previousLayer)
 }
 *o::{
-    SendInput("{Blind}I")
+    SendInput("{Blind}{Numpad8}")
     toggleLayer(previousLayer)
 }
 *p::{
-    SendInput("{Blind}O")
-    toggleLayer(previousLayer)
-}
-*[::{
-    SendInput("{Blind}P")
+    SendInput("{Blind}{Numpad9}")
     toggleLayer(previousLayer)
 }
 *a::{
-    SendInput("{Blind}A")
+    SendInput("{Blind}``")
     toggleLayer(previousLayer)
 }
 *s::{
-    SendInput("{Blind}S")
+    SendInput("{Blind}$")
     toggleLayer(previousLayer)
 }
 *d::{
-    SendInput("{Blind}D")
+    SendInput("{Blind}:")
     toggleLayer(previousLayer)
 }
 *f::{
-    SendInput("{Blind}F")
+    SendInput("{Blind};")
     toggleLayer(previousLayer)
 }
 *g::{
-    SendInput("{Blind}G")
+    SendInput("{Blind}?")
     toggleLayer(previousLayer)
 }
 *h::{
-    SendInput("{Blind}H")
+    SendInput("{Blind}{!}")
     toggleLayer(previousLayer)
 }
 *j::{
-    SendInput("{Blind}H")
+    SendInput("{Blind}{!}")
     toggleLayer(previousLayer)
 }
 *k::{
-    SendInput("{Blind}J")
+    SendInput("{Blind}{Numpad4}")
     toggleLayer(previousLayer)
 }
 *l::{
-    SendInput("{Blind}K")
+    SendInput("{Blind}{Numpad5}")
     toggleLayer(previousLayer)
 }
     *;::{
-SendInput("{Blind}L")
+SendInput("{Blind}{Numpad6}")
 toggleLayer(previousLayer)
 }
-; *'::{
-; SendInput("{Blind}'")
-; toggleLayer(previousLayer)
-; }
-*z::{
-    SendInput("{Blind}Z")
+*'::{
+    SendInput("{Blind}{Numpad0}")
     toggleLayer(previousLayer)
 }
 *x::{
-    SendInput("{Blind}X")
+    SendInput("{Blind}©")
     toggleLayer(previousLayer)
 }
 *c::{
-    SendInput("{Blind}C")
+    SendInput("{Blind}|")
     toggleLayer(previousLayer)
 }
 *v::{
-    SendInput("{Blind}V")
+    SendInput("{Blind}*")
     toggleLayer(previousLayer)
 }
 *b::{
-    SendInput("{Blind}B")
+    SendInput("{Blind}¡")
     toggleLayer(previousLayer)
 }
 *n::{
-    SendInput("{Blind}B")
+    SendInput("{Blind}¡")
     toggleLayer(previousLayer)
 }
 *m::{
-    SendInput("{Blind}N")
+    SendInput("{Blind}{Numpad1}")
     toggleLayer(previousLayer)
 }
 *,::{
-    SendInput("{Blind}M")
+    SendInput("{Blind}{Numpad2}")
     toggleLayer(previousLayer)
 }
-; *.::{
-; SendInput("{Blind}.")
-; toggleLayer(previousLayer)
-; }
+*.::{
+    SendInput("{Blind}{Numpad3}")
+    toggleLayer(previousLayer)
+}
+/::{
+    SendInput("{Blind}™")
+    toggleLayer(previousLayer)
+}
 ; ====================================== ADDITIONAL KEYS ======================================
-CapsLock::toggleLayer("Ext")
-RAlt::toggleLayer("Sym-D")
-*Shift::toggleLayer("CAlpha-Sl")
+CapsLock::{
+    global
+    capslockReleased := 0
+    toggleLayer("Ext")
+}
+RAlt up::toggleLayer("Alpha")
+Shift::toggleLayer("Sym-Sl")
+Shift up::{
+    shiftReleased := 1
+}
 *LAlt::{
     SendInput("{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.22")){
@@ -169,3 +172,4 @@ RAlt::toggleLayer("Sym-D")
         SendInput("^{Backspace}")
     }
 }
+*\ up::toggleLayer(previousLayer)
