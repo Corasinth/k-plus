@@ -98,7 +98,7 @@
         endTime := A_TickCount - startTime
         if("i" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}{Numpad7}")
+            SendInput("{Blind}?")
             KeyWait("i")
         }
     }
@@ -111,7 +111,7 @@
         endTime := A_TickCount - startTime
         if("o" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}{Numpad8}")
+            SendInput("{Blind};")
             KeyWait("o")
         }
     }
@@ -124,7 +124,7 @@
         endTime := A_TickCount - startTime
         if("p" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}{Numpad9}")
+            SendInput("{Blind}:")
             KeyWait("p")
         }
     }
@@ -138,7 +138,7 @@
         endTime := A_TickCount - startTime
         if("a" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}``")
+            SendInput("{Blind}{Numpad1}")
             KeyWait("a")
         }
     }
@@ -151,7 +151,7 @@
         endTime := A_TickCount - startTime
         if("s" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}$")
+            SendInput("{Blind}{Numpad2}")
             KeyWait("s")
         }
     }
@@ -164,7 +164,7 @@
         endTime := A_TickCount - startTime
         if("d" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}:")
+            SendInput("{Blind}{Numpad3}")
             KeyWait("d")
         }
     }
@@ -177,7 +177,7 @@
         endTime := A_TickCount - startTime
         if("f" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind};")
+            SendInput("{Blind}{Numpad4}")
             KeyWait("f")
         }
     }
@@ -190,7 +190,7 @@
         endTime := A_TickCount - startTime
         if("g" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}?")
+            SendInput("{Blind}{Numpad5}")
             KeyWait("g")
         }
     }
@@ -203,7 +203,7 @@
         endTime := A_TickCount - startTime
         if("h" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}{!}")
+            SendInput("{Blind}{Numpad6}")
             KeyWait("h")
         }
     }
@@ -216,7 +216,7 @@
         endTime := A_TickCount - startTime
         if("j" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}{!}")
+            SendInput("{Blind}{Numpad6}")
             KeyWait("j")
         }
     }
@@ -229,7 +229,7 @@
         endTime := A_TickCount - startTime
         if("k" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}{Numpad4}")
+            SendInput("{Blind}{Numpad7}")
             KeyWait("k")
         }
     }
@@ -242,7 +242,7 @@
         endTime := A_TickCount - startTime
         if("l" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}{Numpad5}")
+            SendInput("{Blind}{Numpad8}")
             KeyWait("l")
         }
     }
@@ -255,7 +255,7 @@ while(GetKeyState(";", "P")){
     endTime := A_TickCount - startTime
     if(";" = A_PriorKey && endTime > 220){
         SendInput("{Backspace}")
-        SendInput("{Blind}{Numpad6}")
+        SendInput("{Blind}{Numpad9}")
         KeyWait(";")
     }
 }
@@ -347,7 +347,7 @@ while(GetKeyState(";", "P")){
         endTime := A_TickCount - startTime
         if("m" = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}{Numpad1}")
+            SendInput("{Blind}``")
             KeyWait("m")
         }
     }
@@ -360,7 +360,7 @@ while(GetKeyState(";", "P")){
         endTime := A_TickCount - startTime
         if("," = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}{Numpad2}")
+            SendInput("{Blind}{!}")
             KeyWait(",")
         }
     }
@@ -368,12 +368,12 @@ while(GetKeyState(";", "P")){
 *, up::toggleLayer(previousLayer)
 *.::{
     startTime := A_TickCount
-    SendInput("{Blind}§")
+    SendInput("{Blind}$")
     while(GetKeyState(".", "P")){
         endTime := A_TickCount - startTime
         if("." = A_PriorKey && endTime > 220){
             SendInput("{Backspace}")
-            SendInput("{Blind}{Numpad3}")
+            SendInput("{Blind}§")
             KeyWait(".")
         }
     }

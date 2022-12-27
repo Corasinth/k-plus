@@ -29,55 +29,55 @@
     toggleLayer(previousLayer)
 }
 *i::{
-    SendInput("{Blind}{Numpad7}")
-    toggleLayer(previousLayer)
-}
-*o::{
-    SendInput("{Blind}{Numpad8}")
-    toggleLayer(previousLayer)
-}
-*p::{
-    SendInput("{Blind}{Numpad9}")
-    toggleLayer(previousLayer)
-}
-*a::{
-    SendInput("{Blind}``")
-    toggleLayer(previousLayer)
-}
-*s::{
-    SendInput("{Blind}$")
-    toggleLayer(previousLayer)
-}
-*d::{
-    SendInput("{Blind}:")
-    toggleLayer(previousLayer)
-}
-*f::{
-    SendInput("{Blind};")
-    toggleLayer(previousLayer)
-}
-*g::{
     SendInput("{Blind}?")
     toggleLayer(previousLayer)
 }
-*h::{
-    SendInput("{Blind}{!}")
+*o::{
+    SendInput("{Blind};")
     toggleLayer(previousLayer)
 }
-*j::{
-    SendInput("{Blind}{!}")
+*p::{
+    SendInput("{Blind}:")
     toggleLayer(previousLayer)
 }
-*k::{
+*a::{
+    SendInput("{Blind}{Numpad1}")
+    toggleLayer(previousLayer)
+}
+*s::{
+    SendInput("{Blind}{Numpad2}")
+    toggleLayer(previousLayer)
+}
+*d::{
+    SendInput("{Blind}{Numpad3}")
+    toggleLayer(previousLayer)
+}
+*f::{
     SendInput("{Blind}{Numpad4}")
     toggleLayer(previousLayer)
 }
-*l::{
+*g::{
     SendInput("{Blind}{Numpad5}")
     toggleLayer(previousLayer)
 }
+*h::{
+    SendInput("{Blind}{Numpad6}")
+    toggleLayer(previousLayer)
+}
+*j::{
+    SendInput("{Blind}{Numpad6}")
+    toggleLayer(previousLayer)
+}
+*k::{
+    SendInput("{Blind}{Numpad7}")
+    toggleLayer(previousLayer)
+}
+*l::{
+    SendInput("{Blind}{Numpad8}")
+    toggleLayer(previousLayer)
+}
     *;::{
-SendInput("{Blind}{Numpad6}")
+SendInput("{Blind}{Numpad9}")
 toggleLayer(previousLayer)
 }
 *'::{
@@ -105,15 +105,15 @@ toggleLayer(previousLayer)
     toggleLayer(previousLayer)
 }
 *m::{
-    SendInput("{Blind}{Numpad1}")
+    SendInput("{Blind}``")
     toggleLayer(previousLayer)
 }
 *,::{
-    SendInput("{Blind}{Numpad2}")
+    SendInput("{Blind}{!}")
     toggleLayer(previousLayer)
 }
 *.::{
-    SendInput("{Blind}{Numpad3}")
+    SendInput("{Blind}§")
     toggleLayer(previousLayer)
 }
 /::{
