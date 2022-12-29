@@ -4,9 +4,10 @@
     SendInput("git add -A{Enter}git commit -m `"")
     toggleLayer(previousLayer)
 }
-; *w::{
-;     toggleLayer(previousLayer)
-; }
+*w::{
+    SendInput("beforeyouknowkindness@gmail.com")
+    toggleLayer(previousLayer)
+}
 ; *e::{
 ;     toggleLayer(previousLayer)
 ; }

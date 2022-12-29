@@ -8,8 +8,8 @@ currentLayer := "Alpha"
 previousLayer := currentLayer
 layersToIgnore := "(Directory-I) (Sym-D) (Func-D) (Alpha-Sl-D) (Sym-Sl-D)"
 tooltipOn := 1
-xCoordinate := 1920
-yCoordinate := 1080
+xCoordinate := 2560
+yCoordinate := 1600
 longPressDelay := 200
 timeParameter := "T0.2" 
 
