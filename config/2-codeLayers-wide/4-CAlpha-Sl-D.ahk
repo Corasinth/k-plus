@@ -1,129 +1,129 @@
 #HotIf currentLayer = "CAlpha-Sl-D"
 ; ====================================== LETTERS ======================================
 *q::{
-    SendInput("{Blind}Q")
-    toggleLayer(previousLayer)
-}
-*w::{
     SendInput("{Blind}W")
     toggleLayer(previousLayer)
 }
+*w::{
+    SendInput("{Blind}L")
+    toggleLayer(previousLayer)
+}
 *e::{
-    SendInput("{Blind}E")
+    SendInput("{Blind}Y")
     toggleLayer(previousLayer)
 }
 *r::{
-    SendInput("{Blind}R")
-    toggleLayer(previousLayer)
-}
-*t::{
-    SendInput("{Blind}T")
-    toggleLayer(previousLayer)
-}
-*y::{
-    SendInput("{Blind}Y")
-    toggleLayer(previousLayer)
-}
-*u::{
-    SendInput("{Blind}Y")
-    toggleLayer(previousLayer)
-}
-*i::{
-    SendInput("{Blind}U")
-    toggleLayer(previousLayer)
-}
-*o::{
-    SendInput("{Blind}I")
-    toggleLayer(previousLayer)
-}
-*p::{
-    SendInput("{Blind}O")
-    toggleLayer(previousLayer)
-}
-*[::{
     SendInput("{Blind}P")
     toggleLayer(previousLayer)
 }
-*a::{
-    SendInput("{Blind}A")
-    toggleLayer(previousLayer)
-}
-*s::{
-    SendInput("{Blind}S")
-    toggleLayer(previousLayer)
-}
-*d::{
-    SendInput("{Blind}D")
-    toggleLayer(previousLayer)
-}
-*f::{
-    SendInput("{Blind}F")
-    toggleLayer(previousLayer)
-}
-*g::{
-    SendInput("{Blind}G")
-    toggleLayer(previousLayer)
-}
-*h::{
-    SendInput("{Blind}H")
-    toggleLayer(previousLayer)
-}
-*j::{
-    SendInput("{Blind}H")
-    toggleLayer(previousLayer)
-}
-*k::{
-    SendInput("{Blind}J")
-    toggleLayer(previousLayer)
-}
-*l::{
+*t::{
     SendInput("{Blind}K")
     toggleLayer(previousLayer)
 }
-    *;::{
-SendInput("{Blind}L")
-toggleLayer(previousLayer)
+*y::{
+    ; SendInput("{Blind}Y")
+    toggleLayer(previousLayer)
 }
-; *'::{
-; SendInput("{Blind}'")
-; toggleLayer(previousLayer)
-; }
-*z::{
+*u::{
     SendInput("{Blind}Z")
     toggleLayer(previousLayer)
 }
-*x::{
-    SendInput("{Blind}X")
-    toggleLayer(previousLayer)
-}
-*c::{
-    SendInput("{Blind}C")
-    toggleLayer(previousLayer)
-}
-*v::{
-    SendInput("{Blind}V")
-    toggleLayer(previousLayer)
-}
-*b::{
-    SendInput("{Blind}B")
-    toggleLayer(previousLayer)
-}
-*n::{
-    SendInput("{Blind}B")
-    toggleLayer(previousLayer)
-}
-*m::{
-    SendInput("{Blind}N")
-    toggleLayer(previousLayer)
-}
-*,::{
+*i::{
     SendInput("{Blind}M")
     toggleLayer(previousLayer)
 }
-; *.::{
-; SendInput("{Blind}.")
-; toggleLayer(previousLayer)
+*o::{
+    SendInput("{Blind}O")
+    toggleLayer(previousLayer)
+}
+*p::{
+    SendInput("{Blind}U")
+    toggleLayer(previousLayer)
+}
+; *[::{
+;     SendInput("{Blind}P")
+;     toggleLayer(previousLayer)
 ; }
+*a::{
+    SendInput("{Blind}C")
+    toggleLayer(previousLayer)
+}
+*s::{
+    SendInput("{Blind}R")
+    toggleLayer(previousLayer)
+}
+*d::{
+    SendInput("{Blind}S")
+    toggleLayer(previousLayer)
+}
+*f::{
+    SendInput("{Blind}T")
+    toggleLayer(previousLayer)
+}
+*g::{
+    SendInput("{Blind}B")
+    toggleLayer(previousLayer)
+}
+*h::{
+    ; SendInput("{Blind}H")
+    toggleLayer(previousLayer)
+}
+*j::{
+    SendInput("{Blind}F")
+    toggleLayer(previousLayer)
+}
+*k::{
+    SendInput("{Blind}N")
+    toggleLayer(previousLayer)
+}
+*l::{
+    SendInput("{Blind}E")
+    toggleLayer(previousLayer)
+}
+*;::{
+    SendInput("{Blind}I")
+    toggleLayer(previousLayer)
+}
+*'::{
+    SendInput("{Blind}A")
+    toggleLayer(previousLayer)
+}
+*z::{
+    ; SendInput("{Blind}Z")
+    toggleLayer(previousLayer)
+}
+*x::{
+    SendInput("{Blind}V")
+    toggleLayer(previousLayer)
+}
+*c::{
+    SendInput("{Blind}D")
+    toggleLayer(previousLayer)
+}
+*v::{
+    SendInput("{Blind}G")
+    toggleLayer(previousLayer)
+}
+*b::{
+    SendInput("{Blind}J")
+    toggleLayer(previousLayer)
+}
+*n::{
+    ; SendInput("{Blind}B")
+    toggleLayer(previousLayer)
+}
+*m::{
+    SendInput("{Blind}X")
+    toggleLayer(previousLayer)
+}
+*,::{
+    SendInput("{Blind}H")
+    toggleLayer(previousLayer)
+}
+*.::{
+    SendInput("{Blind}Q")
+    toggleLayer(previousLayer)
+}
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::{
     SendInput("{Blind}{Esc}")

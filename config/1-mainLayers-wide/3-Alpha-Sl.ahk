@@ -2,221 +2,221 @@
 ; ====================================== LETTERS ======================================
 *q::{
     if(A_PriorKey != "q" || A_TimeSincePriorHotkey > 350){
-        longPress("q", "{Blind}Q", "{Blind}q", 1)
-    } else {
-        SendInput("{Blind}Q")
-    }
-}
-*w::{
-    if(A_PriorKey != "w" || A_TimeSincePriorHotkey > 350){
-        longPress("w", "{Blind}W", "{Blind}w", 1)
+        longPress("q", "{Blind}W", "{Blind}w", 1)
     } else {
         SendInput("{Blind}W")
     }
 }
-*e::{
-    if(A_PriorKey != "e" || A_TimeSincePriorHotkey > 350){
-        longPress("e", "{Blind}E", "{Blind}e", 1)
-    } else {
-        SendInput("{Blind}E")
-    }
-}
-*r::{
-    if(A_PriorKey != "r" || A_TimeSincePriorHotkey > 350){
-        longPress("r", "{Blind}R", "{Blind}r", 1)
-    } else {
-        SendInput("{Blind}R")
-    }
-}
-*t::{
-    if(A_PriorKey != "t" || A_TimeSincePriorHotkey > 350){
-        longPress("t", "{Blind}T", "{Blind}t", 1)
-    } else {
-        SendInput("{Blind}T")
-    }
-}
-*y::{
-    if(A_PriorKey != "y" || A_TimeSincePriorHotkey > 350){
-        longPress("y", "{Blind}Y", "{Blind}y", 1)
-    } else {
-        SendInput("{Blind}Y")
-    }
-}
-*u::{
-    if(A_PriorKey != "u" || A_TimeSincePriorHotkey > 350){
-        longPress("u", "{Blind}Y", "{Blind}y", 1)
-    } else {
-        SendInput("{Blind}Y")
-    }
-}
-*i::{
-    if(A_PriorKey != "i" || A_TimeSincePriorHotkey > 350){
-        longPress("i", "{Blind}U", "{Blind}u", 1)
-    } else {
-        SendInput("{Blind}U")
-    }
-}
-*o::{
-    if(A_PriorKey != "o" || A_TimeSincePriorHotkey > 350){
-        longPress("o", "{Blind}I", "{Blind}i", 1)
-    } else {
-        SendInput("{Blind}I")
-    }
-}
-*p::{
-    if(A_PriorKey != "p" || A_TimeSincePriorHotkey > 350){
-        longPress("p", "{Blind}O", "{Blind}o", 1)
-    } else {
-        SendInput("{Blind}O")
-    }
-}
-*[::{
-    if(A_PriorKey != "[" || A_TimeSincePriorHotkey > 350){
-        longPress("[", "{Blind}P", "{Blind}p", 1)
-    } else {
-        SendInput("{Blind}P")
-    }
-}
-*a::{
-    if(A_PriorKey != "a" || A_TimeSincePriorHotkey > 350){
-        longPress("a", "{Blind}A", "{Blind}a", 1)
-    } else {
-        SendInput("{Blind}A")
-    }
-}
-*s::{
-    if(A_PriorKey != "s" || A_TimeSincePriorHotkey > 350){
-        longPress("s", "{Blind}S", "{Blind}s", 1)
-    } else {
-        SendInput("{Blind}S")
-    }
-}
-*d::{
-    if(A_PriorKey != "d" || A_TimeSincePriorHotkey > 350){
-        longPress("d", "{Blind}D", "{Blind}d", 1)
-    } else {
-        SendInput("{Blind}D")
-    }
-}
-*f::{
-    if(A_PriorKey != "f" || A_TimeSincePriorHotkey > 350){
-        longPress("f", "{Blind}F", "{Blind}f", 1)
-    } else {
-        SendInput("{Blind}F")
-    }
-}
-*g::{
-    if(A_PriorKey != "g" || A_TimeSincePriorHotkey > 350){
-        longPress("g", "{Blind}G", "{Blind}g", 1)
-    } else {
-        SendInput("{Blind}G")
-    }
-}
-*h::{
-    if(A_PriorKey != "h" || A_TimeSincePriorHotkey > 350){
-        longPress("h", "{Blind}H", "{Blind}h", 1)
-    } else {
-        SendInput("{Blind}H")
-    }
-}
-*j::{
-    if(A_PriorKey != "j" || A_TimeSincePriorHotkey > 350){
-        longPress("j", "{Blind}H", "{Blind}h", 1)
-    } else {
-        SendInput("{Blind}H")
-    }
-}
-*k::{
-    if(A_PriorKey != "k" || A_TimeSincePriorHotkey > 350){
-        longPress("k", "{Blind}J", "{Blind}j", 1)
-    } else {
-        SendInput("{Blind}J")
-    }
-}
-*l::{
-    if(A_PriorKey != "l" || A_TimeSincePriorHotkey > 350){
-        longPress("l", "{Blind}K", "{Blind}k", 1)
-    } else {
-        SendInput("{Blind}K")
-    }
-}
-*;::{
-    if(A_PriorKey != ";" || A_TimeSincePriorHotkey > 350){
-        longPress(";", "{Blind}L", "{Blind}l", 1)
+*w::{
+    if(A_PriorKey != "w" || A_TimeSincePriorHotkey > 350){
+        longPress("w", "{Blind}L", "{Blind}l", 1)
     } else {
         SendInput("{Blind}L")
     }
 }
-; *'::{
-;     if(A_PriorKey != "'" || A_TimeSincePriorHotkey > 350){
-;         longPress("'", "{Blind}Z", "{Blind}z", 1)
+*e::{
+    if(A_PriorKey != "e" || A_TimeSincePriorHotkey > 350){
+        longPress("e", "{Blind}Y", "{Blind}y", 1)
+    } else {
+        SendInput("{Blind}Y")
+    }
+}
+*r::{
+    if(A_PriorKey != "r" || A_TimeSincePriorHotkey > 350){
+        longPress("r", "{Blind}P", "{Blind}p", 1)
+    } else {
+        SendInput("{Blind}P")
+    }
+}
+*t::{
+    if(A_PriorKey != "t" || A_TimeSincePriorHotkey > 350){
+        longPress("t", "{Blind}K", "{Blind}k", 1)
+    } else {
+        SendInput("{Blind}K")
+    }
+}
+; *y::{
+;     if(A_PriorKey != "y" || A_TimeSincePriorHotkey > 350){
+;         longPress("y", "{BlinD}y", "{Blind}Y", 1)
 ;     } else {
-;         SendInput("{Blind}Z")
+;         SendInput("{Blind}Y")
 ;     }
 ; }
-*z::{
-    if(A_PriorKey != "z" || A_TimeSincePriorHotkey > 350){
-        longPress("z", "{Blind}Z", "{Blind}z", 1)
+*u::{
+    if(A_PriorKey != "u" || A_TimeSincePriorHotkey > 350){
+        longPress("u", "{Blind}Z", "{Blind}z", 1)
     } else {
         SendInput("{Blind}Z")
     }
 }
-*x::{
-    if(A_PriorKey != "x" || A_TimeSincePriorHotkey > 350){
-        longPress("x", "{Blind}X", "{Blind}x", 1)
-    } else {
-        SendInput("{Blind}X")
-    }
-}
-*c::{
-    if(A_PriorKey != "c" || A_TimeSincePriorHotkey > 350){
-        longPress("c", "{Blind}C", "{Blind}c", 1)
-    } else {
-        SendInput("{Blind}C")
-    }
-}
-*v::{
-    if(A_PriorKey != "v" || A_TimeSincePriorHotkey > 350){
-        longPress("v", "{Blind}V", "{Blind}v", 1)
-    } else {
-        SendInput("{Blind}V")
-    }
-}
-*b::{
-    if(A_PriorKey != "b" || A_TimeSincePriorHotkey > 350){
-        longPress("b", "{Blind}B", "{Blind}b", 1)
-    } else {
-        SendInput("{Blind}B")
-    }
-}
-*n::{
-    if(A_PriorKey != "n" || A_TimeSincePriorHotkey > 350){
-        longPress("n", "{Blind}B", "{Blind}b", 1)
-    } else {
-        SendInput("{Blind}B")
-    }
-}
-*m::{
-    if(A_PriorKey != "m" || A_TimeSincePriorHotkey > 350){
-        longPress("m", "{Blind}N", "{Blind}n", 1)
-    } else {
-        SendInput("{Blind}N")
-    }
-}
-*,::{
-    if(A_PriorKey != "," || A_TimeSincePriorHotkey > 350){
-        longPress(",", "{Blind}M", "{Blind}m", 1)
+*i::{
+    if(A_PriorKey != "i" || A_TimeSincePriorHotkey > 350){
+        longPress("i", "{Blind}M", "{Blind}m", 1)
     } else {
         SendInput("{Blind}M")
     }
 }
-; *.::{
-;     if(A_PriorKey != "." || A_TimeSincePriorHotkey > 350){
-;         longPress(".", "{Blind}m", "{Blind}M", 1)
+*o::{
+    if(A_PriorKey != "o" || A_TimeSincePriorHotkey > 350){
+        longPress("o", "{Blind}O", "{Blind}o", 1)
+    } else {
+        SendInput("{Blind}O")
+    }
+}
+*p::{
+    if(A_PriorKey != "p" || A_TimeSincePriorHotkey > 350){
+        longPress("p", "{Blind}U", "{Blind}u", 1)
+    } else {
+        SendInput("{Blind}U")
+    }
+}
+; *[::{
+;     if(A_PriorKey != "[" || A_TimeSincePriorHotkey > 350){
+;         longPress("[", "{BlinD}p", "{Blind}P", 1)
 ;     } else {
-;         SendInput("{Blind}m")
+;         SendInput("{Blind}P")
 ;     }
 ; }
+*a::{
+    if(A_PriorKey != "a" || A_TimeSincePriorHotkey > 350){
+        longPress("a", "{Blind}C", "{Blind}c", 1)
+    } else {
+        SendInput("{Blind}C")
+    }
+}
+*s::{
+    if(A_PriorKey != "s" || A_TimeSincePriorHotkey > 350){
+        longPress("s", "{Blind}R", "{Blind}r", 1)
+    } else {
+        SendInput("{Blind}R")
+    }
+}
+*d::{
+    if(A_PriorKey != "d" || A_TimeSincePriorHotkey > 350){
+        longPress("d", "{Blind}S", "{Blind}s", 1)
+    } else {
+        SendInput("{Blind}S")
+    }
+}
+*f::{
+    if(A_PriorKey != "f" || A_TimeSincePriorHotkey > 350){
+        longPress("f", "{Blind}T", "{Blind}t", 1)
+    } else {
+        SendInput("{Blind}T")
+    }
+}
+*g::{
+    if(A_PriorKey != "g" || A_TimeSincePriorHotkey > 350){
+        longPress("g", "{Blind}B", "{Blind}b", 1)
+    } else {
+        SendInput("{Blind}B")
+    }
+}
+; *h::{
+;     if(A_PriorKey != "h" || A_TimeSincePriorHotkey > 350){
+;         longPress("h", "{BlinD}h", "{Blind}H", 1)
+;     } else {
+;         SendInput("{Blind}H")
+;     }
+; }
+*j::{
+    if(A_PriorKey != "j" || A_TimeSincePriorHotkey > 350){
+        longPress("j", "{Blind}F", "{Blind}f", 1)
+    } else {
+        SendInput("{Blind}F")
+    }
+}
+*k::{
+    if(A_PriorKey != "k" || A_TimeSincePriorHotkey > 350){
+        longPress("k", "{Blind}N", "{Blind}n", 1)
+    } else {
+        SendInput("{Blind}N")
+    }
+}
+*l::{
+    if(A_PriorKey != "l" || A_TimeSincePriorHotkey > 350){
+        longPress("l", "{Blind}E", "{Blind}e", 1)
+    } else {
+        SendInput("{Blind}E")
+    }
+}
+*;::{
+    if(A_PriorKey != ";" || A_TimeSincePriorHotkey > 350){
+        longPress(";", "{Blind}I", "{Blind}i", 1)
+    } else {
+        SendInput("{Blind}I")
+    }
+}
+*'::{
+    if(A_PriorKey != "'" || A_TimeSincePriorHotkey > 350){
+        longPress("'", "{Blind}A", "{Blind}a", 1)
+    } else {
+        SendInput("{Blind}A")
+    }
+}
+; *z::{
+;     if(A_PriorKey != "z" || A_TimeSincePriorHotkey > 350){
+;         longPress("z", "{BlinD}z", "{Blind}Z", 1)
+;     } else {
+;         SendInput("{Blind}Z")
+;     }
+; }
+*x::{
+    if(A_PriorKey != "x" || A_TimeSincePriorHotkey > 350){
+        longPress("x", "{Blind}V", "{Blind}v", 1)
+    } else {
+        SendInput("{Blind}V")
+    }
+}
+*c::{
+    if(A_PriorKey != "c" || A_TimeSincePriorHotkey > 350){
+        longPress("c", "{Blind}D", "{Blind}d", 1)
+    } else {
+        SendInput("{Blind}D")
+    }
+}
+*v::{
+    if(A_PriorKey != "v" || A_TimeSincePriorHotkey > 350){
+        longPress("v", "{Blind}G", "{Blind}g", 1)
+    } else {
+        SendInput("{Blind}G")
+    }
+}
+*b::{
+    if(A_PriorKey != "b" || A_TimeSincePriorHotkey > 350){
+        longPress("b", "{Blind}J", "{Blind}j", 1)
+    } else {
+        SendInput("{Blind}J")
+    }
+}
+; *n::{
+;     if(A_PriorKey != "n" || A_TimeSincePriorHotkey > 350){
+;         longPress("n", "{BlinD}b", "{Blind}B", 1)
+;     } else {
+;         SendInput("{Blind}B")
+;     }
+; }
+*m::{
+    if(A_PriorKey != "m" || A_TimeSincePriorHotkey > 350){
+        longPress("m", "{Blind}X", "{Blind}x", 1)
+    } else {
+        SendInput("{Blind}X")
+    }
+}
+*,::{
+    if(A_PriorKey != "," || A_TimeSincePriorHotkey > 350){
+        longPress(",", "{Blind}H", "{Blind}h", 1)
+    } else {
+        SendInput("{Blind}H")
+    }
+}
+*.::{
+    if(A_PriorKey != "." || A_TimeSincePriorHotkey > 350){
+        longPress(".", "{Blind}Q", "{Blind}q", 1)
+    } else {
+        SendInput("{Blind}Q")
+    }
+}
 ; ====================================== ADDITIONAL KEYS ======================================
 CapsLock::{
     global
