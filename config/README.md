@@ -81,11 +81,11 @@ On every layer the same key is dedicated to toggling to the directory layer. `LA
 
 ### **Previous Layer**
 
-On several layers the same key is dedicated to toggling to the previous layer, where the previous layer is the last layer used that isn't one of two exceptions. These exceptions are the directory, and dead layers. 
+On some layers the same key is dedicated to toggling to the previous layer, where the previous layer is the last layer used that isn't one of two exceptions. These exceptions are the directory, and dead layers. 
 
 The key used to toggle to the previous layer is `RAlt`. This is setup similarly to the directory key, where holding down `RAlt` and pressing another key lets it act like `Control`, while simply tapping it activates the previous layer macro.
 
-However, for several layers (mainly the core letter and symbol layers), `RAlt` instead swaps from either letters to symbols or vice versa.
+However, for many other layers (mainly the core letter and symbol layers), `RAlt` instead swaps from either letters to symbols or vice versa.
 
 ### **Windows Backspace Key**
 
@@ -133,9 +133,19 @@ However, the strings and keys that one would use to go from Normal mode in Vim t
 
 ### **Alpha**
 
-The standard alphabet layer. All 26 letters in their usual spots, plus `comma` and `period`. `Semicolon` is reserved for toggling to the symbol dead layer. Since its a key that will be pressed before almost every punctuation mark, a homerow position makes sense. Since its punctuation, and not a letter, it's assigned to `semicolon`, a key that isn't a letter on QWERTY anyway. 
+The standard alphabet layer. I use a modified version of canary with the wide, angle, and curls mods.
 
-Although the pinky is a weak finger to handle a keypress for every single punctuation mark, it also doesn't ever have to move, so I consider it a good compromise. Besides, where else would it go? With `z` and `p` out of the picture two keys must become letters. If you made those keys `semicolon` and `comma`, you'd leave `period` to the dead symbol layer toggle, which is not ideal for such a frequently pressed key.
+```
+w  l  y  p  k  z  m  o  u  ;  [  ]
+c  r  s  t  b  f  n  e  i  a  '
+/  v  d  g  j  x  h  q  ,  . 
+```
+
+The punctuation in the layout above is copied from canary, however all my punctuation is on a seperate layer.
+
+The right middle curl on the bottom layer replaces the left ring curl for the bottom layer. `J` sits in the center of the board, displacing `Q` to the right hand. That makes `QU` less than ideal, but it is a compromise given the infrquence of that particular bigram and allowing `J + vowel` to remain orderly. 
+
+Additionally `M` and `X` swap places, the former being more frequent than the letter and the top row being nicer for me than the bottom. The fingers for these remain the same however, so sfbs are not impacted.
 
 The rest of the non-letter keys are standard as per [Universal Features](#universal-features).
 
