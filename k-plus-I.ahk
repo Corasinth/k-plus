@@ -2,7 +2,7 @@
 #SingleInstance Force
 ; Sets absolute coordinates for tooltip
 CoordMode("ToolTip", "Screen")
-SetCapsLockState("AlwaysOff")
+; SetCapsLockState("AlwaysOff")
 ; ============================== MAIN VARIABLES ==============================
 currentLayer := "Alpha"
 previousLayer := currentLayer
