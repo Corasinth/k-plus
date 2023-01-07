@@ -51,9 +51,9 @@
 }
 *i::{
     if(A_PriorKey != "i" || A_TimeSincePriorHotkey > 350){
-        longPress("i", "{Blind}X", "{Blind}x", 1)
+        longPress("i", "{Blind}M", "{Blind}m", 1)
     } else {
-        SendInput("{Blind}X")
+        SendInput("{Blind}M")
     }
 }
 *o::{
@@ -198,9 +198,9 @@
 ; }
 *m::{
     if(A_PriorKey != "m" || A_TimeSincePriorHotkey > 350){
-        longPress("m", "{Blind}M", "{Blind}m", 1)
+        longPress("m", "{Blind}X", "{Blind}x", 1)
     } else {
-        SendInput("{Blind}M")
+        SendInput("{Blind}x")
     }
 }
 *,::{

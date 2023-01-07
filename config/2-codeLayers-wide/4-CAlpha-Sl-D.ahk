@@ -29,7 +29,7 @@
     toggleLayer(previousLayer)
 }
 *i::{
-    SendInput("{Blind}X")
+    SendInput("{Blind}M")
     toggleLayer(previousLayer)
 }
 *o::{
@@ -113,7 +113,7 @@
     toggleLayer(previousLayer)
 }
 *m::{
-    SendInput("{Blind}M")
+    SendInput("{Blind}X")
     toggleLayer(previousLayer)
 }
 *,::{
