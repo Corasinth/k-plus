@@ -36,18 +36,18 @@ m::PgUp
 Tab::Esc
 Space::Enter
 CapsLock::{
-    global
-    if(capslockReleased){
+    ; global
+    ; if(capslockReleased){
         toggleLayer("Alpha")
-    }
+    ; }
 }
-CapsLock up::{
-    global
-    capslockReleased := 1
-    if(A_PriorKey != "CapsLock" && A_TimeSincePriorHotkey > 100){
-        toggleLayer("Alpha")
-    }
-}
+; CapsLock up::{
+    ; global
+    ; capslockReleased := 1
+    ; if(A_PriorKey != "CapsLock" && A_TimeSincePriorHotkey > 100){
+        ; toggleLayer("Alpha")
+    ; }
+; }
 RAlt::toggleLayer("Func-D")
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
