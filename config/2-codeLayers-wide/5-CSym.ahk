@@ -1,7 +1,7 @@
 #HotIf currentLayer = "CSym"
 ; ====================================== LETTERS ======================================
 *q::{
-    if(A_PriorHotKey != "*q" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*q" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}~")
         while(GetKeyState("q", "P")){
@@ -17,7 +17,7 @@
     }
 }
 *w::{
-    if(A_PriorHotKey != "*w" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*w" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}<")
         while(GetKeyState("w", "P")){
@@ -33,7 +33,7 @@
     }
 }
 *e::{
-    if(A_PriorHotKey != "*e" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*e" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}[")
         while(GetKeyState("e", "P")){
@@ -49,7 +49,7 @@
     }
 }
 *r::{
-    if(A_PriorHotKey != "*r" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*r" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}/")
         while(GetKeyState("r", "P")){
@@ -65,7 +65,7 @@
     }
 }
 *t::{
-    if(A_PriorHotKey != "*t" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*t" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}—")
         while(GetKeyState("t", "P")){
@@ -81,7 +81,7 @@
     }
 }
 *y::{
-    if(A_PriorHotKey != "*y" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*y" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}{U+00AB}")
         while(GetKeyState("y", "P")){
@@ -97,7 +97,7 @@
     }
 }
 *u::{
-    if(A_PriorHotKey != "*u" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*u" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}{U+00AB}")
         while(GetKeyState("u", "P")){
@@ -113,7 +113,7 @@
     }
 }
 *i::{
-    if(A_PriorHotKey != "*i" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*i" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}\")
         while(GetKeyState("i", "P")){
@@ -129,7 +129,7 @@
     }
 }
 *o::{
-    if(A_PriorHotKey != "*o" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*o" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}]")
         while(GetKeyState("o", "P")){
@@ -145,7 +145,7 @@
     }
 }
 *p::{
-    if(A_PriorHotKey != "*p" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*p" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}>")
         while(GetKeyState("p", "P")){
@@ -162,7 +162,7 @@
 }
 
 *a::{
-    if(A_PriorHotKey != "*a" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*a" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}{{}")
         while(GetKeyState("a", "P")){
@@ -178,7 +178,7 @@
     }
 }
 *s::{
-    if(A_PriorHotKey != "*s" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*s" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}(")
         while(GetKeyState("s", "P")){
@@ -194,7 +194,7 @@
     }
 }
 *d::{
-    if(A_PriorHotKey != "*d" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*d" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}.")
         while(GetKeyState("d", "P")){
@@ -210,7 +210,7 @@
     }
 }
 *f::{
-    if(A_PriorHotKey != "*f" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*f" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind},")
         while(GetKeyState("f", "P")){
@@ -226,7 +226,7 @@
     }
 }
 *g::{
-    if(A_PriorHotKey != "*g" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*g" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}=")
         while(GetKeyState("g", "P")){
@@ -242,7 +242,7 @@
     }
 }
 *h::{
-    if(A_PriorHotKey != "*h" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*h" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}{+}")
         while(GetKeyState("h", "P")){
@@ -258,7 +258,7 @@
     }
 }
 *j::{
-    if(A_PriorHotKey != "*j" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*j" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}{+}")
         while(GetKeyState("j", "P")){
@@ -274,7 +274,7 @@
     }
 }
 *k::{
-    if(A_PriorHotKey != "*k" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*k" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}'")
         while(GetKeyState("k", "P")){
@@ -290,7 +290,7 @@
     }
 }
 *l::{
-    if(A_PriorHotKey != "*l" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*l" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}`"")
         while(GetKeyState("l", "P")){
@@ -306,7 +306,7 @@
     }
 }
 *;::{
-    if(A_PriorHotKey != "*;" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*;" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind})")
         while(GetKeyState(";", "P")){
@@ -322,7 +322,7 @@
     }
 }
 *'::{
-    if(A_PriorHotKey != "*'" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*'" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}{}}")
         while(GetKeyState("'", "P")){
@@ -339,7 +339,7 @@
 }
 
 *x::{
-    if(A_PriorHotKey != "*x" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*x" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}€")
         while(GetKeyState("x", "P")){
@@ -355,7 +355,7 @@
     }
 }
 *c::{
-    if(A_PriorHotKey != "*c" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*c" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}&")
         while(GetKeyState("c", "P")){
@@ -371,7 +371,7 @@
     }
 }
 *v::{
-    if(A_PriorHotKey != "*v" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*v" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}{#}")
         while(GetKeyState("v", "P")){
@@ -387,7 +387,7 @@
     }
 }
 *b::{
-    if(A_PriorHotKey != "*b" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*b" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}¿")
         while(GetKeyState("b", "P")){
@@ -403,7 +403,7 @@
     }
 }
 *n::{
-    if(A_PriorHotKey != "*n" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*n" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}¿")
         while(GetKeyState("n", "P")){
@@ -419,7 +419,7 @@
     }
 }
 *m::{
-    if(A_PriorHotKey != "*m" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*m" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}_")
         while(GetKeyState("m", "P")){
@@ -435,7 +435,7 @@
     }
 }
 *,::{
-    if(A_PriorHotKey != "*," || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*," || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}-")
         while(GetKeyState(",", "P")){
@@ -451,7 +451,7 @@
     }
 }
 *.::{
-    if(A_PriorHotKey != "*." || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*." || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}$")
         while(GetKeyState(".", "P")){
@@ -467,7 +467,7 @@
     }
 }
 /::{
-    if(A_PriorHotKey != "*/" || A_TimeSincePriorHotkey > 350){
+    if(A_PriorHotKey != "*/" || A_TimeSincePriorHotkey > 600){
         startTime := A_TickCount
         SendInput("{Blind}¶")
         while(GetKeyState("/", "P")){
