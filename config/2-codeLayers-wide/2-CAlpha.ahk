@@ -184,9 +184,9 @@
 }
 *b::{
     if(A_PriorKey != "b" || A_TimeSincePriorHotkey > 350){
-        longPress("b", "{Blind}j", "{Blind}J", 1)
+        longPress("b", "{Blind}q", "{Blind}Q", 1)
     } else {
-        SendInput("{Blind}j")
+        SendInput("{Blind}q")
     }
 }
 ; *n::{
@@ -198,9 +198,9 @@
 ; }
 *m::{
     if(A_PriorKey != "m" || A_TimeSincePriorHotkey > 350){
-        longPress("m", "{Blind}x", "{Blind}x", 1)
+        longPress("m", "{Blind}j", "{Blind}J", 1)
     } else {
-        SendInput("{Blind}X")
+        SendInput("{Blind}j")
     }
 }
 *,::{
@@ -212,9 +212,9 @@
 }
 *.::{
     if(A_PriorKey != "." || A_TimeSincePriorHotkey > 350){
-        longPress(".", "{Blind}q", "{Blind}Q", 1)
+        longPress(".", "{Blind}x", "{Blind}X", 1)
     } else {
-        SendInput("{Blind}q")
+        SendInput("{Blind}x")
     }
 }
 ; ====================================== ADDITIONAL KEYS ======================================

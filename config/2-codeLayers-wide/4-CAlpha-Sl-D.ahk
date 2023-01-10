@@ -105,7 +105,7 @@
     toggleLayer(previousLayer)
 }
 *b::{
-    SendInput("{Blind}J")
+    SendInput("{Blind}Q")
     toggleLayer(previousLayer)
 }
 *n::{
@@ -113,7 +113,7 @@
     toggleLayer(previousLayer)
 }
 *m::{
-    SendInput("{Blind}X")
+    SendInput("{Blind}J")
     toggleLayer(previousLayer)
 }
 *,::{
@@ -121,7 +121,7 @@
     toggleLayer(previousLayer)
 }
 *.::{
-    SendInput("{Blind}Q")
+    SendInput("{Blind}X")
     toggleLayer(previousLayer)
 }
 ; ====================================== ADDITIONAL KEYS ======================================
