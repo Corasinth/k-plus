@@ -6,11 +6,13 @@ K-plus is tool for enabling layers on non-mechanical keyboards that don't usuall
 
 It's designed to be configurable and flexible; supporting as many layers as you'd like to include. Once configured, a compiled version (along with the `settings.ini` file) can easily be carried on a flash drive and run on any Windows device, letting you use your layers between devices.
 
-Each layer is setup using AHK's hotkeys. This can be a little complex if you aren't used to AHK, but is pretty flexible. With AutoHotKey script and k-plus you can toggle layers, use chords (on their own, or as global modifiers), create multipress options, dead keys, and set up variable length presses (for use in implementing Autoshift and similar features).
+Each layer is setup using AHK's hotkeys. This can be a little complex if you aren't used to AHK, but is pretty flexible. With AutoHotKey script and k-plus you can toggle layers, use chords (on their own, or as global modifiers), create multipress options, dead keys, set up variable length presses (for use in implementing Autoshift and similar features), and implement your own custom code. 
 
 AHK's own docs are the first place to turn for help managing specific hotkeys. However, in this README you can find explanations for using the template layer generator and managing the more useful features.
 
 If you find yourself needing advanced features, however, or planning on a set of layers that makes heavy use of them, you might benefit more from some of the software found in the [Additional Resources](#additional-resources) section. Ultimately, this set of scripts was designed around my personal use, and while you may find it useful it won't be as well implemented as more actively maintained/developed software.
+
+K-plus is best for setting up simple layers, especially toggle-layers as opposed to mod-layers, or for complex and customized layers that take advantage of AHK being a full scripting language. For layers of intervening complexity, other programs may be better. K-plus is not the best at implementing compose sequences, as you'd have to set up the code yourself, and currently can be a bit tedious to setup.
 
 If you just want some simple remapped layers (for programming for example) skip to [Remapping](#remapping)
 
@@ -166,6 +168,8 @@ Custom combinations do not support prefix modifiers, so you cannot chord togethe
 
 A custom modifier is useful for generating a new shift-like layer within a layer.
 
+You can also implement chords by adding another layer, accessing it with a press of your desired key, and having a key up event return you to your previous layer. This is a little more elegant, but requires greater knowledge of AHK and may become quite complex depending on your desired behaviour.
+
 ### **Multipress**
 
 K-plus includes a special setting for multipress detection. Turning this option on in the settings attatches a piece of code to every hotkey which distinguishes between single, double, and triple presses. You can fill in custom functions to send keys or perform other tasks under each option.
@@ -314,9 +318,9 @@ In addition, [DreymaR's Extend layer](https://github.com/DreymaR/BigBagKbdTrixPK
 
 ## **Additional Resources**
 
-K-plus is a useful tool, but it was designed to serve a single individual's needs. [DreymaR's Extend layer](https://github.com/DreymaR/BigBagKbdTrixPKL) is a modifier-based program with a great deal more versatility than k-plus. Although it lacks layer toggling it does come with a GUI, support for a variety of keyboard layouts, an active community with active developers, and many more features (like powerstrings) than I could create. I reccomend checking it out for more details. 
+K-plus is a useful tool, but it was designed to serve a single individual's needs. [DreymaR's Extend layer](https://github.com/DreymaR/BigBagKbdTrixPKL) is a modifier-based program with a great deal more versatility than k-plus. Although it lacks layer toggling it does come with a GUI, support for a variety of keyboard layouts, an active community with active developers, and many more features (like powerstrings and compose sequences) than I could create. I reccomend checking it out for more details. 
 
-I also have to reccomend [kmonad](https://github.com/kmonad/kmonad), an incredibly flexible layer program designed to work (to one degree or another) on Linux, Windows, and Mac. While the tool is less actively developed than DreymaR's Extend, it includes a wide variety of features including layer toggling, leader keys, chords, powerstrings, modifier-based layers, and variable key functions depending on how the key is pressed (double-tapped, held vs tapped, etc.). While support seems to be primarily focused on Linux systems, kmonad offers features for all three major operating systems (Mac, Windows, and Linux). However, it does have less flexibility in designing the kind of custom functions you can attach to keys with AHK, and lacks conveniences like a `previousLayer` variable and a notification that tracks the current layer. Despite that, it offers a lot of flexibility in constructing custom layouts, and is definately worth checking out.
+I also have to reccomend [kmonad](https://github.com/kmonad/kmonad), an incredibly flexible layer program designed to work (to one degree or another) on Linux, Windows, and Mac. While the tool is less actively developed than DreymaR's Extend, it includes a wide variety of features including layer toggling, leader keys, chords, powerstrings, modifier-based layers, and variable key functions depending on how the key is pressed (double-tapped, held vs tapped, etc.). While support seems to be primarily focused on Linux systems, kmonad offers features for all three major operating systems (Mac, Windows, and Linux). However, it does have less flexibility in designing the kind of custom functions you can attach to keys with AHK, is a little complex to implement on Windows, and lacks conveniences like a `previousLayer` variable and a notification that tracks the current layer. Despite that, it offers a lot of flexibility in constructing custom layouts, and is definitely worth checking out.
 
 ## **[License](./LICENSE)**
 This program uses the open-source MIT License.
