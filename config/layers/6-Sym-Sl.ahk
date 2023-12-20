@@ -1,0 +1,88 @@
+#HotIf currentLayer = "Sym-Sl"
+; ====================================== LETTERS ======================================
+*q::
+*w::
+*e::
+*r::
+*t::
+*y::
+*u::
+*i::
+*o::
+*p::
+*a::
+*s::
+*d::
+*f::
+*g::
+*h::
+*j::
+*k::
+*l::
+*;::
+*'::
+*z::
+*x::
+*c::
+*v::
+*b::
+*n::
+*m::
+*,::{
+    try{
+        SendInput("{Blind}" (symSl[A_ThisHotkey]))
+    }
+}
+; ====================================== ADDITIIONAL KEYS ======================================
+CapsLock::{
+    if(!vimMode){
+        toggleLayer("Ext")
+    } else {
+        SendInput("{Blind}{Esc}")
+        toggleLayer("Vim")
+    }
+    }
+.::toggleLayer("Sym")
+RAlt up::toggleLayer("Alpha")
+*LAlt::{
+    SendInput("{Blind}{Alt downR}")
+    if !(released := KeyWait("LAlt", "T0.22")){
+        KeyWait("LAlt")
+    }
+    SendInput("{Blind}{Alt up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("Directory")
+    }
+}
+*PrintScreen::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("PrintScreen", "T0.22")){
+        KeyWait("PrintScreen")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("Alpha")
+    }
+}
+*Control::{
+    SendInput("{Blind}{Control downR}")
+    if !(released := KeyWait("Control", "T0.22")){
+        KeyWait("Control")
+    }
+    SendInput("{Blind}{Control up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        toggleLayer("Alpha")
+    }
+}
+/::{
+    if !(released := KeyWait("/", "T0.22")){
+        SendInput("{Blind}{RWin downR}")
+        KeyWait("/")
+    }
+    SendInput("{Blind}{RWin up}")
+    if(released && ThisHotkey = A_ThisHotkey) {
+        SendInput("{Blind}^{Backspace}")
+    }
+}
+    
+    

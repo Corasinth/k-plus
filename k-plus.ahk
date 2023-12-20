@@ -43,6 +43,8 @@ timeParameter := "T0.2"
 ; Just a boolean to track whether or not the key has been released
 shiftReleased := 1
 capslockReleased := 0
+; Variable to track whether Extend or Vim layer is active
+vimMode := 0
 ; ============================== TOOLTIP HANDLING ==============================
 SuspendC := Suspend.GetMethod("Call")
 Suspend.DefineProp("Call", {
