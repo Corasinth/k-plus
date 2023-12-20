@@ -2,7 +2,7 @@
 ; ====================================== LETTERS ======================================
 +r::{
     SendInput("R")
-    toggleLayer("CAlpha")
+    toggleLayer("Alpha")
 }
 u::y
 +u::+y
@@ -11,45 +11,45 @@ i::u
 o::{
     SendInput("i")
     if(A_PriorKey != "y" && A_PriorKey != "d" && A_PriorKey != "c"){
-        toggleLayer("CAlpha")
+        toggleLayer("Alpha")
     }
 }
 +o::{
     SendInput("I")
     if(A_PriorKey != "y" && A_PriorKey != "d" && A_PriorKey != "c"){
-        toggleLayer("CAlpha")
+        toggleLayer("Alpha")
     }
 }
 p::{
     SendInput("o")
-    toggleLayer("CAlpha")
+    toggleLayer("Alpha")
 }
 +p::{
     SendInput("+o")
-    toggleLayer("CAlpha")
+    toggleLayer("Alpha")
 }
 p::o
 +p::+o
 '::p
 a::{
     SendInput("a")
-    toggleLayer("CAlpha")
+    toggleLayer("Alpha")
 }
 +a::{
     SendInput("A")
-    toggleLayer("CAlpha")
+    toggleLayer("Alpha")
 }
 s::{
     if(!GetKeyState("Control")){
         SendInput("s")
-        toggleLayer("CAlpha")
+        toggleLayer("Alpha")
     } else {
         SendInput("^s")
     }
 }
 +s::{
     SendInput("S")
-    toggleLayer("CAlpha")
+    toggleLayer("Alpha")
 }
 j::Left
 +j::+h
@@ -68,10 +68,10 @@ m::n
 '::p
 ; ====================================== HOTSTRINGS ======================================
 :B0Z?*:cw::{
-    toggleLayer("CAlpha")
+    toggleLayer("Alpha")
 }
 :B0Z?*:ciw::{
-    toggleLayer("CAlpha")
+    toggleLayer("Alpha")
 }
 
 ; ====================================== ADDITIONAL KEYS ======================================
