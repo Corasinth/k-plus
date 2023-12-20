@@ -2,6 +2,7 @@
 #SingleInstance Force
 ; Sets absolute coordinates for tooltip
 CoordMode("ToolTip", "Screen")
+CoordMode("Mouse", "Screen")
 SetCapsLockState("AlwaysOff")
 ; ============================== MAIN VARIABLES ==============================
 ; This is the tracker that determines the current layer
@@ -23,8 +24,16 @@ layersToIgnore := "(Directory) (Sym-D) (Func-D) (Alpha-Sl-D) (Sym-Sl-D)"
 
 ; Tooltip and coordinate settings; whether or not to have a tooltip active and where it should be located
 tooltipOn := 1
-xCoordinate := 2560 
-yCoordinate := 1600
+defaultXCoordinate := 2560 
+defaultYCoordinate := 1600
+
+xCoordinate := defaultXCoordinate 
+yCoordinate := defaultYCoordinate
+
+; Alternate coordinates for the tooltip to relocate to on hover
+flickerMode := 0
+flickerX := 0
+flickerY := 1600
 
 ; Sets up number for the millescond delay
 longPressDelay := 200
@@ -50,6 +59,7 @@ SuspendC := Suspend.GetMethod("Call")
 Suspend.DefineProp("Call", {
 Call:(this, mode:=-1) => (SuspendC(this, mode), OnSuspend(A_IsSuspended))
 })
+
 OnMessage(0x111, OnSuspendMsg)
 OnSuspendMsg(wp, *) {
     if ((wp = 65305) || (wp = 65404)){
@@ -70,13 +80,43 @@ OnSuspend(mode) {
     } else if (tooltipOn && mode = 0){
         currentLayer := defaultLayer
         ToolTip(currentLayer, xCoordinate, yCoordinate)
+        flickerMode := 0
     }
 }
 
 ; Runs ToolTip at start
 if(tooltipOn){
     Tooltip(currentLayer, xCoordinate, ycoordinate)
+    ; Every 300 ms run the flicker function
+    SetTimer(tooltipFlicker)
+    
 }
+
+tooltipFlicker(){
+    global
+    ; Get position
+    MouseGetPos(&xPos, &yPos)
+
+    ; If the mouse position is not within the area of the tooltip;
+    ; expressed as higher or lower, right or left of the tooltips coordinates + wiggle room
+    ; then leave the tooltip at it's default position
+    if(xPos < defaultXCoordinate - 200|| xPos > defaultXCoordinate + 200|| yPos < defaultYCoordinate - 200 || yPos > defaultYCoordinate + 200){
+        ; Only check whether or not the coordinates need to be changed if they aren't the default and the mouse is definitely out of the tooltip zone
+        if (xCoordinate != defaultXCoordinate){ 
+            xCoordinate := defaultXCoordinate 
+            yCoordinate := defaultYCoordinate
+        }
+    } else {
+        ; Set tooltip coords to alt area 
+        xCoordinate := flickerX 
+        yCoordinate := flickerY
+    }
+
+    ; Then activate tooltip
+    ToolTip(currentLayer, xCoordinate, yCoordinate)
+}
+
+
 
 ; ============================== TOGGLE LAYERS ==============================
 toggleLayer(targetLayer) {
