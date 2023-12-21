@@ -31,7 +31,7 @@ xCoordinate := defaultXCoordinate
 yCoordinate := defaultYCoordinate
 
 ; Alternate coordinates for the tooltip to relocate to on hover
-flickerMode := 0
+flickerMode := 1
 flickerX := 0
 flickerY := 1600
 
@@ -76,11 +76,13 @@ OnSuspendMsg(wp, *) {
 OnSuspend(mode) {
     global
     if (tooltipOn && mode = 1){
+        flickerMode := 0
         ToolTip()
     } else if (tooltipOn && mode = 0){
+        flickerMode := 1
         currentLayer := defaultLayer
         ToolTip(currentLayer, xCoordinate, yCoordinate)
-        flickerMode := 0
+        SetTimer(tooltipFlicker)
     }
 }
 
@@ -94,6 +96,12 @@ if(tooltipOn){
 
 tooltipFlicker(){
     global
+
+    if(!flickerMode){
+        SetTimer(,0)
+        Return
+    }
+
     ; Get position
     MouseGetPos(&xPos, &yPos)
 
