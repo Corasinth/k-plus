@@ -44,7 +44,7 @@ t::#v
 y::Return
 u::Click()
 i::Home
-o::Up
+o::Backspace
 p::End
 
 a::RWin
@@ -55,9 +55,9 @@ g::^a
 h::Return
 j::Delete
 k::Left
-l::Down
-`;::Right
-'::BackSpace
+l::Up
+`;::Down
+'::Right
 
 z::Return
 x::^y
