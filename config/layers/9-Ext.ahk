@@ -59,11 +59,11 @@ l::Down
 `;::Up
 '::Right
 
-z::Return
-x::^y
+z::^y
+x::^z
 c::AppsKey
-v::^z
-b::^f
+v::^f
+b::Return
 n::Return
 m::SendInput("{Home}{Up}{End}{Enter}")
 ,::Esc
