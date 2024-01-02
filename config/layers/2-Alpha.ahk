@@ -45,7 +45,7 @@ toggleLayer("Vim")
 }
 }
 RAlt::toggleLayer("Sym-D")
-.::toggleLayer("Alpha-Sl-D")
+/::toggleLayer("Alpha-Sl-D")
 *LAlt::{
     SendInput("{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.22")){
@@ -77,7 +77,7 @@ Control::{
         toggleLayer("Sym")
     }
 }
-/::{
+.::{
     if !(released := KeyWait("/", "T0.22")){
         SendInput("{RWin downR}")
         KeyWait("/")

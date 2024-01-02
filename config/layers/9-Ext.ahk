@@ -55,8 +55,8 @@ g::^a
 h::Return
 j::Delete
 k::Left
-l::Up
-`;::Down
+l::Down
+`;::Up
 '::Right
 
 z::Return
