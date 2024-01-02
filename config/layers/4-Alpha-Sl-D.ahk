@@ -75,7 +75,7 @@ CapsLock::{
     }
     }
 RAlt::toggleLayer("Sym-D")
-/::toggleLayer("Alpha-Sl")
+Control::toggleLayer("Alpha-Sl")
 *LAlt::{
     SendInput("{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.22")){
@@ -97,16 +97,17 @@ RAlt::toggleLayer("Sym-D")
         toggleLayer("Sym")
     }
 }
-*Control::{
-    SendInput("{RControl downR}")
-    if !(released := KeyWait("Control", "T0.22")){
-        KeyWait("Control")
-    }
-    SendInput("{RControl up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Sym")
-    }
-}
+; /::{
+;     SendInput("{RControl downR}")
+;     if !(released := KeyWait("/", "T0.22")){
+;         KeyWait("/")
+;     }
+;     SendInput("{RControl up}")
+;     if(released && ThisHotkey = A_ThisHotkey) {
+;         toggleLayer("Sym")
+;     }
+; }
+/::Control
 .::{
     if !(released := KeyWait("/", "T0.22")){
         SendInput("{RWin downR}")

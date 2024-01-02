@@ -65,7 +65,6 @@
 ; *, up::{
 ;     toggleLayer(previousLayer)
 ; }
-        
 ; ====================================== ADDITIIONAL KEYS ======================================
 CapsLock::{
     if(!vimMode){
@@ -76,7 +75,7 @@ CapsLock::{
     }
 }
 RAlt::toggleLayer("Sym")
-/::toggleLayer("Sym-Sl-D")
+Control::toggleLayer("Sym-Sl-D")
 *LAlt::{
     SendInput("{Blind}{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.22")){
@@ -97,26 +96,26 @@ RAlt::toggleLayer("Sym")
         toggleLayer("Alpha")
     }
 }
-*Control::{
-    SendInput("{Blind}{Control downR}")
-    if !(released := KeyWait("Control", "T0.22")){
-        KeyWait("Control")
-    }
-    SendInput("{Blind}{Control up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        toggleLayer("Alpha")
-    }
-}
-.::{
-    if !(released := KeyWait("/", "T0.22")){
-        SendInput("{RWin downR}")
-        KeyWait("/")
-    }
-    SendInput("{RWin up}")
-    if(released && ThisHotkey = A_ThisHotkey) {
-        SendInput("^{Backspace}")
-        toggleLayer(previousLayer)
-    }
-}
-    
+; *Control::{
+;     SendInput("{Blind}{Control downR}")
+;     if !(released := KeyWait("Control", "T0.22")){
+;         KeyWait("Control")
+;     }
+;     SendInput("{Blind}{Control up}")
+;     if(released && ThisHotkey = A_ThisHotkey) {
+;         toggleLayer("Alpha")
+;     }
+; }
+; /::{
+;     if !(released := KeyWait("/", "T0.22")){
+;         SendInput("{RWin downR}")
+;         KeyWait("/")
+;     }
+;     SendInput("{RWin up}")
+;     if(released && ThisHotkey = A_ThisHotkey) {
+;         SendInput("^{Backspace}")
+;         toggleLayer(previousLayer)
+;     }
+; }
+/::Control 
     
