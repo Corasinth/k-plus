@@ -42,7 +42,7 @@ CapsLock::{
         toggleLayer("Vim")
     }
     }
-Control::toggleLayer("Sym")
+/::toggleLayer("Sym")
 RAlt up::toggleLayer("Alpha")
 *LAlt::{
     SendInput("{Blind}{Alt downR}")

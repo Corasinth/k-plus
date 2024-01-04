@@ -75,7 +75,7 @@ CapsLock::{
     }
     }
 RAlt::toggleLayer("Sym-D")
-Control::toggleLayer("Alpha-Sl")
+/::toggleLayer("Alpha-Sl")
 *LAlt::{
     SendInput("{Alt downR}")
     if !(released := KeyWait("LAlt", "T0.22")){
