@@ -3,7 +3,11 @@
 ; Each element is separated by a single space, additional spaces are trimmed off and included to make lining up keys easier
 ; Maps are generated, and a utility function is used to link the arrays together
 alphaKeys :=    StrSplit(trmSpc("*q *w *e *r *t *u *i *o *p *a *s *d *f *g *j *k *l *; *' *z *x *c *v *b *m *,"), ' ')
-alphaLayout :=  StrSplit(trmSpc("w  l  y  p  k  z  x  o  u  c  r  s  t  b  f  n  e  i  a  j  v  d  g  q  m  h"), ' ')
+; Row Staggered Layout
+; alphaLayout :=  StrSplit(trmSpc("w  l  y  p  k  z  x  o  u  c  r  s  t  b  f  n  e  i  a  j  v  d  g  q  m  h"), ' ')
+; Ortho Layout
+alphaLayout :=  StrSplit(trmSpc("w  l  y  p  b  z  f  o  u  c  r  s  t  g  m  n  e  i  a  j  v  d  k  q  x  h"), ' ')
+
 alpha := Map()
 generateMap(alpha, alphaKeys, alphaLayout)
 
