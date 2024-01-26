@@ -1,12 +1,2 @@
-#Include ./layers/0-Maps.ahk
-#Include ./layers/1-Directory.ahk
-#Include ./layers/10-Vim.ahk
-#Include ./layers/11-Func-D.ahk
-#Include ./layers/2-Alpha.ahk
-#Include ./layers/3-Alpha-Sl.ahk
-#Include ./layers/4-Alpha-Sl-D.ahk
-#Include ./layers/5-Sym.ahk
-#Include ./layers/6-Sym-Sl.ahk
-#Include ./layers/7-Sym-D.ahk
-#Include ./layers/8-Sym-Sl-D.ahk
-#Include ./layers/9-Ext.ahk
+#Include ./ergo-layers/0-Maps.ahk
+#Include ./ergo-layers/1-Function.ahk

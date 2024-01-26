@@ -8,12 +8,15 @@ SetCapsLockState("AlwaysOff")
 ; This is the tracker that determines the current layer
 ; Also the layer that k-plus starts up with
 currentLayer := "Alpha"
+currentLayer := "function"
 ; This is a number used to record currentLayer for temporary layer swaps
 ; At the start, it is setup to be the starting layer, so you don't accidentally send yourself to a nonexistent layer
 previousLayer := currentLayer
 
 ; This sets the default layer to return to when the script is suspended
-defaultLayer := "Alpha"
+; defaultLayer := "Alpha"
+defaultLayer := "function"
+
 
 ; The script will ignore the layers in this value when remembering the previous layer
 ; To include a layer, add the name of the layer inside a set of parantheses. For example, ignoring layers 1 and 2 would look like "(1) (2)"
@@ -23,7 +26,8 @@ defaultLayer := "Alpha"
 layersToIgnore := "(Directory) (Sym-D) (Func-D) (Alpha-Sl-D) (Sym-Sl-D)"
 
 ; Tooltip and coordinate settings; whether or not to have a tooltip active and where it should be located
-tooltipOn := 1
+; tooltipOn := 1
+tooltipOn := 0
 defaultXCoordinate := 2560 
 defaultYCoordinate := 1600
 
@@ -45,8 +49,8 @@ timeParameter := "T0.2"
 #InputLevel 0
 #SuspendExempt True
 ; The suspend shortcut also disables the tooltip if it was active, though the tooltip remains if suspended via the GUI
-^!+w::Suspend(-1)
-^!+q::ExitApp
+^!+s::Suspend(-1)
+^!+a::ExitApp
 #SuspendExempt False
 ; Variable to work around keyrepeat issues when swapping between layers
 ; Just a boolean to track whether or not the key has been released
