@@ -42,32 +42,32 @@ e::^c
 r::^v
 t::#v
 y::Return
-u::SendInput("{Home}+{End}^{x}")
+u::Delete
 i::Home
-o::Delete
+o::SendInput("^{Up}{Home}+{Up}{End}{Enter}")
 p::End
 
 a::RWin
 s::Alt
 d::Shift
 f::Ctrl
-g::^a
+g::^s
 h::Return
-j::SendInput("^{Left}^+{Right}^{x}")
+j::Backspace
 k::Left
 l::Down
 `;::Up
 '::Right
 
-z::^y
+z::^a
 x::^z
 c::AppsKey
-v::^f
+v::Return
 b::Return
 n::Return
-m::SendInput("{Home}{Up}{End}{Enter}")
+m::Return
 ,::Esc
-.::BackSpace
+.::^y
 /::F3
 ; ====================================== ADDITIONAL KEYS ======================================
 ; \::AppsKey
