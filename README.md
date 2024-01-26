@@ -4,19 +4,15 @@
 
 K-plus is tool for enabling layers on non-mechanical keyboards that don't usually have access to alternate layouts. K-plus is built on [AutoHotKey Script v2-beta](https://lexikos.github.io/v2/docs/AutoHotkey.htm) and is therefore a Windows only tool. 
 
-It's designed to be configurable and flexible; supporting as many layers as you'd like to include. Once configured, a compiled version (along with the `settings.ini` file) can easily be carried on a flash drive and run on any Windows device, letting you use your layers between devices.
+It's designed to be configurable and flexible; supporting as many layers as you'd like to include. Once configured, a compiled version can easily be carried on a flash drive and run on any Windows device, letting you use your layers between devices.
 
 Each layer is setup using AHK's hotkeys. This can be a little complex if you aren't used to AHK, but is pretty flexible. With AutoHotKey script and k-plus you can toggle layers, use chords (on their own, or as global modifiers), create multipress options, dead keys, and set up variable length presses (for use in implementing Autoshift and similar features).
 
-AHK's own docs are the first place to turn for help managing specific hotkeys. However, in this README you can find explanations for using the template layer generator and managing the more useful features.
+AHK's own docs are the first place to turn for help managing specific hotkeys. However, in this README you can find explanations for using the k-plus infrastructure and managing the more useful features.
 
 If you find yourself needing advanced features, however, or planning on a set of layers that makes heavy use of them, you might benefit more from some of the software found in the [Additional Resources](#additional-resources) section. Ultimately, this set of scripts was designed around my personal use, and while you may find it useful it won't be as well implemented as more actively maintained/developed software.
 
 If you just want some simple remapped layers (for programming for example) skip to [Remapping](#remapping)
-
-**Note** While the the information below is generally accurate and k-plus works for straightforward remapping, unfortunately strange issues seem to crop up while using the more elaborate functions in combination. Occasionally the hotkeys will fail, and rapid typing can even permanently disable the script until it is reloaded. The investigation into why this occurs is ongoing, but I until resolved I can only reccomend k-plus for simple remapping. 
-
-I have found that, instead of using variables and orderly utility functions, replicating desired code and values everywhere they are used cuts down on some of these issues, despite making the code much much harder to manage and read. You can check out the `personal` branch for how I am managing the issues. 
 
 ## **Table of Contents**
 
@@ -49,54 +45,63 @@ AHK v2 is currently in beta, but plans to be backward compatible with its curren
 
 With AHK installed, the next step is to clone or download this repo into an appropriate folder. From there, you can move on to configuration without worry. 
 
-After creating a configuration you like, you can compile the main script `k-plus.ahk` using AHK v2's built-in compiler. This will make the script much easier to move around, though you'll have to recompile when changing the configuration, and you'll want to bring the settings file along with the compiled version.
+After creating a configuration you like, you can compile the main script `k-plus.ahk` using AHK v2's built-in compiler. This will make the script much easier to move around, though you'll have to recompile when changing the configuration.
 
 ## **Remapping**
 
 Although there's plenty of felxibility in configuring layers, if all you want is a few layers with remapped keys follow this simplified guide. 
 
-When editing your layers be mindful of semicolons. 
+But firstly, when editing your layers be mindful of semicolons. 
 
-Lines that start with a semicolon are considered commented out, and therefore are not active in the code. Most of these are helpful descriptions, but some are not. The default layer 1, `1-directory.ahk`, contains several lines of commented out code. Delete the semicolon in front of these lines to enable them.
+Lines that start with a semicolon are considered commented out, and therefore are not active in the code. Most of these are helpful descriptions, but some are not. The default layer in `config/example-layers`, `1-directory.ahk`, contains several lines of commented out code. Delete the semicolon in front of these lines to enable them.
 
-1. Open `template-settings.ini` from the config folder and choose what groups of keys to exclude by setting them to `0`. [Template Configuration](#template-configuration) has more information.   
-2. Run `template-generator.ahk` from the config guide, and name the resulting file. The first layer has already been assigned to a directory of other layers.  
-3. Repeat step 2 for each layer until you have the layers you want. Then edit the new files so that the default action (usually `x`) has been replaced with your desired key, like so:
+Create a new file for each layer you want to make in the style of the example layers (or just edit the example layers).
+
+In each layer file, ensure you have a line that describes when the current layer will be active, as so:
+
 ```
-<hotkey>::<remapped key>
+#HotIf currentLayer = "nameOfLayer"
+```
+Then ensure each hotkey you want to remap is present and appropriately paired with the desired output, like so:
+
+```
+<hotkey>::<remapped key to output>
 ```
 where
 ```
 q::h
 ```
 remaps the `q` key so it sends the letter `h` instead.  
-3. Instead of remapping a hotkey, you can include the  function `toggleLayer(x)` where `x` is your destination layer. Use this to allow yourself to move from one layer to another. I reccomend at least one key on each layer point to the master directory in `directory-1.ahk`. You should also check out/edit the configuration of the directory layer.   
-4. Run `detect-config.ahk`.   
-5. Run `k-plus`, and check that your layers work. Congrats! You're done!
+
+Instead of remapping a hotkey, you can include the  function `toggleLayer(x)` where `x` is your destination layer. Use this to allow yourself to move from one layer to another. I reccomend at least one key on each layer point to the master directory in `directory-1.ahk`. You should also check out/edit the configuration of the directory layer.   
+
+Then run the file `detect-config.ahk`.   
+
+Finally, run `k-plus`, and check that your layers work. Congrats! You're done!
 
 ## **Configuration**
 
-K-plus is very flexible, but this comes at the cost of complexity in configuration. In order to fully set up your custom layers, it is highly reccomended to first create template layer files. These files, generated by `template-generator.ahk`, provide blueprints for setting up the hotkeys. It is of course possible to write these files entirely yourself, and in places it may even be helpful to do so. However, a base template will make configuration much easier.
-
-Once these config files have been generated you'll need to customize them for your needs. This involves filling out the details of each custom function, or in the case of simple remapping, ensuring that your desired keys are sending the desired outputs in any given layer. 
-
-Finally, config files must be hooked up to the main `k-plus.ahk` script. This part can be done by simply running the `detect-config.ahk` script in the root folder; it will take care of all the details. This script needs to be run each time there are new layers to be found in the `./config/layers` folder. There's no need to run it every time you generate a new layer file, but any files created since the last run will not be included as layers in `k-plus.ahk`.
+Configuring k-plus is fairly simple. You just need to create your layer files, and hook them up to k-plus. You create a dedicated folder for your layers in the config folder, then run the `detect-config.ahk` script.  
 
 You can set the folder that k-plus will look to find layers (within the config folder) by adjusting the `layerFolder` setting in `settings.ini` under `[Config Settings]`. This is primarily useful if you want to occasionally swap between different sets of layers, and have created a few folders in `config` that hold your alternate layer setups.
 
-For a full breakdown of how to use `template-generator.ahk` and `settings.ini`, refer to [config.md](./config.md).
+You can see that I have a variety of layer sets ready for use, though you can safely ignore or delete these.
+
+For more advanced users, you can also use the `settings.ini` file and the `template-generator.ahk` script to create template layers. A more detailed explanation of this can be found in [config.md](./config.md).
+
+There are also a variety of variables in the main `k-plus.ahk` file that control a few basic features. These include: the exact coordinate location (pixel) of the ToolTip, the default layer the script should start up on, and any layers that should be ignored when using the `previousLayer` tracker (see [Features](#features)).
 
 ## **Usage**
 
-Using k-plus for complex layer arrangments requires a more than just configuring your template files and filling in your hotkeys.
+Using k-plus for complex layer arrangments requires a more than just "configuring your template files and filling in your hotkeys.
 
 The main issue, especially if you have several layers, is handling the navigation between them and keeping track of what layer you're on. Eventually, tracking the layers becomes more about muscle memory, but at the start you can use the `tooltip` setting to keep track.
 
-Actually navigating a layer is a little trickier. There are three main ways.
+Actually navigating to a layer is a little trickier. There are three main ways.
 
-1. You can set a hotkey to the `toggleLayer(<layer number>)` function, where `<layer number>` is replaced with the destination layer number. That will let you move directly from one layer to another predetermined layer. 
+1. You can set a hotkey to the `toggleLayer("layerName")` function, where `<layerName>` is replaced with the destination layer name. That will let you move directly from one layer to another predetermined layer. 
 2. You can set a hotkey to the `toggleLayer(previousLayer)` function. That will let you move from your current layer to your previous layer.  
-3. And you can set a hotkey to the `toggleLayer(1)` function. That will let you move from your current layer to the directory layer, where you can then select any of your layers. 
+3. And you can set a hotkey to the `toggleLayer("directory")` function. That will let you move from your current layer to the directory layer, where you can then select any of your layers. 
 
 The directory layer is key to managing multiple complex layers. In theory, it should contain only hotkeys that toggle you to another layer, and contain a hotkey for every layer you have. In practice you may have to uncomment some lines (delete the preceding semicolon).
 
@@ -120,13 +125,11 @@ If you have scripts with higher input levels, you can edit k-plus directly to ch
 
 ## **Features**
 
-K-plus has a lot of features that can be accessed via `settings.ini`. However, each and every feature here is simply something you can do with AutoHotKey itself, and so their [official docs](https://lexikos.github.io/v2/docs/AutoHotkey.htm) are a much better source of support and ideas for what you can make your layers do.
+K-plus has a lot of features. However, each and every feature here is simply something you can do with AutoHotKey itself, and so their [official docs](https://lexikos.github.io/v2/docs/AutoHotkey.htm) are a much better source of support and ideas for what you can make your layers do.
 
 Below I have included some of the core features I believe will be central to anyone using multiple layers, but these should not be taken as an exahustive list, merely suggestions about what you can do with k-plus without too much effort.
 
-It should be noted that while the included utility functions that can be used to implent k-plus are convenient and generally work, using the extensively results in wild and unpredicatable errors (as seen in the note at the top).
-
-For more advanced users, the utility functions should be used as a blueprint for reliability. 
+There are also a few additional variables and functions included in the main `k-plus.ahk` file used to tweak things for my personal liking. These are all commented, but may require some basic coding knowledge to understand.
 
 ### **Previous Layer**
 
@@ -135,6 +138,14 @@ K-plus keeps a record of your last layer. This is to enable dead layers toggling
 In the `settings.ini` file, the `layersToIgnoreAsPreviousLayers` option is used to exlude some layers from memory. By default layer 1, the directory layer, is exluded. So for example you can swap from layer 4 to the directory and then to layer 5, then use a toggle-to-previous-layer hotkey to move back to layer 4. 
 
 As detailed in the configuration section, you can ignore any number of layers (though at some point there may be a performance issue as the script goes through each of the layers to exclude).
+
+### **ToolTip**
+
+In order to help keep track of layers k-plus uses tooltips in a customizable location to display the current layer. The tooltip's location can be customized to a specific pixel location on your screen using the appropriate variables in `k-plus.ahk`. 
+
+This can occasionally be inconvenient; if your tooltip hangs out in the bottom right corner of the screen, it may cover up buttons, icons, or other controls. 
+
+You can set an alternate set of coordinates in `k-plus.ahk` that the tooltip will 'flicker' too when the mouse hovers over the area surrounding the tooltip. The flickering of the tooltip can also be disabled by changing the appropriate variable from a 1 to a 0. 
 
 ### **Direct Remapping**
 
@@ -290,19 +301,7 @@ If you encounter unexpected compatability issues, I reccomend checking out the s
 
 Feel free to fork/create a pull request to fix bugs, refactor code, or add new featues. While I aimed to create something flexible and easy to configure, I'm not a master of AHK and there's certainly room for improvement.
 
-Currently, k-plus responds much better when each piece of code and the values it uses (like the current key) are hardcoded. Why this should be the case, I cannot say, and where the line is is unclear. However, until the issue is resolved this means that increasing the flexibility, power, and configurability of the `template-generator.ahk` is critical to making k-plus convenient and easy-ish to use. 
-
-In particular, making it easier to add custom code blocks is important, as well as improving how the `template-generator` script handles writing these code blocks. 
-
-K-plus would also benefit heavily from a configuration option that takes in a list of keys, and slots them into the code attached to each hot key, so that one does not have to manually edit a layer file to have `X` hotkey output `Y` character.
-
-There are also a few additional areas for improvement.
-
-Currently, k-plus does not support hotstrings. While you can of course generate your own hotstring scripts or custom add hotstrings to a layer, there is no built in generator for hotstrings, hotstring options, or hotstring end characters. Adding this functionality in a clean and convenient way is a probable area of future development.
-
-Another area for improvement is implementing k-plus in a way that allows for layered `Alt+Tab` and other hotkeys unaffected by `#HotIf` would be great. A possible avenue here is looping through an array of objects when switching between layers for these special remappings.
-
-Finally, developing new layers can be very useful, but k-plus does not include a convenient way to reference the keybindings of a particular layer. Developing a script to create a reference map for a layer would be beneficial, as printing out a keyboard layout and penciling in your options can be inconvenient.
+For example, while developing new layers can be very useful, k-plus does not include a convenient way to reference the keybindings of a particular layer. Developing a script to create a reference map for a layer would be beneficial, as printing out a keyboard layout and penciling in your options can be inconvenient.
 
 Other fixes, suggestions, improvements, and additional features are welcome.
 
