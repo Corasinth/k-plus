@@ -1,4 +1,4 @@
-#HotIf currentLayer = 1
+#HotIf currentLayer = "directory"
 ; ====================================== LETTERS ======================================
 q::toggleLayer(2)
 w::toggleLayer(3)

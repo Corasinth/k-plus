@@ -1,4 +1,4 @@
-#HotIf currentLayer = 2
+#HotIf currentLayer = "alpha"
 ; ====================================== UNIVERSAL DIRECTORY KEY ======================================
 Alt::toggleLayer(1)
 ; Reenable alt as a modifier
