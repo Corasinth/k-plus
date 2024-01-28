@@ -7,7 +7,7 @@ SetCapsLockState("AlwaysOff")
 ; ============================== MAIN VARIABLES ==============================
 ; This is the tracker that determines the current layer
 ; Also the layer that k-plus starts up with
-currentLayer := "Alpha"
+; currentLayer := "Alpha"
 currentLayer := "function"
 ; This is a number used to record currentLayer for temporary layer swaps
 ; At the start, it is setup to be the starting layer, so you don't accidentally send yourself to a nonexistent layer
@@ -26,8 +26,8 @@ defaultLayer := "function"
 layersToIgnore := "(Directory) (Sym-D) (Func-D) (Alpha-Sl-D) (Sym-Sl-D)"
 
 ; Tooltip and coordinate settings; whether or not to have a tooltip active and where it should be located
-; tooltipOn := 1
-tooltipOn := 0
+tooltipOn := 1
+; tooltipOn := 0
 defaultXCoordinate := 2560 
 defaultYCoordinate := 1600
 
