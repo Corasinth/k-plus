@@ -12,12 +12,11 @@ alpha := Map()
 generateMap(alpha, alphaKeys, alphaLayout)
 
 symKeys :=    StrSplit(trmSpc("*q *w *e *r *t *u *i *o *p *a *s *d *f *g *j *k *l *; *' *z *x *c *v *b *m *,"), ' ')
-symLayout :=  StrSplit(trmSpc("~ {!} ? /   —  «  \ `;  : {{} (  .  ,  & {+} ' `"  ) {}} €  $  = {#} ¿ ``  -"), ' ')
+symLayout :=  StrSplit(trmSpc("~  {!} ? /   <  >  & `;  : {{} (  .  ,  — {+} `" '  ) {}} * ``  _  =  [  ]  -"), ' ')
 sym := Map()
 generateMap(sym, symKeys, symLayout)
-
 symSlKeys :=    StrSplit(trmSpc("*q *w *e *r *t *u *i *o *p *a        *s        *d        *f       *g *j *k        *l        *;        *'       *z *x *c       *v *b *m *,"), ' ')
-symSlLayout :=  StrSplit(trmSpc("°  <  [ {^} –  »  @  ]  > {Numpad1} {Numpad2} {Numpad3} {Numpad4} |  % {Numpad7} {Numpad8} {Numpad9} {Numpad0} ¶  § {Numpad5} *  ¡  _ {Numpad6}"), ' ')
+symSlLayout :=  StrSplit(trmSpc("°  ¡  ¿ \ «  »  | @  ^  {Numpad1} {Numpad2} {Numpad3} {Numpad4} #  % {Numpad7} {Numpad8} {Numpad9} {Numpad0} –  €  {Numpad5} ../    $ {Numpad6}"), ' ')
 symSl := Map()
 generateMap(symSl, symSlKeys, symSlLayout)
 
