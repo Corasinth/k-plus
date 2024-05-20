@@ -56,7 +56,7 @@ h::Return
 j::Delete
 k::Left
 l::Down
-`;::Up
+`;::Right
 '::Backspace
 
 z::^a
