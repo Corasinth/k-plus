@@ -42,9 +42,9 @@ e::^c
 r::^v
 t::#v
 y::Return
-u::Delete
+u::SendInput("^{Up}{Home}+{Up}{End}{Enter}")
 i::Home
-o::SendInput("^{Up}{Home}+{Up}{End}{Enter}")
+o::Up
 p::End
 
 a::RWin
@@ -53,11 +53,11 @@ d::Shift
 f::Ctrl
 g::^s
 h::Return
-j::Backspace
+j::Delete
 k::Left
 l::Down
 `;::Up
-'::Right
+'::Backspace
 
 z::^a
 x::^z
