@@ -1,6 +1,6 @@
 #HotIf currentLayer = "function"
 ; ====================================== FUNCTION KEYS ======================================
-; F13::
+F13::SendInput("{Blind}§")
 ; F14::
 ; F15::
 ; F16::
