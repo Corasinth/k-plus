@@ -28,8 +28,8 @@ layersToIgnore := "(Directory) (Sym-D) (Func-D) (Alpha-Sl-D) (Sym-Sl-D)"
 ; Tooltip and coordinate settings; whether or not to have a tooltip active and where it should be located
 tooltipOn := 1
 ; tooltipOn := 0
-defaultXCoordinate := 2560 
-defaultYCoordinate := 1600
+defaultXCoordinate := A_ScreenWidth 
+defaultYCoordinate := A_ScreenHeight
 
 xCoordinate := defaultXCoordinate 
 yCoordinate := defaultYCoordinate
@@ -37,7 +37,7 @@ yCoordinate := defaultYCoordinate
 ; Alternate coordinates for the tooltip to relocate to on hover
 flickerMode := 1
 flickerX := 0
-flickerY := 1600
+flickerY := A_ScreenHeight
 
 ; Sets up number for the millescond delay
 longPressDelay := 200
